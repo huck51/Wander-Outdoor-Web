@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './Images/WanderLogo.png';
+import searchbar from './Components/searchbar';
 import './App.css';
 
 class App extends Component {
@@ -10,6 +11,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Wander Outdoor</h1>
         </header>
+        <searchbar />
 
       </div>
     );

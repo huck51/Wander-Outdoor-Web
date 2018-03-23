@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import logo from './Images/WanderLogo.png';
-import './App.css';
+import { FormGroup, FormControl } from 'react-bootstrap';
 
 class searchbar extends Component {
   constructor(props) {
@@ -8,8 +7,12 @@ class searchbar extends Component {
   }
   render() {
     return (
-      <div className="App">
-
+      <div>
+        <form>
+          <FormGroup bsSize="large">
+            <FormControl type="text" placeholder="Search..." />
+          </FormGroup>
+        </form>
       </div>
     );
   }
