@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FormGroup, FormControl } from 'react-bootstrap';
+import './Styles/searchbar.css';
 
 class SearchBar extends Component {
   constructor(props) {
