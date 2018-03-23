@@ -7,11 +7,11 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div>
         <NavigationBar />
         <p>Where will you wander?
         </p>
-        <SearchBar />
+        <SearchBar id="LPSearch" />
 
       </div>
     );
