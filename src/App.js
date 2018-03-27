@@ -9,8 +9,7 @@ class App extends Component {
     return (
       <div>
         <NavigationBar />
-        <p>Where will you wander?
-        </p>
+        <h2>Where will you wander?</h2>
         <SearchBar id="LPSearch" />
 
       </div>

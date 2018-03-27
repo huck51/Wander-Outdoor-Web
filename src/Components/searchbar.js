@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormGroup, FormControl } from 'react-bootstrap';
+import { FormGroup, FormControl, Button } from 'react-bootstrap';
 import './Styles/searchbar.css';
 
 class SearchBar extends Component {
@@ -8,7 +8,7 @@ class SearchBar extends Component {
     this.state = {
       value: '',
     }
-    this.handleChange = this.handleChange.bind(this); 
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e) {
@@ -19,13 +19,15 @@ class SearchBar extends Component {
     return (
       <div>
         <form>
-          <FormGroup bsSize="large">
-            <FormControl
-            type="text"
-            placeholder="Search..."
-            value={this.state.value}
-            onChange={this.handleChange}/>
-          </FormGroup>
+          <input
+          type="text"
+          placeholder="Search..."
+          value={this.state.value}
+          onChange={this.handleChange}>
+          </input>
+          <Button type="submit">
+            <i class="fas fa-search"></i>
+          </Button>
         </form>
       </div>
     );
