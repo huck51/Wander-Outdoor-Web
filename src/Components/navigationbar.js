@@ -7,7 +7,7 @@ import {
   MenuItem,
   Image,
 } from 'react-bootstrap';
-import Logo from '../Images/WanderLogo.png';
+import Logo from '../Images/WanderLogoWide.png';
 import './Styles/navigationbar.css';
 
 class NavigationBar extends Component {
