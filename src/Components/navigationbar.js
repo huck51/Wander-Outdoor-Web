@@ -11,9 +11,7 @@ import Logo from '../Images/WanderLogoWide.png';
 import './Styles/navigationbar.css';
 
 class NavigationBar extends Component {
-  constructor(props) {
-    super(props);
-  }
+  
   render() {
     return (
       <Navbar collapseOnSelect>
