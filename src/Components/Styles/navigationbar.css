@@ -1,5 +1,30 @@
+
+ul {
+  margin-right: 0;
+}
+.container {
+  margin: 0;
+  min-height: 5em;
+}
+.nav {
+  margin: 1em;
+  font-size: 1.25em;
+}
+.navbar {
+  border: none;
+  border-radius: 0;
+  min-height: 5em;
+}
+.navbar-brand {
+  padding: 0;
+  min-height: 5em;
+}
+.navbar-header {
+  min-height: 5em;
+}
 #navlogo {
-  height: 170%;
+  height: 100%;
   display: inline-block;
   margin: 0;
+  text-align: left;
 }

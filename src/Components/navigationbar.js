@@ -19,7 +19,7 @@ class NavigationBar extends Component {
       <Navbar collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#brand"><Image id="navlogo" src={Logo} responsive /> WanderOutdoor</a>
+            <a href="#brand"><Image id="navlogo" src={Logo} responsive /></a>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
