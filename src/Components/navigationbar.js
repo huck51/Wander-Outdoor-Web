@@ -7,11 +7,12 @@ import {
   MenuItem,
   Image,
 } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import Logo from '../Images/WanderLogoWide.png';
 import './Styles/navigationbar.css';
 
 class NavigationBar extends Component {
-  
+
   render() {
     return (
       <Navbar collapseOnSelect>
@@ -24,16 +25,16 @@ class NavigationBar extends Component {
         <Navbar.Collapse>
           <Nav>
             <NavItem eventKey={1} href="#">
-              Home
+              <Link to="/">Home</Link>
             </NavItem>
             <NavItem eventKey={1} href="#">
-              Guiding Companies
+              <Link to="/">Guiding Companies</Link>
             </NavItem>
             <NavItem eventKey={2} href="#">
-              Guides
+              <Link to="/">Guides</Link>
             </NavItem>
             <NavItem eventKey={1} href="#">
-              About Us
+              <Link to="/">About Us</Link>
             </NavItem>
             <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
               <MenuItem eventKey={3.1}>Action</MenuItem>
@@ -45,10 +46,10 @@ class NavigationBar extends Component {
           </Nav>
           <Nav pullRight>
             <NavItem eventKey={1} href="#">
-              Sign Up
+              <Link to="/signup">Sign Up</Link>
             </NavItem>
             <NavItem eventKey={2} href="#">
-              Login
+              <Link to="/login">Login</Link>
             </NavItem>
           </Nav>
         </Navbar.Collapse>

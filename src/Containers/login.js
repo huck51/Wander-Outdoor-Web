@@ -16,7 +16,6 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <NavigationBar />
         <div className="container">
           <TextInput />
           <TextInput />
