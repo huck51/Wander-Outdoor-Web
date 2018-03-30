@@ -28,13 +28,13 @@ class NavigationBar extends Component {
               <Link to="/">Home</Link>
             </NavItem>
             <NavItem eventKey={1} href="#">
-              <Link to="/">Guiding Companies</Link>
+              <Link to="/guiding-companies">Guiding Companies</Link>
             </NavItem>
             <NavItem eventKey={2} href="#">
-              <Link to="/">Guides</Link>
+              <Link to="/guides">Guides</Link>
             </NavItem>
             <NavItem eventKey={1} href="#">
-              <Link to="/">About Us</Link>
+              <Link to="/about">About Us</Link>
             </NavItem>
             <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
               <MenuItem eventKey={3.1}>Action</MenuItem>
