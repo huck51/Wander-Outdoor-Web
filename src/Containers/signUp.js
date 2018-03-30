@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import NavigationBar from '../Components/navigationbar';
 import TextInput from '../Components/textInput';
 import './Styles/signUp.css';
 

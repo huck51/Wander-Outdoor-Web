@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './Styles/searchbar.css';
 
 class SearchBar extends Component {
@@ -9,16 +10,20 @@ class SearchBar extends Component {
       value: '',
     }
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e) {
     this.setState({value: e.target.value});
   }
+  handleSubmit(e) {
+    <Link to='/results'></Link>
+  }
 
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <input
           type="text"
           placeholder="Search..."

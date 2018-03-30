@@ -6,6 +6,7 @@ import Login from './Containers/login';
 import GuidingCompanies from './Containers/guideCompanies';
 import Guides from './Containers/guides';
 import About from './Containers/about';
+import Results from './Containers/results';
 
 const Main = () => (
   <main>
@@ -16,6 +17,7 @@ const Main = () => (
       <Route exact path='/guiding-companies' component={GuidingCompanies} />
       <Route exact path='/guides' component={Guides} />
       <Route exact path='/about' component={About} />
+      <Route exact path='/results' component={Results} />
     </Switch>
   </main>
 );
