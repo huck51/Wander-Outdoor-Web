@@ -7,12 +7,18 @@ import GuidingCompanies from './Containers/guideCompanies';
 import Guides from './Containers/guides';
 import About from './Containers/about';
 import Results from './Containers/results';
+import SignUpTravelers from './Containers/signUpTravelers';
+import SignUpGuides from './Containers/signUpGuides';
+import SignUpGC from './Containers/signUpGC';
 
 const Main = () => (
   <main>
     <Switch>
       <Route exact path='/' component={Home} />
       <Route exact path='/signup' component={SignUp} />
+      <Route exact path='/signup/traveler' component={SignUpTravelers} />
+      <Route exact path='/signup/guide' component={SignUpGuides} />
+      <Route exact path='/signup/guiding-company' component={SignUpGC} />
       <Route exact path='/login' component={Login} />
       <Route exact path='/guiding-companies' component={GuidingCompanies} />
       <Route exact path='/guides' component={Guides} />

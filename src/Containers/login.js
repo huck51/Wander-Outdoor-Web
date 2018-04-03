@@ -30,15 +30,15 @@ class Login extends Component {
         <div className="container">
           <form>
             <input
-              name='username'
-              type='text'
-              placeholder='Username'
+              name="username"
+              type="text"
+              placeholder="Username"
               value={this.state.username}
               onChange={this.handleUsernameOnChange} />
             <input
-              name='password'
-              type='password'
-              placeholder='Password'
+              name="password"
+              type="password"
+              placeholder="Password"
               value={this.state.password}
               onChange={this.handlePasswordOnChange} />
           </form>
