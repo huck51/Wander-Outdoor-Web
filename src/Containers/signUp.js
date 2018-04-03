@@ -9,8 +9,8 @@ class SignUp extends Component {
     return (
       <div>
         <div className="container">
-          <TextInput />
-          <TextInput />
+          <TextInput type={'text'} placeholder={'Username'}/>
+          <TextInput type={'password'} placeholder={'Password'}/>
         </div>
       </div>
     );

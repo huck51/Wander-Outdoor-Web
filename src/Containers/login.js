@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import TextInput from '../Components/textInput';
 import './Styles/login.css';
 
 
@@ -10,14 +9,39 @@ class Login extends Component {
       username: '',
       password: '',
     }
+    this.handleUsernameOnChange = this.handleUsernameOnChange.bind(this);
+    this.handlePasswordOnChange = this.handlePasswordOnChange.bind(this);
+  }
+
+  handleUsernameOnChange(e) {
+    this.setState({
+      username: e.target.value
+    });
+  }
+  handlePasswordOnChange(e) {
+    this.setState({
+      password: e.target.value
+    });
   }
 
   render() {
     return (
       <div>
         <div className="container">
-          <TextInput />
-          <TextInput />
+          <form>
+            <input
+              name='username'
+              type='text'
+              placeholder='Username'
+              value={this.state.username}
+              onChange={this.handleUsernameOnChange} />
+            <input
+              name='password'
+              type='password'
+              placeholder='Password'
+              value={this.state.password}
+              onChange={this.handlePasswordOnChange} />
+          </form>
         </div>
       </div>
     );

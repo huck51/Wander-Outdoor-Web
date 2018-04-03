@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SearchBar from '../Components/searchbar';
 import './Styles/results.css';
 
 
@@ -11,6 +12,7 @@ class Results extends Component {
     return (
       <div>
         <h1>RESULTS</h1>
+        <SearchBar />
       </div>
     );
   }

@@ -8,14 +8,19 @@ class TextInput extends Component {
     this.state = {
       value: '',
     }
+    this.handleOnChange = this.handleOnChange.bind(this);
+  }
+
+  handleOnChange(e) {
+    this.setState({value: e.target.value});
   }
 
   render() {
     return (
       <form>
         <input
-          type="text"
-          placeholder="placeholder"
+          type={this.props.type}
+          placeholder={this.props.placeholder}
           value={this.state.value}
           onChange={this.handleOnChange}>
         </input>
