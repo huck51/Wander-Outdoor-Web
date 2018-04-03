@@ -10,7 +10,7 @@ class SignUpGC extends Component {
   render() {
     return (
       <div>
-        <h1>Traveler SignUp</h1>
+        <h1>Guiding Company SignUp</h1>
       </div>
     );
   }
