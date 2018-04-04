@@ -10,29 +10,27 @@ class SearchBar extends Component {
       value: '',
     }
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e) {
     this.setState({value: e.target.value});
   }
-  handleSubmit(e) {
-    <Link to='/results'></Link>
-  }
 
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <input
           type="text"
           placeholder="Search..."
           value={this.state.value}
           onChange={this.handleChange}>
           </input>
-          <Button type="submit">
-            <i className="fas fa-search"></i>
-          </Button>
+          <Link to='/results'>
+            <Button type="submit">
+              <i className="fas fa-search"></i>
+            </Button>
+          </Link>
         </form>
       </div>
     );
