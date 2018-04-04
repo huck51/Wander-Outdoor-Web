@@ -5,7 +5,7 @@ import './Styles/signUpTravelers.css';
 class SignUpTravelers extends Component {
   constructor(props) {
     super(props);
-    this.state = ({
+    this.state = {
       firstName: '',
       lastName: '',
       DOB: '',
@@ -14,7 +14,8 @@ class SignUpTravelers extends Component {
       username: '',
       password: '',
       verifyPW: '',
-    });
+    };
+
     this.handleFNChange = this.handleFNChange.bind(this);
     this.handleLNChange = this.handleLNChange.bind(this);
     this.handleDOBChange = this.handleDOBChange.bind(this);
@@ -82,7 +83,7 @@ class SignUpTravelers extends Component {
           <input
             name="phone"
             type="number"
-            placeholder="Phone #"
+            placeholder="Phone"
             value={this.state.phone}
             onChange={this.handlePhoneChange} />
           <input
