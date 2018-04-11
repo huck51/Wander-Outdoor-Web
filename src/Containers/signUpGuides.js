@@ -16,6 +16,8 @@ class SignUpGuides extends Component {
       username: '',
       password: '',
       verifyPW: '',
+      bio: '',
+      certs: '',
     };
 
     this.handleFNChange = this.handleFNChange.bind(this);
@@ -28,6 +30,8 @@ class SignUpGuides extends Component {
     this.handleUserChange = this.handleUserChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleVerifyPWChange = this.handleVerifyPWChange.bind(this);
+    this.handleBioChange = this.handleBioChange.bind(this);
+    this.handleCertsChange = this.handleCertsChange.bind(this);
   }
 
   handleFNChange(e) {
@@ -59,6 +63,12 @@ class SignUpGuides extends Component {
   }
   handleVerifyPWChange(e) {
     this.setState({verifyPW: e.target.verifyPW});
+  }
+  handleBioChange(e) {
+    this.setState({bio: e.target.bio});
+  }
+  handleCertsChange(e) {
+    this.setState({certs: e.target.certs});
   }
 
   render() {
@@ -126,6 +136,18 @@ class SignUpGuides extends Component {
             placeholder="Verify Password"
             value={this.state.verifyPW}
             onChange={this.handleVerifyPWChange} />
+          <input
+            name="bio"
+            type="textarea"
+            placeholder="Bio..."
+            value={this.state.bio}
+            onChange={this.handleBioChange} />
+          <input
+            name="certs"
+            type="textarea"
+            placeholder="List Certifications..."
+            value={this.state.certs}
+            onChange={this.handleCertsChange} />
         </form>
       </div>
     );
