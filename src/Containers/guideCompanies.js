@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './Styles/guideCompanies.css';
 
 
@@ -8,6 +9,16 @@ class GuideCompanies extends Component {
     this.state = {
       companies: [],
     }
+  }
+
+  componentDidMount() {
+    axios.get('https://fierce-ridge-55021.herokuapp.com/guiding-companies')
+      .then((result) => {
+        console.log(result);
+        this.setState({
+          companies: [...result.data],
+        });
+      });
   }
 
   render() {
