@@ -1,4 +1,6 @@
 
 .footer {
   background-color: navy;
+  position: fixed;
+  bottom: 0; 
 }
