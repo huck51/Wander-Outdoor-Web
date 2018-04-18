@@ -10,6 +10,16 @@ class Guides extends Component {
     }
   }
 
+  componentDidMount() {
+    axios.get('https://fierce-ridge-55021.herokuapp.com/guides')
+      .then((result) => {
+        console.log(result);
+        this.setState({
+          guides: [...result.data],
+        });
+      });
+  }
+
   render() {
     return (
       <div>
