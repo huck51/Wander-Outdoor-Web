@@ -25,6 +25,19 @@ class Guides extends Component {
     return (
       <div>
         <h1>GUIDES</h1>
+        <div>
+          <ul>
+            {this.state.guides.map((guide) => {
+              return (
+                <li>
+                  <h3>{guide.firstName} {guide.lastName}</h3>
+                  <p>{guide.companyName}</p>
+                  <p>{guide.bio}</p>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     );
   }
