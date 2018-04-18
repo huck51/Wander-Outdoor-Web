@@ -8,10 +8,10 @@ class Footer extends Component {
     return (
       <div className="footer">
         <div>
-          <a href="https://www.facebook.com/wanderoutdoor.co/" target="_blank">Facebook</a>
+          <a href="https://www.facebook.com/wanderoutdoor.co/" target="_blank" rel="noopener noreferrer">Facebook</a>
         </div>
         <div>
-          <a href="https://www.instagram.com/wanderoutdoorllc/" target="_blank">Instagram</a>
+          <a href="https://www.instagram.com/wanderoutdoorllc/" target="_blank" rel="noopener noreferrer">Instagram</a>
         </div>
       </div>
     );
