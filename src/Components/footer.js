@@ -13,6 +13,9 @@ class Footer extends Component {
         <div>
           <a href="https://www.instagram.com/wanderoutdoorllc/" target="_blank" rel="noopener noreferrer">Instagram</a>
         </div>
+        <div>
+          <a href="https://www.wanderoutdoor.co/terms-and-conditions" target="_blank" rel="noopener noreferrer">Terms & Conditions</a>
+        </div>
       </div>
     );
   }
