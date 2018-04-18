@@ -5,6 +5,9 @@ import './Styles/guideCompanies.css';
 class GuideCompanies extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      companies: [],
+    }
   }
 
   render() {

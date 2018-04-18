@@ -5,6 +5,9 @@ import './Styles/guides.css';
 class Guides extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      guides: [],
+    }
   }
 
   render() {
