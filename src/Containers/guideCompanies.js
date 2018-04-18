@@ -33,7 +33,7 @@ class GuideCompanies extends Component {
                 <p>{company.companyAddress}</p>
                 <p>{company.companyPhone}</p>
               </li>
-            });
+            })
           }
           </ul>
         </div>
