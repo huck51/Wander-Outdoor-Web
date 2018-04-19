@@ -73,6 +73,7 @@ class SignUpGuides extends Component {
   }
   handleSubmit(e) {
     e.preventDefault();
+    const { firstName, lastName, companyName, companyCode, email, phone, DOB, username, password, bio, certs} = this.state;
   }
 
   render() {
@@ -112,7 +113,7 @@ class SignUpGuides extends Component {
             onChange={this.handleEmailChange} />
           <input
             name="phone"
-            type="number"
+            type="text"
             placeholder="Phone"
             value={this.state.phone}
             onChange={this.handlePhoneChange} />
