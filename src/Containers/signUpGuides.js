@@ -73,7 +73,21 @@ class SignUpGuides extends Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    const { firstName, lastName, companyName, companyCode, email, phone, DOB, username, password, bio, certs} = this.state;
+    const { firstName, lastName, companyName, companyCode, email, phone, DOB, username, password, bio, certs } = this.state;
+    const newGuide = { firstName, lastName, companyName, companyCode, email, phone, DOB, username, password, bio, certs };
+    this.setState({
+      firstName: '',
+      lastName: '',
+      companyName: '',
+      companyCode: '',
+      email: '',
+      phone: '',
+      DOB: '',
+      username: '',
+      password: '',
+      bio: '',
+      certs: ''
+    });
   }
 
   render() {
