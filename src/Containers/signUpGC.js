@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './Styles/signUpGC.css';
 
 
@@ -58,6 +59,26 @@ class SignUpGC extends Component {
   }
   handleSubmit(e) {
     e.preventDefault();
+    const { companyName, companyAddress, companyPhone, contactName, jobTitle, contactPhone, contactEmail, password, verifyPW } = this.state;
+    const newCompany = { companyName, companyAddress, companyPhone, contactName, jobTitle, contactPhone, contactEmail, password, verifyPW };
+    this.setState({
+      companyName: '',
+      companyAddress: '',
+      companyPhone: '',
+      contactName: '',
+      jobTitle: '',
+      contactPhone: '',
+      contactEmail: '',
+      password: '',
+      verifyPW: ''
+    });
+    axios.post('https://fierce-ridge-55021.herokuapp.com/signup/guiding-company', newCompany)
+      .then(() => {
+        window.location = '/';
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   render() {
