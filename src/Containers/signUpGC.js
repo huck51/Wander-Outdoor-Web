@@ -26,41 +26,45 @@ class SignUpGC extends Component {
     this.handleContactEmailChange = this.handleContactEmailChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleVerifyPWChange = this.handleVerifyPWChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleCompanyChange(e) {
-    this.setState({companyName: e.target.companyName});
+    this.setState({companyName: e.target.value});
   }
   handleAddressChange(e) {
-    this.setState({companyAddress: e.target.companyAddress});
+    this.setState({companyAddress: e.target.value});
   }
   handleCompanyPhoneChange(e) {
-    this.setState({companyPhone: e.target.companyPhone});
+    this.setState({companyPhone: e.target.value});
   }
   handleContactNameChange(e) {
-    this.setState({contactName: e.target.contactName});
+    this.setState({contactName: e.target.value});
   }
   handleJobTitleChange(e) {
-    this.setState({jobTitle: e.target.jobTitle});
+    this.setState({jobTitle: e.target.value});
   }
   handleContactPhoneChange(e) {
-    this.setState({contactPhone: e.target.contactPhone});
+    this.setState({contactPhone: e.target.value});
   }
   handleContactEmailChange(e) {
-    this.setState({contactEmail: e.target.contactEmail});
+    this.setState({contactEmail: e.target.value});
   }
   handlePasswordChange(e) {
-    this.setState({password: e.target.password});
+    this.setState({password: e.target.value});
   }
   handleVerifyPWChange(e) {
-    this.setState({verifyPW: e.target.verifyPW});
+    this.setState({verifyPW: e.target.value});
+  }
+  handleSubmit(e) {
+    e.preventDefault();
   }
 
   render() {
     return (
       <div>
         <h1>Guiding Company SignUp</h1>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <input
             name="companyName"
             type="text"
@@ -115,6 +119,7 @@ class SignUpGC extends Component {
             placeholder="Verify Password"
             value={this.state.verifyPW}
             onChange={this.handleVerifyPWChange} />
+          <button type="submit" onClick={this.handleSubmit}>Submit</button>
         </form>
       </div>
     );
