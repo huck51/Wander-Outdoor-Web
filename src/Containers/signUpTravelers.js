@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './Styles/signUpTravelers.css';
 
 
@@ -24,6 +25,7 @@ class SignUpTravelers extends Component {
     this.handleUserChange = this.handleUserChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleVerifyPWChange = this.handleVerifyPWChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleFNChange(e) {
@@ -50,12 +52,32 @@ class SignUpTravelers extends Component {
   handleVerifyPWChange(e) {
     this.setState({verifyPW: e.target.verifyPW});
   }
+  handleSubmit(e) {
+    e.preventDefault();
+    const { firstName, lastName, DOB, email, phone, username, password } = this.state;
+    const newTraveler = { firstName, lastName, DOB, email, phone, username, password };
+    this.setState({
+      firstName: '',
+      lastName: '',
+      DOB: '',
+      email: '',
+      phone: '',
+      username: '',
+      password: '' });
+    axios.post('https://fierce-ridge-55021.herokuapp.com/signup/traveler', newTraveler)
+      .then(() => {
+        window.location = '/';
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
   render() {
     return (
       <div>
         <h1>Traveler SignUp</h1>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <input
             name="firstName"
             type="text"
