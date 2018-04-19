@@ -126,6 +126,7 @@ class SignUpTravelers extends Component {
             placeholder="Verify Password"
             value={this.state.verifyPW}
             onChange={this.handleVerifyPWChange} />
+          <button type="submit" onClick={this.handleSubmit}>Submit</button>
         </form>
       </div>
     );
