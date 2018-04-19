@@ -60,7 +60,7 @@ class SignUpGC extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const { companyName, companyAddress, companyPhone, contactName, jobTitle, contactPhone, contactEmail, password, verifyPW } = this.state;
-    const newCompany = { companyName, companyAddress, companyPhone, contactName, jobTitle, contactPhone, contactEmail, password, verifyPW };
+    const newCompany = { companyName, companyAddress, companyPhone, contactName, jobTitle, contactPhone, contactEmail, password };
     this.setState({
       companyName: '',
       companyAddress: '',
