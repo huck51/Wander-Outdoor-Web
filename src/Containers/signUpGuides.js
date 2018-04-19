@@ -35,40 +35,40 @@ class SignUpGuides extends Component {
   }
 
   handleFNChange(e) {
-    this.setState({firstName: e.target.firstName});
+    this.setState({firstName: e.target.value});
   }
   handleLNChange(e) {
-    this.setState({lastName: e.target.lastName});
+    this.setState({lastName: e.target.value});
   }
   handleCompanyNameChange(e) {
-    this.setState({companyName: e.target.companyName});
+    this.setState({companyName: e.target.value});
   }
   handleCompanyCodeChange(e) {
-    this.setState({companyCode: e.target.companyCode});
+    this.setState({companyCode: e.target.value});
   }
   handleEmailChange(e) {
-    this.setState({email: e.target.email});
+    this.setState({email: e.target.value});
   }
   handlePhoneChange(e) {
-    this.setState({phone: e.target.phone});
+    this.setState({phone: e.target.value});
   }
   handleDOBChange(e) {
-    this.setState({DOB: e.target.DOB});
+    this.setState({DOB: e.target.value});
   }
   handleUserChange(e) {
-    this.setState({username: e.target.username});
+    this.setState({username: e.target.value});
   }
   handlePasswordChange(e) {
-    this.setState({password: e.target.password});
+    this.setState({password: e.target.value});
   }
   handleVerifyPWChange(e) {
-    this.setState({verifyPW: e.target.verifyPW});
+    this.setState({verifyPW: e.target.value});
   }
   handleBioChange(e) {
-    this.setState({bio: e.target.bio});
+    this.setState({bio: e.target.value});
   }
   handleCertsChange(e) {
-    this.setState({certs: e.target.certs});
+    this.setState({certs: e.target.value});
   }
 
   render() {
