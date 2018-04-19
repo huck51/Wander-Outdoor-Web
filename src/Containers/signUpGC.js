@@ -74,7 +74,7 @@ class SignUpGC extends Component {
     });
     axios.post('https://fierce-ridge-55021.herokuapp.com/signup/guiding-company', newCompany)
       .then(() => {
-        window.location = '/';
+        window.location = '/guiding-companies';
       })
       .catch((err) => {
         console.log(err);
