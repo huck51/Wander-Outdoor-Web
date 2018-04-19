@@ -7,7 +7,7 @@ class Footer extends Component {
 
   render() {
     return (
-      <div className="footer">
+      <div className="footer container">
         <Row>
           <Col md={6}>
             <Row>
