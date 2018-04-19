@@ -113,12 +113,12 @@ class SignUpGC extends Component {
           <input
             name="jobTitle"
             type="text"
-            placeholder="Jobt Title"
+            placeholder="Job Title"
             value={this.state.jobTitle}
             onChange={this.handleJobTitleChange} />
           <input
             name="contactPhone"
-            type="number"
+            type="text"
             placeholder="Contact Phone"
             value={this.state.contactPhone}
             onChange={this.handleContactPhoneChange} />
