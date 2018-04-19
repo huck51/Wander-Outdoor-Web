@@ -89,7 +89,13 @@ class SignUpGuides extends Component {
       bio: '',
       certs: ''
     });
-
+    axios.post('https://fierce-ridge-55021.herokuapp.com/signup/guide', newGuide)
+      .then(() => {
+        window.location = '/';
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   render() {
