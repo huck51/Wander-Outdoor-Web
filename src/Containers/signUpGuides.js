@@ -32,6 +32,7 @@ class SignUpGuides extends Component {
     this.handleVerifyPWChange = this.handleVerifyPWChange.bind(this);
     this.handleBioChange = this.handleBioChange.bind(this);
     this.handleCertsChange = this.handleCertsChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleFNChange(e) {
@@ -69,6 +70,9 @@ class SignUpGuides extends Component {
   }
   handleCertsChange(e) {
     this.setState({certs: e.target.value});
+  }
+  handleSubmit(e) {
+    e.preventDefault();
   }
 
   render() {
