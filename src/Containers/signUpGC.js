@@ -100,7 +100,7 @@ class SignUpGC extends Component {
             onChange={this.handleAddressChange} />
           <input
             name="companyPhone"
-            type="number"
+            type="text"
             placeholder="Company Phone"
             value={this.state.companyPhone}
             onChange={this.handleCompanyPhoneChange} />
