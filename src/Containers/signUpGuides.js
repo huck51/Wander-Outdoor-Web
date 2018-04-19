@@ -79,7 +79,7 @@ class SignUpGuides extends Component {
     return (
       <div>
         <h1>Guide SignUp</h1>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <input
             name="firstName"
             type="text"
@@ -152,6 +152,7 @@ class SignUpGuides extends Component {
             placeholder="List Certifications..."
             value={this.state.certs}
             onChange={this.handleCertsChange} />
+          <button type="submit" onClick={this.handleSubmit}>Submit</button>
         </form>
       </div>
     );
