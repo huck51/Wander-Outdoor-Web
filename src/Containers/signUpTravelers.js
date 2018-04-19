@@ -29,33 +29,34 @@ class SignUpTravelers extends Component {
   }
 
   handleFNChange(e) {
-    this.setState({firstName: e.target.firstName});
+    this.setState({firstName: e.target.value});
   }
   handleLNChange(e) {
-    this.setState({lastName: e.target.lastName});
+    this.setState({lastName: e.target.value});
   }
   handleDOBChange(e) {
-    this.setState({DOB: e.target.DOB});
+    this.setState({DOB: e.target.value});
   }
   handleEmailChange(e) {
-    this.setState({email: e.target.email});
+    this.setState({email: e.target.value});
   }
   handlePhoneChange(e) {
-    this.setState({phone: e.target.phone});
+    this.setState({phone: e.target.value});
   }
   handleUserChange(e) {
-    this.setState({username: e.target.username});
+    this.setState({username: e.target.value});
   }
   handlePasswordChange(e) {
-    this.setState({password: e.target.password});
+    this.setState({password: e.target.value});
   }
   handleVerifyPWChange(e) {
-    this.setState({verifyPW: e.target.verifyPW});
+    this.setState({verifyPW: e.target.value});
   }
   handleSubmit(e) {
     e.preventDefault();
     const { firstName, lastName, DOB, email, phone, username, password } = this.state;
     const newTraveler = { firstName, lastName, DOB, email, phone, username, password };
+    console.log(newTraveler);
     this.setState({
       firstName: '',
       lastName: '',
@@ -63,7 +64,9 @@ class SignUpTravelers extends Component {
       email: '',
       phone: '',
       username: '',
-      password: '' });
+      password: '',
+      verifyPW: '',
+    });
     axios.post('https://fierce-ridge-55021.herokuapp.com/signup/traveler', newTraveler)
       .then(() => {
         window.location = '/';
@@ -104,7 +107,7 @@ class SignUpTravelers extends Component {
             onChange={this.handleEmailChange} />
           <input
             name="phone"
-            type="number"
+            type="text"
             placeholder="Phone"
             value={this.state.phone}
             onChange={this.handlePhoneChange} />
