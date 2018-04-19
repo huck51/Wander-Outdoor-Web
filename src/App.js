@@ -6,9 +6,13 @@ import './App.css';
 
 const App = () => (
   <div>
-    <NavigationBar />
-    <Main />
-    <Footer />
+    <div id="body">
+      <NavigationBar />
+      <Main />
+    </div>
+    <div id="footer">
+      <Footer />
+    </div>
   </div>
 );
 

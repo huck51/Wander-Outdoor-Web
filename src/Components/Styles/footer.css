@@ -1,11 +1,12 @@
 
 .footer {
   background-color: rgba(27, 36, 50, 1);
-  position: sticky;
+  position: absolute;
   bottom: 0;
   width: 100%;
   padding: 1em 3em;
   text-align: right;
+  margin: 0;
 }
 .lefty {
   text-align: left;

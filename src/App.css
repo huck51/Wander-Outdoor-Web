@@ -2,6 +2,7 @@
 body {
   background-color: rgba(104,131,191,1);
   min-height: 100%;
+  margin-bottom: 5em;
 }
 h2 {
   color: white;
@@ -10,11 +11,13 @@ main {
   min-height: 100%;
 
 }
-.down {
-  position: absolute;
+#body {
+  margin-bottom: 10em;
+}
+#footer {
+  position: fixed;
   bottom: 0;
   width: 100%;
-  margin-top: -5em;
 }
 #topQ {
   margin-left: 5em;
