@@ -8,19 +8,19 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
-    }
+    };
     this.handleUsernameOnChange = this.handleUsernameOnChange.bind(this);
     this.handlePasswordOnChange = this.handlePasswordOnChange.bind(this);
   }
 
   handleUsernameOnChange(e) {
     this.setState({
-      username: e.target.value
+      username: e.target.value,
     });
   }
   handlePasswordOnChange(e) {
     this.setState({
-      password: e.target.value
+      password: e.target.value,
     });
   }
 
@@ -35,13 +35,15 @@ class Login extends Component {
               type="text"
               placeholder="Username"
               value={this.state.username}
-              onChange={this.handleUsernameOnChange} />
+              onChange={this.handleUsernameOnChange}
+            />
             <input
               name="password"
               type="password"
               placeholder="Password"
               value={this.state.password}
-              onChange={this.handlePasswordOnChange} />
+              onChange={this.handlePasswordOnChange}
+            />
           </form>
         </div>
       </div>
