@@ -8,7 +8,7 @@ class GuideCompanies extends Component {
     super(props);
     this.state = {
       companies: [],
-    }
+    };
   }
 
   componentDidMount() {
@@ -28,12 +28,12 @@ class GuideCompanies extends Component {
           <ul>
             {this.state.companies.map((company) => {
               return (
-              <li>
-                <h3>{company.companyName}</h3>
-                <p>{company.companyAddress}</p>
-                <p>{company.companyPhone}</p>
-              </li>
-            );
+                <li>
+                  <h3>{company.companyName}</h3>
+                  <p>{company.companyAddress}</p>
+                  <p>{company.companyPhone}</p>
+                </li>
+              );
             })}
           </ul>
         </div>
