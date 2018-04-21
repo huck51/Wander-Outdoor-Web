@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import NavigationBar from './Components/navigationbar';
 import Main from './main';
 import Footer from './Components/footer';
@@ -15,5 +15,6 @@ const App = () => (
     </div>
   </div>
 );
+
 
 export default App;

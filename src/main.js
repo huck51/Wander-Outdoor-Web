@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Home from './Containers/home';
 import SignUp from './Containers/signUp';
@@ -14,16 +14,16 @@ import SignUpGC from './Containers/signUpGC';
 const Main = () => (
   <main>
     <Switch>
-      <Route exact path='/' component={Home} />
-      <Route exact path='/signup' component={SignUp} />
-      <Route exact path='/signup/traveler' component={SignUpTravelers} />
-      <Route exact path='/signup/guide' component={SignUpGuides} />
-      <Route exact path='/signup/guiding-company' component={SignUpGC} />
-      <Route exact path='/login' component={Login} />
-      <Route exact path='/guiding-companies' component={GuidingCompanies} />
-      <Route exact path='/guides' component={Guides} />
-      <Route exact path='/about' component={About} />
-      <Route exact path='/results' component={Results} />
+      <Route exact path="/" component={Home} />
+      <Route exact path="/signup" component={SignUp} />
+      <Route exact path="/signup/traveler" component={SignUpTravelers} />
+      <Route exact path="/signup/guide" component={SignUpGuides} />
+      <Route exact path="/signup/guiding-company" component={SignUpGC} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/guiding-companies" component={GuidingCompanies} />
+      <Route exact path="/guides" component={Guides} />
+      <Route exact path="/about" component={About} />
+      <Route exact path="/results" component={Results} />
     </Switch>
   </main>
 );
