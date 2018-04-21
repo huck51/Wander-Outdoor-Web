@@ -8,12 +8,13 @@ class Guides extends Component {
     super(props);
     this.state = {
       guides: [],
-    }
+    };
   }
 
   componentDidMount() {
     axios.get('https://fierce-ridge-55021.herokuapp.com/guides')
       .then((result) => {
+        // eslint-disable-next-line no-console
         console.log(result);
         this.setState({
           guides: [...result.data],

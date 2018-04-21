@@ -29,34 +29,49 @@ class SignUpTravelers extends Component {
   }
 
   handleFNChange(e) {
-    this.setState({firstName: e.target.value});
+    this.setState({ firstName: e.target.value });
   }
   handleLNChange(e) {
-    this.setState({lastName: e.target.value});
+    this.setState({ lastName: e.target.value });
   }
   handleDOBChange(e) {
-    this.setState({DOB: e.target.value});
+    this.setState({ DOB: e.target.value });
   }
   handleEmailChange(e) {
-    this.setState({email: e.target.value});
+    this.setState({ email: e.target.value });
   }
   handlePhoneChange(e) {
-    this.setState({phone: e.target.value});
+    this.setState({ phone: e.target.value });
   }
   handleUserChange(e) {
-    this.setState({username: e.target.value});
+    this.setState({ username: e.target.value });
   }
   handlePasswordChange(e) {
-    this.setState({password: e.target.value});
+    this.setState({ password: e.target.value });
   }
   handleVerifyPWChange(e) {
-    this.setState({verifyPW: e.target.value});
+    this.setState({ verifyPW: e.target.value });
   }
   handleSubmit(e) {
     e.preventDefault();
-    const { firstName, lastName, DOB, email, phone, username, password } = this.state;
-    const newTraveler = { firstName, lastName, DOB, email, phone, username, password };
-    console.log(newTraveler);
+    const {
+      firstName,
+      lastName,
+      DOB,
+      email,
+      phone,
+      username,
+      password,
+    } = this.state;
+    const newTraveler = {
+      firstName,
+      lastName,
+      DOB,
+      email,
+      phone,
+      username,
+      password,
+    };
     this.setState({
       firstName: '',
       lastName: '',
@@ -72,6 +87,7 @@ class SignUpTravelers extends Component {
         window.location = '/';
       })
       .catch((err) => {
+        // eslint-disable-next-line no-console
         console.log(err);
       });
   }
@@ -86,49 +102,57 @@ class SignUpTravelers extends Component {
             type="text"
             placeholder="First Name"
             value={this.state.firstName}
-            onChange={this.handleFNChange} />
+            onChange={this.handleFNChange}
+          />
           <input
             name="lastName"
             type="text"
             placeholder="Last Name"
             value={this.state.lastName}
-            onChange={this.handleLNChange} />
+            onChange={this.handleLNChange}
+          />
           <input
             name="DOB"
             type="date"
             placeholder="Date of Birth"
             value={this.state.DOB}
-            onChange={this.handleDOBChange} />
+            onChange={this.handleDOBChange}
+          />
           <input
             name="email"
             type="email"
             placeholder="E-mail"
             value={this.state.email}
-            onChange={this.handleEmailChange} />
+            onChange={this.handleEmailChange}
+          />
           <input
             name="phone"
             type="text"
             placeholder="Phone"
             value={this.state.phone}
-            onChange={this.handlePhoneChange} />
+            onChange={this.handlePhoneChange}
+          />
           <input
             name="username"
             type="text"
             placeholder="Username"
             value={this.state.username}
-            onChange={this.handleUserChange} />
+            onChange={this.handleUserChange}
+          />
           <input
             name="password"
             type="password"
             placeholder="Password"
             value={this.state.password}
-            onChange={this.handlePasswordChange} />
+            onChange={this.handlePasswordChange}
+          />
           <input
             name="verifyPW"
             type="password"
             placeholder="Verify Password"
             value={this.state.verifyPW}
-            onChange={this.handleVerifyPWChange} />
+            onChange={this.handleVerifyPWChange}
+          />
           <button type="submit" onClick={this.handleSubmit}>Submit</button>
         </form>
       </div>

@@ -37,45 +37,69 @@ class SignUpGuides extends Component {
   }
 
   handleFNChange(e) {
-    this.setState({firstName: e.target.value});
+    this.setState({ firstName: e.target.value });
   }
   handleLNChange(e) {
-    this.setState({lastName: e.target.value});
+    this.setState({ lastName: e.target.value });
   }
   handleCompanyNameChange(e) {
-    this.setState({companyName: e.target.value});
+    this.setState({ companyName: e.target.value });
   }
   handleCompanyCodeChange(e) {
-    this.setState({companyCode: e.target.value});
+    this.setState({ companyCode: e.target.value });
   }
   handleEmailChange(e) {
-    this.setState({email: e.target.value});
+    this.setState({ email: e.target.value });
   }
   handlePhoneChange(e) {
-    this.setState({phone: e.target.value});
+    this.setState({ phone: e.target.value });
   }
   handleDOBChange(e) {
-    this.setState({DOB: e.target.value});
+    this.setState({ DOB: e.target.value });
   }
   handleUserChange(e) {
-    this.setState({username: e.target.value});
+    this.setState({ username: e.target.value });
   }
   handlePasswordChange(e) {
-    this.setState({password: e.target.value});
+    this.setState({ password: e.target.value });
   }
   handleVerifyPWChange(e) {
-    this.setState({verifyPW: e.target.value});
+    this.setState({ verifyPW: e.target.value });
   }
   handleBioChange(e) {
-    this.setState({bio: e.target.value});
+    this.setState({ bio: e.target.value });
   }
   handleCertsChange(e) {
-    this.setState({certs: e.target.value});
+    this.setState({ certs: e.target.value });
   }
   handleSubmit(e) {
     e.preventDefault();
-    const { firstName, lastName, companyName, companyCode, email, phone, DOB, username, password, bio, certs } = this.state;
-    const newGuide = { firstName, lastName, companyName, companyCode, email, phone, DOB, username, password, bio, certs };
+    const {
+      firstName,
+      lastName,
+      companyName,
+      companyCode,
+      email,
+      phone,
+      DOB,
+      username,
+      password,
+      bio,
+      certs,
+    } = this.state;
+    const newGuide = {
+      firstName,
+      lastName,
+      companyName,
+      companyCode,
+      email,
+      phone,
+      DOB,
+      username,
+      password,
+      bio,
+      certs,
+    };
     this.setState({
       firstName: '',
       lastName: '',
@@ -87,13 +111,14 @@ class SignUpGuides extends Component {
       username: '',
       password: '',
       bio: '',
-      certs: ''
+      certs: '',
     });
     axios.post('https://fierce-ridge-55021.herokuapp.com/signup/guide', newGuide)
       .then(() => {
         window.location = '/guides';
       })
       .catch((err) => {
+        // eslint-disable-next-line no-console
         console.log(err);
       });
   }
@@ -108,73 +133,85 @@ class SignUpGuides extends Component {
             type="text"
             placeholder="First Name"
             value={this.state.firstName}
-            onChange={this.handleFNChange} />
+            onChange={this.handleFNChange}
+          />
           <input
             name="lastName"
             type="text"
             placeholder="Last Name"
             value={this.state.lastName}
-            onChange={this.handleLNChange} />
+            onChange={this.handleLNChange}
+          />
           <input
             name="companyName"
             type="text"
             placeholder="Company Name"
             value={this.state.companyName}
-            onChange={this.handleCompanyNameChange} />
+            onChange={this.handleCompanyNameChange}
+          />
           <input
             name="companyCode"
             type="text"
             placeholder="Company Code"
             value={this.state.companyCode}
-            onChange={this.handleCompanyCodeChange} />
+            onChange={this.handleCompanyCodeChange}
+          />
           <input
             name="email"
             type="email"
             placeholder="E-mail"
             value={this.state.email}
-            onChange={this.handleEmailChange} />
+            onChange={this.handleEmailChange}
+          />
           <input
             name="phone"
             type="text"
             placeholder="Phone"
             value={this.state.phone}
-            onChange={this.handlePhoneChange} />
+            onChange={this.handlePhoneChange}
+          />
           <input
             name="DOB"
             type="date"
             placeholder="Date of Birth"
             value={this.state.DOB}
-            onChange={this.handleDOBChange} />
+            onChange={this.handleDOBChange}
+          />
           <input
             name="username"
             type="text"
             placeholder="Username"
             value={this.state.username}
-            onChange={this.handleUserChange} />
+            onChange={this.handleUserChange}
+          />
           <input
             name="password"
             type="password"
             placeholder="Password"
             value={this.state.password}
-            onChange={this.handlePasswordChange} />
+            onChange={this.handlePasswordChange}
+          />
           <input
             name="verifyPW"
             type="password"
             placeholder="Verify Password"
             value={this.state.verifyPW}
-            onChange={this.handleVerifyPWChange} />
+            onChange={this.handleVerifyPWChange}
+          />
           <input
             name="bio"
             type="textarea"
             placeholder="Bio..."
             value={this.state.bio}
-            onChange={this.handleBioChange} />
+            onChange={this.handleBioChange}
+          />
           <input
             name="certs"
             type="textarea"
             placeholder="List Certifications..."
             value={this.state.certs}
-            onChange={this.handleCertsChange} />
+            onChange={this.handleCertsChange}
+          />
           <button type="submit" onClick={this.handleSubmit}>Submit</button>
         </form>
       </div>
