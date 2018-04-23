@@ -9,12 +9,12 @@ const Footer = () => (
       <Col md={6}>
         <Row>
           <Col md={12} className="lefty">
-            <a href="http://wander-outdoor-temp.herokuapp.com/" target="_blank" rel="noopener noreferrer"><span role="img">©️</span> 2016 Wander Outdoor LLC</a>
+            <a href="http://wander-outdoor-temp.herokuapp.com/"><span role="img">©️</span> 2016 Wander Outdoor LLC</a>
           </Col>
         </Row>
         <Row>
           <Col md={12} className="lefty">
-            <a href="http://wander-outdoor-temp.herokuapp.com/" target="_blank" rel="noopener noreferrer">Founded in Boulder, Colorado 2015</a>
+            <a href="http://wander-outdoor-temp.herokuapp.com/">Founded in Boulder, Colorado 2015</a>
           </Col>
         </Row>
       </Col>
