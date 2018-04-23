@@ -31,36 +31,54 @@ class SignUpGC extends Component {
   }
 
   handleCompanyChange(e) {
-    this.setState({companyName: e.target.value});
+    this.setState({ companyName: e.target.value });
   }
   handleAddressChange(e) {
-    this.setState({companyAddress: e.target.value});
+    this.setState({ companyAddress: e.target.value });
   }
   handleCompanyPhoneChange(e) {
-    this.setState({companyPhone: e.target.value});
+    this.setState({ companyPhone: e.target.value });
   }
   handleContactNameChange(e) {
-    this.setState({contactName: e.target.value});
+    this.setState({ contactName: e.target.value });
   }
   handleJobTitleChange(e) {
-    this.setState({jobTitle: e.target.value});
+    this.setState({ jobTitle: e.target.value });
   }
   handleContactPhoneChange(e) {
-    this.setState({contactPhone: e.target.value});
+    this.setState({ contactPhone: e.target.value });
   }
   handleContactEmailChange(e) {
-    this.setState({contactEmail: e.target.value});
+    this.setState({ contactEmail: e.target.value });
   }
   handlePasswordChange(e) {
-    this.setState({password: e.target.value});
+    this.setState({ password: e.target.value });
   }
   handleVerifyPWChange(e) {
-    this.setState({verifyPW: e.target.value});
+    this.setState({ verifyPW: e.target.value });
   }
   handleSubmit(e) {
     e.preventDefault();
-    const { companyName, companyAddress, companyPhone, contactName, jobTitle, contactPhone, contactEmail, password, verifyPW } = this.state;
-    const newCompany = { companyName, companyAddress, companyPhone, contactName, jobTitle, contactPhone, contactEmail, password };
+    const {
+      companyName,
+      companyAddress,
+      companyPhone,
+      contactName,
+      jobTitle,
+      contactPhone,
+      contactEmail,
+      password,
+    } = this.state;
+    const newCompany = {
+      companyName,
+      companyAddress,
+      companyPhone,
+      contactName,
+      jobTitle,
+      contactPhone,
+      contactEmail,
+      password,
+    };
     this.setState({
       companyName: '',
       companyAddress: '',
@@ -70,13 +88,14 @@ class SignUpGC extends Component {
       contactPhone: '',
       contactEmail: '',
       password: '',
-      verifyPW: ''
+      verifyPW: '',
     });
     axios.post('https://fierce-ridge-55021.herokuapp.com/signup/guiding-company', newCompany)
       .then(() => {
         window.location = '/guiding-companies';
       })
       .catch((err) => {
+        // eslint-disable-next-line no-console
         console.log(err);
       });
   }
@@ -91,55 +110,64 @@ class SignUpGC extends Component {
             type="text"
             placeholder="Company Name"
             value={this.state.companyName}
-            onChange={this.handleCompanyChange} />
+            onChange={this.handleCompanyChange}
+          />
           <input
             name="companyAddress"
             type="text"
             placeholder="Company Address"
             value={this.state.companyAddress}
-            onChange={this.handleAddressChange} />
+            onChange={this.handleAddressChange}
+          />
           <input
             name="companyPhone"
             type="text"
             placeholder="Company Phone"
             value={this.state.companyPhone}
-            onChange={this.handleCompanyPhoneChange} />
+            onChange={this.handleCompanyPhoneChange}
+          />
           <input
             name="contactName"
             type="text"
             placeholder="Contact Name"
             value={this.state.contactName}
-            onChange={this.handleContactNameChange} />
+            onChange={this.handleContactNameChange}
+          />
           <input
             name="jobTitle"
             type="text"
             placeholder="Job Title"
             value={this.state.jobTitle}
-            onChange={this.handleJobTitleChange} />
+            onChange={this.handleJobTitleChange}
+          />
           <input
             name="contactPhone"
             type="text"
             placeholder="Contact Phone"
             value={this.state.contactPhone}
-            onChange={this.handleContactPhoneChange} />
+            onChange={this.handleContactPhoneChange}
+          />
           <input
             name="contactEmail"
             type="email"
             placeholder="E-mail"
             value={this.state.contactEmail}
-            onChange={this.handleContactEmailChange} />
+            onChange={this.handleContactEmailChange}
+          />
           <input
             name="password"
             type="password"
             placeholder="Password"
             value={this.state.password}
-            onChange={this.handlePasswordChange} />
+            onChange={this.handlePasswordChange}
+          />
           <input
             name="verifyPW"
             type="password"
             placeholder="Verify Password"
             value={this.state.verifyPW}
-            onChange={this.handleVerifyPWChange} />
+            onChange={this.handleVerifyPWChange}
+          />
           <button type="submit" onClick={this.handleSubmit}>Submit</button>
         </form>
       </div>
