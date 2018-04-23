@@ -9,7 +9,7 @@ const Footer = () => (
       <Col md={6}>
         <Row>
           <Col md={12} className="lefty">
-            <a href="http://wander-outdoor-temp.herokuapp.com/"><span role="img">©️</span> 2016 Wander Outdoor LLC</a>
+            <a href="http://wander-outdoor-temp.herokuapp.com/"><span role="img" aria-labelledby="copyright">©️</span> 2016 Wander Outdoor LLC</a>
           </Col>
         </Row>
         <Row>
