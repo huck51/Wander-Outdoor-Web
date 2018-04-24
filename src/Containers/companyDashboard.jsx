@@ -23,10 +23,12 @@ class CompanyDashboard extends Component {
             <Col>
               <h3>Trips:</h3>
               <ul />
+              <button><Link to="/company/add-trip">+Add Trip</Link></button>
             </Col>
             <Col>
               <h3>Guides:</h3>
               <ul />
+              <button>+Add Guide</button>
             </Col>
           </Row>
         </div>
