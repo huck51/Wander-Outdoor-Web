@@ -36,7 +36,7 @@ const NavigationBar = () => (
         <NavDropdown eventKey={3} title="Profile" id="basic-nav-dropdown">
           <MenuItem eventKey={3.1}><Link to="/company/dashboard">Dashboard</Link></MenuItem>
           <MenuItem eventKey={3.2}>View Public Profile</MenuItem>
-          <MenuItem eventKey={3.3}>Something else here</MenuItem>
+          <MenuItem eventKey={3.3}>Messages</MenuItem>
           <MenuItem divider />
           <MenuItem eventKey={3.3}>Separated link</MenuItem>
         </NavDropdown>
