@@ -3,6 +3,7 @@ import {
   Row,
   Col,
 } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './Styles/companyDashboard.css';
 
 
@@ -20,12 +21,12 @@ class CompanyDashboard extends Component {
         <h1>Company Dashboard</h1>
         <div>
           <Row>
-            <Col>
+            <Col md={6}>
               <h3>Trips:</h3>
               <ul />
               <button><Link to="/company/add-trip">+Add Trip</Link></button>
             </Col>
-            <Col>
+            <Col md={6}>
               <h3>Guides:</h3>
               <ul />
               <button>+Add Guide</button>
