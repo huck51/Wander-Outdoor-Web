@@ -10,6 +10,7 @@ import Results from './Containers/results';
 import SignUpTravelers from './Containers/signUpTravelers';
 import SignUpGuides from './Containers/signUpGuides';
 import SignUpGC from './Containers/signUpGC';
+import CompanyDashboard from './Containers/companyDashboard';
 
 const Main = () => (
   <main>
@@ -24,6 +25,7 @@ const Main = () => (
       <Route exact path="/guides" component={Guides} />
       <Route exact path="/about" component={About} />
       <Route exact path="/results" component={Results} />
+      <Route exact path="/company/dashboard" component={CompanyDashboard} />
     </Switch>
   </main>
 );
