@@ -12,25 +12,11 @@ class AddTrip extends Component {
       price: '',
       location: '',
     };
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
-    this.handlePriceChange = this.handlePriceChange.bind(this);
-    this.handleLocationChange = this.handleLocationChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleNameChange(e) {
-    this.setState({ name: e.target.value });
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
   }
-  handleDescriptionChange(e) {
-    this.setState({ description: e.target.value });
-  }
-  handlePriceChange(e) {
-    this.setState({ price: e.target.value });
-  }
-  handleLocationChange(e) {
-    this.setState({ location: e.target.value });
-  }
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
     const {
       name,
@@ -71,28 +57,28 @@ class AddTrip extends Component {
             type="text"
             placeholder="Name"
             value={this.state.name}
-            onChange={this.handleNameChange}
+            onChange={this.handleChange}
           />
           <input
             name="location"
             type="text"
             placeholder="Location"
             value={this.state.location}
-            onChange={this.handleLocationChange}
+            onChange={this.handleChange}
           />
           <input
             name="description"
             type="text"
             placeholder="Description"
             value={this.state.description}
-            onChange={this.handleDescriptionChange}
+            onChange={this.handleChange}
           />
           <input
             name="price"
             type="text"
             placeholder="Price"
             value={this.state.price}
-            onChange={this.handlePriceChange}
+            onChange={this.handleChange}
           />
           <button type="submit">Submit</button>
         </form>
