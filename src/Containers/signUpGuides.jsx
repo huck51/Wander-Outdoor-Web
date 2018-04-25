@@ -20,59 +20,12 @@ class SignUpGuides extends Component {
       bio: '',
       certs: '',
     };
-
-    this.handleFNChange = this.handleFNChange.bind(this);
-    this.handleLNChange = this.handleLNChange.bind(this);
-    this.handleCompanyNameChange = this.handleCompanyNameChange.bind(this);
-    this.handleCompanyCodeChange = this.handleCompanyCodeChange.bind(this);
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handlePhoneChange = this.handlePhoneChange.bind(this);
-    this.handleDOBChange = this.handleDOBChange.bind(this);
-    this.handleUserChange = this.handleUserChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    this.handleVerifyPWChange = this.handleVerifyPWChange.bind(this);
-    this.handleBioChange = this.handleBioChange.bind(this);
-    this.handleCertsChange = this.handleCertsChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleFNChange(e) {
-    this.setState({ firstName: e.target.value });
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
   }
-  handleLNChange(e) {
-    this.setState({ lastName: e.target.value });
-  }
-  handleCompanyNameChange(e) {
-    this.setState({ companyName: e.target.value });
-  }
-  handleCompanyCodeChange(e) {
-    this.setState({ companyCode: e.target.value });
-  }
-  handleEmailChange(e) {
-    this.setState({ email: e.target.value });
-  }
-  handlePhoneChange(e) {
-    this.setState({ phone: e.target.value });
-  }
-  handleDOBChange(e) {
-    this.setState({ DOB: e.target.value });
-  }
-  handleUserChange(e) {
-    this.setState({ username: e.target.value });
-  }
-  handlePasswordChange(e) {
-    this.setState({ password: e.target.value });
-  }
-  handleVerifyPWChange(e) {
-    this.setState({ verifyPW: e.target.value });
-  }
-  handleBioChange(e) {
-    this.setState({ bio: e.target.value });
-  }
-  handleCertsChange(e) {
-    this.setState({ certs: e.target.value });
-  }
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
     const {
       firstName,
@@ -133,84 +86,84 @@ class SignUpGuides extends Component {
             type="text"
             placeholder="First Name"
             value={this.state.firstName}
-            onChange={this.handleFNChange}
+            onChange={this.handleChange}
           />
           <input
             name="lastName"
             type="text"
             placeholder="Last Name"
             value={this.state.lastName}
-            onChange={this.handleLNChange}
+            onChange={this.handleChange}
           />
           <input
             name="companyName"
             type="text"
             placeholder="Company Name"
             value={this.state.companyName}
-            onChange={this.handleCompanyNameChange}
+            onChange={this.handleChange}
           />
           <input
             name="companyCode"
             type="text"
             placeholder="Company Code"
             value={this.state.companyCode}
-            onChange={this.handleCompanyCodeChange}
+            onChange={this.handleChange}
           />
           <input
             name="email"
             type="email"
             placeholder="E-mail"
             value={this.state.email}
-            onChange={this.handleEmailChange}
+            onChange={this.handleChange}
           />
           <input
             name="phone"
             type="text"
             placeholder="Phone"
             value={this.state.phone}
-            onChange={this.handlePhoneChange}
+            onChange={this.handleChange}
           />
           <input
             name="DOB"
             type="date"
             placeholder="Date of Birth"
             value={this.state.DOB}
-            onChange={this.handleDOBChange}
+            onChange={this.handleChange}
           />
           <input
             name="username"
             type="text"
             placeholder="Username"
             value={this.state.username}
-            onChange={this.handleUserChange}
+            onChange={this.handleChange}
           />
           <input
             name="password"
             type="password"
             placeholder="Password"
             value={this.state.password}
-            onChange={this.handlePasswordChange}
+            onChange={this.handleChange}
           />
           <input
             name="verifyPW"
             type="password"
             placeholder="Verify Password"
             value={this.state.verifyPW}
-            onChange={this.handleVerifyPWChange}
+            onChange={this.handleChange}
           />
           <input
             name="bio"
             type="textarea"
             placeholder="Bio..."
             value={this.state.bio}
-            onChange={this.handleBioChange}
+            onChange={this.handleChange}
           />
           <input
             name="certs"
             type="textarea"
             placeholder="List Certifications..."
             value={this.state.certs}
-            onChange={this.handleCertsChange}
+            onChange={this.handleChange}
           />
           <button type="submit" onClick={this.handleSubmit}>Submit</button>
         </form>
