@@ -16,43 +16,12 @@ class SignUpTravelers extends Component {
       password: '',
       verifyPW: '',
     };
-
-    this.handleFNChange = this.handleFNChange.bind(this);
-    this.handleLNChange = this.handleLNChange.bind(this);
-    this.handleDOBChange = this.handleDOBChange.bind(this);
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handlePhoneChange = this.handlePhoneChange.bind(this);
-    this.handleUserChange = this.handleUserChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    this.handleVerifyPWChange = this.handleVerifyPWChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleFNChange(e) {
-    this.setState({ firstName: e.target.value });
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value});
   }
-  handleLNChange(e) {
-    this.setState({ lastName: e.target.value });
-  }
-  handleDOBChange(e) {
-    this.setState({ DOB: e.target.value });
-  }
-  handleEmailChange(e) {
-    this.setState({ email: e.target.value });
-  }
-  handlePhoneChange(e) {
-    this.setState({ phone: e.target.value });
-  }
-  handleUserChange(e) {
-    this.setState({ username: e.target.value });
-  }
-  handlePasswordChange(e) {
-    this.setState({ password: e.target.value });
-  }
-  handleVerifyPWChange(e) {
-    this.setState({ verifyPW: e.target.value });
-  }
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
     const {
       firstName,
@@ -102,56 +71,56 @@ class SignUpTravelers extends Component {
             type="text"
             placeholder="First Name"
             value={this.state.firstName}
-            onChange={this.handleFNChange}
+            onChange={this.handleChange}
           />
           <input
             name="lastName"
             type="text"
             placeholder="Last Name"
             value={this.state.lastName}
-            onChange={this.handleLNChange}
+            onChange={this.handleChange}
           />
           <input
             name="DOB"
             type="date"
             placeholder="Date of Birth"
             value={this.state.DOB}
-            onChange={this.handleDOBChange}
+            onChange={this.handleChange}
           />
           <input
             name="email"
             type="email"
             placeholder="E-mail"
             value={this.state.email}
-            onChange={this.handleEmailChange}
+            onChange={this.handleChange}
           />
           <input
             name="phone"
             type="text"
             placeholder="Phone"
             value={this.state.phone}
-            onChange={this.handlePhoneChange}
+            onChange={this.handleChange}
           />
           <input
             name="username"
             type="text"
             placeholder="Username"
             value={this.state.username}
-            onChange={this.handleUserChange}
+            onChange={this.handleChange}
           />
           <input
             name="password"
             type="password"
             placeholder="Password"
             value={this.state.password}
-            onChange={this.handlePasswordChange}
+            onChange={this.handleChange}
           />
           <input
             name="verifyPW"
             type="password"
             placeholder="Verify Password"
             value={this.state.verifyPW}
-            onChange={this.handleVerifyPWChange}
+            onChange={this.handleChange}
           />
           <button type="submit" onClick={this.handleSubmit}>Submit</button>
         </form>
