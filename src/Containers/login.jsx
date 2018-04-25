@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './Styles/login.css';
 
 
@@ -9,19 +10,30 @@ class Login extends Component {
       username: '',
       password: '',
     };
-    this.handleUsernameOnChange = this.handleUsernameOnChange.bind(this);
-    this.handlePasswordOnChange = this.handlePasswordOnChange.bind(this);
   }
 
-  handleUsernameOnChange(e) {
-    this.setState({
-      username: e.target.value,
-    });
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
   }
-  handlePasswordOnChange(e) {
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { username, password } = this.state;
+    const user = { username, password };
     this.setState({
-      password: e.target.value,
+      username: '',
+      password: '',
     });
+    axios.post('https://fierce-ridge-55021.herokuapp.com/login', user)
+      .then((response) => {
+        if (response.data.loggedIn) {
+          alert('Logged In!');
+        } else {
+          alert('Incorrect username or password');
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   render() {
@@ -29,21 +41,22 @@ class Login extends Component {
       <div>
         <h1>Login</h1>
         <div className="container">
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <input
               name="username"
               type="text"
               placeholder="Username"
               value={this.state.username}
-              onChange={this.handleUsernameOnChange}
+              onChange={this.handleChange}
             />
             <input
               name="password"
               type="password"
               placeholder="Password"
               value={this.state.password}
-              onChange={this.handlePasswordOnChange}
+              onChange={this.handleChange}
             />
+          <button type="submit" onSubmit={this.handleSubmit}>Login</button>
           </form>
         </div>
       </div>
