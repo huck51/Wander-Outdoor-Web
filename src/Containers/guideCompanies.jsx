@@ -17,6 +17,10 @@ class GuideCompanies extends Component {
         this.setState({
           companies: [...result.data],
         });
+      })
+      .catch((err) => {
+        // eslint-disable-next-line no-console
+        console.log(err);
       });
   }
 

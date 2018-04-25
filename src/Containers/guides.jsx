@@ -19,6 +19,10 @@ class Guides extends Component {
         this.setState({
           guides: [...result.data],
         });
+      })
+      .catch((err) => {
+        // eslint-disable-next-line no-console
+        console.log(err);
       });
   }
 
