@@ -12,6 +12,7 @@ import SignUpGuides from './Containers/signUpGuides';
 import SignUpGC from './Containers/signUpGC';
 import CompanyDashboard from './Containers/companyDashboard';
 import AddTrip from './Containers/addTrip';
+import FourOhFour from './Containers/fourOhFour';
 
 const Main = () => (
   <main>
@@ -28,6 +29,7 @@ const Main = () => (
       <Route exact path="/results" component={Results} />
       <Route exact path="/company/dashboard" component={CompanyDashboard} />
       <Route exact path="/company/add-trip" component={AddTrip} />
+      <Route component={FourOhFour} />
     </Switch>
   </main>
 );
