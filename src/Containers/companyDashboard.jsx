@@ -24,7 +24,7 @@ class CompanyDashboard extends Component {
             <Col md={6}>
               <h3>Trips:</h3>
               <ul />
-              <button><Link to="/company/add-trip">+Add Trip</Link></button>
+              <Link to="/company/add-trip"><button>+Add Trip</button></Link>
             </Col>
             <Col md={6}>
               <h3>Guides:</h3>
