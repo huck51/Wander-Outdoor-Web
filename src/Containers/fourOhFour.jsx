@@ -4,9 +4,9 @@ import './Styles/fourOhFour.css';
 
 
 const FourOhFour = () => (
-  <div>
+  <div className="container foOhFo">
     <h1>The page you are looking for does not exist.</h1>
-    <button><Link to='/'>Return Home</Link></button>
+    <Link to='/'><button className="butn">Return Home</button></Link>
   </div>
 );
 
