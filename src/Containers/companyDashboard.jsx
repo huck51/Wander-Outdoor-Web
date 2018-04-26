@@ -17,19 +17,19 @@ class CompanyDashboard extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container auto">
         <h1>Company Dashboard</h1>
-        <div>
-          <Row>
+        <div className="container auto">
+          <Row className="auto">
             <Col md={6}>
               <h3>Trips:</h3>
-              <ul />
               <Link to="/company/add-trip"><button>+Add Trip</button></Link>
+              <Link to="/company/remove-trip"><button>-Remove Trip</button></Link>
             </Col>
             <Col md={6}>
               <h3>Guides:</h3>
-              <ul />
-              <button>+Add Guide</button>
+              <Link to="/company/add-guide"><button>+Add Guide</button></Link>
+              <Link to="/company/remove-guide"><button>-Remove Guide</button></Link>
             </Col>
           </Row>
         </div>
