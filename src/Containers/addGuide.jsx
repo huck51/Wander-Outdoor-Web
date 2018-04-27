@@ -79,7 +79,7 @@ class AddGuide extends Component {
   render() {
     return (
       <div>
-        <h1>Guide SignUp</h1>
+        <h1>Add Guide</h1>
         <form onSubmit={this.handleSubmit}>
           <input
             name="firstName"
