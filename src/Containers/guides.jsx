@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Styles/guides.css';
 
@@ -34,10 +35,11 @@ class Guides extends Component {
           <ul>
             {this.state.guides.map((guide) => {
               return (
-                <li>
+                <li className="list">
                   <h3>{guide.firstName} {guide.lastName}</h3>
                   <p>{guide.companyName}</p>
                   <p>{guide.bio}</p>
+                  <Link to={`/guides/${guide._id}`}>View Guide</Link>
                 </li>
               );
             })}
