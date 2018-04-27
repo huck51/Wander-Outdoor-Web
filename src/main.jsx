@@ -13,6 +13,9 @@ import SignUpGC from './Containers/signUpGC';
 import CompanyDashboard from './Containers/companyDashboard';
 import AddTrip from './Containers/addTrip';
 import FourOhFour from './Containers/fourOhFour';
+import RemoveTrip from './Containers/removeTrip';
+import AddGuide from './Containers/addGuide';
+import RemoveGuide from './Containers/removeGuide';
 
 const Main = () => (
   <main>
@@ -29,6 +32,9 @@ const Main = () => (
       <Route exact path="/results" component={Results} />
       <Route exact path="/company/dashboard" component={CompanyDashboard} />
       <Route exact path="/company/add-trip" component={AddTrip} />
+      <Route exact path="/company/remove-trip" component={RemoveTrip} />
+      <Route exact path="/company/add-guide" component={AddGuide} />
+      <Route exact path="/company/remove-guide" component={RemoveGuide} />
       <Route component={FourOhFour} />
     </Switch>
   </main>
