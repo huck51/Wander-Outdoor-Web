@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Styles/addGuide.css';
 
 
-class Example extends Component {
+class AddGuide extends Component {
   constructor(props) {
     super(props);
   }
@@ -16,4 +16,4 @@ class Example extends Component {
   }
 }
 
-export default Example;
+export default AddGuide;
