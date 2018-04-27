@@ -34,7 +34,7 @@ const Main = () => (
       <Route exact path="/login" component={Login} />
       <Route exact path="/guiding-companies" component={GuidingCompanies} /> // UPDATE ROUTE
       <Route exact path="/guides" component={Guides} />
-      <Route exact path="/guides/:guideID" component={ViewGuide} /> //UPDATE ROUTE
+      <Route exact path="/guides/:guideID" component={ViewGuide} />
       <Route exact path="/about" component={About} />
       <Route exact path="/results" component={Results} />
       <Route exact path="/company/dashboard" component={CompanyDashboard} />
@@ -42,7 +42,7 @@ const Main = () => (
       <Route exact path="/company/remove-trip" component={RemoveTrip} />
       <Route exact path="/company/add-guide" component={AddGuide} />
       <Route exact path="/company/remove-guide" component={RemoveGuide} />
-      <Route exact path="/company/:companyID" component={ViewCompany} /> // UPDATE ROUTE
+      <Route exact path="/company/:companyID" component={ViewCompany} />
       <Route exact path="/trips/trip" component={ViewTrip} /> // UPDATE ROUTE
       <Route exact path="/travelers/traveler" component={ViewTraveler} /> //UPDATE ROUTE
       <Route component={FourOhFour} />
