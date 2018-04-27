@@ -38,8 +38,8 @@ class Guides extends Component {
                 <li className="list">
                   <h3>{guide.firstName} {guide.lastName}</h3>
                   <p>{guide.companyName}</p>
-                  <p>{guide.bio}</p>
-                  <Link to={`/guides/${guide._id}`}>View Guide</Link>
+                  <p>{guide.certs}</p>
+                  <Link to={`/guides/${guide._id}`}><button className="removeButn">View Guide</button></Link>
                 </li>
               );
             })}
