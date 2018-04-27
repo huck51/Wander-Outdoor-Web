@@ -16,6 +16,12 @@ import FourOhFour from './Containers/fourOhFour';
 import RemoveTrip from './Containers/removeTrip';
 import AddGuide from './Containers/addGuide';
 import RemoveGuide from './Containers/removeGuide';
+import ViewCompany from './Containers/viewCompany';
+import ViewGuide from './Containers/viewGuide';
+import ViewTrip from './Containers/viewTrip';
+import ViewTraveler from './Containers/viewTraveler';
+
+// Reorganize routes
 
 const Main = () => (
   <main>
@@ -26,8 +32,9 @@ const Main = () => (
       <Route exact path="/signup/guide" component={SignUpGuides} />
       <Route exact path="/signup/guiding-company" component={SignUpGC} />
       <Route exact path="/login" component={Login} />
-      <Route exact path="/guiding-companies" component={GuidingCompanies} />
+      <Route exact path="/guiding-companies" component={GuidingCompanies} /> // UPDATE ROUTE
       <Route exact path="/guides" component={Guides} />
+      <Route exact path="/guides/guide" component={ViewGuide} /> //UPDATE ROUTE
       <Route exact path="/about" component={About} />
       <Route exact path="/results" component={Results} />
       <Route exact path="/company/dashboard" component={CompanyDashboard} />
@@ -35,6 +42,9 @@ const Main = () => (
       <Route exact path="/company/remove-trip" component={RemoveTrip} />
       <Route exact path="/company/add-guide" component={AddGuide} />
       <Route exact path="/company/remove-guide" component={RemoveGuide} />
+      <Route exact path="/company/company" component={ViewCompany} /> // UPDATE ROUTE
+      <Route exact path="/trips/trip" component={ViewTrip} /> // UPDATE ROUTE
+      <Route exact path="/travelers/traveler" component={ViewTraveler} /> //UPDATE ROUTE
       <Route component={FourOhFour} />
     </Switch>
   </main>
