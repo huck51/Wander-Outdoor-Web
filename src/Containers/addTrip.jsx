@@ -51,7 +51,7 @@ class AddTrip extends Component {
     return (
       <div>
         <h1>Add Trip</h1>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <input
             name="name"
             type="text"
@@ -80,7 +80,7 @@ class AddTrip extends Component {
             value={this.state.price}
             onChange={this.handleChange}
           />
-          <button type="submit">Submit</button>
+        <button type="submit" onClick={this.handleSubmit}>Submit</button>
         </form>
       </div>
     );
