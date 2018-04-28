@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Styles/removeGuide.css';
 
@@ -42,7 +43,8 @@ class RemoveGuide extends Component {
   render() {
     return (
       <div>
-        <h1>Remove Guide</h1>
+        <h1>Manage Guides</h1>
+        <Link to="/company/add-guide"><button className="addButn">+Add Guide</button></Link>
         <div className="container">
           <ul>
             {this.state.guides.map((guide) => {

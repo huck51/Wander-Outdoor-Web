@@ -1,4 +1,8 @@
 
+.addButn {
+  margin-left: 5em;
+  width: 25%;
+}
 .removeButn {
   height: auto;
   width: auto;

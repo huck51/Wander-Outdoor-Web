@@ -24,12 +24,12 @@ class CompanyDashboard extends Component {
             <Col md={6}>
               <h3>Trips:</h3>
               <Link to="/company/add-trip"><button>+Add Trip</button></Link>
-              <Link to="/company/remove-trip"><button>-Remove Trip</button></Link>
+              <Link to="/company/remove-trip"><button>Manage Trips</button></Link>
             </Col>
             <Col md={6}>
               <h3>Guides:</h3>
               <Link to="/company/add-guide"><button>+Add Guide</button></Link>
-              <Link to="/company/remove-guide"><button>-Remove Guide</button></Link>
+              <Link to="/company/remove-guide"><button>Manage Guides</button></Link>
             </Col>
           </Row>
         </div>
