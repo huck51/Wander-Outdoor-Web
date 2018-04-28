@@ -22,13 +22,9 @@ class CompanyDashboard extends Component {
         <div className="container auto">
           <Row className="auto">
             <Col md={6}>
-              <h3>Trips:</h3>
-              <Link to="/company/add-trip"><button>+Add Trip</button></Link>
               <Link to="/company/remove-trip"><button>Manage Trips</button></Link>
             </Col>
             <Col md={6}>
-              <h3>Guides:</h3>
-              <Link to="/company/add-guide"><button>+Add Guide</button></Link>
               <Link to="/company/remove-guide"><button>Manage Guides</button></Link>
             </Col>
           </Row>
