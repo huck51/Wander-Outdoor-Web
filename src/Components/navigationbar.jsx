@@ -21,20 +21,20 @@ const NavigationBar = () => (
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav>
-        <NavItem eventKey={1} href="#">
+        <li role="presentation">
           <Link to="/">Home</Link>
-        </NavItem>
-        <NavItem eventKey={1} href="#">
+        </li>
+        <li role="presentation">
           <Link to="/guiding-companies">Guiding Companies</Link>
-        </NavItem>
-        <NavItem eventKey={2} href="#">
+        </li>
+        <li role="presentation">
           <Link to="/guides">Guides</Link>
-        </NavItem>
-        <NavItem eventKey={1} href="#">
+        </li>
+        <li role="presentation">
           <Link to="/about">About Us</Link>
-        </NavItem>
+        </li>
         <NavDropdown eventKey={3} title="Profile" id="basic-nav-dropdown">
-          <MenuItem eventKey={3.1}><Link to="/company/dashboard">Dashboard</Link></MenuItem>
+          <li><Link to="/company/dashboard">Dashboard</Link></li>
           <MenuItem eventKey={3.2}>View Public Profile</MenuItem>
           <MenuItem eventKey={3.3}>Messages</MenuItem>
           <MenuItem divider />
@@ -42,12 +42,12 @@ const NavigationBar = () => (
         </NavDropdown>
       </Nav>
       <Nav pullRight>
-        <NavItem eventKey={1} href="#">
+        <li role="presentation">
           <Link to="/signup">Sign Up</Link>
-        </NavItem>
-        <NavItem eventKey={2} href="#">
+        </li>
+        <li role="presentation">
           <Link to="/login">Login</Link>
-        </NavItem>
+        </li>
       </Nav>
     </Navbar.Collapse>
   </Navbar>
