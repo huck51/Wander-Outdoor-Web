@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Styles/removeTrip.css';
 
@@ -42,7 +43,8 @@ class RemoveTrip extends Component {
   render() {
     return (
       <div>
-        <h1>Remove Trip</h1>
+        <h1>Manage Trips</h1>
+        <Link to="/company/add-trip"><button className="addButn">+Add Trip</button></Link>
         <div className="container">
           <ul>
             {this.state.trips.map((trip) => {
