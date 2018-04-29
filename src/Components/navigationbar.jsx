@@ -33,6 +33,9 @@ const NavigationBar = () => (
         <li role="presentation">
           <Link to="/about">About Us</Link>
         </li>
+        <li role="presentation">
+          <Link to="/contact">Contact Us</Link>
+        </li>
         <NavDropdown eventKey={3} title="Profile" id="basic-nav-dropdown">
           <li><Link to="/company/dashboard">Dashboard</Link></li>
           <MenuItem eventKey={3.2}>View Public Profile</MenuItem>

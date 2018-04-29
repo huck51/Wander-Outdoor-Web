@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import Contact from './Containers/contact';
 import Home from './Containers/home';
 import SignUp from './Containers/signUp';
 import Login from './Containers/login';
@@ -45,6 +46,7 @@ const Main = () => (
       <Route exact path="/company/:companyID" component={ViewCompany} />
       <Route exact path="/trips/trip" component={ViewTrip} /> // UPDATE ROUTE
       <Route exact path="/travelers/traveler" component={ViewTraveler} /> //UPDATE ROUTE
+      <Route exact path="/contact" component={Contact} />
       <Route component={FourOhFour} />
     </Switch>
   </main>
