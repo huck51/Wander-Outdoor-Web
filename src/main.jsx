@@ -43,7 +43,7 @@ const Main = () => (
       <Route exact path="/company/remove-trip" component={RemoveTrip} />
       <Route exact path="/company/add-guide" component={AddGuide} />
       <Route exact path="/company/remove-guide" component={RemoveGuide} />
-      <Route exact path="/company/:companyID" component={ViewCompany} />
+      <Route exact path="/company/:companyName" render={(company) => <ViewCompany {...company} />} />
       <Route exact path="/trips/trip" component={ViewTrip} /> // UPDATE ROUTE
       <Route exact path="/travelers/traveler" component={ViewTraveler} /> //UPDATE ROUTE
       <Route exact path="/contact" component={Contact} />

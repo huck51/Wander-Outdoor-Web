@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import axios from 'axios';
+import ViewCompany from './viewCompany';
 import './Styles/guideCompanies.css';
 
 
@@ -37,7 +38,7 @@ class GuideCompanies extends Component {
                   <h3>{company.companyName}</h3>
                   <p>{company.companyAddress}</p>
                   <p>{company.companyPhone}</p>
-                  <Link to={`/company/${company._id}`}><button className="removeButn">View Company</button></Link>
+                  <Link to={`/company/${company.companyName}`}><button className="removeButn">View Company</button></Link>
                 </li>
               );
             })}
