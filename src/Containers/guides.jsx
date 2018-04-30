@@ -39,7 +39,7 @@ class Guides extends Component {
                   <h3>{guide.firstName} {guide.lastName}</h3>
                   <p>{guide.companyName}</p>
                   <p>{guide.certs}</p>
-                  <Link to={`/guides/${guide._id}`}><button className="removeButn">View Guide</button></Link>
+                  <Link to={`/guides/${guide.username}`}><button className="removeButn">View Guide</button></Link>
                 </li>
               );
             })}

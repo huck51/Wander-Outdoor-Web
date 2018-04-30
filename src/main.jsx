@@ -35,7 +35,7 @@ const Main = () => (
       <Route exact path="/login" component={Login} />
       <Route exact path="/guiding-companies" component={GuidingCompanies} /> // UPDATE ROUTE
       <Route exact path="/guides" component={Guides} />
-      <Route exact path="/guides/:guideID" component={ViewGuide} />
+      <Route exact path="/guides/:username" component={ViewGuide} />
       <Route exact path="/about" component={About} />
       <Route exact path="/results" component={Results} />
       <Route exact path="/company/dashboard" component={CompanyDashboard} />
