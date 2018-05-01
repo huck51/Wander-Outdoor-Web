@@ -2,3 +2,7 @@
 .funnelBtn {
   width: 100%;
 }
+.pCenter {
+  margin: 3em auto;
+  text-align: center;
+}

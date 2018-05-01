@@ -19,6 +19,9 @@ const SignUp = () => (
           <Link to="/signup/guiding-company"><button className="funnelBtn">Guiding Company</button></Link>
         </Col>
       </Row>
+      <div className="pCenter">
+        <p className="pCenter">Already have an account? <Link to="/login">Log in</Link></p>
+      </div>
     </div>
   </div>
 );
