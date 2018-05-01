@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Styles/login.css';
 
@@ -58,6 +59,9 @@ class Login extends Component {
             />
           <button type="submit" onSubmit={this.handleSubmit}>Login</button>
           </form>
+        </div>
+        <div className="pCenter">
+          <p>Don't have an account? <Link to="/signup">Sign up!</Link></p>
         </div>
       </div>
     );
