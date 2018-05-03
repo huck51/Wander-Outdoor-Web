@@ -33,7 +33,7 @@ class SearchBar extends Component {
             onChange={this.handleChange}
           />
           <Link to="/results">
-            <Button type="submit">
+            <Button type="submit" className="searchSubmit">
               <i className="fas fa-search" />
             </Button>
           </Link>
