@@ -22,8 +22,11 @@ const stylz = {
   height: '100vh',
 };
 
+const stile = { backgroundColor: 'rgba(104,131,191,1)' };
+
+
 const App = () => (
-  <div style={stylz}>
+  <div style={window.location.pathname === "/" ? stylz : stile}>
     {console.log(window.location)}
     <div id="body">
       <NavigationBar />
