@@ -1,4 +1,17 @@
 
+a:hover {
+  text-decoration: none;
+}
+.btnText {
+  border: none;
+  border-color: rgba(11,143,112,1);
+  padding: 1em;
+  color: rgba(11,143,112,1);
+  font-size: 1.35em;
+  text-shadow: 2px 2px 4px black;
+  text-align: center;
+  justify-content: center;
+}
 .compBtn {
   background-image: url('../../Images/BackgroundImages/choppa.jpg');
   background-position: center;
@@ -8,6 +21,11 @@
 .funnelBtn {
   width: 100%;
   height: 50vh;
+  border: solid 0em rgba(11,143,112,1);
+  box-shadow: 1px 1px 10px black;
+}
+.funnelBtn:hover {
+  transform: translateY(-.5em);
 }
 .guideBtn {
   background-image: url('../../Images/BackgroundImages/hangingGear.jpg');
@@ -20,7 +38,7 @@
   text-align: center;
 }
 .travBtn {
-  background-image: url('../../Images/BackgroundImages/heidiClimb.jpg');
+  background-image: url('../../Images/BackgroundImages/canyonRun.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

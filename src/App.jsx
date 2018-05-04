@@ -9,11 +9,12 @@ import grayTightRope from './Images/BackgroundImages/grayTightRope.jpg';
 import hangingGear from './Images/BackgroundImages/hangingGear.jpg';
 import sunsetClimb from './Images/BackgroundImages/sunsetClimb.jpg';
 import surfing from './Images/BackgroundImages/surfing.jpg';
+import heidiClimb from './Images/BackgroundImages/heidiClimb.jpg';
 import './App.css';
 
 
 const backgroundArray = [bouldering, canyonRun, deepSnowHike, grayTightRope,
-  hangingGear, sunsetClimb, surfing];
+  hangingGear, sunsetClimb, surfing, heidiClimb];
 const rando = Math.floor(Math.random() * backgroundArray.length);
 const stylz = {
   backgroundImage: `url(${backgroundArray[rando]})`,
