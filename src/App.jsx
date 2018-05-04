@@ -11,6 +11,7 @@ import sunsetClimb from './Images/BackgroundImages/sunsetClimb.jpg';
 import surfing from './Images/BackgroundImages/surfing.jpg';
 import './App.css';
 
+
 const backgroundArray = [bouldering, canyonRun, deepSnowHike, grayTightRope,
   hangingGear, sunsetClimb, surfing];
 const rando = Math.floor(Math.random() * backgroundArray.length);

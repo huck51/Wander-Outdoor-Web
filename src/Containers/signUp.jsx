@@ -10,13 +10,13 @@ const SignUp = () => (
     <div className="container">
       <Row>
         <Col md={4}>
-          <Link to="/signup/traveler"><button className="funnelBtn">Traveler</button></Link>
+          <Link to="/signup/traveler"><button className="funnelBtn travBtn">Traveler</button></Link>
         </Col>
         <Col md={4}>
-          <Link to="/signup/guide"><button className="funnelBtn">Guide</button></Link>
+          <Link to="/signup/guide"><button className="funnelBtn guideBtn">Guide</button></Link>
         </Col>
         <Col md={4}>
-          <Link to="/signup/guiding-company"><button className="funnelBtn">Guiding Company</button></Link>
+          <Link to="/signup/guiding-company"><button className="funnelBtn compBtn">Guiding Company</button></Link>
         </Col>
       </Row>
       <div className="pCenter">

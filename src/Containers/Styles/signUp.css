@@ -1,8 +1,27 @@
 
+.compBtn {
+  background-image: url('../../Images/BackgroundImages/choppa.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .funnelBtn {
   width: 100%;
+  height: 50vh;
+}
+.guideBtn {
+  background-image: url('../../Images/BackgroundImages/hangingGear.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .pCenter {
   margin: 3em auto;
   text-align: center;
+}
+.travBtn {
+  background-image: url('../../Images/BackgroundImages/heidiClimb.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
