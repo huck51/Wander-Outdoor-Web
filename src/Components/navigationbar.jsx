@@ -21,19 +21,19 @@ const NavigationBar = () => (
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav>
-        <li role="presentation">
+        <li role="presentation" className="highlight">
           <Link to="/">Home</Link>
         </li>
-        <li role="presentation">
+        <li role="presentation" className="highlight">
           <Link to="/guiding-companies">Guiding Companies</Link>
         </li>
-        <li role="presentation">
+        <li role="presentation" className="highlight">
           <Link to="/guides">Guides</Link>
         </li>
-        <li role="presentation">
+        <li role="presentation" className="highlight">
           <Link to="/about">About Us</Link>
         </li>
-        <li role="presentation">
+        <li role="presentation" className="highlight">
           <Link to="/contact">Contact Us</Link>
         </li>
         <NavDropdown eventKey={3} title="Profile" id="basic-nav-dropdown">
@@ -45,10 +45,10 @@ const NavigationBar = () => (
         </NavDropdown>
       </Nav>
       <Nav pullRight>
-        <li role="presentation">
+        <li role="presentation" className="highlight">
           <Link to="/signup">Sign Up</Link>
         </li>
-        <li role="presentation">
+        <li role="presentation" className="highlight">
           <Link to="/login">Login</Link>
         </li>
       </Nav>
