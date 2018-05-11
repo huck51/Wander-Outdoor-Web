@@ -38,18 +38,15 @@ const NavigationBar = (props) => {
             <li role="presentation" className="highlight">
               <Link to="/contact">Contact Us</Link>
             </li>
-            <NavDropdown eventKey={3} title="Profile" id="basic-nav-dropdown">
+          </Nav>
+          <Nav pullRight>
+            <NavDropdown eventKey={3} title={props.user.firstName} id="basic-nav-dropdown">
               <li><Link to="/company/dashboard">Dashboard</Link></li>
               <MenuItem eventKey={3.2}>View Public Profile</MenuItem>
               <MenuItem eventKey={3.3}>Messages</MenuItem>
               <MenuItem divider />
               <MenuItem eventKey={3.3}>Separated link</MenuItem>
             </NavDropdown>
-          </Nav>
-          <Nav pullRight>
-            <li role="presentation" className="highlight">
-              <Link to="/">{props.user.firstName}</Link>
-            </li>
             <li role="presentation" className="highlight">
               <Link to="/signup">Sign Out</Link>
             </li>
@@ -83,13 +80,6 @@ const NavigationBar = (props) => {
           <li role="presentation" className="highlight">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <NavDropdown eventKey={3} title="Profile" id="basic-nav-dropdown">
-            <li><Link to="/company/dashboard">Dashboard</Link></li>
-            <MenuItem eventKey={3.2}>View Public Profile</MenuItem>
-            <MenuItem eventKey={3.3}>Messages</MenuItem>
-            <MenuItem divider />
-            <MenuItem eventKey={3.3}>Separated link</MenuItem>
-          </NavDropdown>
         </Nav>
         <Nav pullRight>
          <li role="presentation" className="highlight">
