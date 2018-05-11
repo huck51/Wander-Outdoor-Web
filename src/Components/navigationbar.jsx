@@ -46,10 +46,10 @@ const NavigationBar = () => (
       </Nav>
       <Nav pullRight>
         <li role="presentation" className="highlight">
-          <Link to="/signup">Sign Up</Link>
+          <Link to="/login">Login</Link>
         </li>
         <li role="presentation" className="highlight">
-          <Link to="/login">Login</Link>
+          <Link to="/signup">Sign Up</Link>
         </li>
       </Nav>
     </Navbar.Collapse>
