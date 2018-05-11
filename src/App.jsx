@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import NavigationBar from './Components/navigationbar';
 import Main from './main';
 import Footer from './Components/footer';
@@ -27,18 +27,33 @@ const stylz = {
 const stile = { backgroundColor: 'rgba(104,131,191,1)' };
 
 
-const App = () => (
-  <div style={window.location.pathname === "/" ? stylz : stile}>
-    {console.log(window.location)}
-    <div id="body">
-      <NavigationBar />
-      <Main />
-    </div>
-    <div id="footer">
-      <Footer />
-    </div>
-  </div>
-);
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loggedIn: true,
+      user: {
+        firstName: 'Evan',
+        typeOfUser: '',
+      },
+    };
+  }
+
+  render() {
+    return (
+      <div style={window.location.pathname === '/' ? stylz : stile}>
+        {console.log(window.location)}
+        <div id="body">
+          <NavigationBar loggedIn={this.state.loggedIn} user={this.state.user}/>
+          <Main />
+        </div>
+        <div id="footer">
+          <Footer />
+        </div>
+      </div>
+    );
+  }
+}
 
 
 export default App;

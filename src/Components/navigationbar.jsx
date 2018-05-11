@@ -11,49 +11,97 @@ import { Link } from 'react-router-dom';
 import Logo from '../Images/WanderLogoWide.png';
 import './Styles/navigationbar.css';
 
-const NavigationBar = () => (
-  <Navbar collapseOnSelect>
-    <Navbar.Header>
-      <Navbar.Brand>
-        <a href="#brand"><Image id="navlogo" src={Logo} responsive /></a>
-      </Navbar.Brand>
-      <Navbar.Toggle />
-    </Navbar.Header>
-    <Navbar.Collapse>
-      <Nav>
-        <li role="presentation" className="highlight">
-          <Link to="/">Home</Link>
-        </li>
-        <li role="presentation" className="highlight">
-          <Link to="/guiding-companies">Guiding Companies</Link>
-        </li>
-        <li role="presentation" className="highlight">
-          <Link to="/guides">Guides</Link>
-        </li>
-        <li role="presentation" className="highlight">
-          <Link to="/about">About Us</Link>
-        </li>
-        <li role="presentation" className="highlight">
-          <Link to="/contact">Contact Us</Link>
-        </li>
-        <NavDropdown eventKey={3} title="Profile" id="basic-nav-dropdown">
-          <li><Link to="/company/dashboard">Dashboard</Link></li>
-          <MenuItem eventKey={3.2}>View Public Profile</MenuItem>
-          <MenuItem eventKey={3.3}>Messages</MenuItem>
-          <MenuItem divider />
-          <MenuItem eventKey={3.3}>Separated link</MenuItem>
-        </NavDropdown>
-      </Nav>
-      <Nav pullRight>
-        <li role="presentation" className="highlight">
-          <Link to="/login">Login</Link>
-        </li>
-        <li role="presentation" className="highlight">
-          <Link to="/signup">Sign Up</Link>
-        </li>
-      </Nav>
-    </Navbar.Collapse>
-  </Navbar>
-);
+const NavigationBar = (props) => {
+  if (props.loggedIn) {
+    return (
+      <Navbar collapseOnSelect>
+        <Navbar.Header>
+          <Navbar.Brand>
+            <a href="#brand"><Image id="navlogo" src={Logo} responsive /></a>
+          </Navbar.Brand>
+          <Navbar.Toggle />
+        </Navbar.Header>
+        <Navbar.Collapse>
+          <Nav>
+            <li role="presentation" className="highlight">
+              <Link to="/">Home</Link>
+            </li>
+            <li role="presentation" className="highlight">
+              <Link to="/guiding-companies">Guiding Companies</Link>
+            </li>
+            <li role="presentation" className="highlight">
+              <Link to="/guides">Guides</Link>
+            </li>
+            <li role="presentation" className="highlight">
+              <Link to="/about">About Us</Link>
+            </li>
+            <li role="presentation" className="highlight">
+              <Link to="/contact">Contact Us</Link>
+            </li>
+            <NavDropdown eventKey={3} title="Profile" id="basic-nav-dropdown">
+              <li><Link to="/company/dashboard">Dashboard</Link></li>
+              <MenuItem eventKey={3.2}>View Public Profile</MenuItem>
+              <MenuItem eventKey={3.3}>Messages</MenuItem>
+              <MenuItem divider />
+              <MenuItem eventKey={3.3}>Separated link</MenuItem>
+            </NavDropdown>
+          </Nav>
+          <Nav pullRight>
+            <li role="presentation" className="highlight">
+              <Link to="/">{props.user.firstName}</Link>
+            </li>
+            <li role="presentation" className="highlight">
+              <Link to="/signup">Sign Out</Link>
+            </li>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    );
+  }
+  return (
+    <Navbar collapseOnSelect>
+      <Navbar.Header>
+        <Navbar.Brand>
+          <a href="#brand"><Image id="navlogo" src={Logo} responsive /></a>
+        </Navbar.Brand>
+        <Navbar.Toggle />
+      </Navbar.Header>
+      <Navbar.Collapse>
+        <Nav>
+          <li role="presentation" className="highlight">
+            <Link to="/">Home</Link>
+          </li>
+          <li role="presentation" className="highlight">
+            <Link to="/guiding-companies">Guiding Companies</Link>
+          </li>
+          <li role="presentation" className="highlight">
+            <Link to="/guides">Guides</Link>
+          </li>
+          <li role="presentation" className="highlight">
+            <Link to="/about">About Us</Link>
+          </li>
+          <li role="presentation" className="highlight">
+            <Link to="/contact">Contact Us</Link>
+          </li>
+          <NavDropdown eventKey={3} title="Profile" id="basic-nav-dropdown">
+            <li><Link to="/company/dashboard">Dashboard</Link></li>
+            <MenuItem eventKey={3.2}>View Public Profile</MenuItem>
+            <MenuItem eventKey={3.3}>Messages</MenuItem>
+            <MenuItem divider />
+            <MenuItem eventKey={3.3}>Separated link</MenuItem>
+          </NavDropdown>
+        </Nav>
+        <Nav pullRight>
+         <li role="presentation" className="highlight">
+           <Link to="/login">Login</Link>
+         </li>
+         <li role="presentation" className="highlight">
+           <Link to="/signup">Sign Up</Link>
+         </li>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  );
+}
 
 export default NavigationBar;
