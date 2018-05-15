@@ -6,9 +6,8 @@ a:hover {
   border: none;
   border-color: rgba(11,143,112,1);
   padding: 1em;
-  color: rgba(11,143,112,1);
+  color: black;
   font-size: 1.35em;
-  text-shadow: 2px 2px 4px black;
   text-align: center;
   justify-content: center;
 }

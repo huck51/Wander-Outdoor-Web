@@ -8,7 +8,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <div>
+        <div className="sbRug">
           <h2 id="topQ">Where will you wander?</h2>
           <SearchBar id="LPSearch" />
           <h2 id="bottomQ">What will you do?</h2>

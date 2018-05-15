@@ -4,12 +4,10 @@
   margin: 0;
   min-height: 5em;
 }
-.highlight:active {
-  border-bottom: .25em solid rgba(82, 114, 196,1);
+.highlight {
+  font-family: 'Julius Sans One', sans-serif;
 }
-.highlight:hover {
-  border-bottom: .25em solid rgba(82, 154, 196,1);
-}
+
 .nav {
   margin: 1em;
   font-size: 1.25em;
@@ -25,6 +23,20 @@
 }
 .navbar-header {
   min-height: 5em;
+}
+.navbar-default .navbar-nav>li>a {
+  color: black;
+  padding-left: .25em;
+  padding-right: .25em;
+  margin: 0 .25em;
+}
+.navbar-default .navbar-nav>li>a:focus {
+  color: rgba(82,154,196,1);
+  border-bottom: .25em solid rgba(82, 154, 196,1);
+}
+.navbar-default .navbar-nav>li>a:hover {
+  color: rgba(82,154,196,1);
+  border-bottom: .25em solid rgba(82, 154, 196,1);
 }
 #navlogo {
   height: 100%;
