@@ -9,21 +9,21 @@ form {
   width: 75%;
   margin: auto;
 }
-input {
+.inputStyle {
   display: inline-block;
   width: 90%;
-  border: solid 1px gray;
+  border: solid 1px #ccc;
   border-radius: 5px;
-  height: 2.5em;
+  height: 2.35em;
   padding: 1em;
   font-size: 1.5em;
   line-height: normal;
   vertical-align: middle;
 }
 .searchSubmit {
-  height: 3.5em;
-  width: 3.5em;
-  font-size: 1em;
-  padding: 0;
-  line-height: normal;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  width: 4em;
 }

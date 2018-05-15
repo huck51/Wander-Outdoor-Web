@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, InputGroup, FormGroup, FormControl } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './Styles/searchbar.css';
@@ -26,17 +26,24 @@ class SearchBar extends Component {
     return (
       <div>
         <form>
-          <input
-            type="text"
-            placeholder="Search..."
-            value={this.state.value}
-            onChange={this.handleChange}
-          />
-          <Link to="/results">
-            <Button type="submit" className="searchSubmit">
-              <i className="fas fa-search" />
-            </Button>
-          </Link>
+          <FormGroup>
+            <InputGroup>
+              <FormControl
+                className="inputStyle"
+                type="text"
+                placeholder="Search..."
+                value={this.state.value}
+                onChange={this.handleChange}
+              />
+            <InputGroup.Button>
+                <Link to="/results">
+                  <Button type="submit" className="searchSubmit">
+                    <i className="fas fa-search" />
+                  </Button>
+                </Link>
+              </InputGroup.Button>
+            </InputGroup>
+          </FormGroup>
         </form>
       </div>
     );
