@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { CircleLoader } from 'react-spinners';
 import axios from 'axios';
 import './Styles/guides.css';
 
@@ -9,6 +11,7 @@ class Guides extends Component {
     super(props);
     this.state = {
       guides: [],
+      loading: true,
     };
   }
 
@@ -19,11 +22,15 @@ class Guides extends Component {
         console.log(result);
         this.setState({
           guides: [...result.data],
+          loading: false,
         });
       })
       .catch((err) => {
         // eslint-disable-next-line no-console
         console.log(err);
+        this.setState({
+          loading: false,
+        });
       });
   }
 
@@ -32,6 +39,14 @@ class Guides extends Component {
       <div>
         <h1>GUIDES</h1>
         <div>
+          <Row>
+            <Col md={2} mdOffset={5}>
+              <CircleLoader
+                loading={this.state.loading}
+                size={75}
+              />
+            </Col>
+          </Row>
           <ul>
             {this.state.guides.map((guide) => {
               return (
