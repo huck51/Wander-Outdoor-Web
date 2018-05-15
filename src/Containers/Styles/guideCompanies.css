@@ -1,8 +1,12 @@
 
+ul {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
 .list {
   border: solid black 2px;
   margin: 1em;
   list-style: none;
   padding: 1em;
-  width: 35%;
+  width: 30%;
 }
