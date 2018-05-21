@@ -48,6 +48,7 @@ const Main = () => (
       <Route exact path="/travelers/traveler" component={ViewTraveler} /> //UPDATE ROUTE
       <Route exact path="/contact" component={Contact} />
       <Route component={FourOhFour} />
+      <Route exact path="/404-not-found" component={FourOhFour} />
     </Switch>
   </main>
 );
