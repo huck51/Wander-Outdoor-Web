@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Auth from '../auth';
 import './Styles/login.css';
 
 
@@ -36,6 +37,10 @@ class Login extends Component {
         console.log(err);
       });
   }
+  testAuth = () => {
+    const auth = new Auth();
+    auth.login();
+  }
 
   render() {
     return (
@@ -60,6 +65,7 @@ class Login extends Component {
           <button type="submit" onSubmit={this.handleSubmit}>Login</button>
           </form>
         </div>
+        <button onClick={this.testAuth}>Test</button>
         <div className="pCenter">
           <p>Don't have an account? <Link to="/signup">Sign up!</Link></p>
         </div>

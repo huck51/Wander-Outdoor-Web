@@ -7,7 +7,17 @@
 .highlight {
   font-family: 'Julius Sans One', sans-serif;
 }
-
+.logBtn {
+  font-family: 'Julius Sans One', sans-serif;
+  border: none;
+  background-color: transparent;
+  height: auto;
+  width: auto;
+  margin: 0 .5em;
+  padding: 1em 0;
+  line-height: normal;
+  font-size: 1em;
+}
 .nav {
   margin: 1em;
   font-size: 1.25em;

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { Link, Route } from 'react-router-dom';
 import { CircleLoader } from 'react-spinners';
+import Main from '../main';
 import axios from 'axios';
 import ViewCompany from './viewCompany';
 import './Styles/guideCompanies.css';

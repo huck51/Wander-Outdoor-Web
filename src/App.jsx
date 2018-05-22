@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Auth from './auth';
 import NavigationBar from './Components/navigationbar';
 import Main from './main';
 import Footer from './Components/footer';
@@ -33,18 +34,35 @@ class App extends Component {
     this.state = {
       loggedIn: false,
       user: {
-        firstName: '',
+        username: '',
         typeOfUser: '',
       },
     };
   }
 
+  componentWillMount() {
+    console.log(localStorage);
+    const auth = new Auth();
+    const loggedIn = auth.isAuthenticated();
+    if (loggedIn !== this.state.loggedIn) {
+      this.setState({
+        loggedIn,
+        user: {
+          username: localStorage.getItem('nickname'),
+        },
+      });
+    }
+  }
+
+  componentDIdMount() {
+
+  }
+
   render() {
     return (
       <div style={window.location.pathname === '/' ? stylz : stile}>
-        {console.log(window.location)}
         <div id="body">
-          <NavigationBar loggedIn={this.state.loggedIn} user={this.state.user}/>
+          <NavigationBar loggedIn={this.state.loggedIn} user={this.state.user} />
           <Main />
         </div>
         <div id="footer">
