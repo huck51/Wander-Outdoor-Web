@@ -3,12 +3,12 @@ import jwt from 'jsonwebtoken';
 
 export default class Auth {
   auth0 = new auth0.WebAuth({
-    domain: '',
-    clientID: '',
-    redirectUri: '',
-    audience: '',
-    responseType: '',
-    scope: '',
+    domain: 'process.env.DOMAIN',
+    clientID: 'process.env.CLIENT_ID',
+    redirectUri: 'process.env.REDIRECT',
+    audience: 'process.env.AUDIENCE',
+    responseType: 'token id_token',
+    scope: 'openid profile',
   });
   constructor() {
     this.login = this.login.bind(this);
