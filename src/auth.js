@@ -3,12 +3,12 @@ import jwt from 'jsonwebtoken';
 
 export default class Auth {
   auth0 = new auth0.WebAuth({
-    domain: 'wander-outdoor.auth0.com',
-    clientID: 'zpnOD7d1cRpdrrfAsD950lpwIbRFSJli',
-    redirectUri: 'http://localhost:3000/authload',
-    audience: 'https://wander-outdoor.auth0.com/userinfo',
-    responseType: 'token id_token',
-    scope: 'openid profile',
+    domain: '',
+    clientID: '',
+    redirectUri: '',
+    audience: '',
+    responseType: '',
+    scope: '',
   });
   constructor() {
     this.login = this.login.bind(this);
