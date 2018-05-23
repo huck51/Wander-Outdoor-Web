@@ -3,10 +3,10 @@ import jwt from 'jsonwebtoken';
 
 export default class Auth {
   auth0 = new auth0.WebAuth({
-    domain: 'process.env.DOMAIN',
-    clientID: 'process.env.CLIENT_ID',
-    redirectUri: 'process.env.REDIRECT',
-    audience: 'process.env.AUDIENCE',
+    domain: process.env.REACT_APP_DOMAIN,
+    clientID: process.env.REACT_APP_CLIENT_ID,
+    redirectUri: 'http://wander-outdoor-temp.herokuapp.com/authload, ',
+    audience: process.env.REACT_APP_AUDIENCE,
     responseType: 'token id_token',
     scope: 'openid profile',
   });

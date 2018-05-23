@@ -41,7 +41,7 @@ class App extends Component {
   }
 
   componentWillMount() {
-    console.log(process.env.DOMAIN);
+    console.log(process.env.REACT_APP_DOMAIN);
     console.log(localStorage);
     const auth = new Auth();
     const loggedIn = auth.isAuthenticated();
