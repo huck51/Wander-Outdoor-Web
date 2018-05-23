@@ -42,7 +42,6 @@ const Main = () => (
       <Route exact path="/signup/traveler" component={SignUpTravelers} />
       <Route exact path="/signup/guide" component={SignUpGuides} />
       <Route exact path="/signup/guiding-company" component={SignUpGC} />
-      <Route exact path="/login" component={Login} />
       <Route exact path="/guiding-companies" component={GuidingCompanies} /> // UPDATE ROUTE
       <Route exact path="/guides" component={Guides} />
       <Route exact path="/guides/:username" render={props => <ViewGuide auth={auth} {...props} />} />
