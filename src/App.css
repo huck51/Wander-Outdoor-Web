@@ -37,12 +37,28 @@ main {
   bottom: 0;
   width: 100%;
 }
-#topQ {
-  margin-left: 5em;
-  margin-top: 5em;
-  margin-bottom: .75em;
+@media screen and (max-width: 800px) {
+  #topQ {
+    margin: auto;
+    text-align: center;
+  }
 }
-#bottomQ {
-  text-align: right;
-  margin-right: 8em;
+@media screen and (max-width: 800px) {
+  #bottomQ {
+    margin: auto;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 801px) {
+  #topQ {
+    margin-left: 5em;
+    margin-top: 5em;
+    margin-bottom: .75em;
+  }
+}
+@media screen and (min-width: 801px) {
+  #bottomQ {
+    text-align: right;
+    margin-right: 8em;
+  }
 }
