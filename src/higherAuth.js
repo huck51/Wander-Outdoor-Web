@@ -1,6 +1,10 @@
+import Auth from './auth';
 
-const HigherAuth = (auth, component) => {
-  if (auth.isAuthenticated()) {
+const HigherAuth = (component) => {
+  const auth = new Auth();
+  const loggedIn = auth.isAuthenticated();
+  console.log(loggedIn);
+  if (loggedIn) {
     return component;
   }
   return null;

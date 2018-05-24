@@ -45,7 +45,7 @@ const Main = () => (
       <Route exact path="/guiding-companies" component={GuidingCompanies} /> // UPDATE ROUTE
       <Route exact path="/guides" component={Guides} />
       <Route exact path="/guides/:username" render={props => <ViewGuide auth={auth} {...props} />} />
-      <Route exact path="/about" component={HigherAuth(auth, About)} />
+      <Route exact path="/about" component={HigherAuth(About)} />
       <Route exact path="/results" component={Results} />
       <Route exact path="/company/dashboard" render={props => <CompanyDashboard auth={auth} {...props} />} />
       <Route exact path="/company/add-trip" component={AddTrip} />
