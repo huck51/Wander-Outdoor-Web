@@ -41,12 +41,16 @@
   margin: 0 .25em;
 }
 .navbar-default .navbar-nav>li>a:focus {
-  color: rgba(82,154,196,1);
-  border-bottom: .25em solid rgba(82, 154, 196,1);
+  color: rgba(55,131,182,1);
+  border-bottom: .25em solid rgba(55,131,182,1);
 }
 .navbar-default .navbar-nav>li>a:hover {
   color: rgba(82,154,196,1);
-  border-bottom: .25em solid rgba(82, 154, 196,1);
+  border-bottom: .25em solid rgba(55,131,182,1);
+}
+.navbar-toggle {
+  width: 2em;
+  padding: auto;
 }
 #navlogo {
   height: 100%;
