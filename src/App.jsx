@@ -57,8 +57,9 @@ class App extends Component {
 
   componentDidMount() {
     const token = localStorage.getItem('access_token');
+    const email = localStorage.getItem('email');
     const options = {
-      qs: { q: 'name:"jane smith"', search_engine: 'v3' },
+      qs: { q: `email: ${email}`, search_engine: 'v3' },
       headers: { authorization: `Bearer ${token}` },
     };
     axios.get('https://wander-outdoor.auth0.com/api/v2/users', options)
