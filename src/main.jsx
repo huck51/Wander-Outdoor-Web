@@ -37,11 +37,7 @@ const handleAuthentication = ({ location }) => {
 const Main = () => (
   <main>
     <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/account-info/:id" component={HigherAuth(AccountInfo)} />
-      <Route exact path="/edit-profile/:id" component={HigherAuth(EditProfile)} />
-      <Route exact path="/profile/:id" component={ViewTraveler} />
-      <Route exact path="/inbox/:id" component={HigherAuth(Inbox)} />
+      
       <Route exact path="/signup" component={SignUp} />
       <Route exact path="/signup/traveler" component={SignUpTravelers} />
       <Route exact path="/signup/guide" component={SignUpGuides} />
