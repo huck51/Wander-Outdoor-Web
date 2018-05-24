@@ -8,7 +8,7 @@ export default class Auth {
     redirectUri: process.env.REACT_APP_REDIRECT,
     audience: process.env.REACT_APP_AUDIENCE,
     responseType: 'token id_token',
-    scope: 'openid profile',
+    scope: 'openid profile email',
   });
   constructor() {
     this.login = this.login.bind(this);
@@ -47,6 +47,7 @@ export default class Auth {
     localStorage.setItem('id_token', sesh.idToken);
     localStorage.setItem('expires_at', expiresAt);
     localStorage.setItem('nickname', prof.nickname);
+    localStorage.setItem('email', prof.email);
     window.location = '/';
   }
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import Auth from './auth';
 import NavigationBar from './Components/navigationbar';
 import Main from './main';
@@ -32,14 +33,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loggedIn: false,
+      loggedIn: true,
       user: {
         username: '',
-        typeOfUser: '',
+        email: '',
       },
     };
   }
-
+  /*
   componentWillMount() {
     console.log(process.env.REACT_APP_REDIRECT);
     console.log(localStorage);
@@ -50,13 +51,14 @@ class App extends Component {
         loggedIn,
         user: {
           username: localStorage.getItem('nickname'),
+          email: localStorage.getItem('email'),
         },
       });
     }
   }
-
+  */
   componentDIdMount() {
-
+    axios.
   }
 
   render() {
