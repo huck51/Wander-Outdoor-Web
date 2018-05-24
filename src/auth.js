@@ -43,6 +43,7 @@ export default class Auth {
   setSession(sesh) {
     const expiresAt = JSON.stringify((sesh.expiresIn * 1000) + new Date().getTime());
     const prof = jwt.decode(sesh.idToken);
+    console.log(prof);
     localStorage.setItem('access_token', sesh.accessToken);
     localStorage.setItem('id_token', sesh.idToken);
     localStorage.setItem('expires_at', expiresAt);

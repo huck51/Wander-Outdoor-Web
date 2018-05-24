@@ -1,14 +1,17 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import HigherAuth from './higherAuth';
+import AccountInfo from './Containers/accountInfo';
 import Auth from './auth';
 import AuthLoad from './Components/authLoad';
 import Contact from './Containers/contact';
+import EditProfile from './Containers/editProfile';
 import Home from './Containers/home';
 import SignUp from './Containers/signUp';
 import Login from './Containers/login';
 import GuidingCompanies from './Containers/guideCompanies';
 import Guides from './Containers/guides';
+import Inbox from './Containers/inbox';
 import About from './Containers/about';
 import Results from './Containers/results';
 import SignUpTravelers from './Containers/signUpTravelers';
@@ -38,7 +41,10 @@ const Main = () => (
   <main>
     <Switch>
       <Route exact path="/" component={Home} />
-      
+      <Route exact path="/account-info/:id" component={HigherAuth(AccountInfo)} />
+      <Route exact path="/edit-profile/:id" component={HigherAuth(EditProfile)} />
+      <Route exact path="/profile/:id" component={ViewTraveler} />
+      <Route exact path="/inbox/:id" component={HigherAuth(Inbox)} />
       <Route exact path="/signup" component={SignUp} />
       <Route exact path="/signup/traveler" component={SignUpTravelers} />
       <Route exact path="/signup/guide" component={SignUpGuides} />
