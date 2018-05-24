@@ -26,7 +26,7 @@ const stylz = {
   height: '100vh',
 };
 
-const stile = { backgroundColor: 'rgba(104,131,191,1)' };
+const stile = { backgroundColor: 'white' };
 
 
 class App extends Component {

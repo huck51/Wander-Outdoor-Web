@@ -1,4 +1,7 @@
 
+p {
+  font-family: 'Josefin Sans', sans-serif;
+}
 ul {
   display: inline-flex;
   flex-wrap: wrap;
