@@ -37,6 +37,7 @@ const handleAuthentication = ({ location }) => {
 const Main = () => (
   <main>
     <Switch>
+      <Route exact path="/" component={Home} />
       
       <Route exact path="/signup" component={SignUp} />
       <Route exact path="/signup/traveler" component={SignUpTravelers} />
