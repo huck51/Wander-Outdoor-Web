@@ -55,8 +55,20 @@ class App extends Component {
     }
   }
 
-  componentDIdMount() {
-
+  componentDidMount() {
+    const token = localStorage.getItem('access_token');
+    const options = {
+      qs: { q: 'name:"jane smith"', search_engine: 'v3' },
+      headers: { authorization: `Bearer ${token}` },
+    };
+    axios.get('https://wander-outdoor.auth0.com/api/v2/users', options)
+      .then((response) => {
+        console.log(response);
+        this.setState({ response });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
 
   render() {
