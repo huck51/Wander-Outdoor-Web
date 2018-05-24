@@ -3,6 +3,12 @@ body {
   background-color: white;
   min-height: 100%;
   margin-bottom: 5em;
+  width: 100%;
+  overflow: hidden;
+}
+html {
+  width: 100%;
+  overflow: hidden;
 }
 h1, h2, h4, h5, h6, p {
   font-family: 'Julius Sans One', sans-serif;

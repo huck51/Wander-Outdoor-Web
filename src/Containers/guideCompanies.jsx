@@ -47,17 +47,21 @@ class GuideCompanies extends Component {
               />
             </Col>
           </Row>
-          <ul>
-            {this.state.companies.map((company) => {
-              return (
-                <li className="list">
-                  <h3>{company.companyName}</h3>
-                  <p>{company.companyAddress}</p>
-                  <p>{company.companyPhone}</p>
-                  <Link to={`/company/${company.companyName}`}><button className="removeButn">View Company</button></Link>
-                </li>
-              );
-            })}
+          <ul className="guideUl">
+            <Row className="container">
+              {this.state.companies.map((company) => {
+                return (
+                  <Col xs={12} sm={6} md={4} lg={3}>
+                    <li className="list">
+                      <h3>{company.companyName}</h3>
+                      <p>{company.companyAddress}</p>
+                      <p>{company.companyPhone}</p>
+                      <Link to={`/company/${company.companyName}`}><button className="removeButn">View Company</button></Link>
+                    </li>
+                  </Col>
+                );
+              })}
+            </Row>
           </ul>
         </div>
       </div>

@@ -33,16 +33,15 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loggedIn: false,
+      loggedIn: true,
       user: {
         username: '',
         email: '',
       },
     };
   }
-
+  /*
   componentWillMount() {
-    console.log(process.env.REACT_APP_REDIRECT);
     const auth = new Auth();
     const loggedIn = auth.isAuthenticated();
     if (loggedIn !== this.state.loggedIn) {
@@ -55,7 +54,7 @@ class App extends Component {
       });
     }
   }
-
+  */
   componentDIdMount() {
 
   }

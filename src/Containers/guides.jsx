@@ -47,17 +47,21 @@ class Guides extends Component {
               />
             </Col>
           </Row>
-          <ul>
-            {this.state.guides.map((guide) => {
-              return (
-                <li className="list">
-                  <h3>{guide.firstName} {guide.lastName}</h3>
-                  <p>{guide.companyName}</p>
-                  <p>{guide.certs}</p>
-                  <Link to={`/guides/${guide.username}`}><button className="removeButn">View Guide</button></Link>
-                </li>
-              );
-            })}
+          <ul className="guideUl">
+            <Row className="container">
+              {this.state.guides.map((guide) => {
+                return (
+                  <Col xs={12} sm={6} md={4} lg={3}>
+                    <li className="list">
+                      <h3>{guide.firstName} {guide.lastName}</h3>
+                      <p>{guide.companyName}</p>
+                      <p>{guide.certs}</p>
+                      <Link to={`/guides/${guide.username}`}><button className="removeButn">View Guide</button></Link>
+                    </li>
+                  </Col>
+                );
+              })}
+            </Row>
           </ul>
         </div>
       </div>
