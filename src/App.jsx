@@ -56,7 +56,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const token = localStorage.getItem('access_token');
+    const token = process.env.REACT_APP_TOKEN;
     const email = localStorage.getItem('email');
     const options = {
       qs: { q: `email: ${email}`, search_engine: 'v3' },
