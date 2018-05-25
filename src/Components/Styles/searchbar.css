@@ -9,17 +9,6 @@ form {
   width: 75%;
   margin: auto;
 }
-input {
-  display: inline-block;
-  width: 90%;
-  border: solid 1px #ccc;
-  border-radius: 5px;
-  height: 2.35em;
-  padding: 1em;
-  font-size: 1.5em;
-  line-height: normal;
-  vertical-align: middle;
-}
 .inputStyle {
   display: inline-block;
   width: 90%;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FormGroup, HelpBlock, Radio } from 'react-bootstrap';
 import FieldGroup from '../Components/fieldGroup';
 import './Styles/editProfile.css';
 
@@ -17,6 +18,11 @@ class EditProfile extends Component {
         <h1>EDIT PROFILE</h1>
         <div className="container">
           <form>
+            <FormGroup>
+              <Radio inline>Guide</Radio>
+              <Radio inline>Expolorer</Radio>
+              <HelpBlock>*Please only select "Guide" if you are a certified guide currently employed by a company</HelpBlock>
+            </FormGroup>
             <FieldGroup
               type="text"
               label="Test 1"
