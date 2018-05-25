@@ -1,11 +1,6 @@
 
-button {
-  display: inline-block;
-  height: 3.5em;
-  width: 3.5em;
-  font-size: 1.5em;
-}
-form {
+
+.sbForm {
   width: 75%;
   margin: auto;
 }
@@ -14,7 +9,7 @@ form {
   width: 90%;
   border: solid 1px #ccc;
   border-radius: 5px;
-  height: 2.35em;
+  height: 2.2em;
   padding: 1em;
   font-size: 1.5em;
   line-height: normal;
@@ -25,5 +20,5 @@ form {
   border-bottom-right-radius: 5px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-  width: 4em;
+  width: 3em;
 }

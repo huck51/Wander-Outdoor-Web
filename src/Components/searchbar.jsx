@@ -25,7 +25,7 @@ class SearchBar extends Component {
   render() {
     return (
       <div>
-        <form>
+        <form className="sbForm" onSubmit={this.handleSubmit}>
           <FormGroup>
             <InputGroup>
               <FormControl
@@ -37,7 +37,7 @@ class SearchBar extends Component {
               />
             <InputGroup.Button>
                 <Link to="/results">
-                  <Button type="submit" className="searchSubmit">
+                  <Button type="submit" className="searchSubmit btn-lg">
                     <i className="fas fa-search" />
                   </Button>
                 </Link>

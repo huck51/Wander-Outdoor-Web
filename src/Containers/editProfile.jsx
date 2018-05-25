@@ -12,12 +12,16 @@ class EditProfile extends Component {
     };
   }
 
+  handleSubmit = () => {
+
+  }
+
   render() {
     return (
       <div>
         <h1>EDIT PROFILE</h1>
         <div className="container">
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <FormGroup>
               <Radio inline>Guide</Radio>
               <Radio inline>Expolorer</Radio>
@@ -38,6 +42,11 @@ class EditProfile extends Component {
               label="Test 3"
               placeholder="Placeholder 3"
             />
+          <button
+            className="epSaveBtn" 
+            type="submit"
+            onClick={this.handleSubmit}
+            >Save</button>
           </form>
         </div>
       </div>
