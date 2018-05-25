@@ -69,7 +69,7 @@ class App extends Component {
           id: process.env.REACT_APP_CAT.concat(data.identities[0].user_id),
           email: data.email,
         };
-        axios.post('https://fierce-ridge-55021.herokuapp.com', secondaryOptions)
+        axios.post('https://fierce-ridge-55021.herokuapp.com/signup-newuser', secondaryOptions)
           .then((response) => {
             alert('success');
             console.log(response);
