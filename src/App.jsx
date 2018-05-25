@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Auth from './auth';
-import NavigationBar from './Components/navigationbar';
-import Main from './main';
 import Footer from './Components/footer';
+import Main from './main';
+import NavigationBar from './Components/navigationbar';
 import bouldering from './Images/BackgroundImages/bouldering.jpg';
 import canyonRun from './Images/BackgroundImages/canyonRun.jpg';
 import deepSnowHike from './Images/BackgroundImages/deepSnowHike.jpg';
 import grayTightRope from './Images/BackgroundImages/grayTightRope.jpg';
+import heidiClimb from './Images/BackgroundImages/heidiClimb.jpg';
 import hangingGear from './Images/BackgroundImages/hangingGear.jpg';
 import sunsetClimb from './Images/BackgroundImages/sunsetClimb.jpg';
 import surfing from './Images/BackgroundImages/surfing.jpg';
-import heidiClimb from './Images/BackgroundImages/heidiClimb.jpg';
 import './App.css';
 
 
