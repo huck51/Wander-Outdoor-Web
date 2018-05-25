@@ -64,8 +64,19 @@ class App extends Component {
     };
     axios.get('https://wander-outdoor.auth0.com/api/v2/users', options)
       .then((response) => {
-        console.log(response);
-        this.setState({ response });
+        const data = response.data[0];
+        const secondaryOptions = {
+          id: process.env.REACT_APP_CAT.concat(data.identities[0].user_id),
+          email: data.email,
+        };
+        axios.post('https://fierce-ridge-55021.herokuapp.com', secondaryOptions)
+          .then((response) => {
+            alert('success');
+            console.log(response);
+          })
+          .catch((err) => {
+            console.error(err);
+          });
       })
       .catch((err) => {
         console.error(err);
