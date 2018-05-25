@@ -18,6 +18,23 @@ class EditProfile extends Component {
     };
   }
 
+  componentDidMount() {
+    const id = localStorage.getItem('id');
+    axios.get('https://fierce-ridge-55021.herokuapp.com/find-user', id)
+      .then((response) => {
+        const { test1, test2, test3, roleGroup } = response.data;
+        this.setState({
+          test1,
+          test2,
+          test3,
+          roleGroup,
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
   handleClick = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
@@ -32,7 +49,22 @@ class EditProfile extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    axios.put('https://fierce-ridge-55021.herokuapp.com/update-profile');
+    const { test1, test2, test3, roleGroup } = this.state;
+    const updateObject = { test1, test2, test3, roleGroup };
+    axios.put('https://fierce-ridge-55021.herokuapp.com/update-profile', updateObject)
+      .then((response) => {
+        const { test1, test2, test3, roleGroup } = response.data;
+        this.setState({
+          test1,
+          test2,
+          test3,
+          roleGroup,
+        });
+        alert('Successfully updated');
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
 
   render() {
