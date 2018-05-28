@@ -9,9 +9,11 @@ class EditProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        test1: '',
-        test2: '',
-        test3: '',
+        firstName: '',
+        lastName: '',
+        DOB: '',
+        email: '',
+        phone: '',
         roleGroup: 'explorer',
         explorer: true,
         guide: false,
@@ -22,11 +24,20 @@ class EditProfile extends Component {
     const id = localStorage.getItem('id');
     axios.get('https://fierce-ridge-55021.herokuapp.com/find-user', id)
       .then((response) => {
-        const { test1, test2, test3, roleGroup } = response.data;
+        const {
+          firstName,
+          lastName,
+          DOB,
+          email,
+          phone,
+          roleGroup
+        } = response.data;
         this.setState({
-          test1,
-          test2,
-          test3,
+          firstName,
+          lastName,
+          DOB,
+          email,
+          phone,
           roleGroup,
         });
       })
@@ -49,15 +60,38 @@ class EditProfile extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { test1, test2, test3, roleGroup } = this.state;
-    const updateObject = { test1, test2, test3, roleGroup };
+    const {
+      firstName,
+      lastName,
+      DOB,
+      email,
+      phone,
+      roleGroup
+    } = this.state;
+    const updateObject = {
+      firstName,
+      lastName,
+      DOB,
+      email,
+      phone,
+      roleGroup
+    };
     axios.put('https://fierce-ridge-55021.herokuapp.com/update-profile', updateObject)
       .then((response) => {
-        const { test1, test2, test3, roleGroup } = response.data;
+        const {
+          firstName,
+          lastName,
+          DOB,
+          email,
+          phone,
+          roleGroup
+        } = response.data;
         this.setState({
-          test1,
-          test2,
-          test3,
+          firstName,
+          lastName,
+          DOB,
+          email,
+          phone,
           roleGroup,
         });
         alert('Successfully updated');
@@ -91,28 +125,44 @@ class EditProfile extends Component {
               <HelpBlock>*Please only select "Guide" if you are a certified guide currently employed by a company</HelpBlock>
             </FormGroup>
             <FieldGroup
-              name="test1"
+              name="firstName"
               type="text"
-              label="Test 1"
-              placeholder="Placeholder 1"
+              label="First Name"
+              placeholder="First Name"
               onChange={this.handleChange}
               value={this.state.test1}
             />
             <FieldGroup
-              name="test2"
+              name="lastName"
               type="text"
-              label="Test 2"
-              placeholder="Placeholder 2"
+              label="Last Name"
+              placeholder="Last Name"
               onChange={this.handleChange}
               value={this.state.test2}
             />
             <FieldGroup
-              name="test3"
-              type="text"
-              label="Test 3"
-              placeholder="Placeholder 3"
+              name="DOB"
+              type="date"
+              label="Date of Birth"
+              placeholder=""
               onChange={this.handleChange}
               value={this.state.test3}
+            />
+            <FieldGroup
+              name="email"
+              type="email"
+              label="Preferred Email"
+              placeholder="Ex: user@website.com"
+              onChange={this.handleChange}
+              value={this.state.test1}
+            />
+            <FieldGroup
+              name="phone"
+              type="text"
+              label="Phone"
+              placeholder="Ex: 612-911-5555"
+              onChange={this.handleChange}
+              value={this.state.test1}
             />
           <button
             className="epSaveBtn"
