@@ -48,7 +48,7 @@ class Dashboard extends Component {
           <ul className="guideUl">
             <Row className="container">
               <Col xs={12} sm={6} md={4} lg={3}>
-                <Link to={`/dashboard/:company/add-trip`}>
+                <Link to={`/signup/guiding-company`}>
                   <li className="list">
                     <h3 className="addNew">Register New Company</h3>
                     <h1 className="giantPlus">+</h1>

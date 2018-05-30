@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import FieldGroup from '../Components/fieldGroup';
 import './Styles/signUpGC.css';
 
 
@@ -68,72 +69,71 @@ class SignUpGC extends Component {
     return (
       <div>
         <h1>Guiding Company SignUp</h1>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            name="companyName"
-            type="text"
-            placeholder="Company Name"
-            value={this.state.companyName}
-            onChange={this.handleChange}
-          />
-          <input
-            name="companyAddress"
-            type="text"
-            placeholder="Company Address"
-            value={this.state.companyAddress}
-            onChange={this.handleChange}
-          />
-          <input
-            name="companyPhone"
-            type="text"
-            placeholder="Company Phone"
-            value={this.state.companyPhone}
-            onChange={this.handleChange}
-          />
-          <input
-            name="contactName"
-            type="text"
-            placeholder="Contact Name"
-            value={this.state.contactName}
-            onChange={this.handleChange}
-          />
-          <input
-            name="jobTitle"
-            type="text"
-            placeholder="Job Title"
-            value={this.state.jobTitle}
-            onChange={this.handleChange}
-          />
-          <input
-            name="contactPhone"
-            type="text"
-            placeholder="Contact Phone"
-            value={this.state.contactPhone}
-            onChange={this.handleChange}
-          />
-          <input
-            name="contactEmail"
-            type="email"
-            placeholder="E-mail"
-            value={this.state.contactEmail}
-            onChange={this.handleChange}
-          />
-          <input
-            name="password"
-            type="password"
-            placeholder="Password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-          <input
-            name="verifyPW"
-            type="password"
-            placeholder="Verify Password"
-            value={this.state.verifyPW}
-            onChange={this.handleChange}
-          />
-          <button type="submit" onClick={this.handleSubmit}>Submit</button>
-        </form>
+        <div className="container">
+          <form onSubmit={this.handleSubmit}>
+            <FieldGroup
+              label="Company Name"
+              name="companyName"
+              type="text"
+              placeholder="Company Name"
+              value={this.state.companyName}
+              onChange={this.handleChange}
+            />
+            <FieldGroup
+              label="Company Address"
+              name="companyAddress"
+              type="text"
+              placeholder="Company Address"
+              value={this.state.companyAddress}
+              onChange={this.handleChange}
+            />
+            <FieldGroup
+              label="Company Phone Number"
+              name="companyPhone"
+              type="text"
+              placeholder="Company Phone"
+              value={this.state.companyPhone}
+              onChange={this.handleChange}
+            />
+            <FieldGroup
+              label="Contact Name"
+              name="contactName"
+              type="text"
+              placeholder="Contact Name"
+              value={this.state.contactName}
+              onChange={this.handleChange}
+            />
+            <FieldGroup
+              label="Job Title"
+              name="jobTitle"
+              type="text"
+              placeholder="Job Title"
+              value={this.state.jobTitle}
+              onChange={this.handleChange}
+            />
+            <FieldGroup
+              label="Contact Phone Number"
+              name="contactPhone"
+              type="text"
+              placeholder="Contact Phone"
+              value={this.state.contactPhone}
+              onChange={this.handleChange}
+            />
+            <FieldGroup
+              label="Contact Email"
+              name="contactEmail"
+              type="email"
+              placeholder="E-mail"
+              value={this.state.contactEmail}
+              onChange={this.handleChange}
+            />
+            <button
+              type="submit"
+              onClick={this.handleSubmit}
+              className="epSaveBtn"
+            >Submit</button>
+          </form>
+        </div>
       </div>
     );
   }
