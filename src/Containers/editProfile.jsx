@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormGroup, HelpBlock, Radio } from 'react-bootstrap';
+import { ControlLabel, FormControl, FormGroup, HelpBlock, Radio } from 'react-bootstrap';
 import axios from 'axios';
 import FieldGroup from '../Components/fieldGroup';
 import './Styles/editProfile.css';
@@ -14,6 +14,7 @@ class EditProfile extends Component {
         DOB: '',
         email: '',
         phone: '',
+        bio: '',
         roleGroup: 'explorer',
         explorer: true,
         guide: false,
@@ -159,12 +160,24 @@ class EditProfile extends Component {
             />
             <FieldGroup
               name="phone"
-              type="text"
+              type="tel"
               label="Phone"
               placeholder="Ex: 612-911-5555"
               onChange={this.handleChange}
               value={this.state.test1}
             />
+            <FormGroup controlId="formControlsTextarea">
+              <ControlLabel>Bio</ControlLabel>
+              <FormControl
+                componentClass="textarea"
+                placeholder="Maximum of 250 words..."
+                value={this.state.bio}
+                onChange={this.handleChange}
+                name="bio"
+                className="textArea"
+                rows="10"
+              />
+            </FormGroup>
             <FieldGroup
               type="file"
               name="picture"
