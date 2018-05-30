@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { CircleLoader } from 'react-spinners';
+import { BounceLoader } from 'react-spinners';
 import axios from 'axios';
 import './Styles/guides.css';
 
@@ -41,7 +41,7 @@ class Guides extends Component {
         <div>
           <Row>
             <Col md={2} mdOffset={5}>
-              <CircleLoader
+              <BounceLoader
                 loading={this.state.loading}
                 size={75}
               />

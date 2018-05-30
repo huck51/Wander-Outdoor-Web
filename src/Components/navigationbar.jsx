@@ -58,12 +58,12 @@ class NavigationBar extends Component {
             </Nav>
             <Nav pullRight>
               <NavDropdown eventKey={3} title={this.props.user.username} id="basic-nav-dropdown">
-                <li><Link to="/account-info/:id">Account Info</Link></li>
-                <li><Link to="/edit-profile/:id">Edit Profile</Link></li>
-                <li><Link to="/profile/:id">View Profile</Link></li>
-                <li><Link to="/inbox/:id">Messages</Link></li>
+                <li><Link to="/account-info/">Account Info</Link></li>
+                <li><Link to="/edit-profile/">Edit Profile</Link></li>
+                <li><Link to="/profile/">View Profile</Link></li>
+                <li><Link to="/inbox/">Messages</Link></li>
                 <MenuItem divider />
-                <li><Link to="/dashboard/:id">Dashboard</Link></li>
+                <li><Link to="/dashboard">Dashboard</Link></li>
               </NavDropdown>
               <li role="presentation" className="highlight">
                 <button className="logBtn" onClick={this.logout}>Sign Out</button>

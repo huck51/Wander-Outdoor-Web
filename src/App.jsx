@@ -54,7 +54,7 @@ class App extends Component {
       });
     }
   }
-
+  
   componentDidMount() {
     const token = process.env.REACT_APP_TOKEN;
     const email = localStorage.getItem('email');

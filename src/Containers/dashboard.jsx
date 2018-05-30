@@ -3,7 +3,7 @@ import {
   Row,
   Col,
 } from 'react-bootstrap';
-import { CircleLoader } from 'react-spinners';
+import { BounceLoader } from 'react-spinners';
 import { Link } from 'react-router-dom';
 import './Styles/companyDashboard.css';
 
@@ -39,7 +39,7 @@ class Dashboard extends Component {
         <div>
           <Row>
             <Col md={2} mdOffset={5}>
-              <CircleLoader
+              <BounceLoader
                 loading={this.state.loading}
                 size={75}
               />

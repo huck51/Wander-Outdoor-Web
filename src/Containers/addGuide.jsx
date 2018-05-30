@@ -76,10 +76,23 @@ class AddGuide extends Component {
       });
   }
 
+  componentDidMount() {
+    axios.get('/guides', this.state.companyCode)
+      .then((response) => {
+        console.log(response);
+        this.setState({
+          guides: [response.data.guides],
+        });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
   render() {
     return (
       <div>
         <h1>Add Guide</h1>
+        {/*
         <form onSubmit={this.handleSubmit}>
           <input
             name="firstName"
@@ -167,6 +180,7 @@ class AddGuide extends Component {
           />
           <button type="submit" onClick={this.handleSubmit}>Submit</button>
         </form>
+        */}
       </div>
     );
   }
