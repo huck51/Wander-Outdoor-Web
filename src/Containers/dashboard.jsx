@@ -47,6 +47,14 @@ class Dashboard extends Component {
           </Row>
           <ul className="guideUl">
             <Row className="container">
+              <Col xs={12} sm={6} md={4} lg={3}>
+                <Link to={`/dashboard/:company/add-trip`}>
+                  <li className="list">
+                    <h3 className="addNew">Register New Company</h3>
+                    <h1 className="giantPlus">+</h1>
+                  </li>
+                </Link>
+              </Col>
               {this.state.companies.map((company) => {
                 return (
                   <Col xs={12} sm={6} md={4} lg={3}>
