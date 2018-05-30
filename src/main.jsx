@@ -8,6 +8,9 @@ import Auth from './auth';
 import AuthLoad from './Components/authLoad';
 import CompanyDashboard from './Containers/companyDashboard';
 import Contact from './Containers/contact';
+import Dashboard from './Containers/dashboard';
+import DashboardGuides from './Containers/dashboardGuides';
+import DashboardTrips from './Containers/dashboardTrips';
 import EditProfile from './Containers/editProfile';
 import FourOhFour from './Containers/fourOhFour';
 import Guides from './Containers/guides';
@@ -41,8 +44,8 @@ const Main = () => (
   <main>
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/about" component={HigherAuth(About)} />
-      <Route exact path="/account-info/:id" component={HigherAuth(AccountInfo)} />
+      <Route exact path="/about" component={About} />
+      <Route exact path="/account-info" component={AccountInfo} />
       <Route
         exact
         path="/authload"
@@ -51,18 +54,23 @@ const Main = () => (
           return <AuthLoad {...props} />
         }}
       />
-      <Route exact path="/company/add-guide" component={AddGuide} />
-      <Route exact path="/company/add-trip" component={AddTrip} />
       <Route exact path="/company/:companyName" render={props => <ViewCompany {...props} />} />
       <Route exact path="/company/dashboard" render={props => <CompanyDashboard auth={auth} {...props} />} />
       <Route exact path="/company/remove-trip" component={RemoveTrip} />
       <Route exact path="/company/remove-guide" component={RemoveGuide} />
       <Route exact path="/contact" component={Contact} />
-      <Route exact path="/edit-profile/:id" component={HigherAuth(EditProfile)} />
+      <Route exact path="/dashboard" render={props => <Dashboard auth={auth} {...props} />} />
+      <Route exact path="/dashboard/:company" render={props => <CompanyDashboard auth={auth} {...props} />} />
+      <Route exact path="/dashboard/:company/add-guide" component={AddGuide} />
+      <Route exact path="/dashboard/:company/add-trip" component={AddTrip} />
+      <Route exact path="/dashboard/:company/add-trip/:trip" component={AddTrip} />
+      <Route exact path="/dashboard/:company/guides" render={props => <DashboardGuides auth={auth} {...props} />} />
+      <Route exact path="/dashboard/:company/trips" render={props => <DashboardTrips auth={auth} {...props} />} />
+      <Route exact path="/edit-profile/" component={EditProfile} />
       <Route exact path="/guides" component={Guides} />
       <Route exact path="/guides/:username" render={props => <ViewGuide auth={auth} {...props} />} />
       <Route exact path="/guiding-companies" component={GuidingCompanies} />
-      <Route exact path="/inbox/:id" component={HigherAuth(Inbox)} />
+      <Route exact path="/inbox/" component={Inbox} />
       <Route exact path="/profile/:username" component={ViewTraveler} />
       <Route exact path="/results" component={Results} />
       <Route exact path="/signup" component={SignUp} />

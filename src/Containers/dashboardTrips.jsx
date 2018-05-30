@@ -54,6 +54,14 @@ class DashboardTrips extends Component {
           </Row>
           <ul className="guideUl">
             <Row className="container">
+              <Col xs={12} sm={6} md={4} lg={3}>
+                <Link to={`/dashboard/:company/add-trip`}>
+                  <li className="list">
+                    <h3 className="addNew">Add New Trip</h3>
+                    <h1 className="giantPlus">+</h1>
+                  </li>
+                </Link>
+              </Col>
               {this.state.trips.map((trip) => {
                 return (
                   <Col xs={12} sm={6} md={4} lg={3}>
@@ -63,6 +71,8 @@ class DashboardTrips extends Component {
                       <p>{trip.location}</p>
                       <p>{trip.price}</p>
                       <Link to={`/trips/${trip.name}`}><button className="removeButn">View Guide</button></Link>
+                      <button>Remove Trip</button>
+                      <Link to={`/dashboard/:company/add-trip/:trip`}><button>Edit Trip</button></Link>
                     </li>
                   </Col>
                 );

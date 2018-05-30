@@ -10,7 +10,13 @@ class DashboardGuides extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      guides: [],
+      guides: [{
+        firstName: 'Lukas',
+        lastName: 'Gorgonzola',
+        companyName: 'Guiding Company',
+        certs: 'Some certs',
+        username: 'guoda',
+      }],
       loading: false,
     };
   }
@@ -49,6 +55,14 @@ class DashboardGuides extends Component {
           </Row>
           <ul className="guideUl">
             <Row className="container">
+              <Col xs={12} sm={6} md={4} lg={3}>
+                <Link to={`/dashboard/:company/add-guide`}>
+                  <li className="list">
+                    <h3 className="addNew">Add New Guide</h3>
+                    <h1 className="giantPlus">+</h1>
+                  </li>
+                </Link>
+              </Col>
               {this.state.guides.map((guide) => {
                 return (
                   <Col xs={12} sm={6} md={4} lg={3}>
@@ -57,6 +71,7 @@ class DashboardGuides extends Component {
                       <p>{guide.companyName}</p>
                       <p>{guide.certs}</p>
                       <Link to={`/guides/${guide.username}`}><button className="removeButn">View Guide</button></Link>
+                      <button>Remove Guide</button>
                     </li>
                   </Col>
                 );
