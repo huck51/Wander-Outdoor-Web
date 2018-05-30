@@ -17,6 +17,7 @@ class EditProfile extends Component {
         roleGroup: 'explorer',
         explorer: true,
         guide: false,
+        picture: null,
     };
   }
 
@@ -163,6 +164,14 @@ class EditProfile extends Component {
               placeholder="Ex: 612-911-5555"
               onChange={this.handleChange}
               value={this.state.test1}
+            />
+            <FieldGroup
+              type="file"
+              name="picture"
+              value={this.state.picture}
+              label="Profile Picture"
+              placeholder="Select a file"
+              onChange={this.handleChange}
             />
           <button
             className="epSaveBtn"
