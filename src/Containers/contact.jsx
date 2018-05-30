@@ -21,10 +21,11 @@ class Contact extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { name, email, mesage } = this.state;
-    const contactMessage = { name, email, mesage };
+    const { name, email, message } = this.state;
+    const contactMessage = { name, email, message };
     // Need to configure query parameters V
-    axios.post('https://fierce-ridge-55021.herokuapp.com/', contactMessage)
+    console.log(contactMessage);
+    axios.post('https://fierce-ridge-55021.herokuapp.com/contact-message', contactMessage)
       .then((response) => {
         console.log(response);
         alert('Success! We recieved your message. Thanks for the feedback!');
@@ -62,7 +63,7 @@ class Contact extends Component {
                 onChange={this.handleChange}
               />
               <FieldGroup
-                type="text-area"
+                type="text"
                 name="message"
                 value={this.state.message}
                 label="Message"
