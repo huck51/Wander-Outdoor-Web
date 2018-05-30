@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormGroup } from 'react-bootstrap';
+import { ControlLabel, FormControl, FormGroup } from 'react-bootstrap';
 import axios from 'axios';
 import FieldGroup from '../Components/fieldGroup';
 import './Styles/contact.css';
@@ -62,14 +62,18 @@ class Contact extends Component {
                 placeholder="Ex: johndoe@gmail.com"
                 onChange={this.handleChange}
               />
-              <FieldGroup
-                type="text"
-                name="message"
-                value={this.state.message}
-                label="Message"
-                placeholder="Your message here..."
-                onChange={this.handleChange}
-              />
+              <FormGroup controlId="formControlsTextarea">
+                <ControlLabel>Message</ControlLabel>
+                <FormControl
+                  componentClass="textarea"
+                  placeholder="Maximum of 750 words..."
+                  value={this.state.message}
+                  onChange={this.handleChange}
+                  name="message"
+                  className="textArea"
+                  rows="15"
+                />
+              </FormGroup>
               <button
                 className="epSaveBtn"
                 type="submit"
