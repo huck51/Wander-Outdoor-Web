@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import FieldGroup from '../Components/fieldGroup';
 import './Styles/addTrip.css';
 
 
@@ -51,37 +52,47 @@ class AddTrip extends Component {
     return (
       <div>
         <h1>Add Trip</h1>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            name="name"
-            type="text"
-            placeholder="Name"
-            value={this.state.name}
-            onChange={this.handleChange}
-          />
-          <input
-            name="location"
-            type="text"
-            placeholder="Location"
-            value={this.state.location}
-            onChange={this.handleChange}
-          />
-          <input
-            name="description"
-            type="text"
-            placeholder="Description"
-            value={this.state.description}
-            onChange={this.handleChange}
-          />
-          <input
-            name="price"
-            type="text"
-            placeholder="Price"
-            value={this.state.price}
-            onChange={this.handleChange}
-          />
-        <button type="submit" onClick={this.handleSubmit}>Submit</button>
-        </form>
+        <div className="container">
+          <form onSubmit={this.handleSubmit}>
+            <FieldGroup
+              label="Trip Name"
+              name="name"
+              type="text"
+              placeholder="Name"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
+            <FieldGroup
+                label="Trip location"
+                name="location"
+                type="text"
+                placeholder="Location"
+                value={this.state.location}
+                onChange={this.handleChange}
+            />
+            <FieldGroup
+                label="Description"
+                name="description"
+                type="text"
+                placeholder="Description"
+                value={this.state.description}
+                onChange={this.handleChange}
+            />
+            <FieldGroup
+                label="Price"
+                name="price"
+                type="text"
+                placeholder="Ex: 100.50"
+                value={this.state.price}
+                onChange={this.handleChange}
+            />
+            <button
+              type="submit"
+              onClick={this.handleSubmit}
+              className="epSaveBtn"
+            >Submit</button>
+          </form>
+        </div>
       </div>
     );
   }
