@@ -10,6 +10,7 @@ class AuthLoad extends Component {
           <BounceLoader
             loading={true}
             size={75}
+            color="rgb(55,131,182)"
           />
         </Col>
       </Row>

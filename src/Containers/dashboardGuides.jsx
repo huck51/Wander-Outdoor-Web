@@ -50,6 +50,7 @@ class DashboardGuides extends Component {
               <BounceLoader
                 loading={this.state.loading}
                 size={75}
+                color="rgb(55,131,182)"
               />
             </Col>
           </Row>

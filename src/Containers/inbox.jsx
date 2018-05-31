@@ -17,7 +17,7 @@ class Inbox extends Component {
         <h1>INBOX</h1>
         <div className="container">
           <Row>
-            <Col xs={12} sm={6} md={3} lg={2}>
+            <Col xs={12} sm={6} md={3} lg={2} className="partition">
               <ul>
                 <li className="filterTabs">Unread</li>
                 <li className="filterTabs">Read</li>
