@@ -32,7 +32,8 @@ class EditProfile extends Component {
           DOB,
           email,
           phone,
-          roleGroup
+          roleGroup,
+          picture
         } = response.data;
         this.setState({
           firstName,
@@ -41,6 +42,7 @@ class EditProfile extends Component {
           email,
           phone,
           roleGroup,
+          picture
         });
       })
       .catch((err) => {
@@ -68,7 +70,8 @@ class EditProfile extends Component {
       DOB,
       email,
       phone,
-      roleGroup
+      roleGroup,
+      picture
     } = this.state;
     const updateObject = {
       firstName,
@@ -76,7 +79,8 @@ class EditProfile extends Component {
       DOB,
       email,
       phone,
-      roleGroup
+      roleGroup,
+      picture
     };
     axios.put('https://fierce-ridge-55021.herokuapp.com/update-profile', updateObject)
       .then((response) => {
@@ -86,7 +90,8 @@ class EditProfile extends Component {
           DOB,
           email,
           phone,
-          roleGroup
+          roleGroup,
+          picture
         } = response.data;
         this.setState({
           firstName,
@@ -95,6 +100,7 @@ class EditProfile extends Component {
           email,
           phone,
           roleGroup,
+          picture
         });
         alert('Successfully updated');
       })
@@ -193,6 +199,7 @@ class EditProfile extends Component {
             >Save</button>
           </form>
         </div>
+        <img src={this.state.picture} />
       </div>
     );
   }
