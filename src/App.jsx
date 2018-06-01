@@ -33,14 +33,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loggedIn: false,
+      loggedIn: true,
       user: {
         username: '',
         email: '',
       },
     };
   }
-
+  /*
   componentWillMount() {
     const auth = new Auth();
     const loggedIn = auth.isAuthenticated();
@@ -54,7 +54,7 @@ class App extends Component {
       });
     }
   }
-  
+  */
   componentDidMount() {
     const token = process.env.REACT_APP_TOKEN;
     const email = localStorage.getItem('email');
@@ -65,8 +65,10 @@ class App extends Component {
     axios.get('https://wander-outdoor.auth0.com/api/v2/users', options)
       .then((response) => {
         const data = response.data[0];
+        const fierceIce = process.env.REACT_APP_CAT.concat(data.identities[0].user_id);
+        localStorage.setItem('fierceIce', fierceIce);
         const secondaryOptions = {
-          id: process.env.REACT_APP_CAT.concat(data.identities[0].user_id),
+          id: fierceIce,
           email: data.email,
         };
         axios.post('https://fierce-ridge-55021.herokuapp.com/signup-newuser', secondaryOptions)
