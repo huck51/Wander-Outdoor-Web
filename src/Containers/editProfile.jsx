@@ -97,7 +97,7 @@ class EditProfile extends Component {
       roleGroup,
       imageFile
     } = this.state;
-    const opts = {
+    const updateObject = {
       firstName,
       lastName,
       DOB,
@@ -105,8 +105,9 @@ class EditProfile extends Component {
       phone,
       roleGroup,
       imageFile,
+      id: localStorage.getItem('fierceIce')
     };
-    axios.post('https://fierce-ridge-55021.herokuapp.com/update-profile', opts)
+    axios.post('https://fierce-ridge-55021.herokuapp.com/update-profile', updateObject)
       .then((response) => {
         const {
           firstName,
