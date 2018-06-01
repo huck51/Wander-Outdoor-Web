@@ -96,7 +96,7 @@ class EditProfile extends Component {
       roleGroup,
       imageFile
     } = this.state;
-    const options = {
+    const opts = {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -110,7 +110,7 @@ class EditProfile extends Component {
         imageFile,
       },
     };
-    axios.post('https://fierce-ridge-55021.herokuapp.com/update-profile', options)
+    axios.post('https://fierce-ridge-55021.herokuapp.com/update-profile', opts)
       .then((response) => {
         const {
           firstName,
