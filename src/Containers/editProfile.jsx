@@ -96,16 +96,21 @@ class EditProfile extends Component {
       roleGroup,
       imageFile
     } = this.state;
-    const updateObject = {
-      firstName,
-      lastName,
-      DOB,
-      email,
-      phone,
-      roleGroup,
-      imageFile
+    const options = {
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: {
+        firstName,
+        lastName,
+        DOB,
+        email,
+        phone,
+        roleGroup,
+        imageFile,
+      },
     };
-    axios.put('https://fierce-ridge-55021.herokuapp.com/update-profile', updateObject)
+    axios.put('https://fierce-ridge-55021.herokuapp.com/update-profile', options)
       .then((response) => {
         const {
           firstName,
