@@ -34,7 +34,7 @@ class EditProfile extends Component {
 
   componentDidMount() {
     const id = localStorage.getItem('id');
-    axios.get('https://fierce-ridge-55021.herokuapp.com/find-user', id)
+    axios.get('https://fierce-ridge-55021.herokuapp.com/find-user', { id: id })
       .then((response) => {
         const {
           firstName,
@@ -97,18 +97,13 @@ class EditProfile extends Component {
       imageFile
     } = this.state;
     const opts = {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: {
-        firstName,
-        lastName,
-        DOB,
-        email,
-        phone,
-        roleGroup,
-        imageFile,
-      },
+      firstName,
+      lastName,
+      DOB,
+      email,
+      phone,
+      roleGroup,
+      imageFile,
     };
     axios.post('https://fierce-ridge-55021.herokuapp.com/update-profile', opts)
       .then((response) => {
