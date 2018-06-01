@@ -110,7 +110,7 @@ class EditProfile extends Component {
         imageFile,
       },
     };
-    axios.put('https://fierce-ridge-55021.herokuapp.com/update-profile', options)
+    axios.post('https://fierce-ridge-55021.herokuapp.com/update-profile', options)
       .then((response) => {
         const {
           firstName,
