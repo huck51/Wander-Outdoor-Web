@@ -98,8 +98,7 @@ class EditProfile extends Component {
     } = this.state;
     const options = {
       headers: {
-        'Access-Control-Allow-Origin': 'https://wander-outdoor-temp.herokuapp.com/',
-        'content-type': 'application/json',
+        'Content-Type': 'application/json',
       },
       body: {
         firstName,
