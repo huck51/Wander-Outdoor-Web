@@ -27,8 +27,8 @@ class EditProfile extends Component {
         roleGroup: 'explorer',
         explorer: true,
         guide: false,
-        picture: '',
-        imageFile: null,
+        picture: null,
+        imageFile: '',
     };
   }
 
@@ -55,8 +55,7 @@ class EditProfile extends Component {
             email,
             phone,
             roleGroup,
-            imageFile,
-            picture: reader.result
+            imageFile: reader.result,
           });
           const configAmmo = {
             backgroundImage: `url(${this.state.picture})`,
@@ -127,8 +126,7 @@ class EditProfile extends Component {
             email,
             phone,
             roleGroup,
-            imageFile,
-            picture: reader.result
+            imageFile: reader.result,
           });
           const configAmmo = {
             backgroundImage: `url(${this.state.picture})`,
@@ -156,8 +154,8 @@ class EditProfile extends Component {
     console.log(file);
     reader.onloadend = () => {
       this.setState({
-        imageFile: file,
-        picture: reader.result
+        imageFile: reader.result,
+        picture: file
       });
       const configAmmo = {
         backgroundImage: `url(${this.state.picture})`,
@@ -251,7 +249,7 @@ class EditProfile extends Component {
                 </FormGroup>
                 <FieldGroup
                   type="file"
-                  name="picture"
+                  name="imageFile"
                   label="Profile Picture"
                   placeholder="Select a file"
                   onChange={this.fileChangeHandler}
@@ -266,7 +264,7 @@ class EditProfile extends Component {
             <Col xs={12} sm={12} md={6} lg={4}>
               <div className="container">
                 <h4>Preview Profile Picture</h4>
-                  <img src={this.state.picture} className="profPic"/>
+                  <img src={this.state.imageFile} className="profPic"/>
               </div>
             </Col>
           </Row>
