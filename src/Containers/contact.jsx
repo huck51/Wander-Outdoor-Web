@@ -44,7 +44,7 @@ class Contact extends Component {
       <div>
         <h1>Contact Us</h1>
         <div className="container">
-          <form>
+          <form className="sizeControl" onSubmit={this.handleSubmit}>
             <FormGroup>
               <FieldGroup
                 type="text"
@@ -53,6 +53,7 @@ class Contact extends Component {
                 label="Name"
                 placeholder="Name"
                 onChange={this.handleChange}
+                className="extraFormSizing"
               />
               <FieldGroup
                 type="email"
@@ -61,6 +62,7 @@ class Contact extends Component {
                 label="Email"
                 placeholder="Ex: johndoe@gmail.com"
                 onChange={this.handleChange}
+                className="extraFormSizing"
               />
               <FormGroup controlId="formControlsTextarea">
                 <ControlLabel>Message</ControlLabel>
@@ -70,7 +72,7 @@ class Contact extends Component {
                   value={this.state.message}
                   onChange={this.handleChange}
                   name="message"
-                  className="textArea"
+                  className="textArea extraFormSizing"
                   rows="15"
                 />
               </FormGroup>

@@ -6,3 +6,7 @@
   padding: .25em;
   width: 100%;
 }
+.partition {
+  border: solid black 2px;
+  height: 20em;
+}

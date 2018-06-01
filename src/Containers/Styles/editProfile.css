@@ -1,8 +1,16 @@
 
+h4 {
+  margin: 1em 3em;
+}
 .epSaveBtn {
   width: 5em;
   height: 3em;
 }
+.profPic {
+  height: 25em;
+  width: 25em;
+  border: solid 10px rgba(0,0,0,.7);
+}
 .textArea {
-  width: 50%;
+  width: 75%;
 }

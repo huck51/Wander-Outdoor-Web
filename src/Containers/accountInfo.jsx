@@ -26,7 +26,7 @@ class AccountInfo extends Component {
   }
 
   handleDelete = () => {
-    
+
   }
 
   render() {
@@ -34,7 +34,7 @@ class AccountInfo extends Component {
       <div>
         <h1>ACCOUNT INFO</h1>
         <div className="container">
-          <form>
+          <form className="sizeControl">
             <FormGroup>
               <Radio
                 onClick={this.handleClick}

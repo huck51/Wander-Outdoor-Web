@@ -70,7 +70,7 @@ class SignUpGC extends Component {
       <div>
         <h1>Guiding Company SignUp</h1>
         <div className="container">
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit} className="sizeControl">
             <FieldGroup
               label="Company Name"
               name="companyName"

@@ -53,7 +53,7 @@ class AddTrip extends Component {
       <div>
         <h1>Add Trip</h1>
         <div className="container">
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit} className="sizeControl">
             <FieldGroup
               label="Trip Name"
               name="name"
