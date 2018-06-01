@@ -31,9 +31,10 @@ class EditProfile extends Component {
         imageFile: null,
     };
   }
-  /*
+
   componentDidMount() {
     const id = localStorage.getItem('id');
+    console.log(id);
     axios.get('https://fierce-ridge-55021.herokuapp.com/find-user', { id: id })
       .then((response) => {
         const {
@@ -72,7 +73,7 @@ class EditProfile extends Component {
         console.error(err);
       });
   }
-  */
+
   handleClick = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
