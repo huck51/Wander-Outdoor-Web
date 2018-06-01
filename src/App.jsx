@@ -33,14 +33,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loggedIn: true,
+      loggedIn: false,
       user: {
         username: '',
         email: '',
       },
     };
   }
-  /*
+
   componentWillMount() {
     const auth = new Auth();
     const loggedIn = auth.isAuthenticated();
@@ -54,7 +54,7 @@ class App extends Component {
       });
     }
   }
-  */
+
   componentDidMount() {
     const token = process.env.REACT_APP_TOKEN;
     const email = localStorage.getItem('email');
