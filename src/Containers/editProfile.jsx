@@ -27,7 +27,8 @@ class EditProfile extends Component {
         roleGroup: 'explorer',
         explorer: true,
         guide: false,
-        picture: '',
+        picture: null,
+        companyCode: '',
     };
   }
 
@@ -42,22 +43,22 @@ class EditProfile extends Component {
           DOB,
           email,
           phone,
+          bio,
           roleGroup,
-          picture
+          picture,
+          companyCode,
         } = response.data;
-        /*
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          this.setState({
-            firstName,
-            lastName,
-            DOB,
-            email,
-            phone,
-            roleGroup,
-            imageFile: reader.result,
-          });
-          */
+        this.setState({
+          firstName,
+          lastName,
+          DOB,
+          email,
+          phone,
+          bio,
+          roleGroup,
+          picture,
+          companyCode,
+        });
           const configAmmo = {
             backgroundImage: `url(${this.state.picture})`,
             backgroundPosition: 'center',
@@ -92,8 +93,10 @@ class EditProfile extends Component {
       DOB,
       email,
       phone,
+      bio,
       roleGroup,
-      picture
+      picture,
+      companyCode,
     } = this.state;
     const updateObject = {
       firstName,
@@ -101,9 +104,11 @@ class EditProfile extends Component {
       DOB,
       email,
       phone,
+      bio,
       roleGroup,
       picture,
-      id: localStorage.getItem('fierceIce')
+      id: localStorage.getItem('fierceIce'),
+      companyCode,
     };
     axios.post('https://fierce-ridge-55021.herokuapp.com/update-profile', updateObject)
       .then((response) => {
@@ -113,8 +118,10 @@ class EditProfile extends Component {
           DOB,
           email,
           phone,
+          bio,
           roleGroup,
-          picture
+          picture,
+          companyCode,
         } = response.data;
         /*
         const reader = new FileReader();
@@ -229,7 +236,7 @@ class EditProfile extends Component {
                   label="First Name"
                   placeholder="First Name"
                   onChange={this.handleChange}
-                  value={this.state.test1}
+                  value={this.state.firstName}
                 />
                 <FieldGroup
                   name="lastName"
@@ -237,7 +244,7 @@ class EditProfile extends Component {
                   label="Last Name"
                   placeholder="Last Name"
                   onChange={this.handleChange}
-                  value={this.state.test2}
+                  value={this.state.lastName}
                 />
                 <FieldGroup
                   name="DOB"
@@ -245,7 +252,7 @@ class EditProfile extends Component {
                   label="Date of Birth"
                   placeholder=""
                   onChange={this.handleChange}
-                  value={this.state.test3}
+                  value={this.state.DOB}
                 />
                 <FieldGroup
                   name="email"
@@ -253,7 +260,7 @@ class EditProfile extends Component {
                   label="Preferred Email"
                   placeholder="Ex: user@website.com"
                   onChange={this.handleChange}
-                  value={this.state.test1}
+                  value={this.state.email}
                 />
                 <FieldGroup
                   name="phone"
@@ -261,7 +268,7 @@ class EditProfile extends Component {
                   label="Phone"
                   placeholder="Ex: 612-911-5555"
                   onChange={this.handleChange}
-                  value={this.state.test1}
+                  value={this.state.phone}
                 />
                 <FormGroup controlId="formControlsTextarea">
                   <ControlLabel>Bio</ControlLabel>

@@ -17,7 +17,7 @@ class SignUpGC extends Component {
       jobTitle: '',
       contactPhone: '',
       contactEmail: '',
-      picture: '',
+      picture: null,
     };
   }
   handleChange = (e) => {

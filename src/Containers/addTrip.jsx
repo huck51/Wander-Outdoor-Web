@@ -19,7 +19,7 @@ class AddTrip extends Component {
       description: '',
       price: '',
       location: '',
-      picture: '',
+      picture: null,
     };
   }
   handleChange = (e) => {
