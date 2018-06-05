@@ -13,6 +13,7 @@ import FieldGroup from '../Components/fieldGroup';
 import './Styles/editProfile.css';
 
 const previewConfig = [null];
+const usa = ["select", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "District of Columbia", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington","West Virginia", "Wisconsin", "Wyoming"];
 
 class EditProfile extends Component {
   constructor(props) {
@@ -29,6 +30,8 @@ class EditProfile extends Component {
         guide: false,
         picture: null,
         companyCode: '',
+        city: '',
+        state: '',
     };
   }
 
@@ -47,6 +50,8 @@ class EditProfile extends Component {
           roleGroup,
           picture,
           companyCode,
+          city,
+          state,
         } = response.data;
         this.setState({
           firstName,
@@ -58,6 +63,8 @@ class EditProfile extends Component {
           roleGroup,
           picture,
           companyCode,
+          city,
+          state,
         });
           const configAmmo = {
             backgroundImage: `url(${this.state.picture})`,
@@ -97,6 +104,8 @@ class EditProfile extends Component {
       roleGroup,
       picture,
       companyCode,
+      city,
+      state,
     } = this.state;
     const updateObject = {
       firstName,
@@ -109,6 +118,8 @@ class EditProfile extends Component {
       picture,
       id: localStorage.getItem('fierceIce'),
       companyCode,
+      city,
+      state,
     };
     axios.post('https://fierce-ridge-55021.herokuapp.com/update-profile', updateObject)
       .then((response) => {
@@ -122,6 +133,8 @@ class EditProfile extends Component {
           roleGroup,
           picture,
           companyCode,
+          city,
+          state,
         } = response.data;
         /*
         const reader = new FileReader();
@@ -230,6 +243,19 @@ class EditProfile extends Component {
                     >Expolorer</Radio>
                   <HelpBlock>*Please only select "Guide" if you are a certified guide currently employed by a company</HelpBlock>
                 </FormGroup>
+                <FormGroup>
+                  <ControlLabel>Company Code</ControlLabel>
+                  <FormControl
+                    name="companyCode"
+                    type="password"
+                    placeholder="CompanyCode"
+                    onChange={this.handleChange}
+                    value={this.state.companyCode}
+                    disabled={this.state.explorer}
+                    className="textArea"
+                  />
+                  <HelpBlock>*This field is for guides only.</HelpBlock>
+                </FormGroup>
                 <FieldGroup
                   name="firstName"
                   type="text"
@@ -264,12 +290,32 @@ class EditProfile extends Component {
                 />
                 <FieldGroup
                   name="phone"
-                  type="tel"
+                  type="text"
                   label="Phone"
                   placeholder="Ex: 612-911-5555"
                   onChange={this.handleChange}
                   value={this.state.phone}
                 />
+                <FieldGroup
+                  name="city"
+                  type="text"
+                  label="Current City"
+                  placeholder="Current City"
+                  onChange={this.handleChange}
+                  value={this.state.city}
+                />
+                <FormGroup controlId="formControlsSelect">
+                  <ControlLabel>Current State</ControlLabel>
+                  <FormControl
+                    componentClass="select"
+                    placeholder="select"
+                    className="textArea">
+                    { usa.map((stateName) => {
+                      return <option value={stateName}>{stateName}</option>
+                    })
+                  }
+                  </FormControl>
+                </FormGroup>
                 <FormGroup controlId="formControlsTextarea">
                   <ControlLabel>Bio</ControlLabel>
                   <FormControl
