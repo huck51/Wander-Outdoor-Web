@@ -13,7 +13,7 @@ import FieldGroup from '../Components/fieldGroup';
 import './Styles/editProfile.css';
 
 const previewConfig = [null];
-const usa = ["select", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "District of Columbia", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington","West Virginia", "Wisconsin", "Wyoming"];
+const usa = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "District of Columbia", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington","West Virginia", "Wisconsin", "Wyoming"];
 
 class EditProfile extends Component {
   constructor(props) {
@@ -89,6 +89,7 @@ class EditProfile extends Component {
   }
 
   handleChange = (e) => {
+    console.log(`Event.target ${e.target.name}`);
     this.setState({[e.target.name]: e.target.value});
   }
 
@@ -136,27 +137,28 @@ class EditProfile extends Component {
           city,
           state,
         } = response.data;
-        /*
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          this.setState({
-            firstName,
-            lastName,
-            DOB,
-            email,
-            phone,
-            roleGroup,
-            imageFile: reader.result,
-          });
-          */
-          const configAmmo = {
-            backgroundImage: `url(${this.state.picture})`,
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
-            height: '50em',
-          }
-          previewConfig[0] = configAmmo;
+        this.setState({
+          firstName,
+          lastName,
+          DOB,
+          email,
+          phone,
+          bio,
+          roleGroup,
+          picture,
+          companyCode,
+          city,
+          state,
+        });
+        alert('Save successful!');
+        const configAmmo = {
+          backgroundImage: `url(${this.state.picture})`,
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+          height: '50em',
+        }
+        previewConfig[0] = configAmmo;
       })
       .catch((err) => {
         console.error(err);
@@ -307,9 +309,12 @@ class EditProfile extends Component {
                 <FormGroup controlId="formControlsSelect">
                   <ControlLabel>Current State</ControlLabel>
                   <FormControl
+                    name="state"
                     componentClass="select"
                     placeholder="select"
-                    className="textArea">
+                    className="textArea"
+                    onChange={this.handleChange}>
+                    <option value={this.state.state}>{this.state.state}</option>
                     { usa.map((stateName) => {
                       return <option value={stateName}>{stateName}</option>
                     })
