@@ -48,10 +48,10 @@ class Contact extends Component {
   render() {
     return (
       <div>
-        <h1>Contact Us</h1>
-        <div className="container">
-          <Row>
-            <Col xs={12} sm={12} md={6} lg={8}>
+        <Row>
+          <Col xs={12} sm={12} md={6} lg={6}>
+            <h1>Contact Us</h1>
+            <div className="container">
               <form className="sizeControl" onSubmit={this.handleSubmit}>
                 <FormGroup>
                   <FieldGroup
@@ -90,11 +90,11 @@ class Contact extends Component {
                     onClick={this.handleSubmit}>Send</button>
                 </FormGroup>
               </form>
+              </div>
             </Col>
-            <Col xs={12} sm={12} md={6} lg={4} className="sidePic">
+            <Col xs={12} sm={12} md={6} lg={6} className="sidePic">
             </Col>
           </Row>
-        </div>
       </div>
     );
   }

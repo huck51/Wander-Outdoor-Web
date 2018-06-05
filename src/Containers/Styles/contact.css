@@ -3,8 +3,8 @@
   background-image: url('https://res.cloudinary.com/wander-outdoor/image/upload/v1528178377/vk15dtmsuvr6l1ydzhq9.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 40em;
+  height: 100vh;
 }
 .sizeControl {
-  width: 75%;
+  width: 65%;
 }

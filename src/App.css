@@ -24,7 +24,9 @@ h3 {
 }
 main {
   min-height: 100%;
-
+}
+nav.navbar {
+  margin-bottom: 0;
 }
 .sbRug {
 
