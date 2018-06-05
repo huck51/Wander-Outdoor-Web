@@ -17,7 +17,6 @@ class SignUpGC extends Component {
       jobTitle: '',
       contactPhone: '',
       contactEmail: '',
-      imageFile: null,
       picture: '',
     };
   }
@@ -34,7 +33,7 @@ class SignUpGC extends Component {
       jobTitle,
       contactPhone,
       contactEmail,
-      imageFile
+      picture
     } = this.state;
     const newCompany = {
       companyName,
@@ -44,7 +43,7 @@ class SignUpGC extends Component {
       jobTitle,
       contactPhone,
       contactEmail,
-      imageFile
+      picture
     };
     this.setState({
       companyName: '',
@@ -54,12 +53,11 @@ class SignUpGC extends Component {
       jobTitle: '',
       contactPhone: '',
       contactEmail: '',
-      imageFile: null,
       picture: ''
     });
     axios.post('https://fierce-ridge-55021.herokuapp.com/signup/guiding-company', newCompany)
       .then(() => {
-        window.location = '/guiding-companies';
+        window.location = '/dashboard';
       })
       .catch((err) => {
         // eslint-disable-next-line no-console
@@ -67,27 +65,36 @@ class SignUpGC extends Component {
       });
   }
 
-  fileChangeHandler = (e) => {
-    e.preventDefault();
-    const reader = new FileReader();
-    const file = e.target.files[0];
-    console.log(file);
-    reader.onloadend = () => {
-      this.setState({
-        imageFile: file,
-        picture: reader.result
-      });
-      const configAmmo = {
-        backgroundImage: `url(${this.state.picture})`,
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        height: '30em',
-        width: '100%'
+  uploadWidget = () => {
+    const cloudData = {
+      paramsToSign: {
+        eager: 'w_400,h_300,c_pad|w_260,h_200,c_crop',
+        public_id: 'userImage',
       }
-      previewConfig[0] = configAmmo;
     }
-    reader.readAsDataURL(file);
+    axios.post('https://fierce-ridge-55021.herokuapp.com/cloudinary', cloudData)
+      .then((response) => {
+        console.log(response.data);
+        const widgetOptions = {
+          cloud_name: 'wander-outdoor',
+          signature: response.data,
+          upload_preset: 'ypvspamw'
+        };
+        window.cloudinary.openUploadWidget(widgetOptions, (err, result) => {
+          if (err) {
+            console.log(err);
+          }
+          if (result) {
+            console.log(result);
+            this.setState({
+              picture: result[0].secure_url,
+            });
+          }
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   render() {
@@ -154,12 +161,6 @@ class SignUpGC extends Component {
                   value={this.state.contactEmail}
                   onChange={this.handleChange}
                 />
-                <FieldGroup
-                  label="Logo/Company Photo"
-                  type="file"
-                  onChange={this.fileChangeHandler}
-                  name="picture"
-                />
                 <button
                   type="submit"
                   onClick={this.handleSubmit}
@@ -169,6 +170,10 @@ class SignUpGC extends Component {
             </Col>
             <Col xs={12} sm={12} md={6} lg={4}>
               <div className="container">
+                <button
+                  className="uploadWidget"
+                  onClick={this.uploadWidget}
+                >Upload Photo</button>
                 <h4>Preview Logo/Company Photo</h4>
                   <img src={this.state.picture} className="profPic"/>
               </div>
