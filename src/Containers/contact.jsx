@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { ControlLabel, FormControl, FormGroup } from 'react-bootstrap';
+import {
+  Col,
+  ControlLabel,
+  FormControl,
+  FormGroup,
+  Row,
+} from 'react-bootstrap';
 import axios from 'axios';
 import FieldGroup from '../Components/fieldGroup';
 import './Styles/contact.css';
@@ -44,44 +50,50 @@ class Contact extends Component {
       <div>
         <h1>Contact Us</h1>
         <div className="container">
-          <form className="sizeControl" onSubmit={this.handleSubmit}>
-            <FormGroup>
-              <FieldGroup
-                type="text"
-                name="name"
-                value={this.state.name}
-                label="Name"
-                placeholder="Name"
-                onChange={this.handleChange}
-                className="extraFormSizing"
-              />
-              <FieldGroup
-                type="email"
-                name="email"
-                value={this.state.email}
-                label="Email"
-                placeholder="Ex: johndoe@gmail.com"
-                onChange={this.handleChange}
-                className="extraFormSizing"
-              />
-              <FormGroup controlId="formControlsTextarea">
-                <ControlLabel>Message</ControlLabel>
-                <FormControl
-                  componentClass="textarea"
-                  placeholder="Maximum of 750 words..."
-                  value={this.state.message}
-                  onChange={this.handleChange}
-                  name="message"
-                  className="textArea extraFormSizing"
-                  rows="15"
-                />
-              </FormGroup>
-              <button
-                className="epSaveBtn"
-                type="submit"
-                onClick={this.handleSubmit}>Send</button>
-            </FormGroup>
-          </form>
+          <Row>
+            <Col xs={12} sm={12} md={6} lg={8}>
+              <form className="sizeControl" onSubmit={this.handleSubmit}>
+                <FormGroup>
+                  <FieldGroup
+                    type="text"
+                    name="name"
+                    value={this.state.name}
+                    label="Name"
+                    placeholder="Name"
+                    onChange={this.handleChange}
+                    className="extraFormSizing"
+                  />
+                  <FieldGroup
+                    type="email"
+                    name="email"
+                    value={this.state.email}
+                    label="Email"
+                    placeholder="Ex: johndoe@gmail.com"
+                    onChange={this.handleChange}
+                    className="extraFormSizing"
+                  />
+                  <FormGroup controlId="formControlsTextarea">
+                    <ControlLabel>Message</ControlLabel>
+                    <FormControl
+                      componentClass="textarea"
+                      placeholder="Maximum of 750 words..."
+                      value={this.state.message}
+                      onChange={this.handleChange}
+                      name="message"
+                      className="textArea extraFormSizing"
+                      rows="15"
+                    />
+                  </FormGroup>
+                  <button
+                    className="epSaveBtn"
+                    type="submit"
+                    onClick={this.handleSubmit}>Send</button>
+                </FormGroup>
+              </form>
+            </Col>
+            <Col xs={12} sm={12} md={6} lg={4} className="sidePic">
+            </Col>
+          </Row>
         </div>
       </div>
     );
