@@ -27,8 +27,7 @@ class EditProfile extends Component {
         roleGroup: 'explorer',
         explorer: true,
         guide: false,
-        picture: null,
-        imageFile: '',
+        picture: '',
     };
   }
 
@@ -44,8 +43,9 @@ class EditProfile extends Component {
           email,
           phone,
           roleGroup,
-          imageFile
+          picture
         } = response.data;
+        /*
         const reader = new FileReader();
         reader.onloadend = () => {
           this.setState({
@@ -57,6 +57,7 @@ class EditProfile extends Component {
             roleGroup,
             imageFile: reader.result,
           });
+          */
           const configAmmo = {
             backgroundImage: `url(${this.state.picture})`,
             backgroundPosition: 'center',
@@ -65,8 +66,6 @@ class EditProfile extends Component {
             height: '50em'
           }
           previewConfig[0] = configAmmo;
-        }
-        reader.readAsDataURL(imageFile);
       })
       .catch((err) => {
         console.error(err);
@@ -94,7 +93,7 @@ class EditProfile extends Component {
       email,
       phone,
       roleGroup,
-      imageFile
+      picture
     } = this.state;
     const updateObject = {
       firstName,
@@ -103,7 +102,7 @@ class EditProfile extends Component {
       email,
       phone,
       roleGroup,
-      imageFile,
+      picture,
       id: localStorage.getItem('fierceIce')
     };
     axios.post('https://fierce-ridge-55021.herokuapp.com/update-profile', updateObject)
@@ -115,8 +114,9 @@ class EditProfile extends Component {
           email,
           phone,
           roleGroup,
-          imageFile
+          picture
         } = response.data;
+        /*
         const reader = new FileReader();
         reader.onloadend = () => {
           this.setState({
@@ -128,6 +128,7 @@ class EditProfile extends Component {
             roleGroup,
             imageFile: reader.result,
           });
+          */
           const configAmmo = {
             backgroundImage: `url(${this.state.picture})`,
             backgroundPosition: 'center',
@@ -136,17 +137,12 @@ class EditProfile extends Component {
             height: '50em',
           }
           previewConfig[0] = configAmmo;
-        }
-        reader.readAsDataURL(imageFile)
-          .then(() => {
-            alert('Successfully updated');
-          });
       })
       .catch((err) => {
         console.error(err);
       });
   }
-
+  /*
   fileChangeHandler = (e) => {
     e.preventDefault();
     const reader = new FileReader();
@@ -168,6 +164,38 @@ class EditProfile extends Component {
       previewConfig[0] = configAmmo;
     }
     reader.readAsDataURL(file);
+  }
+  */
+  uploadWidget = () => {
+    const cloudData = {
+      paramsToSign: {
+        eager: 'w_400,h_300,c_pad|w_260,h_200,c_crop',
+        public_id: 'userImage',
+      }
+    }
+    axios.post('https://fierce-ridge-55021.herokuapp.com/cloudinary', cloudData)
+      .then((response) => {
+        console.log(response.data);
+        const widgetOptions = {
+          cloud_name: 'wander-outdoor',
+          signature: response.data,
+          upload_preset: 'ypvspamw'
+        };
+        window.cloudinary.openUploadWidget(widgetOptions, (err, result) => {
+          if (err) {
+            console.log(err);
+          }
+          if (result) {
+            console.log(result);
+            this.setState({
+              picture: result[0].secure_url,
+            });
+          }
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   render() {
@@ -247,13 +275,6 @@ class EditProfile extends Component {
                     rows="10"
                   />
                 </FormGroup>
-                <FieldGroup
-                  type="file"
-                  name="imageFile"
-                  label="Profile Picture"
-                  placeholder="Select a file"
-                  onChange={this.fileChangeHandler}
-                />
               <button
                 className="epSaveBtn"
                 type="submit"
@@ -263,8 +284,12 @@ class EditProfile extends Component {
             </Col>
             <Col xs={12} sm={12} md={6} lg={4}>
               <div className="container">
+                <button
+                  className="uploadWidget"
+                  onClick={this.uploadWidget}
+                  >Upload Photo</button>
                 <h4>Preview Profile Picture</h4>
-                  <img src={this.state.imageFile} className="profPic"/>
+                  <img src={this.state.picture} className="profPic"/>
               </div>
             </Col>
           </Row>
