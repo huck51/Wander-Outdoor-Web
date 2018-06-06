@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { Col, Row, } from 'react-bootstrap';
+import {
+  Col,
+  ControlLabel,
+  FormControl,
+  FormGroup,
+  Row,
+} from 'react-bootstrap';
 import axios from 'axios';
 import FieldGroup from '../Components/fieldGroup';
 import './Styles/signUpGC.css';
@@ -17,6 +23,7 @@ class SignUpGC extends Component {
       contactPhone: '',
       contactEmail: '',
       picture: null,
+      bio: '',
     };
   }
   handleChange = (e) => {
@@ -32,7 +39,8 @@ class SignUpGC extends Component {
       jobTitle,
       contactPhone,
       contactEmail,
-      picture
+      picture,
+      bio
     } = this.state;
     const newCompany = {
       companyName,
@@ -42,7 +50,8 @@ class SignUpGC extends Component {
       jobTitle,
       contactPhone,
       contactEmail,
-      picture
+      picture,
+      bio
     };
     this.setState({
       companyName: '',
@@ -52,7 +61,8 @@ class SignUpGC extends Component {
       jobTitle: '',
       contactPhone: '',
       contactEmail: '',
-      picture: ''
+      picture: '',
+      bio: ''
     });
     axios.post('https://fierce-ridge-55021.herokuapp.com/signup/guiding-company', newCompany)
       .then(() => {
@@ -160,6 +170,18 @@ class SignUpGC extends Component {
                   value={this.state.contactEmail}
                   onChange={this.handleChange}
                 />
+                <FormGroup controlId="formControlsTextarea">
+                  <ControlLabel>Company Bio</ControlLabel>
+                  <FormControl
+                    componentClass="textarea"
+                    placeholder="Maximum of 250 words..."
+                    value={this.state.bio}
+                    onChange={this.handleChange}
+                    name="bio"
+                    className="textArea"
+                    rows="10"
+                  />
+                </FormGroup>
                 <button
                   type="submit"
                   onClick={this.handleSubmit}
