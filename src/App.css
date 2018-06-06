@@ -10,7 +10,7 @@ html {
   width: 100%;
   overflow-x: hidden;
 }
-h1, h2, h4, h5, h6, p {
+h1, h2, h4, h5, h6 {
   font-family: 'Julius Sans One', sans-serif;
 }
 h1 {
@@ -18,6 +18,9 @@ h1 {
 }
 h3 {
   font-family: 'Pathway Gothic One', sans-serif;
+}
+p {
+  font-family: 'Josefin Sans', sans-serif;
 }
 main {
   min-height: 100%;

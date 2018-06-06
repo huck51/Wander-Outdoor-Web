@@ -1,0 +1,27 @@
+
+.basicInfo2 {
+  margin: .5em 1em;
+  display: block;
+}
+.basicInfo4 {
+  margin: 0 2em;
+  display: block;
+}
+.bio {
+  padding: 0 3em;
+  text-align: left;
+}
+.cardBreak {
+  text-align: center;
+  border-color: black;
+  margin: 2em 3em;
+}
+.contain {
+  margin: 1em 4em;
+  overflow: hidden;
+}
+.mainCard {
+  margin: 2em 5em;
+  background-color: rgba(215,215,215,1);
+  padding: 1em;
+}
