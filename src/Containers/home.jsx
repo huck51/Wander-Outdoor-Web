@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import bouldering from '../Images/BackgroundImages/bouldering.jpg';
 import SearchBar from '../Components/searchbar';
 import './Styles/home.css';
 import '../App.css';

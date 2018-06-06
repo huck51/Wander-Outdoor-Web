@@ -4,7 +4,6 @@ import axios from 'axios';
 import FieldGroup from '../Components/fieldGroup';
 import './Styles/signUpGC.css';
 
-const previewConfig = [null];
 
 class SignUpGC extends Component {
   constructor(props) {
@@ -175,7 +174,7 @@ class SignUpGC extends Component {
                   onClick={this.uploadWidget}
                 >Upload Photo</button>
                 <h4>Preview Logo/Company Photo</h4>
-                  <img src={this.state.picture} className="profPic"/>
+                  <img src={this.state.picture} alt="Logo" className="profPic"/>
               </div>
             </Col>
           </Row>

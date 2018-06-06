@@ -5,6 +5,16 @@ import './Styles/viewTrip.css';
 class ViewTrip extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      name: '',
+      company: '',
+      location: '',
+      description: '',
+      price: '',
+      guides: [],
+      rating: null,
+      picture: '',
+    }
   }
 
   render() {

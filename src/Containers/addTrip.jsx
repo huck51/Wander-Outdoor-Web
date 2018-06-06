@@ -146,7 +146,7 @@ class AddTrip extends Component {
                   onClick={this.uploadWidget}
                   >Upload Photo</button>
                 <h4>Preview Trip Picture</h4>
-                  <img src={this.state.picture} className="profPic"/>
+                  <img src={this.state.picture} alt="Trip Pic" className="profPic"/>
               </div>
             </Col>
           </Row>

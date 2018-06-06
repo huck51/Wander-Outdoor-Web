@@ -355,7 +355,7 @@ class EditProfile extends Component {
                   onClick={this.uploadWidget}
                   >Upload Photo</button>
                 <h4>Preview Profile Picture</h4>
-                  <img src={this.state.picture} className="profPic"/>
+                  <img src={this.state.picture} alt="Profile Pic" className="profPic"/>
               </div>
             </Col>
           </Row>
