@@ -10,6 +10,7 @@ import axios from 'axios';
 import FieldGroup from '../Components/fieldGroup';
 import './Styles/addTrip.css';
 
+const usa = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "District of Columbia", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington","West Virginia", "Wisconsin", "Wyoming"];
 
 class AddTrip extends Component {
   constructor(props) {
@@ -18,7 +19,8 @@ class AddTrip extends Component {
       name: '',
       description: '',
       price: '',
-      location: '',
+      city: '',
+      stateName: '',
       picture: null,
     };
   }
@@ -31,18 +33,21 @@ class AddTrip extends Component {
       name,
       description,
       price,
-      location,
+      city,
+      stateName,
     } = this.state;
     const newTrip = {
       name,
       description,
-      location,
+      city,
+      stateName,
       price,
     };
     this.setState({
       name: '',
       description: '',
-      location: '',
+      city: '',
+      stateName: '',
       price: '',
     });
     axios.post('https://fierce-ridge-55021.herokuapp.com/add-trip', newTrip)
@@ -105,13 +110,28 @@ class AddTrip extends Component {
                   onChange={this.handleChange}
                 />
                 <FieldGroup
-                    label="Trip location"
-                    name="location"
+                    label="City"
+                    name="city"
                     type="text"
-                    placeholder="Location"
-                    value={this.state.location}
+                    placeholder="City"
+                    value={this.state.city}
                     onChange={this.handleChange}
                 />
+                <FormGroup controlId="formControlsSelect">
+                  <ControlLabel>State</ControlLabel>
+                  <FormControl
+                    name="stateName"
+                    componentClass="select"
+                    placeholder="select"
+                    className="textArea"
+                    onChange={this.handleChange}>
+                    <option value={this.state.state}>{this.state.state}</option>
+                    { usa.map((stateName) => {
+                      return <option value={stateName}>{stateName}</option>
+                    })
+                  }
+                  </FormControl>
+                </FormGroup>
                 <FieldGroup
                     label="Price"
                     name="price"
