@@ -78,7 +78,7 @@ const Main = () => (
       <Route exact path="/signup/guiding-company" component={SignUpGC} />
       <Route exact path="/signup/traveler" component={SignUpTravelers} />
       <Route exact path="/travelers/traveler" component={ViewTraveler} />
-      <Route exact path="/trips/trip" component={ViewTrip} />
+      <Route exact path="/trips/:trip" component={ViewTrip} />
       <Route component={FourOhFour} />
       <Route exact path="/404-not-found" component={FourOhFour} />
     </Switch>
