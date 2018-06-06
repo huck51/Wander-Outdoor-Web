@@ -97,7 +97,9 @@ class ViewTrip extends Component {
                   </FormGroup>
                   <button
                     type="submit"
-                    className="epSaveBtn">Submit</button>
+                    className="epSaveBtn"
+                  >Submit
+                  </button>
                 </form>
               </div>
             </Col>

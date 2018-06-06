@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { Col, Row } from 'react-bootstrap';
+import {
+  Col,
+  ControlLabel,
+  FormControl,
+  FormGroup,
+  Row,
+} from 'react-bootstrap';
 import axios from 'axios';
 import './Styles/viewTraveler.css';
 
@@ -162,6 +168,27 @@ class ViewTraveler extends Component {
                   this.state.reviews.map(review => <li>{review}</li>)
                 }
               </ul>
+              <div>
+                <form>
+                  <FormGroup controlId="formControlsTextarea">
+                    <ControlLabel>Write a review:</ControlLabel>
+                    <FormControl
+                      componentClass="textarea"
+                      placeholder="Maximum of 250 words..."
+                      value={this.state.newReview}
+                      onChange={this.handleChange}
+                      name="newReview"
+                      className="textArea"
+                      rows="10"
+                    />
+                  </FormGroup>
+                  <button
+                    type="submit"
+                    className="epSaveBtn"
+                  >Submit
+                  </button>
+                </form>
+              </div>
             </Col>
           </Row>
         </div>
