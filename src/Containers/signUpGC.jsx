@@ -8,6 +8,7 @@ import {
 } from 'react-bootstrap';
 import axios from 'axios';
 import FieldGroup from '../Components/fieldGroup';
+import usa from '../Data/stateNames';
 import './Styles/signUpGC.css';
 
 
@@ -16,7 +17,10 @@ class SignUpGC extends Component {
     super(props);
     this.state = {
       companyName: '',
-      companyAddress: '',
+      streetAddress: '',
+      city: '',
+      stateName: '',
+      zipCode: '',
       companyPhone: '',
       contactName: '',
       jobTitle: '',
@@ -33,7 +37,10 @@ class SignUpGC extends Component {
     e.preventDefault();
     const {
       companyName,
-      companyAddress,
+      streetAddress,
+      city,
+      stateName,
+      zipCode,
       companyPhone,
       contactName,
       jobTitle,
@@ -44,7 +51,10 @@ class SignUpGC extends Component {
     } = this.state;
     const newCompany = {
       companyName,
-      companyAddress,
+      streetAddress,
+      city,
+      stateName,
+      zipCode,
       companyPhone,
       contactName,
       jobTitle,
@@ -55,7 +65,10 @@ class SignUpGC extends Component {
     };
     this.setState({
       companyName: '',
-      companyAddress: '',
+      streetAddress: '',
+      city: '',
+      stateName: '',
+      zipCode: '',
       companyPhone: '',
       contactName: '',
       jobTitle: '',
@@ -123,11 +136,42 @@ class SignUpGC extends Component {
                   onChange={this.handleChange}
                 />
                 <FieldGroup
-                  label="Company Address"
-                  name="companyAddress"
+                  label="Street Address"
+                  name="streetAddress"
                   type="text"
-                  placeholder="Company Address"
-                  value={this.state.companyAddress}
+                  placeholder="Street Address"
+                  value={this.state.streetAddress}
+                  onChange={this.handleChange}
+                />
+                <FieldGroup
+                  label="City"
+                  name="city"
+                  type="text"
+                  placeholder="City"
+                  value={this.state.city}
+                  onChange={this.handleChange}
+                />
+                <FormGroup controlId="formControlsSelect">
+                  <ControlLabel>State</ControlLabel>
+                  <FormControl
+                    name="stateName"
+                    componentClass="select"
+                    placeholder="select"
+                    className="textArea"
+                    onChange={this.handleChange}>
+                    <option value={this.state.state}>{this.state.state}</option>
+                    { usa.map((stateName) => {
+                      return <option value={stateName}>{stateName}</option>
+                    })
+                  }
+                  </FormControl>
+                </FormGroup>
+                <FieldGroup
+                  label="Zip Code"
+                  name="zipCode"
+                  type="text"
+                  placeholder="Zip Code"
+                  value={this.state.zipCode}
                   onChange={this.handleChange}
                 />
                 <FieldGroup
