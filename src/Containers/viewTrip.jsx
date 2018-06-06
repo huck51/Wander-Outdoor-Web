@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { Col, Row } from 'react-bootstrap';
+import {
+  Col,
+  ControlLabel,
+  FormControl,
+  FormGroup,
+  Row,
+} from 'react-bootstrap';
 import './Styles/viewTrip.css';
 
 const pic = 'https://res.cloudinary.com/wander-outdoor/image/upload/v1528176929/sf6xs4l7xkbr1a8nf4hu.jpg';
@@ -17,6 +23,8 @@ class ViewTrip extends Component {
       guides: [],
       rating: 5,
       picture: '',
+      reviews: [],
+      newReview: '',
     }
   }
 
@@ -61,6 +69,37 @@ class ViewTrip extends Component {
                   this.state.guides.map(guide => <li>{guide}</li>)
                 }
               </ul>
+            </Col>
+          </Row>
+          <Row className="mainCard">
+            <Col xs={12} sm={12} md={12} lg={12}>
+              <h2>Reviews</h2>
+              <ul>
+                {
+                  this.state.reviews.length === 0 ?
+                    <li>No reviews available. Be the first one!</li> :
+                  this.state.reviews.map(review => <li>{review}</li>)
+                }
+              </ul>
+              <div>
+                <form>
+                  <FormGroup controlId="formControlsTextarea">
+                    <ControlLabel>Write a review:</ControlLabel>
+                    <FormControl
+                      componentClass="textarea"
+                      placeholder="Maximum of 250 words..."
+                      value={this.state.newReview}
+                      onChange={this.handleChange}
+                      name="newReview"
+                      className="textArea"
+                      rows="10"
+                    />
+                  </FormGroup>
+                  <button
+                    type="submit"
+                    className="epSaveBtn">Submit</button>
+                </form>
+              </div>
             </Col>
           </Row>
         </div>
