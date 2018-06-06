@@ -30,6 +30,7 @@ class ViewTraveler extends Component {
       city: '',
       state: '',
       reviews: [null],
+      newReview: '',
     };
     console.log(this.state.activities.length);
   }
