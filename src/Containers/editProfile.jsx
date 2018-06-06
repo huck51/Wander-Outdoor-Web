@@ -53,6 +53,12 @@ class EditProfile extends Component {
           city,
           state,
         } = response.data;
+        let explorer = true;
+        let guide = false;
+        if (roleGroup === 'guide') {
+          explorer = false;
+          guide = true;
+        }
         this.setState({
           firstName,
           lastName,
@@ -61,6 +67,8 @@ class EditProfile extends Component {
           phone,
           bio,
           roleGroup,
+          explorer,
+          guide,
           picture,
           companyCode,
           city,
