@@ -68,7 +68,7 @@ const Main = () => (
       <Route exact path="/dashboard/:company/trips" render={props => <DashboardTrips auth={auth} {...props} />} />
       <Route exact path="/edit-profile" component={EditProfile} />
       <Route exact path="/guides" component={Guides} />
-      <Route exact path="/guides/:username" render={props => <ViewGuide auth={auth} {...props} />} />
+      <Route exact path="/guides/:username" render={props => <ViewTraveler auth={auth} {...props} />} />
       <Route exact path="/guiding-companies" component={GuidingCompanies} />
       <Route exact path="/inbox/" component={Inbox} />
       <Route exact path="/profile" component={ViewTraveler} />
