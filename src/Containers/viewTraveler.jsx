@@ -80,6 +80,28 @@ class ViewTraveler extends Component {
         console.error(err);
       });
   }
+
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.state.reviews.push(this.state.newReview);
+    const axiosOptions = {
+      fierceIce: localStorage.getItem('fierceIce'),
+      reviews: this.state.reviews,
+    };
+    axios.post('url', axiosOptions)
+    .then((response) => {
+      console.log(response);
+      this.setState({ newReview: '' });
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  }
+
   render() {
     return (
       <div>
@@ -186,6 +208,7 @@ class ViewTraveler extends Component {
                   <button
                     type="submit"
                     className="epSaveBtn"
+                    onClick={this.handleSubmit}
                   >Submit
                   </button>
                 </form>

@@ -6,6 +6,7 @@ import {
   FormGroup,
   Row,
 } from 'react-bootstrap';
+import axios from 'axios';
 import './Styles/viewTrip.css';
 
 const pic = 'https://res.cloudinary.com/wander-outdoor/image/upload/v1528176929/sf6xs4l7xkbr1a8nf4hu.jpg';
@@ -26,6 +27,27 @@ class ViewTrip extends Component {
       reviews: [],
       newReview: '',
     }
+  }
+
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.state.reviews.push(this.state.newReview);
+    const axiosOptions = {
+      fierceIce: localStorage.getItem('fierceIce'),
+      reviews: this.state.reviews,
+    };
+    axios.post('url', axiosOptions)
+    .then((response) => {
+      console.log(response);
+      this.setState({ newReview: '' });
+    })
+    .catch((err) => {
+      console.error(err);
+    });
   }
 
   render() {
@@ -98,6 +120,7 @@ class ViewTrip extends Component {
                   <button
                     type="submit"
                     className="epSaveBtn"
+                    onClick={this.handleSubmit}
                   >Submit
                   </button>
                 </form>
