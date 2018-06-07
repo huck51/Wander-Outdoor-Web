@@ -14,7 +14,7 @@ const Footer = () => (
         </Row>
         <Row>
           <Col md={12} className="lefty">
-            <a href="http://wander-outdoor-temp.herokuapp.com/">Founded in Boulder, Colorado 2015</a>
+            <a href="http://wander-outdoor-temp.herokuapp.com/">Founded in Boulder, Colorado 2016</a>
           </Col>
         </Row>
       </Col>
