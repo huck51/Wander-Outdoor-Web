@@ -1,12 +1,19 @@
 
+.filterBtn {
+  padding: .25em;
+}
+.filterBtn:hover {
+  background-color: rgba(55,131,182,1);
+}
 .filterTabs {
   display: block;
   margin: 0;
-  border: black solid 2px;
-  padding: .25em;
   width: 100%;
 }
+.filterUl {
+  padding: 0;
+}
 .partition {
-  border: solid black 2px;
-  height: 20em;
+  padding: .25em 0 .25em 1em;
+  margin-left: 1em;
 }

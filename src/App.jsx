@@ -54,7 +54,7 @@ class App extends Component {
       });
     }
   }
-  
+
   componentDidMount() {
     const token = process.env.REACT_APP_TOKEN;
     const email = localStorage.getItem('email');
@@ -88,12 +88,14 @@ class App extends Component {
   render() {
     return (
       <div style={window.location.pathname === '/' ? stylz : stile}>
-        <div id="body">
-          <NavigationBar loggedIn={this.state.loggedIn} user={this.state.user} />
-          <Main />
-        </div>
-        <div id="footer">
-          <Footer />
+        <div className="shadeLayer">
+          <div id="body">
+            <NavigationBar loggedIn={this.state.loggedIn} user={this.state.user} />
+            <Main />
+          </div>
+          <div id="footer">
+            <Footer />
+          </div>
         </div>
       </div>
     );

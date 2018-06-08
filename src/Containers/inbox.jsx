@@ -18,11 +18,11 @@ class Inbox extends Component {
         <div className="container">
           <Row>
             <Col xs={12} sm={6} md={3} lg={2} className="partition">
-              <ul>
-                <li className="filterTabs">Unread</li>
-                <li className="filterTabs">Read</li>
-                <li className="filterTabs">Saved</li>
-                <li className="filterTabs">Trash</li>
+              <ul className="filterUl">
+                <li className="filterTabs"><button className="filterBtn">Unread</button></li>
+                <li className="filterTabs"><button className="filterBtn">Read</button></li>
+                <li className="filterTabs"><button className="filterBtn">Saved</button></li>
+                <li className="filterTabs"><button className="filterBtn">Trash</button></li>
               </ul>
             </Col>
           </Row>
