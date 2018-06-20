@@ -1,0 +1,9 @@
+.teamBox {
+  height: 40em;
+  padding: 4em;
+  text-align: center;
+}
+.employeePic {
+  border-radius: 50%;
+  max-width: 25vw;
+}
