@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   ControlLabel,
   FormControl,
@@ -9,8 +10,16 @@ import './Styles/fieldGroup.css';
 const FieldGroup = ({ label, ...props }) => (
   <FormGroup>
     <ControlLabel>{label}</ControlLabel>
-    <FormControl {...props} className="formPut"/>
+    <FormControl {...props} className="formPut" />
   </FormGroup>
 );
+
+FieldGroup.defaultProps = {
+  label: '',
+};
+
+FieldGroup.propTypes = {
+  label: PropTypes.string,
+};
 
 export default FieldGroup;
