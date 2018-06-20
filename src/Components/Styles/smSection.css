@@ -1,0 +1,34 @@
+/* Our Vision */
+.OVdiv {
+  background-color: black;
+  text-align: center;
+  margin: 0;
+  height: 20em;
+}
+.OVh2 {
+  margin: 0;
+}
+.OVhr {
+  width: 75%;
+  margin: auto;
+}
+.OVp {
+  margin: 0;
+}
+/* Our Product*/
+.OPdiv {
+  background-color: purple;
+  text-align: center;
+  margin: 0;
+  height: 20em;
+}
+.OPh2 {
+  margin: 0;
+}
+.OPhr {
+  width: 75%;
+  margin: auto;
+}
+.OPp {
+  margin: 0;
+}
