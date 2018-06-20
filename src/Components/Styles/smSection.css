@@ -1,33 +1,54 @@
-/* Our Vision */
-.OVdiv {
-  background-color: black;
+/* Template */
+.XXdiv {
   text-align: center;
   margin: 0;
   height: 20em;
+  padding: 3em;
+}
+.XXh2 {
+  margin: 0;
+}
+.XXhr {
+  width: 75%;
+  margin: .5em auto;
+}
+.XXp {
+  margin: 0;
+}
+
+/* Our Vision */
+.OVdiv {
+  background-color: rgb(200,200,200);
+  text-align: center;
+  margin: 0;
+  height: 20em;
+  padding: 3em;
 }
 .OVh2 {
   margin: 0;
 }
 .OVhr {
   width: 75%;
-  margin: auto;
+  margin: .5em auto;
 }
 .OVp {
   margin: 0;
 }
 /* Our Product*/
 .OPdiv {
-  background-color: purple;
+  background-color: rgb(55,131,182);
   text-align: center;
   margin: 0;
   height: 20em;
+  padding: 3em;
 }
 .OPh2 {
   margin: 0;
 }
 .OPhr {
   width: 75%;
-  margin: auto;
+  margin: .5em auto;
+  border-color: rgb(181,216,150);
 }
 .OPp {
   margin: 0;

@@ -13,9 +13,17 @@ const PicSection = ({
     return (
       <div>
         <Row>
-          <Col style={{ backgroundImage: imgSrc }} />
-          <Col>
+          <Col
+            xs={12}
+            sm={12}
+            md={6}
+            lg={6}
+            className="picCol"
+            style={{ backgroundImage: `url(${imgSrc})` }}
+          />
+          <Col xs={12} sm={12} md={6} lg={6}>
             <h2>{heading}</h2>
+            <hr />
             <p>{text}</p>
           </Col>
         </Row>
@@ -25,11 +33,19 @@ const PicSection = ({
   return (
     <div>
       <Row>
-        <Col>
+        <Col xs={12} sm={12} md={6} lg={6}>
           <h2>{heading}</h2>
+          <hr />
           <p>{text}</p>
         </Col>
-        <Col style={{ backgroundImage: imgSrc }} />
+        <Col
+          xs={12}
+          sm={12}
+          md={6}
+          lg={6}
+          style={{ backgroundImage: `url(${imgSrc})` }}
+          className="picCol"
+        />
       </Row>
     </div>
   );
