@@ -40,6 +40,10 @@ const About = () => (
       picSide="right"
       imgSrc="https://scontent.ffcm1-1.fna.fbcdn.net/v/t1.0-9/18921856_10158866046745387_387248477087241180_n.jpg?_nc_cat=0&oh=009d294143240e004a02b9eda6cee3f7&oe=5BECA6C2"
     />
+    <div className="container">
+      <h2>Meet The Team</h2>
+      <hr />
+    </div>
     <Row>
       <Col xs={12} sm={12} md={4} lg={4}>
         <TeamGuy

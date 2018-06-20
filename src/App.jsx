@@ -88,7 +88,7 @@ class App extends Component {
   render() {
     return (
       <div style={window.location.pathname === '/' ? stylz : stile}>
-        <div className="shadeLayer">
+        <div className={window.location.pathname === '/' ? 'shadeLayer' : ''}>
           <div id="body">
             <NavigationBar loggedIn={this.state.loggedIn} user={this.state.user} />
             <Main />
