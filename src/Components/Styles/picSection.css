@@ -1,4 +1,43 @@
 /* Modernizing the Industry */
-.picCol {
+.modIndCol {
   height: 45em;
+}
+.modIndPic {
+  height: 45em;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+}
+.modIndText {
+  padding: 1em;
+}
+
+/* We Do The Work So You Don't Have To */
+.weDoWorkCol {
+  height: 45em;
+  background-color: rgb(55,131,182)
+}
+.weDoWorkPic {
+  height: 45em;
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: cover;
+}
+.weDoWorkText {
+  padding: 1em;
+}
+
+/* How It Works */
+.howitwerksCol {
+  height: 45em;
+  background-color: rgb(230,230,230);
+}
+.howitwerksPic {
+  height: 45em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+.howitwerksText {
+  padding: 1em;
 }

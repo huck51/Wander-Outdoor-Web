@@ -4,10 +4,13 @@ import PropTypes from 'prop-types';
 import './Styles/picSection.css';
 
 const PicSection = ({
+  colClass,
   heading,
+  imgClass,
   imgSrc,
   picSide,
   text,
+  textClass,
 }) => {
   if (picSide === 'left') {
     return (
@@ -18,13 +21,21 @@ const PicSection = ({
             sm={12}
             md={6}
             lg={6}
-            className="picCol"
+            className={imgClass}
             style={{ backgroundImage: `url(${imgSrc})` }}
           />
-          <Col xs={12} sm={12} md={6} lg={6}>
-            <h2>{heading}</h2>
-            <hr />
-            <p>{text}</p>
+          <Col
+            xs={12}
+            sm={12}
+            md={6}
+            lg={6}
+            className={colClass}
+          >
+            <div className={textClass}>
+              <h2>{heading}</h2>
+              <hr />
+              <p>{text}</p>
+            </div>
           </Col>
         </Row>
       </div>
@@ -33,10 +44,12 @@ const PicSection = ({
   return (
     <div>
       <Row>
-        <Col xs={12} sm={12} md={6} lg={6}>
-          <h2>{heading}</h2>
-          <hr />
-          <p>{text}</p>
+        <Col xs={12} sm={12} md={6} lg={6} className={colClass}>
+          <div className={textClass}>
+            <h2>{heading}</h2>
+            <hr />
+            <p>{text}</p>
+          </div>
         </Col>
         <Col
           xs={12}
@@ -44,7 +57,7 @@ const PicSection = ({
           md={6}
           lg={6}
           style={{ backgroundImage: `url(${imgSrc})` }}
-          className="picCol"
+          className={imgClass}
         />
       </Row>
     </div>
@@ -52,17 +65,23 @@ const PicSection = ({
 };
 
 PicSection.defaultProps = {
+  colClass: '',
   heading: 'HEADING',
+  imgClass: '',
   imgSrc: '',
   picSide: 'left',
   text: 'description text',
+  textClass: '',
 };
 
 PicSection.propTypes = {
+  colClass: PropTypes.string,
   heading: PropTypes.string,
+  imgClass: PropTypes.string,
   imgSrc: PropTypes.string,
   picSide: PropTypes.string,
   text: PropTypes.string,
+  textClass: PropTypes.string,
 };
 
 export default PicSection;
