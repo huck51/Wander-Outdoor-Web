@@ -16,7 +16,7 @@ const TeamGuy = ({
     />
     <h3>{name}</h3>
     <h5>{jobTitle}</h5>
-    <hr />
+    <hr className="tgHr" />
     <p>{bio}</p>
   </div>
 );

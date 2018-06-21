@@ -6,6 +6,7 @@ import './Styles/picSection.css';
 const PicSection = ({
   colClass,
   heading,
+  hrClass,
   imgClass,
   imgSrc,
   picSide,
@@ -33,7 +34,7 @@ const PicSection = ({
           >
             <div className={textClass}>
               <h2>{heading}</h2>
-              <hr />
+              <hr className={hrClass} />
               <p>{text}</p>
             </div>
           </Col>
@@ -47,7 +48,7 @@ const PicSection = ({
         <Col xs={12} sm={12} md={6} lg={6} className={colClass}>
           <div className={textClass}>
             <h2>{heading}</h2>
-            <hr />
+            <hr className={hrClass} />
             <p>{text}</p>
           </div>
         </Col>
@@ -67,6 +68,7 @@ const PicSection = ({
 PicSection.defaultProps = {
   colClass: '',
   heading: 'HEADING',
+  hrClass: '',
   imgClass: '',
   imgSrc: '',
   picSide: 'left',
@@ -77,6 +79,7 @@ PicSection.defaultProps = {
 PicSection.propTypes = {
   colClass: PropTypes.string,
   heading: PropTypes.string,
+  hrClass: PropTypes.string,
   imgClass: PropTypes.string,
   imgSrc: PropTypes.string,
   picSide: PropTypes.string,

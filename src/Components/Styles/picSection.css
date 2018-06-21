@@ -2,6 +2,9 @@
 .modIndCol {
   height: 45em;
 }
+.modIndHr {
+  border-color: rgb(55,131,182);
+}
 .modIndPic {
   height: 45em;
   background-repeat: no-repeat;
@@ -15,7 +18,10 @@
 /* We Do The Work So You Don't Have To */
 .weDoWorkCol {
   height: 45em;
-  background-color: rgb(55,131,182)
+  background-color: rgb(55,131,182);
+}
+.weDoWorkHr {
+  border-color: rgb(181,216,150);
 }
 .weDoWorkPic {
   height: 45em;
@@ -31,6 +37,9 @@
 .howitwerksCol {
   height: 45em;
   background-color: rgb(230,230,230);
+}
+.howitwerksHr {
+  border-color: rgb(55,131,182);
 }
 .howitwerksPic {
   height: 45em;
