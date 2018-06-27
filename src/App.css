@@ -1,8 +1,13 @@
-
+body,
+html,
+#root {
+  position: relative;
+  min-height: 100vh;
+}
 body {
   background-color: white;
   min-height: 100%;
-  margin-bottom: 5em;
+  margin-bottom: 0;
   width: 100%;
   overflow-x: hidden;
 }
@@ -24,6 +29,7 @@ p {
 }
 main {
   min-height: 100%;
+  padding-bottom: 6em;
 }
 nav.navbar {
   margin-bottom: 0;
@@ -32,10 +38,10 @@ nav.navbar {
 
 }
 #body {
-  margin-bottom: 10em;
+  margin-bottom: 0;
 }
 #footer {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
 }
