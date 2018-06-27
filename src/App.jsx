@@ -6,17 +6,18 @@ import Main from './main';
 import NavigationBar from './Components/navigationbar';
 import bouldering from './Images/BackgroundImages/bouldering.jpg';
 import canyonRun from './Images/BackgroundImages/canyonRun.jpg';
-import deepSnowHike from './Images/BackgroundImages/deepSnowHike.jpg';
-import grayTightRope from './Images/BackgroundImages/grayTightRope.jpg';
-import heidiClimb from './Images/BackgroundImages/heidiClimb.jpg';
-import hangingGear from './Images/BackgroundImages/hangingGear.jpg';
-import sunsetClimb from './Images/BackgroundImages/sunsetClimb.jpg';
-import surfing from './Images/BackgroundImages/surfing.jpg';
 import './App.css';
 
+const fallRun = 'https://res.cloudinary.com/wander-outdoor/image/upload/v1529539222/Wander/DSC_0076-2.jpg';
+const grayTightRope = 'https://res.cloudinary.com/wander-outdoor/image/upload/v1529538924/Wander/grayTightRope.jpg';
+const hangingGear = 'https://res.cloudinary.com/wander-outdoor/image/upload/v1529538889/Wander/hangingGear.jpg';
+const heidiClimb = 'https://res.cloudinary.com/wander-outdoor/image/upload/v1529538806/Wander/heidiClimb.jpg';
+const sunsetClimb = 'https://res.cloudinary.com/wander-outdoor/image/upload/v1529538844/Wander/sunsetClimb.jpg';
+const surfing = 'https://res.cloudinary.com/wander-outdoor/image/upload/v1529538872/Wander/surfing.jpg';
+const deepSnowHike = 'https://res.cloudinary.com/wander-outdoor/image/upload/v1530098328/Wander/deepSnowHike.jpg';
 
 const backgroundArray = [bouldering, canyonRun, deepSnowHike, grayTightRope,
-  hangingGear, sunsetClimb, surfing, heidiClimb];
+  hangingGear, sunsetClimb, surfing, heidiClimb, fallRun];
 const rando = Math.floor(Math.random() * backgroundArray.length);
 const stylz = {
   backgroundImage: `url(${backgroundArray[rando]})`,
