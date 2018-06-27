@@ -1,3 +1,11 @@
+@media screen and (max-width: 800px) {
+
+}
+@media screen and (min-width: 801px) {
+  .pText {
+    font-size: 1.5em;
+  }
+}
 /* Template */
 .XXdiv {
   text-align: center;
@@ -19,32 +27,69 @@
 /* Our Vision */
 .OVdiv {
   background-color: rgb(230,230,230);
-  text-align: center;
+  text-align: left;
   margin: 0;
   height: 20em;
-  padding: 3em;
+  padding: 5em 3em 3em 3em;
 }
 .OVh2 {
   margin: 0;
+  font-size: 4em;
+  display: inline-block;
+  text-align: left;
+  border-right: 1px solid black;
+  padding-right: .5em;
 }
 .OVhr {
   width: 75%;
-  margin: .5em auto;
+  margin: .5em auto 1em auto;
   border-color: rgb(55,131,182);
 }
 .OVp {
   margin: 0;
+  font-size: 1.75em;
+  text-align: left;
+  display: inline-block;
+  padding-left: 1.5em;
+  padding-top: .5em;
+}
+/* Our Vision Original */
+.OVVdiv {
+  background-color: rgb(230,230,230);
+  text-align: center;
+  margin: 0;
+  height: 20em;
+  padding: 4em 3em;
+}
+.OVVh2 {
+  margin: 0;
+  font-size: 4em;
+}
+.OVVhr {
+  width: 75%;
+  margin: .5em auto 1em auto;
+  border-color: rgb(55,131,182);
+}
+.OVVp {
+  margin: 0;
+  font-size: 1.5em;
+  text-align: left;
 }
 /* Our Product*/
 .OPdiv {
   background-color: rgb(55,131,182);
-  text-align: center;
+  text-align: left;
   margin: 0;
   height: 20em;
-  padding: 3em;
+  padding: 5em 3em 3em 3em;
 }
 .OPh2 {
   margin: 0;
+  font-size: 3.5em;
+  display: inline-block;
+  text-align: left;
+  border-right: 1px solid black;
+  padding-right: .5em;
 }
 .OPhr {
   width: 75%;
@@ -52,5 +97,29 @@
   border-color: rgb(181,216,150);
 }
 .OPp {
+  margin: 0;
+  font-size: 1.25em;
+  text-align: left;
+  display: inline-block;
+  padding-left: 4.5em;
+  padding-top: .5em;
+}
+/* Our Product Original */
+.OPPdiv {
+  background-color: rgb(55,131,182);
+  text-align: center;
+  margin: 0;
+  height: 20em;
+  padding: 3em;
+}
+.OPPh2 {
+  margin: 0;
+}
+.OPPhr {
+  width: 75%;
+  margin: .5em auto;
+  border-color: rgb(181,216,150);
+}
+.OPPp {
   margin: 0;
 }
