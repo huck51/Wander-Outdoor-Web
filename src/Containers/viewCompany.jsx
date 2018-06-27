@@ -151,7 +151,7 @@ class ViewCompany extends Component {
           </Row>
           <Row className="mainCard">
             <Col xs={12} sm={12} md={12} lg={12}>
-              <h2>Activities</h2>
+              <h2>Sports / Activities</h2>
               <ul>
                 {
                   this.state.activities.length === 0 ?
@@ -163,24 +163,12 @@ class ViewCompany extends Component {
           </Row>
           <Row className="mainCard">
             <Col xs={12} sm={12} md={12} lg={12}>
-              <h2>Locations</h2>
+              <h2>Permited Locations</h2>
               <ul>
                 {
                   this.state.locations.length === 0 ?
                     <li>No alternate available</li> :
                   this.state.locations.map(location => <li>{location}</li>)
-                }
-              </ul>
-            </Col>
-          </Row>
-          <Row className="mainCard">
-            <Col xs={12} sm={12} md={12} lg={12}>
-              <h2>Permits</h2>
-              <ul>
-                {
-                  this.state.permits.length === 0 ?
-                    <li>No permits available</li> :
-                  this.state.permits.map(permit => <li>{permit}</li>)
                 }
               </ul>
             </Col>
