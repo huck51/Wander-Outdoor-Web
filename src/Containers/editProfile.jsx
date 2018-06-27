@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+  Checkbox,
   Col,
   ControlLabel,
   FormControl,
@@ -33,6 +34,17 @@ class EditProfile extends Component {
         companyCode: '',
         city: '',
         state: '',
+        canoeing: false,
+        fishing: false,
+        hiking: false,
+        hunting: false,
+        iceClimbing: false,
+        mountainBiking: false,
+        mountainClimbing: false,
+        rafting: false,
+        rockClimbing: false,
+        surfing: false,
+        other: false,
     };
   }
 
@@ -53,6 +65,7 @@ class EditProfile extends Component {
           companyCode,
           city,
           state,
+          chex,
         } = response.data;
         let explorer = true;
         let guide = false;
@@ -75,6 +88,11 @@ class EditProfile extends Component {
           city,
           state,
         });
+        for (let i = 0; i < chex.length; i++) {
+          this.setState({
+            [chex[i]]: true
+          });
+        }
           const configAmmo = {
             backgroundImage: `url(${this.state.picture})`,
             backgroundPosition: 'center',
@@ -102,8 +120,22 @@ class EditProfile extends Component {
     this.setState({[e.target.name]: e.target.value});
   }
 
+  handleCheckBoxChange = (e) => {
+    const bullsEye = e.target.name;
+    this.setState({
+      [e.target.name]: !this.state[bullsEye]
+    });
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
+    const chexmix = ['canoeing', 'fishing', 'iceClimbing', 'hiking', 'hunting', 'mountainBiking', 'mountainClimbing', 'rafting', 'rockClimbing', 'surfing', 'other'];
+    const chex = [];
+    for (let i = 0; i < chexmix.length; i++) {
+      if (this.state[chexmix[i]] === true) {
+        chex.push(chexmix[i]);
+      }
+    }
     const {
       firstName,
       lastName,
@@ -130,6 +162,7 @@ class EditProfile extends Component {
       companyCode,
       city,
       state,
+      chex,
     };
     axios.post('https://fierce-ridge-55021.herokuapp.com/update-profile', updateObject)
       .then((response) => {
@@ -145,6 +178,7 @@ class EditProfile extends Component {
           companyCode,
           city,
           state,
+          chex,
         } = response.data;
         this.setState({
           firstName,
@@ -159,6 +193,11 @@ class EditProfile extends Component {
           city,
           state,
         });
+        for (let i = 0; i < chex.length; i++) {
+          this.setState({
+            [chex[i]]: true
+          });
+        }
         alert('Save successful!');
         const configAmmo = {
           backgroundImage: `url(${this.state.picture})`,
@@ -173,30 +212,7 @@ class EditProfile extends Component {
         console.error(err);
       });
   }
-  /*
-  fileChangeHandler = (e) => {
-    e.preventDefault();
-    const reader = new FileReader();
-    const file = e.target.files[0];
-    console.log(file);
-    reader.onloadend = () => {
-      this.setState({
-        imageFile: reader.result,
-        picture: file
-      });
-      const configAmmo = {
-        backgroundImage: `url(${this.state.picture})`,
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        height: '30em',
-        width: '100%'
-      }
-      previewConfig[0] = configAmmo;
-    }
-    reader.readAsDataURL(file);
-  }
-  */
+
   uploadWidget = () => {
     const cloudData = {
       paramsToSign: {
@@ -329,6 +345,76 @@ class EditProfile extends Component {
                     })
                   }
                   </FormControl>
+                </FormGroup>
+                <FormGroup>
+                  <ControlLabel>Sports/Activities Offered</ControlLabel>
+                  <br />
+                  <Checkbox
+                    inline
+                    onClick={this.handleCheckBoxChange}
+                    value={this.state.canoeing}
+                    checked={this.state.canoeing}
+                    name="canoeing">Canoeing</Checkbox>
+                  <Checkbox
+                    inline
+                    onClick={this.handleCheckBoxChange}
+                    value={this.state.fishing}
+                    checked={this.state.fishing}
+                    name="fishing">Fishing</Checkbox>
+                  <Checkbox
+                    inline
+                    onClick={this.handleCheckBoxChange}
+                    value={this.state.hiking}
+                    checked={this.state.hiking}
+                    name="hiking">Hiking</Checkbox>
+                  <Checkbox
+                    inline
+                    onClick={this.handleCheckBoxChange}
+                    value={this.state.hunting}
+                    checked={this.state.hunting}
+                    name="hunting">Hunting</Checkbox>
+                  <Checkbox
+                    inline
+                    onClick={this.handleCheckBoxChange}
+                    value={this.state.iceClimbing}
+                    checked={this.state.iceClimbing}
+                    name="iceClimbing">Ice Climbing</Checkbox>
+                  <Checkbox
+                    inline
+                    onClick={this.handleCheckBoxChange}
+                    value={this.state.mountainBiking}
+                    checked={this.state.mountainBiking}
+                    name="mountainBiking">Mountain Biking</Checkbox>
+                  <Checkbox
+                    inline
+                    onClick={this.handleCheckBoxChange}
+                    value={this.state.mountainClimbing}
+                    checked={this.state.mountainClimbing}
+                    name="mountainClimbing">Mountain Climbing</Checkbox>
+                  <Checkbox
+                    inline
+                    onClick={this.handleCheckBoxChange}
+                    value={this.state.rockClimbing}
+                    checked={this.state.rockClimbing}
+                    name="rockClimbing">Rock Climbing</Checkbox>
+                  <Checkbox
+                    inline
+                    onClick={this.handleCheckBoxChange}
+                    value={this.state.rafting}
+                    checked={this.state.rafting}
+                    name="rafting">Rafting</Checkbox>
+                  <Checkbox
+                    inline
+                    onClick={this.handleCheckBoxChange}
+                    value={this.state.surfing}
+                    checked={this.state.surfing}
+                    name="surfing">Surfing</Checkbox>
+                  <Checkbox
+                    inline
+                    onClick={this.handleCheckBoxChange}
+                    value={this.state.other}
+                    checked={this.state.other}
+                    name="other">Other</Checkbox>
                 </FormGroup>
                 <FormGroup controlId="formControlsTextarea">
                   <ControlLabel>Bio</ControlLabel>
