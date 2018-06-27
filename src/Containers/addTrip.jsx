@@ -59,6 +59,7 @@ class AddTrip extends Component {
       price,
       city,
       stateName,
+      picture,
     } = this.state;
     const newTrip = {
       name,
@@ -66,6 +67,7 @@ class AddTrip extends Component {
       city,
       stateName,
       price,
+      picture,
       chex,
     };
     this.setState({
@@ -74,6 +76,7 @@ class AddTrip extends Component {
       city: '',
       stateName: '',
       price: '',
+      picture: null,
     });
     axios.post('https://fierce-ridge-55021.herokuapp.com/add-trip', newTrip)
       .then(() => {
