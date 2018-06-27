@@ -13,6 +13,7 @@
 }
 .modIndText {
   padding: 1em;
+  font-size: 1.75em;
 }
 
 /* We Do The Work So You Don't Have To */
@@ -31,6 +32,7 @@
 }
 .weDoWorkText {
   padding: 1em;
+  font-size: 1.4em;
 }
 
 /* How It Works */
@@ -49,4 +51,5 @@
 }
 .howitwerksText {
   padding: 1em;
+  font-size: 1.5em;
 }
