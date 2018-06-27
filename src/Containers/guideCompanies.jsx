@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Thumbnail } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
+import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios';
 import './Styles/guideCompanies.css';
 
@@ -48,14 +49,48 @@ class GuideCompanies extends Component {
           </Row>
           <ul className="guideUl">
             <Row className="container">
+              <Col xs={12} sm={6} md={4} lg={3}>
+                <li className="">
+                  <Thumbnail src="https://res.cloudinary.com/wander-outdoor/image/upload/v1528172957/axntapvljytgwssqp3tz.png">
+                    <h3>Wander Outdoor</h3>
+                    <p>Boulder, Colorado</p>
+                    <StarRatingComponent
+                      name="wander1"
+                    />
+                    <Link to={`/company/${'Wander Outdoor'}`}><button className="removeButn">View Company</button></Link>
+                  </Thumbnail>
+                </li>
+              </Col>
+              <Col xs={12} sm={6} md={4} lg={3}>
+                <li className="">
+                  <Thumbnail
+                    src="https://res.cloudinary.com/wander-outdoor/image/upload/v1529539222/Wander/DSC_0076-2.jpg"
+                    className="thumbox"
+                  >
+                    <h3>Wander Outdoor</h3>
+                    <p>Boulder, Colorado</p>
+                    <StarRatingComponent
+                      name="wander2"
+                    />
+                    <Link to={`/company/${'Wander Outdoor'}`}><button className="removeButn">View Company</button></Link>
+                  </Thumbnail>
+                </li>
+              </Col>
               {this.state.companies.map((company) => {
                 return (
                   <Col xs={12} sm={6} md={4} lg={3}>
                     <li className="list">
-                      <h3>{company.companyName}</h3>
-                      <p>{company.companyAddress}</p>
-                      <p>{company.companyPhone}</p>
-                      <Link to={`/company/${company.companyName}`}><button className="removeButn">View Company</button></Link>
+                      <Thumbnail
+                        src="https://res.cloudinary.com/wander-outdoor/image/upload/v1529539222/Wander/DSC_0076-2.jpg"
+                        className="thumbox"
+                      >
+                        <h3>{company.companyName}</h3>
+                        <p>{company.companyAddress}</p>
+                        <StarRatingComponent
+                          name={company.companyName}
+                        />
+                        <Link to={`/company/${company.companyName}`}><button className="removeButn">View Company</button></Link>
+                      </Thumbnail>
                     </li>
                   </Col>
                 );
