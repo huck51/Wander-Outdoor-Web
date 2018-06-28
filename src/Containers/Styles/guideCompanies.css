@@ -6,6 +6,9 @@ ul {
   display: inline-flex;
   flex-wrap: wrap;
 }
+.boxOfCards {
+  padding-bottom: 5em;
+}
 .css-1pa5up3 {
   margin: auto;
 }
