@@ -3,6 +3,7 @@ html,
 #root {
   position: relative;
   min-height: 100vh;
+  padding-bottom: 3em;
 }
 body {
   background-color: white;
