@@ -147,7 +147,7 @@ class ViewTraveler extends Component {
           </Row>
           <Row className="mainCard">
             <Col xs={12} sm={12} md={12} lg={12}>
-              <h2>Trips Qualified</h2>
+              <h2>Trips</h2>
               <ul>
                 {
                   this.state.tripsQualified.length === 0 ?
@@ -159,7 +159,7 @@ class ViewTraveler extends Component {
           </Row>
           <Row className="mainCard">
             <Col xs={12} sm={12} md={12} lg={12}>
-              <h2>Trips Completed</h2>
+              <h2>Past Trips</h2>
               <ul>
                 {
                   this.state.tripsCompleted.length === 0 ?
