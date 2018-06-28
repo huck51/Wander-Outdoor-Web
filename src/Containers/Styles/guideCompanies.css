@@ -22,4 +22,6 @@ ul {
 }
 .thumbox {
   box-shadow: 1px 1px 15px 1px rgb(70,70,70);
+  margin-bottom: 2em;
+  margin-top: 0;
 }
