@@ -29,15 +29,28 @@ class SignUpGC extends Component {
       contactEmail: '',
       picture: null,
       bio: '',
+      atv: false,
+      backPacking: false,
+      birdWatching: false,
       canoeing: false,
+      deepSeaFish: false,
+      dirtBiking: false,
       fishing: false,
+      flyFishing: false,
       hiking: false,
       hunting: false,
       iceClimbing: false,
+      kayaking: false,
       mountainBiking: false,
-      mountainClimbing: false,
+      mountaineering: false,
+      offRoading: false,
       rafting: false,
+      roadBiking: false,
       rockClimbing: false,
+      scuba: false,
+      skiing: false,
+      snorkeling: false,
+      snowboarding: false,
       surfing: false,
       other: false,
     };
@@ -56,7 +69,7 @@ class SignUpGC extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const chexmix = ['canoeing', 'fishing', 'iceClimbing', 'hiking', 'hunting', 'mountainBiking', 'mountainClimbing', 'rafting', 'rockClimbing', 'surfing', 'other'];
+    const chexmix = ['atv', 'backPacking', 'birdWatching', 'canoeing', 'deepSeaFish', 'dirtBiking', 'fishing', 'flyFishing', 'hiking', 'hunting', 'iceClimbing', 'kayaking', 'mountainBiking', 'mountaineering', 'offRoading', 'rafting', 'roadBiking', 'rockClimbing', 'scuba', 'skiing', 'snorkeling', 'snowboarding', 'surfing', 'other'];
     const chex = [];
     for (let i = 0; i < chexmix.length; i++) {
       if (this.state[chexmix[i]] === true) {
@@ -149,6 +162,7 @@ class SignUpGC extends Component {
   }
 
   render() {
+    const sports = [{name: 'atv', pretty: 'ATV Off-Roading'}, {name: 'backPacking', pretty: 'Backpacking'}, {name: 'birdWatching', pretty: 'Bird Watching'}, {name: 'canoeing', pretty: 'Canoeing'}, {name: 'deepSeaFish', pretty: 'Deep Sea Fishing'}, {name: 'dirtBiking', pretty: 'Dirt Biking'}, {name: 'fishing', pretty: 'Fishing'}, {name: 'flyFishing', pretty: 'Fly Fishing'}, {name: 'hiking', pretty: 'Hiking'}, {name: 'hunting', pretty: 'Hunting'}, {name: 'iceClimbing', pretty: 'Ice Climbing'}, {name: 'kayaking', pretty: 'Kayaking'}, {name: 'mountainBiking', pretty: 'Mountain Biking'}, {name: 'mountaineering', pretty: 'Mountaineering'}, {name: 'offRoading', pretty: 'Off-Roading'}, {name: 'rafting', pretty: 'Rafting'}, {name: 'roadBiking', pretty: 'Road Biking'}, {name: 'rockClimbing', pretty: 'Rock Climbing'}, {name: 'scuba', pretty: 'Scuba Diving'}, {name: 'skiing', pretty: 'Skiing'}, {name: 'snorkeling', pretty: 'Snorkeling'}, {name: 'snowboarding', pretty: 'Snowboarding'}, {name: 'surfing', pretty: 'Surfing'}, {name: 'other', pretty: 'Other'}];
     return (
       <div className="container">
         <h1>Guiding Company SignUp</h1>
@@ -246,72 +260,20 @@ class SignUpGC extends Component {
                 <FormGroup>
                   <ControlLabel>Sports/Activities Offered</ControlLabel>
                   <br />
-                  <Checkbox
-                    inline
-                    onClick={this.handleCheckBoxChange}
-                    value={this.state.canoeing}
-                    checked={this.state.canoeing}
-                    name="canoeing">Canoeing</Checkbox>
-                  <Checkbox
-                    inline
-                    onClick={this.handleCheckBoxChange}
-                    value={this.state.fishing}
-                    checked={this.state.fishing}
-                    name="fishing">Fishing</Checkbox>
-                  <Checkbox
-                    inline
-                    onClick={this.handleCheckBoxChange}
-                    value={this.state.hiking}
-                    checked={this.state.hiking}
-                    name="hiking">Hiking</Checkbox>
-                  <Checkbox
-                    inline
-                    onClick={this.handleCheckBoxChange}
-                    value={this.state.hunting}
-                    checked={this.state.hunting}
-                    name="hunting">Hunting</Checkbox>
-                  <Checkbox
-                    inline
-                    onClick={this.handleCheckBoxChange}
-                    value={this.state.iceClimbing}
-                    checked={this.state.iceClimbing}
-                    name="iceClimbing">Ice Climbing</Checkbox>
-                  <Checkbox
-                    inline
-                    onClick={this.handleCheckBoxChange}
-                    value={this.state.mountainBiking}
-                    checked={this.state.mountainBiking}
-                    name="mountainBiking">Mountain Biking</Checkbox>
-                  <Checkbox
-                    inline
-                    onClick={this.handleCheckBoxChange}
-                    value={this.state.mountainClimbing}
-                    checked={this.state.mountainClimbing}
-                    name="mountainClimbing">Mountain Climbing</Checkbox>
-                  <Checkbox
-                    inline
-                    onClick={this.handleCheckBoxChange}
-                    value={this.state.rockClimbing}
-                    checked={this.state.rockClimbing}
-                    name="rockClimbing">Rock Climbing</Checkbox>
-                  <Checkbox
-                    inline
-                    onClick={this.handleCheckBoxChange}
-                    value={this.state.rafting}
-                    checked={this.state.rafting}
-                    name="rafting">Rafting</Checkbox>
-                  <Checkbox
-                    inline
-                    onClick={this.handleCheckBoxChange}
-                    value={this.state.surfing}
-                    checked={this.state.surfing}
-                    name="surfing">Surfing</Checkbox>
-                  <Checkbox
-                    inline
-                    onClick={this.handleCheckBoxChange}
-                    value={this.state.other}
-                    checked={this.state.other}
-                    name="other">Other</Checkbox>
+                  {
+                    sports.map((sport) => {
+                      return (
+                        <Checkbox
+                          inline
+                          onClick={this.handleCheckBoxChange}
+                          value={this.state[sport.name]}
+                          checked={this.state[sport.name]}
+                          name={sport.name}
+                        >{sport.pretty}
+                        </Checkbox>
+                      );
+                    })
+                  }
                 </FormGroup>
                 <FormGroup controlId="formControlsTextarea">
                   <ControlLabel>Company Bio</ControlLabel>
