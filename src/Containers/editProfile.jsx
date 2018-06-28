@@ -304,6 +304,7 @@ class EditProfile extends Component {
                   placeholder="First Name"
                   onChange={this.handleChange}
                   value={this.state.firstName}
+                  autocomplete="given-name"
                 />
                 <FieldGroup
                   name="lastName"
@@ -312,6 +313,7 @@ class EditProfile extends Component {
                   placeholder="Last Name"
                   onChange={this.handleChange}
                   value={this.state.lastName}
+                  autocomplete="family-name"
                 />
                 <FieldGroup
                   name="DOB"
@@ -320,6 +322,7 @@ class EditProfile extends Component {
                   placeholder=""
                   onChange={this.handleChange}
                   value={this.state.DOB}
+                  autocomplete="bday"
                 />
                 <FieldGroup
                   name="email"
@@ -328,6 +331,7 @@ class EditProfile extends Component {
                   placeholder="Ex: user@website.com"
                   onChange={this.handleChange}
                   value={this.state.email}
+                  autocomplete="email"
                 />
                 <FieldGroup
                   name="phone"
@@ -336,6 +340,7 @@ class EditProfile extends Component {
                   placeholder="Ex: 612-911-5555"
                   onChange={this.handleChange}
                   value={this.state.phone}
+                  autocomplete="tel-national"
                 />
                 <FieldGroup
                   name="city"
@@ -344,6 +349,7 @@ class EditProfile extends Component {
                   placeholder="Current City"
                   onChange={this.handleChange}
                   value={this.state.city}
+                  autocomplete="address-level2"
                 />
                 <FormGroup controlId="formControlsSelect">
                   <ControlLabel>Current State</ControlLabel>
