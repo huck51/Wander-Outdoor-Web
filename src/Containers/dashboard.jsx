@@ -5,7 +5,7 @@ import {
 } from 'react-bootstrap';
 import { BounceLoader } from 'react-spinners';
 import { Link } from 'react-router-dom';
-import './Styles/companyDashboard.css';
+import './Styles/dashboard.css';
 
 
 class Dashboard extends Component {
@@ -50,7 +50,7 @@ class Dashboard extends Component {
             <Row className="container">
               <Col xs={12} sm={6} md={4} lg={3}>
                 <Link to={`/signup/guiding-company`}>
-                  <li className="list">
+                  <li className="btnCard">
                     <h3 className="addNew">Register New Company</h3>
                     <h1 className="giantPlus">+</h1>
                   </li>

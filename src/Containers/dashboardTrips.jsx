@@ -57,7 +57,7 @@ class DashboardTrips extends Component {
             <Row className="container">
               <Col xs={12} sm={6} md={4} lg={3}>
                 <Link to={`/dashboard/:company/add-trip`}>
-                  <li className="list">
+                  <li className="btnCard">
                     <h3 className="addNew">Add New Trip</h3>
                     <h1 className="giantPlus">+</h1>
                   </li>
