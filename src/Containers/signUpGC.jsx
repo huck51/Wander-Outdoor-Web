@@ -177,6 +177,7 @@ class SignUpGC extends Component {
                   placeholder="Company Name"
                   value={this.state.companyName}
                   onChange={this.handleChange}
+                  autocomplete="organization"
                 />
                 <FieldGroup
                   label="Street Address"
@@ -185,6 +186,7 @@ class SignUpGC extends Component {
                   placeholder="Street Address"
                   value={this.state.streetAddress}
                   onChange={this.handleChange}
+                  autocomplete="address-line1"
                 />
                 <FieldGroup
                   label="City"
@@ -193,6 +195,7 @@ class SignUpGC extends Component {
                   placeholder="City"
                   value={this.state.city}
                   onChange={this.handleChange}
+                  autocomplete="address-level2"
                 />
                 <FormGroup controlId="formControlsSelect">
                   <ControlLabel>State</ControlLabel>
@@ -216,6 +219,7 @@ class SignUpGC extends Component {
                   placeholder="Zip Code"
                   value={this.state.zipCode}
                   onChange={this.handleChange}
+                  autocomplete="postal-code"
                 />
                 <FieldGroup
                   label="Company Phone Number"
@@ -224,6 +228,7 @@ class SignUpGC extends Component {
                   placeholder="Company Phone"
                   value={this.state.companyPhone}
                   onChange={this.handleChange}
+                  autocomplete="tel-national"
                 />
                 <FieldGroup
                   label="Contact Name"
@@ -232,6 +237,7 @@ class SignUpGC extends Component {
                   placeholder="Contact Name"
                   value={this.state.contactName}
                   onChange={this.handleChange}
+                  autocomplete="name"
                 />
                 <FieldGroup
                   label="Job Title"
@@ -240,6 +246,7 @@ class SignUpGC extends Component {
                   placeholder="Job Title"
                   value={this.state.jobTitle}
                   onChange={this.handleChange}
+                  autocomplete="organization-title"
                 />
                 <FieldGroup
                   label="Contact Phone Number"
@@ -248,6 +255,7 @@ class SignUpGC extends Component {
                   placeholder="Contact Phone"
                   value={this.state.contactPhone}
                   onChange={this.handleChange}
+                  autocomplete="tel-national"
                 />
                 <FieldGroup
                   label="Contact Email"
@@ -256,6 +264,7 @@ class SignUpGC extends Component {
                   placeholder="E-mail"
                   value={this.state.contactEmail}
                   onChange={this.handleChange}
+                  autocomplete="email"
                 />
                 <FormGroup>
                   <ControlLabel>Sports/Activities Offered</ControlLabel>
