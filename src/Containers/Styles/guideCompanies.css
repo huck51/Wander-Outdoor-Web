@@ -18,8 +18,8 @@ ul {
 .list {
   list-style: none;
   width: 100%;
-  
+
 }
 .thumbox {
-  box-shadow: 3px 3px 25px 5px black;
+  box-shadow: 3px 3px 25px 3px black;
 }
