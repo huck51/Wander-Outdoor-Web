@@ -39,7 +39,7 @@ class Guides extends Component {
     return (
       <div>
         <h1>GUIDES</h1>
-        <div>
+        <div className="boxOfCards">
           <Row>
             <Col md={2} mdOffset={5}>
               <BounceLoader
