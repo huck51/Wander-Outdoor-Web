@@ -58,7 +58,6 @@ class EditProfile extends Component {
         snowboarding: false,
         surfing: false,
         other: false,
-        pancake: false,
     };
   }
 
@@ -143,7 +142,7 @@ class EditProfile extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const chexmix = ['canoeing', 'fishing', 'iceClimbing', 'hiking', 'hunting', 'mountainBiking', 'mountainClimbing', 'rafting', 'rockClimbing', 'surfing', 'other'];
+    const chexmix = ['atv', 'backPacking', 'birdWatching', 'canoeing', 'deepSeaFish', 'dirtBiking', 'fishing', 'flyFishing', 'hiking', 'hunting', 'iceClimbing', 'kayaking', 'mountainBiking', 'mountaineering', 'offRoading', 'rafting', 'roadBiking', 'rockClimbing', 'scuba', 'skiing', 'snorkeling', 'snowboarding', 'surfing', 'other'];
     const chex = [];
     for (let i = 0; i < chexmix.length; i++) {
       if (this.state[chexmix[i]] === true) {
