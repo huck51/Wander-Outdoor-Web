@@ -62,6 +62,7 @@ class Contact extends Component {
                     placeholder="Name"
                     onChange={this.handleChange}
                     className="extraFormSizing"
+                    autocomplete="name"
                   />
                   <FieldGroup
                     type="email"
@@ -71,6 +72,7 @@ class Contact extends Component {
                     placeholder="Ex: johndoe@gmail.com"
                     onChange={this.handleChange}
                     className="extraFormSizing"
+                    autocomplete="email"
                   />
                   <FormGroup controlId="formControlsTextarea">
                     <ControlLabel>Message</ControlLabel>
