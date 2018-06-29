@@ -5,6 +5,7 @@ import {
 } from 'react-bootstrap';
 import { BounceLoader } from 'react-spinners';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import './Styles/dashboard.css';
 
 
@@ -12,13 +13,14 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      companies: [{ companyName: 'Guide Company', companyAddress: 'Fake company address', companyPhone: 'fake phone number' }],
-      loading: false,
+      companies: [],
+      loading: true,
     };
   }
-  /*
+
   componentDidMount() {
-    axios.get('/companies', id)
+    const id = localStorage.getItem('fierceIce');
+    axios.post('/dashboard-companies', id)
       .then((response) => {
         console.log(response);
         this.setState({
@@ -31,7 +33,7 @@ class Dashboard extends Component {
         this.setState({ loading: false });
       });
   }
-*/
+
   render() {
     return (
       <div className="container auto">
