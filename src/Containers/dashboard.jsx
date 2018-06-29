@@ -20,7 +20,7 @@ class Dashboard extends Component {
 
   componentDidMount() {
     const id = localStorage.getItem('fierceIce');
-    axios.post('https://fierce-ridge-55021.herokuapp.com/dashboard-companies', id)
+    axios.post('https://fierce-ridge-55021.herokuapp.com/dashboard-companies', { id })
       .then((response) => {
         console.log(response);
         this.setState({
