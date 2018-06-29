@@ -74,6 +74,7 @@ class Dashboard extends Component {
                           name={company.companyName}
                         />
                         <Link to={`/company/${company.companyName}`}><button className="removeButn">View Company</button></Link>
+                        <Link to={`/company/dashboard`}><button className="removeButn">Manage Company</button></Link>
                       </Thumbnail>
                     </li>
                   </Col>
