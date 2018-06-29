@@ -59,13 +59,16 @@ class App extends Component {
   componentDidMount() {
     const token = process.env.REACT_APP_TOKEN;
     const email = localStorage.getItem('email');
+    console.log(email);
     const options = {
       qs: { q: `email: ${email}`, search_engine: 'v3' },
       headers: { authorization: `Bearer ${token}` },
     };
+
     axios.get('https://wander-outdoor.auth0.com/api/v2/users', options)
       .then((response) => {
         const data = response.data[0];
+        console.log(data);
         const fierceIce = process.env.REACT_APP_CAT.concat(data.identities[0].user_id);
         localStorage.setItem('fierceIce', fierceIce);
         const secondaryOptions = {
