@@ -20,6 +20,7 @@ class Dashboard extends Component {
 
   componentDidMount() {
     const id = localStorage.getItem('fierceIce');
+    console.log('made it');
     axios.post('/dashboard-companies', id)
       .then((response) => {
         console.log(response);

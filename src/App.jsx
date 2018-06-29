@@ -66,12 +66,10 @@ class App extends Component {
     for (let i = 0; i < eMarr.length; i++) {
       if (eMarr[i] === '@') {
         eMarr[i] = '%40';
-        console.log(i);
         break;
       }
     }
     const webmail = eMarr.join('');
-    console.log(webmail);
     const options = {
       headers: { authorization: `Bearer ${token}` },
     };
