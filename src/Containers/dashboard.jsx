@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import {
   Row,
   Col,
+  Thumbnail,
 } from 'react-bootstrap';
 import { BounceLoader } from 'react-spinners';
 import { Link } from 'react-router-dom';
+import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios';
 import './Styles/dashboard.css';
 
@@ -62,10 +64,17 @@ class Dashboard extends Component {
                 return (
                   <Col xs={12} sm={6} md={4} lg={3}>
                     <li className="list">
-                      <h3>{company.companyName}</h3>
-                      <p>{company.companyAddress}</p>
-                      <p>{company.companyPhone}</p>
-                      <Link to={`/dashboard/${company.companyName}`}><button className="removeButn">View Company</button></Link>
+                      <Thumbnail
+                        src={company.picture}
+                        className="thumbox"
+                      >
+                        <h3>{company.companyName}</h3>
+                        <p>{`${company.city}, ${company.stateName}`}</p>
+                        <StarRatingComponent
+                          name={company.companyName}
+                        />
+                        <Link to={`/company/${company.companyName}`}><button className="removeButn">View Company</button></Link>
+                      </Thumbnail>
                     </li>
                   </Col>
                 );
