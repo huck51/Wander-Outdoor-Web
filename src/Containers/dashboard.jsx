@@ -24,7 +24,7 @@ class Dashboard extends Component {
       .then((response) => {
         console.log(response);
         this.setState({
-          companies: response.data.companies,
+          companies: [...response.data],
           loading: false,
         });
       })
