@@ -104,6 +104,7 @@ class SignUpGC extends Component {
       picture,
       bio,
       chex,
+      owner: localStorage.getItem('fierceIce');
     };
     this.setState({
       companyName: '',
