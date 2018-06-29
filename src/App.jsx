@@ -59,13 +59,24 @@ class App extends Component {
   componentDidMount() {
     const token = process.env.REACT_APP_TOKEN;
     const email = localStorage.getItem('email');
-    console.log(email);
+    if (!email) {
+      return;
+    }
+    const eMarr = email.split('');
+    for (let i = 0; i < eMarr.length; i++) {
+      if (eMarr[i] === '@') {
+        eMarr[i] = '%40';
+        console.log(i);
+        break;
+      }
+    }
+    const webmail = eMarr.join('');
+    console.log(webmail);
     const options = {
-      qs: { q: `email: ${email}`, search_engine: 'v3' },
       headers: { authorization: `Bearer ${token}` },
     };
 
-    axios.get('https://wander-outdoor.auth0.com/api/v2/users', options)
+    axios.get(`https://wander-outdoor.auth0.com/api/v2/users-by-email?email=${webmail}`, options)
       .then((response) => {
         const data = response.data[0];
         console.log(data);
