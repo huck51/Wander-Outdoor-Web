@@ -6,6 +6,7 @@ import AddGuide from './Containers/addGuide';
 import AddTrip from './Containers/addTrip';
 import Auth from './auth';
 import AuthLoad from './Components/authLoad';
+import CompanyAccount from './Containers/companyAccount';
 import CompanyDashboard from './Containers/companyDashboard';
 import Contact from './Containers/contact';
 import Dashboard from './Containers/dashboard';
@@ -64,9 +65,10 @@ const Main = () => (
       <Route exact path="/dashboard/:company/add-guide" component={AddGuide} />
       <Route exact path="/dashboard/:company/add-trip" component={AddTrip} />
       <Route exact path="/dashboard/:company/add-trip/:trip" component={AddTrip} />
+      <Route exact path="/dashboard/:company/company-account" component={CompanyAccount} />
+      <Route exact path="/dashboard/:company/edit-company" component={EditCompany} />
       <Route exact path="/dashboard/:company/guides" render={props => <DashboardGuides auth={auth} {...props} />} />
       <Route exact path="/dashboard/:company/trips" render={props => <DashboardTrips auth={auth} {...props} />} />
-      <Route exact path="/edit-company/:company" component={EditCompany} />
       <Route exact path="/edit-profile" component={EditProfile} />
       <Route exact path="/guides" component={Guides} />
       <Route exact path="/guides/:username" render={props => <ViewTraveler auth={auth} {...props} />} />
