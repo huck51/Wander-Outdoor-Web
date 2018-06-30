@@ -28,10 +28,10 @@ class CompanyDashboard extends Component {
               <Link to={`/dashboard/${this.props.match.params.company}/guides`}><button>Manage Guides</button></Link>
             </Col>
             <Col md={6}>
-              <Link to={`/edit-company/${this.props.match.params.company}`}><button>Edit Company Details</button></Link>
+              <Link to={`dashboard/${this.props.match.params.company}/edit-company`}><button>Edit Company Details</button></Link>
             </Col>
             <Col md={6}>
-              <Link to={`/company-account/${this.props.match.params.company}`}><button>Company Account Info</button></Link>
+              <Link to={`dashboard/${this.props.match.params.company}company-account/`}><button>Company Account Info</button></Link>
             </Col>
           </Row>
         </div>
