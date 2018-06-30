@@ -32,11 +32,11 @@ class ViewTraveler extends Component {
       reviews: [null],
       newReview: '',
     };
-    console.log(this.state.activities.length);
   }
 
   componentDidMount() {
-    axios.get('https://fierce-ridge-55021.herokuapp.com/find-user', localStorage.getItem('fierceIce'))
+    const id = localStorage.getItem('fierceIce');
+    axios.post('https://fierce-ridge-55021.herokuapp.com/find-user', {id})
       .then((response) => {
         console.log(response);
         const {
