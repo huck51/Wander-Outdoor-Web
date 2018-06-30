@@ -64,7 +64,7 @@ class EditProfile extends Component {
   componentDidMount() {
     const id = localStorage.getItem('fierceIce');
     console.log(id);
-    axios.get('https://fierce-ridge-55021.herokuapp.com/find-user', id)
+    axios.get('https://fierce-ridge-55021.herokuapp.com/find-user', {id})
       .then((response) => {
         const {
           firstName,
