@@ -136,7 +136,7 @@ class EditCompany extends Component {
       picture,
       bio
     } = this.state;
-    const newCompany = {
+    const updateObject = {
       companyName,
       streetAddress,
       city,
@@ -152,21 +152,7 @@ class EditCompany extends Component {
       chex,
       owner: localStorage.getItem('fierceIce'),
     };
-    this.setState({
-      companyName: '',
-      streetAddress: '',
-      city: '',
-      stateName: '',
-      zipCode: '',
-      companyPhone: '',
-      contactName: '',
-      jobTitle: '',
-      contactPhone: '',
-      contactEmail: '',
-      picture: '',
-      bio: ''
-    });
-    axios.post('https://fierce-ridge-55021.herokuapp.com/signup/guiding-company', newCompany)
+    axios.post('https://fierce-ridge-55021.herokuapp.com/update/guiding-company', updateObject)
       .then(() => {
         window.location = '/dashboard';
       })
