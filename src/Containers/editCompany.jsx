@@ -56,6 +56,52 @@ class EditCompany extends Component {
     };
   }
 
+  componentDidMount() {
+    const id = localStorage.getItem('fierceIce');
+    // CHANGE URL BEFORE SERIOUS TESTING !!!!
+    axios.get(`https://fierce-ridge-55021.herokuapp.com/company/${this.state.companyName}`, id)
+    .then((response) => {
+      console.log(response.data);
+      const {
+        companyName,
+        streetAddress,
+        city,
+        stateName,
+        zipCode,
+        companyPhone,
+        contactName,
+        jobTitle,
+        contactPhone,
+        contactEmail,
+        picture,
+        bio,
+        chex,
+      } = response.data;
+      this.setState({
+        companyName,
+        streetAddress,
+        city,
+        stateName,
+        zipCode,
+        companyPhone,
+        contactName,
+        jobTitle,
+        contactPhone,
+        contactEmail,
+        picture,
+        bio,
+      });
+      for (let i = 0; i < chex.length; i++) {
+        this.setState({
+          [chex[i]]: true
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   }
