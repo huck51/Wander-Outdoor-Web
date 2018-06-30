@@ -22,13 +22,16 @@ class CompanyDashboard extends Component {
         <div className="container auto">
           <Row className="auto">
             <Col md={6}>
-              <Link to="/dashboard/:company/trips"><button>Manage Trips</button></Link>
+              <Link to={`/dashboard/${this.props.match.params.company}/trips`}><button>Manage Trips</button></Link>
             </Col>
             <Col md={6}>
-              <Link to="/dashboard/:company/guides"><button>Manage Guides</button></Link>
+              <Link to={`/dashboard/${this.props.match.params.company}/guides`}><button>Manage Guides</button></Link>
             </Col>
             <Col md={6}>
               <Link to={`/edit-company/${this.props.match.params.company}`}><button>Edit Company Details</button></Link>
+            </Col>
+            <Col md={6}>
+              <Link to={`/company-account/${this.props.match.params.company}`}><button>Company Account Info</button></Link>
             </Col>
           </Row>
         </div>
