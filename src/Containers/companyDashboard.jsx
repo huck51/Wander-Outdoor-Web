@@ -18,59 +18,43 @@ class CompanyDashboard extends Component {
   render() {
     return (
       <div className="container auto">
-        <h1>Company Dashboard</h1>
+        <h1>{`${this.props.match.params.company} Dashboard`}</h1>
         <ul className="guideUl">
           <Row className="container">
-            <Col xs={12} sm={6} md={4} lg={3}>
+            <Col xs={12} sm={6} md={6} lg={6} className="dashCol">
               <Link to={`/dashboard/${this.props.match.params.company}/trips`}>
-                <li className="btnCard">
-                  <h3 className="addNew">Manage Trips</h3>
-                  <h1 className="giantPlus">+</h1>
+                <li id="manageTrips" className="dashCard">
+                  <h3 className="cardHeader">Manage Trips</h3>
+                  <h1 className="cardIcon"><span><i class="far fa-compass"></i></span></h1>
                 </li>
               </Link>
             </Col>
-            <Col xs={12} sm={6} md={4} lg={3}>
+            <Col xs={12} sm={6} md={6} lg={6} className="dashCol">
               <Link to={`/dashboard/${this.props.match.params.company}/guides`}>
-                <li className="btnCard">
-                  <h3 className="addNew">Manage Guides</h3>
-                  <h1 className="giantPlus">+</h1>
+                <li id="manageGuides" className="dashCard">
+                  <h3 className="cardHeader">Manage Guides</h3>
+                  <h1 className="cardIcon"><span><i class="fas fa-users"></i></span></h1>
                 </li>
               </Link>
             </Col>
-            <Col xs={12} sm={6} md={4} lg={3}>
-              <Link to={`dashboard/${this.props.match.params.company}/edit-company`}>
-                <li className="btnCard">
-                  <h3 className="addNew">Edit Company Details</h3>
-                  <h1 className="giantPlus">+</h1>
+            <Col xs={12} sm={6} md={6} lg={6} className="dashCol">
+              <Link to={`/dashboard/${this.props.match.params.company}/edit-company`}>
+                <li id="editCompanyDetails" className="dashCard">
+                  <h3 className="cardHeader">Edit Company Details</h3>
+                  <h1 className="cardIcon"><span><i class="fas fa-cogs"></i></span></h1>
                 </li>
               </Link>
             </Col>
-            <Col xs={12} sm={6} md={4} lg={3}>
+            <Col xs={12} sm={6} md={6} lg={6} className="dashCol">
               <Link to={`/dashboard/${this.props.match.params.company}/company-account`}>
-                <li className="btnCard">
-                  <h3 className="addNew">Company Account Info</h3>
-                  <h1 className="giantPlus">+</h1>
+                <li id="companyAccountInfo" className="dashCard">
+                  <h3 className="cardHeader">Company Account Info</h3>
+                  <h1 className="cardIcon"><span><i class="fas fa-clipboard-list"></i></span></h1>
                 </li>
               </Link>
             </Col>
           </Row>
         </ul>
-        <div className="container auto">
-          <Row className="auto">
-            <Col md={6}>
-              <Link to={`/dashboard/${this.props.match.params.company}/trips`}><button>Manage Trips</button></Link>
-            </Col>
-            <Col md={6}>
-              <Link to={`/dashboard/${this.props.match.params.company}/guides`}><button>Manage Guides</button></Link>
-            </Col>
-            <Col md={6}>
-              <Link to={`dashboard/${this.props.match.params.company}/edit-company`}><button>Edit Company Details</button></Link>
-            </Col>
-            <Col md={6}>
-              <Link to={`/dashboard/${this.props.match.params.company}/company-account`}><button>Company Account Info</button></Link>
-            </Col>
-          </Row>
-        </div>
       </div>
     );
   }
