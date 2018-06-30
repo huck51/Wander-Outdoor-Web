@@ -152,7 +152,7 @@ class EditCompany extends Component {
       chex,
       owner: localStorage.getItem('fierceIce'),
     };
-    axios.post('https://fierce-ridge-55021.herokuapp.com/update/guiding-company', updateObject)
+    axios.post('https://fierce-ridge-55021.herokuapp.com/update/guiding-company', { updateObject })
       .then(() => {
         window.location = '/dashboard';
       })
