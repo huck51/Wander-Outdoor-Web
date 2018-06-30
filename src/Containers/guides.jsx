@@ -64,7 +64,7 @@ class Guides extends Component {
                         <StarRatingComponent
                           name={`${guide.firstName}${guide.lastName}${guide.companyName}`}
                         />
-                        <Link to={`/guides/${guide.username}`}><button className="removeButn">View Guide</button></Link>
+                      <Link to={`/profile/${guide.firstName}-${guide.lastName}-${guide.company}`}><button className="removeButn">View Guide</button></Link>
                       </Thumbnail>
                     </li>
                   </Col>
