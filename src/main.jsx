@@ -11,6 +11,7 @@ import Contact from './Containers/contact';
 import Dashboard from './Containers/dashboard';
 import DashboardGuides from './Containers/dashboardGuides';
 import DashboardTrips from './Containers/dashboardTrips';
+import EditCompany from './Containers/editCompany';
 import EditProfile from './Containers/editProfile';
 import FourOhFour from './Containers/fourOhFour';
 import Guides from './Containers/guides';
@@ -65,6 +66,7 @@ const Main = () => (
       <Route exact path="/dashboard/:company/add-trip/:trip" component={AddTrip} />
       <Route exact path="/dashboard/:company/guides" render={props => <DashboardGuides auth={auth} {...props} />} />
       <Route exact path="/dashboard/:company/trips" render={props => <DashboardTrips auth={auth} {...props} />} />
+      <Route exact path="/edit-company" component={EditCompany} />
       <Route exact path="/edit-profile" component={EditProfile} />
       <Route exact path="/guides" component={Guides} />
       <Route exact path="/guides/:username" render={props => <ViewTraveler auth={auth} {...props} />} />
