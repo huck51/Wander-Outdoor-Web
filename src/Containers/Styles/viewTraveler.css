@@ -25,3 +25,7 @@
   background-color: rgba(215,215,215,1);
   padding: 1em;
 }
+.proPic {
+  max-height: 20em;
+  max-width: 20em;
+}

@@ -108,7 +108,7 @@ class ViewTraveler extends Component {
         <div className="contain">
           <Row className="mainCard">
             <Col xs={12} sm={12} md={4} lg={4}>
-              <img src={this.state.picture} alt="Profile" />
+              <img src={this.state.picture} alt="Profile" className="proPic"/>
             </Col>
             <Col xs={12} sm={12} md={8} lg={8}>
               <Row>
