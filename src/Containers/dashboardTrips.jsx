@@ -10,18 +10,13 @@ class DashboardTrips extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      trips: [{
-        name: 'TripName',
-        company: 'TripCompany',
-        location: 'Minnesota',
-        price: '$100',
-      }],
-      loading: false,
+      trips: [],
+      loading: true,
     };
   }
-  /*
+
   componentDidMount() {
-    axios.get('https://fierce-ridge-55021.herokuapp.com/trips')
+    axios.get(`https://fierce-ridge-55021.herokuapp.com/trips/${this.props.match.params.company}`)
       .then((result) => {
         // eslint-disable-next-line no-console
         console.log(result);
@@ -38,7 +33,7 @@ class DashboardTrips extends Component {
         });
       });
   }
-  */
+
   render() {
     return (
       <div>
