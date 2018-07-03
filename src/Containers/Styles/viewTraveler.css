@@ -4,7 +4,7 @@
   display: block;
 }
 .basicInfo4 {
-  margin: 0 2em;
+  margin: .5em 2em;
   display: block;
 }
 .bio {
@@ -17,15 +17,23 @@
   margin: 2em 3em;
 }
 .contain {
-  margin: 1em 4em;
+  margin: 1em;
   overflow: hidden;
 }
+.listCheck {
+  display: block;
+  margin: .5em;
+  list-style: circle;
+  font-size: 1.25em;
+}
 .mainCard {
-  margin: 2em 5em;
+  margin: 2em 0;
   background-color: rgba(215,215,215,1);
   padding: 1em;
 }
 .proPic {
-  max-height: 20em;
   max-width: 20em;
+  max-height: 20em;
+  height: 20em;
+  width: 20em;
 }

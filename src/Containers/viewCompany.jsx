@@ -26,7 +26,7 @@ class ViewCompany extends Component {
       locations: [],
       permits: [],
       rating: null,
-      activities: [],
+      chex: [],
       picture: '',
       reviews: [],
       newReview: '',
@@ -48,7 +48,7 @@ class ViewCompany extends Component {
           locations,
           permits,
           rating,
-          activities,
+          chex,
           picture,
         } = response.data;
         this.setState({
@@ -64,7 +64,7 @@ class ViewCompany extends Component {
           locations,
           permits,
           rating,
-          activities,
+          chex,
           picture,
         });
       })
@@ -96,20 +96,26 @@ class ViewCompany extends Component {
   }
 
   render() {
+    const profPic = {
+      'backgroundImage': `url(${this.state.picture})`,
+      'backgroundPosition': 'center',
+      'backgroundSize': 'contain',
+      'backgroundRepeat': 'no-repeat',
+    };
     return (
       <div>
         <div className="contain">
           <Row className="mainCard">
-            <Col xs={12} sm={12} md={4} lg={4}>
-              <img src={this.state.picture} alt="Profile Pic" className="proPic"/>
+            <Col xs={12} sm={12} md={4} lg={4} style={profPic}>
+              <div className="proPic"></div>
             </Col>
             <Col xs={12} sm={12} md={8} lg={8}>
               <Row>
                 <Col xs={12} sm={12} md={12} lg={12}>
                   <div className="">
                     <h2 className="basicInfo2">{this.state.companyName}</h2>
-                    <h4 className="basicInfo4">{this.state.companyPhone}</h4>
                     <h4 className="basicInfo4">{this.state.city}, {this.state.stateName}</h4>
+                    <h4 className="basicInfo4">{this.state.companyPhone}</h4>
                   </div>
                 </Col>
               </Row>
@@ -154,9 +160,9 @@ class ViewCompany extends Component {
               <h2>Sports / Activities</h2>
               <ul>
                 {
-                  this.state.activities.length === 0 ?
+                  this.state.chex.length === 0 ?
                     <li>No activities available</li> :
-                  this.state.activities.map(activity => <li>{activity}</li>)
+                  this.state.chex.map(activity => <li className="listCheck">{activity}</li>)
                 }
               </ul>
             </Col>
