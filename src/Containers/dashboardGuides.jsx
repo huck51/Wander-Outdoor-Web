@@ -33,7 +33,7 @@ class DashboardGuides extends Component {
         });
       });
   }
-  */
+
   render() {
     return (
       <div>
