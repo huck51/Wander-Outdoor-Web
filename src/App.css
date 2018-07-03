@@ -47,7 +47,7 @@ nav.navbar {
 }
 @media screen and (max-width: 800px) {
   #topQ {
-    margin: auto;
+    margin-top: 5em;
     text-align: center;
     color: white;
   }
