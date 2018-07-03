@@ -10,19 +10,13 @@ class DashboardGuides extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      guides: [{
-        firstName: 'Lukas',
-        lastName: 'Gorgonzola',
-        companyName: 'Guiding Company',
-        certs: 'Some certs',
-        username: 'guoda',
-      }],
+      guides: [],
       loading: false,
     };
   }
-  /*
+
   componentDidMount() {
-    axios.get('https://fierce-ridge-55021.herokuapp.com/guides')
+    axios.get(`https://fierce-ridge-55021.herokuapp.com/guides/${this.props.match.params.company}`)
       .then((result) => {
         // eslint-disable-next-line no-console
         console.log(result);
@@ -57,7 +51,7 @@ class DashboardGuides extends Component {
           <ul className="guideUl">
             <Row className="container">
               <Col xs={12} sm={6} md={4} lg={3}>
-                <Link to={`/dashboard/:company/add-guide`}>
+                <Link to={`/dashboard/${this.props.match.params.company}/add-guide`}>
                   <li className="btnCard">
                     <h3 className="addNew">Add New Guide</h3>
                     <h1 className="giantPlus">+</h1>
