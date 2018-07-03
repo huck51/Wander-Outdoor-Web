@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Thumbnail } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
+import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios';
 import './Styles/dashboardGuides.css';
 
@@ -62,11 +63,18 @@ class DashboardGuides extends Component {
                 return (
                   <Col xs={12} sm={6} md={4} lg={3}>
                     <li className="list">
-                      <h3>{guide.firstName} {guide.lastName}</h3>
-                      <p>{guide.companyName}</p>
-                      <p>{guide.certs}</p>
-                      <Link to={`/guides/${guide.username}`}><button className="removeButn">View Guide</button></Link>
-                      <button>Remove Guide</button>
+                      <Thumbnail
+                        src={guide.picture}
+                        className="thumbox"
+                      >
+                        <h3>{guide.firstName} {guide.lastName}</h3>
+                        <p>{guide.companyName}</p>
+                        <StarRatingComponent
+                          name={`${guide.firstName}${guide.lastName}${guide.companyName}`}
+                        />
+                        <Link to={`/guides/${guide.username}`}><button className="removeButn">View Guide</button></Link>
+                        <button>Remove Guide</button>
+                      </Thumbnail>
                     </li>
                   </Col>
                 );
