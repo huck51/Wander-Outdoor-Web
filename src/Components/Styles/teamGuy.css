@@ -1,12 +1,16 @@
 .teamBox {
-  height: 40em;
+
   padding: 2em;
   text-align: center;
+}
+/* MOVE TO ABOUT.CSS WHEN IT GOES TO PRODUCTION!!!! */
+.teamRow {
+  height: 40em;
 }
 .tgHr {
   border-color: rgb(55,131,182);
 }
 .employeePic {
   border-radius: 50%;
-  max-width: 25vw;
+  max-width: 25em;
 }
