@@ -56,7 +56,7 @@ class Guides extends Component {
                   <Col xs={12} sm={6} md={4} lg={3}>
                     <li className="list">
                       <Thumbnail
-                        src="https://res.cloudinary.com/wander-outdoor/image/upload/v1528174649/gxicbtpgyayeq1vm5yus.jpg"
+                        src={guide.picture}
                         className="thumbox"
                       >
                         <h3>{guide.firstName} {guide.lastName}</h3>
