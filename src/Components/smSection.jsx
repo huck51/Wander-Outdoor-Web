@@ -33,10 +33,10 @@ const SmSection = ({
 }) => (
   <div className={divClasses}>
     <Row>
-      <Col mdOffset={1} md={2}>
+      <Col smOffset={1} sm={2} mdOffset={1} md={2}>
         <h2 className={h2Classes}>{heading}</h2>
       </Col>
-      <Col md={8}>
+      <Col smOffset={1} sm={7} md={8}>
         <p className={pClasses}>
           {text}
         </p>

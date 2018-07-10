@@ -1,15 +1,41 @@
+@media screen and (min-width: 1166px) {
+
+}
+.test {
+  position: fixed;
+  top: 2em;
+  right: 2em;
+  font-size: 3em;
+  background-color: black;
+  color: white;
+}
 .mainContainer {
   padding: 3em;
+
 }
 .mainHeader {
   margin: 0;
+  font-size: 6em;
+  background-image: url('https://res.cloudinary.com/wander-outdoor/image/upload/v1529539187/Wander/IMG_8208.jpg');
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: cover;
+  border-left: 10px double rgb(101,246,100);
+  border-right: 10px double rgb(101,246,100);
+  width: 50%;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  color: red;
+  box-shadow: 5px 5px 5px rgb(25,25,25);
 }
 .openingSection {
   background-image: url('https://res.cloudinary.com/wander-outdoor/image/upload/v1529539187/Wander/IMG_8208.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  background-attachment: fixed;
   margin: 0;
   width: 100%;
   height: 50em;
+  overflow: scroll;
 }

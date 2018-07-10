@@ -73,6 +73,16 @@ class About extends Component {
           imgClass="howitwerksPic"
           textClass="howitwerksText"
         />
+        <PicSection
+          colClass="weDoWorkCol"
+          heading="We Do The Work So You Don't Have To"
+          hrClass="weDoWorkHr"
+          text="Wander Outdoor works closely with local, reputable guiding companies to ensure that the guides are certified, permitted, and insured. Freelance and full-time guides working under a company&#39;s operating permits can easily find work through Wander and still work on their own schedule as their own bosses. Wander gives guides the chance to build their personal brands and portfolios, providing the guiding industry with the opportunity to develop it’s own unique personality. Additionally, this gives guides a way to book trips on their own using guideID, a unique ID code that customers can use to request a specific guide. This boosts trips for the guiding company and allows a relationship to be built between guide and explorer. The guiding companies get market exposure through their guides, so it is in their best interests to employ high-quality, personable guides and training techniques to create the highest satisfaction ratings."
+          picSide="left"
+          imgSrc="https://res.cloudinary.com/wander-outdoor/image/upload/v1529538889/Wander/hangingGear.jpg"
+          imgClass="weDoWorkPic"
+          textClass="weDoWorkText"
+        />
         <div className="container">
           <h2>Meet The Team</h2>
           <hr />
@@ -103,16 +113,6 @@ class About extends Component {
             />
           </Col>
         </Row>
-        <PicSection
-          colClass="weDoWorkCol"
-          heading="We Do The Work So You Don't Have To"
-          hrClass="weDoWorkHr"
-          text="Wander Outdoor works closely with local, reputable guiding companies to ensure that the guides are certified, permitted, and insured. Freelance and full-time guides working under a company&#39;s operating permits can easily find work through Wander and still work on their own schedule as their own bosses. Wander gives guides the chance to build their personal brands and portfolios, providing the guiding industry with the opportunity to develop it’s own unique personality. Additionally, this gives guides a way to book trips on their own using guideID, a unique ID code that customers can use to request a specific guide. This boosts trips for the guiding company and allows a relationship to be built between guide and explorer. The guiding companies get market exposure through their guides, so it is in their best interests to employ high-quality, personable guides and training techniques to create the highest satisfaction ratings."
-          picSide="left"
-          imgSrc="https://res.cloudinary.com/wander-outdoor/image/upload/v1529538889/Wander/hangingGear.jpg"
-          imgClass="weDoWorkPic"
-          textClass="weDoWorkText"
-        />
       </div>
     );
   }

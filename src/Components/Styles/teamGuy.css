@@ -5,7 +5,8 @@
 }
 /* MOVE TO ABOUT.CSS WHEN IT GOES TO PRODUCTION!!!! */
 .teamRow {
-  height: 40em;
+  min-height: 40em;
+  padding-bottom: 3em;
 }
 .tgHr {
   border-color: rgb(55,131,182);
