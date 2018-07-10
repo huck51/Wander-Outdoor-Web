@@ -5,6 +5,13 @@
   background-size: cover;
   height: 100vh;
 }
-.sizeControl {
-  width: 65%;
+@media screen and (min-width: 993px) {
+  .sizeControl {
+    width: 65%;
+  }
+}
+@media screen and (max-width: 992px) {
+  .sizeControl {
+    width: 100%;
+  }
 }
