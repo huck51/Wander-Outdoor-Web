@@ -1,6 +1,7 @@
 @media screen and (min-width: 1166px) {
 
 }
+
 .test {
   position: fixed;
   top: 2em;
@@ -38,4 +39,13 @@
   width: 100%;
   height: 50em;
   overflow: scroll;
+}
+.picSecOne {
+  min-height: 30em;
+  width: 100%;
+  background-image: url("https://res.cloudinary.com/wander-outdoor/image/upload/v1531256806/Wander/IMG_4518.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
 }

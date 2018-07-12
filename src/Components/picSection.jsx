@@ -5,6 +5,35 @@ import './Styles/picSection.css';
 
 const PicSection = ({
   colClass,
+  textClass,
+  hrClass,
+  text,
+  heading,
+}) => {
+  return (
+    <div>
+      <Row>
+        <Col
+          xs={12}
+          sm={12}
+          md={12}
+          lg={12}
+          className={colClass}
+        >
+          <div className={textClass}>
+            <h2>{heading}</h2>
+            <hr className={hrClass} />
+            <p>{text}</p>
+          </div>
+        </Col>
+      </Row>
+    </div>
+  );
+};
+
+/*
+const PicSection = ({
+  colClass,
   heading,
   hrClass,
   imgClass,
@@ -86,5 +115,7 @@ PicSection.propTypes = {
   text: PropTypes.string,
   textClass: PropTypes.string,
 };
+
+*/
 
 export default PicSection;
