@@ -11,15 +11,10 @@ class SearchBar extends Component {
       value: '',
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(e) {
     this.setState({ value: e.target.value });
-  }
-  handleSubmit(e) {
-    e.preventDefault();
-    axios.get('https://fierce-ridge-55021.herokuapp.com/results');
   }
 
   render() {
@@ -35,8 +30,8 @@ class SearchBar extends Component {
                 value={this.state.value}
                 onChange={this.handleChange}
               />
-            <InputGroup.Button>
-                <Link to="/results">
+              <InputGroup.Button>
+                <Link to={`/results/${this.state.value}`}>
                   <Button type="submit" className="searchSubmit btn-lg">
                     <i className="fas fa-search" />
                   </Button>

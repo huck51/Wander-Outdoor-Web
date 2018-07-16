@@ -75,7 +75,7 @@ const Main = () => (
       <Route exact path="/guiding-companies" component={GuidingCompanies} />
       <Route exact path="/inbox/" component={Inbox} />
       <Route exact path="/profile/:user" component={ViewTraveler} />
-      <Route exact path="/results" component={Results} />
+      <Route exact path="/results/:params" component={Results} />
       <Route exact path="/signup" component={SignUp} />
       <Route exact path="/signup/guide" component={SignUpGuides} />
       <Route exact path="/signup/guiding-company" component={SignUpGC} />
