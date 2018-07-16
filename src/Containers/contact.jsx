@@ -49,6 +49,8 @@ class Contact extends Component {
     return (
       <div>
         <Row>
+          <Col xs={12} sm={12} md={6} lg={6} className="sidePic">
+          </Col>
           <Col xs={12} sm={12} md={6} lg={6}>
             <h1>Contact Us</h1>
             <div className="container">
@@ -93,8 +95,6 @@ class Contact extends Component {
                 </FormGroup>
               </form>
               </div>
-            </Col>
-            <Col xs={12} sm={12} md={6} lg={6} className="sidePic">
             </Col>
           </Row>
       </div>
