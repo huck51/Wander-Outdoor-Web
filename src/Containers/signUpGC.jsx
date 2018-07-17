@@ -73,7 +73,7 @@ class SignUpGC extends Component {
     const chex = [];
     for (let i = 0; i < chexmix.length; i++) {
       if (this.state[chexmix[i]] === true) {
-        chex.push(chexmix[i].toLowerCase());
+        chex.push(chexmix[i]);
       }
     }
     const {
