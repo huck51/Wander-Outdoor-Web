@@ -13,8 +13,9 @@ class Results extends Component {
   }
 
   componentDidMount() {
-    const { params } = this.props.match;
-    axios.get(`https://fierce-ridge-55021.herokuapp.com/results/${params}`)
+    const search = this.props.match.params;
+    console.log(`params: ${search}`);
+    axios.get(`https://fierce-ridge-55021.herokuapp.com/results/${search}`)
       .then((result) => {
         this.setState({
           results: [...result.data],
