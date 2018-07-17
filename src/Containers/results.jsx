@@ -35,8 +35,8 @@ class Results extends Component {
         <h1>RESULTS</h1>
         <SearchBar />
         <div>
-          <Row>
-            <ul>
+          <ul className="guideUl">
+            <Row>
               {
                 this.state.results.map((result) => {
                   if (result.roleGroup) {
@@ -77,8 +77,8 @@ class Results extends Component {
                   );
                 })
               }
-            </ul>
-          </Row>
+            </Row>
+          </ul>
         </div>
       </div>
     );
