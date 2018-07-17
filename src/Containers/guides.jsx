@@ -60,7 +60,8 @@ class Guides extends Component {
                         className="thumbox"
                       >
                         <h3>{guide.firstName} {guide.lastName}</h3>
-                        <p>{guide.companyName}</p>
+                        <p>{`${guide.companyName} Add Company Name`}</p>
+                        <p>{`${guide.city}, ${guide.state}`}</p>
                         <StarRatingComponent
                           name={`${guide.firstName}${guide.lastName}${guide.companyName}`}
                         />
