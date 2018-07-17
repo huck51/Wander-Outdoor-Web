@@ -30,7 +30,7 @@ class ViewTrip extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    axios.get(`https://fierce-ridge-55021.herokuapp.com/${id}`)
+    axios.get(`https://fierce-ridge-55021.herokuapp.com/trips/${id}`)
       .then((result) => {
         const {
           name,
