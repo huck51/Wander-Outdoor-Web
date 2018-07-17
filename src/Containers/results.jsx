@@ -133,7 +133,7 @@ class Results extends Component {
                             <StarRatingComponent
                               name={result.firstName+result.lastName}
                             />
-                          <Link to={`/profile/${result.firstName}`}><button className="removeButn">View Company</button></Link>
+                          <Link to={`/profile/${result.firstName}`}><button className="removeButn">View Guide</button></Link>
                           </Thumbnail>
                         </li>
                       </Col>
