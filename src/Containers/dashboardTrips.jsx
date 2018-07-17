@@ -62,13 +62,17 @@ class DashboardTrips extends Component {
                 return (
                   <Col xs={12} sm={6} md={4} lg={3}>
                     <li className="list">
-                      <h3>{trip.name}</h3>
-                      <p>{trip.company}</p>
-                      <p>{trip.location}</p>
-                      <p>{trip.price}</p>
-                      <Link to={`/trips/${trip.name}`}><button className="removeButn">View Trip</button></Link>
-                      <button>Remove Trip</button>
-                      <Link to={`/dashboard/:company/add-trip/:trip`}><button>Edit Trip</button></Link>
+                      <Thumbnail
+                        src={trip.picture}
+                        className="thumbox"
+                      >
+                        <h3>{trip.company}</h3>
+                        <p>{`${trip.city}, ${trip.stateName}`}</p>
+                        <StarRatingComponent
+                          name={trip.companyName}
+                        />
+                      <Link to={`/company/${trip.company}`}><button className="removeButn">View Trip</button></Link>
+                      </Thumbnail>
                     </li>
                   </Col>
                 );
