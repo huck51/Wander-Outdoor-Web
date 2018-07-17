@@ -74,7 +74,7 @@ const Main = () => (
       <Route exact path="/guides/:username" render={props => <ViewTraveler auth={auth} {...props} />} />
       <Route exact path="/guiding-companies" component={GuidingCompanies} />
       <Route exact path="/inbox/" component={Inbox} />
-      <Route exact path="/profile/:user" component={ViewTraveler} />
+      <Route exact path="/profile/:id" component={ViewTraveler} />
       <Route exact path="/results/:search" component={Results} />
       <Route exact path="/signup" component={SignUp} />
       <Route exact path="/signup/guide" component={SignUpGuides} />

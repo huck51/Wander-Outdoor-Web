@@ -31,11 +31,13 @@ class ViewTraveler extends Component {
       state: '',
       reviews: [null],
       newReview: '',
+      chex: [],
     };
   }
 
   componentDidMount() {
     const { id } = this.props.match.params;
+    console.log(id);
     axios.post('https://fierce-ridge-55021.herokuapp.com/find-user', {id})
       .then((response) => {
         console.log(response);
@@ -56,6 +58,7 @@ class ViewTraveler extends Component {
           city,
           state,
           reviews,
+          chex,
         } = response.data;
         this.setState({
           firstName,
@@ -74,6 +77,7 @@ class ViewTraveler extends Component {
           city,
           state,
           reviews,
+          chex,
         });
       })
       .catch((err) => {
@@ -138,9 +142,9 @@ class ViewTraveler extends Component {
               <h2>Activities</h2>
               <ul>
                 {
-                  this.state.activities.length === 0 ?
+                  this.state.chex.length === 0 ?
                     <li>No activities</li> :
-                  this.state.activities.map(activity => <li>{activity}</li>)
+                  this.state.chex.map(check => <li className="listCheck">{check}</li>)
                 }
               </ul>
             </Col>
