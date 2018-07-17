@@ -14,6 +14,7 @@ class Results extends Component {
     this.state = {
       results: [],
       loading: true,
+      value: '',
     };
   }
 
@@ -35,11 +36,43 @@ class Results extends Component {
       });
   }
 
+  handleChange = (e) => {
+    this.setState({ value: e.target.value });
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('hey');
+    const search = this.state.value;
+    this.setState({
+      loading: true,
+    });
+    axios.get(`https://fierce-ridge-55021.herokuapp.com/results/${search}`)
+      .then((result) => {
+        this.setState({
+          results: result.data,
+          loading: false,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        this.setState({
+          loading: false,
+        });
+      });
+  }
+
   render() {
     return (
       <div>
         <h1>RESULTS</h1>
-        <SearchBar />
+        <form onSubmit={this.handleSubmit}>
+          <SearchBar
+            val={this.state.value}
+            change={this.handleChange}
+            submit={this.handleSubmit}
+            />
+        </form>
         <div className="boxOfCards">
           <Row>
             <Col md={2} mdOffset={5}>
