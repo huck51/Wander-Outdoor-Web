@@ -15,18 +15,49 @@ class ViewTrip extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: 'TripName',
-      company: 'TripCompany',
-      city: 'St. Somewhere',
-      stateName: 'Colorado',
-      description: 'This is a super dope trip...and you should pay me money for it. But dont take my word for it; just ask Peyton Manning.',
-      price: '100',
+      name: '',
+      company: '',
+      city: '',
+      stateName: '',
+      description: '',
+      price: '',
       guides: [],
-      rating: 5,
       picture: '',
       reviews: [],
       newReview: '',
     }
+  }
+
+  componentDidMount() {
+    const { id } = this.props.match.params;
+    axios.get(`https://fierce-ridge-55021.herokuapp.com/${id}`)
+      .then((result) => {
+        const {
+          name,
+          company,
+          city,
+          stateName,
+          description,
+          price,
+          guides,
+          picture,
+          reviews
+        } = result.data;
+        this.setState({
+          name,
+          company,
+          city,
+          stateName,
+          description,
+          price,
+          guides,
+          picture,
+          reviews
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   handleChange = (e) => {
