@@ -51,7 +51,7 @@ class Results extends Component {
             </Col>
           </Row>
           <ul className="guideUl">
-            <Row>
+            <Row className="container">
               {
                 this.state.results.map((result) => {
                   if (result.roleGroup) {
