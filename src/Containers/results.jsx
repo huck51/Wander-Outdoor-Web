@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Row, Thumbnail } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { BounceLoader } from 'react-spinners';
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios';
 import SearchBar from '../Components/searchbar';
@@ -12,6 +13,7 @@ class Results extends Component {
     super(props);
     this.state = {
       results: [],
+      loading: true,
     };
   }
 
@@ -22,10 +24,14 @@ class Results extends Component {
       .then((result) => {
         this.setState({
           results: result.data,
+          loading: false,
         });
       })
       .catch((err) => {
         console.log(err);
+        this.setState({
+          loading: false,
+        });
       });
   }
 
@@ -34,7 +40,16 @@ class Results extends Component {
       <div>
         <h1>RESULTS</h1>
         <SearchBar />
-        <div>
+        <div className="boxOfCards">
+          <Row>
+            <Col md={2} mdOffset={5}>
+              <BounceLoader
+                loading={this.state.loading}
+                size={75}
+                color="rgb(55,131,182)"
+              />
+            </Col>
+          </Row>
           <ul className="guideUl">
             <Row>
               {
