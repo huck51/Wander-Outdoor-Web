@@ -35,7 +35,7 @@ class ViewTraveler extends Component {
   }
 
   componentDidMount() {
-    const id = localStorage.getItem('fierceIce');
+    const { id } = this.props.match.params;
     axios.post('https://fierce-ridge-55021.herokuapp.com/find-user', {id})
       .then((response) => {
         console.log(response);
