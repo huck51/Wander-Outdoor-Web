@@ -84,7 +84,7 @@ class AddTrip extends Component {
     axios.post('https://fierce-ridge-55021.herokuapp.com/add-trip', newTrip)
       .then(() => {
         // eslint-disable-next-line no-undef
-        window.location = '/company/dashboard';
+        window.location = `/dashboard/${this.state.company}`;
       })
       .catch((err) => {
         // eslint-disable-next-line no-console
