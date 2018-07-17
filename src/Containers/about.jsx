@@ -56,6 +56,7 @@ class About extends Component {
           imgClass="modIndPic"
           textClass="modIndText"
         />
+        <div className="picSecTwo" />
         <SmSection
           divClasses="OPdiv"
           h2Classes="OPh2"
@@ -64,6 +65,7 @@ class About extends Component {
           pClasses="OPp"
           text="Our product, the Wander app and website, serves as a singular platform across multiple guides and guiding companies. This allows explorers to compare guides and guiding companies while verifying their legitimacy. Completely mobile and easy to use, the platform connects outdoor guides with potential clients."
         />
+        <div className="picSecThree" />
         <PicSection
           colClass="howitwerksCol"
           heading="How It Works"
@@ -74,6 +76,7 @@ class About extends Component {
           imgClass="howitwerksPic"
           textClass="howitwerksText"
         />
+        <div className="picSecFour" />
         <PicSection
           colClass="weDoWorkCol"
           heading="We Do The Work So You Don't Have To"

@@ -154,10 +154,10 @@
 
 /* Our Vision */
 .OVdiv {
-  background-color: rgb(230,230,230);
+  background-color: white;
   text-align: left;
   margin: 0;
-  min-height: 20em;
+  min-height: 30em;
   padding: 5em 3em 3em 3em;
 }
 .OVh2 {
@@ -184,7 +184,7 @@
 }
 /* Our Vision Original */
 .OVVdiv {
-  background-color: rgb(230,230,230);
+  background-color: white;
   text-align: center;
   margin: 0;
   height: 20em;
@@ -206,10 +206,10 @@
 }
 /* Our Product*/
 .OPdiv {
-  background-color: rgb(55,131,182);
+  background-color: white;
   text-align: left;
   margin: 0;
-  min-height: 20em;
+  min-height: 30em;
   padding: 5em 3em 3em 3em;
 }
 .OPh2 {

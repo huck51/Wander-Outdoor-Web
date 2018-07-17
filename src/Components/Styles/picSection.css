@@ -3,7 +3,7 @@
   min-height: 30em;
 }
 .modIndHr {
-  border-color: rgb(55,131,182);
+  border-color: rgb(181,216,150);
 }
 .modIndPic {
   height: 45em;
@@ -14,12 +14,13 @@
 .modIndText {
   padding: 1em;
   font-size: 1.75em;
+  color: rgb(55,131,182);
 }
 
 /* We Do The Work So You Don't Have To */
 .weDoWorkCol {
-  min-height: 45em;
-  background-color: rgb(55,131,182);
+  min-height: 30em;
+  background-color: white;
 }
 .weDoWorkHr {
   border-color: rgb(181,216,150);
@@ -37,8 +38,8 @@
 
 /* How It Works */
 .howitwerksCol {
-  height: 45em;
-  background-color: rgb(230,230,230);
+  height: 30em;
+  background-color: white;
 }
 .howitwerksHr {
   border-color: rgb(55,131,182);
