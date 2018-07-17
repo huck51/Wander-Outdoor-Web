@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Row, Thumbnail } from 'react-bootstrap';
+import { Checkbox, Col, Row, Thumbnail } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
 import StarRatingComponent from 'react-star-rating-component';
@@ -15,6 +15,9 @@ class Results extends Component {
       results: [],
       loading: true,
       value: '',
+      companies: true,
+      guides: true,
+      trips: true,
     };
   }
 
@@ -38,6 +41,13 @@ class Results extends Component {
 
   handleChange = (e) => {
     this.setState({ value: e.target.value });
+  }
+
+  handleCheckBoxChange = (e) => {
+    const bullsEye = e.target.name;
+    this.setState({
+      [e.target.name]: !this.state[bullsEye]
+    });
   }
 
   handleSubmit = (e) => {
@@ -73,6 +83,29 @@ class Results extends Component {
             submit={this.handleSubmit}
             />
         </form>
+        <div className="checkFilter">
+          <Checkbox
+            inline
+            value={this.state.companies}
+            onClick={this.handleCheckBoxChange}
+            checked={this.state.companies}
+            name="companies"
+          >Show Companies</Checkbox>
+          <Checkbox
+            inline
+            value={this.state.guides}
+            onClick={this.handleCheckBoxChange}
+            checked={this.state.guides}
+            name="guides"
+          >Show Guides</Checkbox>
+          <Checkbox
+            inline
+            value={this.state.trips}
+            onClick={this.handleCheckBoxChange}
+            checked={this.state.trips}
+            name="trips"
+          >Show Trips</Checkbox>
+        </div>
         <div className="boxOfCards">
           <Row>
             <Col md={2} mdOffset={5}>
@@ -87,7 +120,7 @@ class Results extends Component {
             <Row className="container">
               {
                 this.state.results.map((result) => {
-                  if (result.roleGroup) {
+                  if (result.roleGroup === 'guide' && this.state.guides) {
                     return (
                       <Col xs={12} sm={6} md={4} lg={3}>
                         <li className="list">
@@ -106,23 +139,44 @@ class Results extends Component {
                       </Col>
                     );
                   }
-                  return (
-                    <Col xs={12} sm={6} md={4} lg={3}>
-                      <li className="list">
-                        <Thumbnail
-                          src={result.picture}
-                          className="thumbox"
-                        >
-                          <h3>{result.companyName}</h3>
-                          <p>{`${result.city}, ${result.stateName}`}</p>
-                          <StarRatingComponent
-                            name={result.companyName}
-                          />
-                        <Link to={`/company/${result.companyName}`}><button className="removeButn">View Company</button></Link>
-                        </Thumbnail>
-                      </li>
-                    </Col>
-                  );
+                  if (result.roleGroup === 'company' && this.state.companies) {
+                    return (
+                      <Col xs={12} sm={6} md={4} lg={3}>
+                        <li className="list">
+                          <Thumbnail
+                            src={result.picture}
+                            className="thumbox"
+                          >
+                            <h3>{result.companyName}</h3>
+                            <p>{`${result.city}, ${result.stateName}`}</p>
+                            <StarRatingComponent
+                              name={result.companyName}
+                            />
+                          <Link to={`/company/${result.companyName}`}><button className="removeButn">View Company</button></Link>
+                          </Thumbnail>
+                        </li>
+                      </Col>
+                    );
+                  }
+                  if (result.roleGroup === 'trip' && this.state.trips) {
+                    return (
+                      <Col xs={12} sm={6} md={4} lg={3}>
+                        <li className="list">
+                          <Thumbnail
+                            src={result.picture}
+                            className="thumbox"
+                          >
+                            <h3>{result.companyName}</h3>
+                            <p>{`${result.city}, ${result.stateName}`}</p>
+                            <StarRatingComponent
+                              name={result.companyName}
+                            />
+                          <Link to={`/company/${result.companyName}`}><button className="removeButn">View Trip</button></Link>
+                          </Thumbnail>
+                        </li>
+                      </Col>
+                    );
+                  }
                 })
               }
             </Row>
