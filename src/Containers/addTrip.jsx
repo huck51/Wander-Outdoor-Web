@@ -22,6 +22,7 @@ class AddTrip extends Component {
       price: '',
       city: '',
       stateName: '',
+      company: this.props.match.params.company,
       picture: null,
       transpo: false,
       lunch: false,
@@ -60,6 +61,7 @@ class AddTrip extends Component {
       city,
       stateName,
       picture,
+      company,
     } = this.state;
     const newTrip = {
       name,
@@ -69,6 +71,7 @@ class AddTrip extends Component {
       price,
       picture,
       chex,
+      company,
     };
     this.setState({
       name: '',
