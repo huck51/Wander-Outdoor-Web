@@ -72,7 +72,7 @@ class DashboardTrips extends Component {
                         <StarRatingComponent
                           name={trip.companyName}
                         />
-                      <Link to={`/company/${trip.company}`}><button className="removeButn">View Trip</button></Link>
+                      <Link to={`/trips/${trip._id}`}><button className="removeButn">View Trip</button></Link>
                       </Thumbnail>
                     </li>
                   </Col>
