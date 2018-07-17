@@ -29,6 +29,7 @@ class NavigationBar extends Component {
   }
   render() {
     if (this.props.loggedIn) {
+      const id = localStorage.getItem('fierceIce');
       return (
         <Navbar collapseOnSelect>
           <Navbar.Header>
@@ -59,7 +60,7 @@ class NavigationBar extends Component {
               <NavDropdown eventKey={3} title={this.props.user.username} id="basic-nav-dropdown">
                 <li><Link to="/account-info">Account Info</Link></li>
                 <li><Link to="/edit-profile">Edit Profile</Link></li>
-                <li><Link to="/profile">View Profile</Link></li>
+                <li><Link to={`/profile/${id}`}>View Profile</Link></li>
                 <li><Link to="/inbox">Messages</Link></li>
                 <MenuItem divider />
                 <li><Link to="/dashboard">Dashboard</Link></li>
