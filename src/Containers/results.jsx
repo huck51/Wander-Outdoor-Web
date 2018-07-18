@@ -166,12 +166,12 @@ class Results extends Component {
                             src={result.picture}
                             className="thumbox"
                           >
-                            <h3>{result.companyName}</h3>
+                            <h3>{result.company}</h3>
                             <p>{`${result.city}, ${result.stateName}`}</p>
                             <StarRatingComponent
-                              name={result.companyName}
+                              name={result.company}
                             />
-                          <Link to={`/company/${result.companyName}`}><button className="removeButn">View Trip</button></Link>
+                          <Link to={`/trips/${result._id}`}><button className="removeButn">View Trip</button></Link>
                           </Thumbnail>
                         </li>
                       </Col>
