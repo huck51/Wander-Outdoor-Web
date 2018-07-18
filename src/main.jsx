@@ -28,6 +28,7 @@ import SignUp from './Containers/signUp';
 import SignUpGC from './Containers/signUpGC';
 import SignUpGuides from './Containers/signUpGuides';
 import SignUpTravelers from './Containers/signUpTravelers';
+import Trips from './Containers/trips';
 import ViewCompany from './Containers/viewCompany';
 import ViewGuide from './Containers/viewGuide';
 import ViewTraveler from './Containers/viewTraveler';
@@ -81,6 +82,7 @@ const Main = () => (
       <Route exact path="/signup/guiding-company" component={SignUpGC} />
       <Route exact path="/signup/traveler" component={SignUpTravelers} />
       <Route exact path="/travelers/traveler" component={ViewTraveler} />
+      <Route exact path="/trips" component={Trips} />
       <Route exact path="/trips/:id" component={ViewTrip} />
       <Route component={FourOhFour} />
       <Route exact path="/404-not-found" component={FourOhFour} />
