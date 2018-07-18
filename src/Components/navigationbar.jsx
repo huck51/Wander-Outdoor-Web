@@ -44,6 +44,9 @@ class NavigationBar extends Component {
                 <Link to="/">Home</Link>
               </li>
               <li role="presentation" className="highlight">
+                <Link to="/trips">Trips</Link>
+              </li>
+              <li role="presentation" className="highlight">
                 <Link to="/guiding-companies">Guiding Companies</Link>
               </li>
               <li role="presentation" className="highlight">
@@ -85,6 +88,9 @@ class NavigationBar extends Component {
           <Nav>
             <li role="presentation" className="highlight">
               <Link to="/">Home</Link>
+            </li>
+            <li role="presentation" className="highlight">
+              <Link to="/trips">Trips</Link>
             </li>
             <li role="presentation" className="highlight">
               <Link to="/guiding-companies">Guiding Companies</Link>
