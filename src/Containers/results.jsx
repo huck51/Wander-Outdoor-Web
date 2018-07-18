@@ -166,7 +166,7 @@ class Results extends Component {
                             src={result.picture}
                             className="thumbox"
                           >
-                            <h3>{result.company}</h3>
+                            <h3>{result.name}</h3>
                             <p>{`${result.city}, ${result.stateName}`}</p>
                             <StarRatingComponent
                               name={result.company}
