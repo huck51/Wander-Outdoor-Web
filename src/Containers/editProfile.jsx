@@ -86,6 +86,12 @@ class EditProfile extends Component {
             explorer: false,
             guide: true
           });
+        } else {
+          this.setState({
+            roleGroup: 'explorer',
+            explorer: true,
+            guide: false
+          });
         }
         this.setState({
           firstName,
