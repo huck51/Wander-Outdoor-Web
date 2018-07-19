@@ -80,11 +80,12 @@ class EditProfile extends Component {
           state,
           chex,
         } = response.data;
-        let explorer = true;
-        let guide = false;
         if (roleGroup === 'guide') {
-          explorer = false;
-          guide = true;
+          this.setState({
+            roleGroup: 'guide',
+            explorer: false,
+            guide: true
+          });
         }
         this.setState({
           firstName,
@@ -93,9 +94,6 @@ class EditProfile extends Component {
           email,
           phone,
           bio,
-          roleGroup,
-          explorer,
-          guide,
           picture,
           companyCode,
           city,
