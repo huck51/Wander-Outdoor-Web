@@ -55,18 +55,30 @@ class Trips extends Component {
                 return (
                   <Col xs={12} sm={6} md={4} lg={3}>
                     <li className="list">
-                      <Thumbnail
-                        src={trip.picture}
-                        className="thumbox"
-                      >
-                        <h3>{trip.name}</h3>
-                        <p>{trip.company}</p>
-                        <p>{`${trip.city}, ${trip.stateName}`}</p>
-                        <StarRatingComponent
-                          name={`${trip.name}${trip.company}`}
+                      <div className="thumbox">
+                        <div
+                          style={
+                            {
+                              backgroundImage: `url(${trip.picture})`,
+                              backgroundPosition: 'center',
+                              backgroundRepeat: 'no-repeat',
+                              backgroundSize: '100% 100%',
+                              backgroundColor: 'white',
+                            }
+                          }
+                          className="cardImg"
                         />
-                      <Link to={`/trips/${trip._id}`}><button className="removeButn">View Trip</button></Link>
-                      </Thumbnail>
+                        <div className="caption">
+                          <h3>{trip.name}</h3>
+                          <p>{`${trip.city}, ${trip.stateName}`}</p>
+                          <StarRatingComponent
+                            name={trip.company}
+                            starColor="#3783B6"
+                            emptyStarColor="#B5D994"
+                          />
+                          <Link to={`/trips/${trip._id}`}><button className="removeButn">View Trip</button></Link>
+                        </div>
+                      </div>
                     </li>
                   </Col>
                 );

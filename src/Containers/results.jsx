@@ -124,17 +124,26 @@ class Results extends Component {
                     return (
                       <Col xs={12} sm={6} md={4} lg={3}>
                         <li className="list">
-                          <Thumbnail
-                            src={result.picture}
-                            className="thumbox"
-                          >
-                            <h3>{`${result.firstName} ${result.lastName}`}</h3>
-                            <p>{`${result.city}, ${result.state}`}</p>
-                            <StarRatingComponent
-                              name={result.firstName+result.lastName}
-                            />
-                          <Link to={`/profile/${result.firstName}`}><button className="removeButn">View Guide</button></Link>
-                          </Thumbnail>
+                          <div className="thumbox">
+                            <div style={ {
+                              backgroundImage: `url(${result.picture})`,
+                              backgroundPosition: 'center',
+                              backgroundRepeat: 'no-repeat',
+                              backgroundSize: '100% auto',
+                              backgroundColor: 'white',
+                            }
+                            } className="cardImg"></div>
+                            <div className="caption">
+                              <h3>{`${result.firstName} ${result.lastName}`}</h3>
+                              <p>{`${result.city}, ${result.state}`}</p>
+                              <StarRatingComponent
+                                name={result.firstName+result.lastName}
+                                starColor={'#3783B6'}
+                                emptyStarColor={'#B5D994'}
+                              />
+                              <Link to={`/profile/${result.firstName}`}><button className="removeButn">View Guide</button></Link>
+                            </div>
+                          </div>
                         </li>
                       </Col>
                     );
@@ -143,17 +152,26 @@ class Results extends Component {
                     return (
                       <Col xs={12} sm={6} md={4} lg={3}>
                         <li className="list">
-                          <Thumbnail
-                            src={result.picture}
-                            className="thumbox"
-                          >
-                            <h3>{result.companyName}</h3>
-                            <p>{`${result.city}, ${result.stateName}`}</p>
-                            <StarRatingComponent
-                              name={result.companyName}
-                            />
-                          <Link to={`/company/${result.companyName}`}><button className="removeButn">View Company</button></Link>
-                          </Thumbnail>
+                          <div className="thumbox">
+                            <div style={ {
+                              backgroundImage: `url(${result.picture})`,
+                              backgroundPosition: 'center',
+                              backgroundRepeat: 'no-repeat',
+                              backgroundSize: '100% 100%',
+                              backgroundColor: 'white',
+                            }
+                            } className="cardImg"></div>
+                            <div className="caption">
+                              <h3>{result.companyName}</h3>
+                              <p>{`${result.city}, ${result.stateName}`}</p>
+                              <StarRatingComponent
+                                name={result.companyName}
+                                starColor={'#3783B6'}
+                                emptyStarColor={'#B5D994'}
+                              />
+                            <Link to={`/company/${result.companyName}`}><button className="removeButn">View Company</button></Link>
+                            </div>
+                          </div>
                         </li>
                       </Col>
                     );
@@ -162,17 +180,26 @@ class Results extends Component {
                     return (
                       <Col xs={12} sm={6} md={4} lg={3}>
                         <li className="list">
-                          <Thumbnail
-                            src={result.picture}
-                            className="thumbox"
-                          >
-                            <h3>{result.name}</h3>
-                            <p>{`${result.city}, ${result.stateName}`}</p>
-                            <StarRatingComponent
-                              name={result.company}
-                            />
-                          <Link to={`/trips/${result._id}`}><button className="removeButn">View Trip</button></Link>
-                          </Thumbnail>
+                          <div className="thumbox">
+                            <div style={ {
+                              backgroundImage: `url(${result.picture})`,
+                              backgroundPosition: 'center',
+                              backgroundRepeat: 'no-repeat',
+                              backgroundSize: '100% 100%',
+                              backgroundColor: 'white',
+                            }
+                            } className="cardImg"></div>
+                            <div className="caption">
+                              <h3>{result.name}</h3>
+                              <p>{`${result.city}, ${result.stateName}`}</p>
+                              <StarRatingComponent
+                                name={result.company}
+                                starColor={'#3783B6'}
+                                emptyStarColor={'#B5D994'}
+                              />
+                            <Link to={`/trips/${result._id}`}><button className="removeButn">View Trip</button></Link>
+                            </div>
+                          </div>
                         </li>
                       </Col>
                     );

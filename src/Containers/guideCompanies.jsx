@@ -53,17 +53,30 @@ class GuideCompanies extends Component {
                 return (
                   <Col xs={12} sm={6} md={4} lg={3}>
                     <li className="list">
-                      <Thumbnail
-                        src={company.picture}
-                        className="thumbox"
-                      >
-                        <h3>{company.companyName}</h3>
-                        <p>{`${company.city}, ${company.stateName}`}</p>
-                        <StarRatingComponent
-                          name={company.companyName}
+                      <div className="thumbox">
+                        <div
+                          style={
+                            {
+                              backgroundImage: `url(${company.picture})`,
+                              backgroundPosition: 'center',
+                              backgroundRepeat: 'no-repeat',
+                              backgroundSize: '100% 100%',
+                              backgroundColor: 'white',
+                            }
+                          }
+                          className="cardImg"
                         />
-                        <Link to={`/company/${company.companyName}`}><button className="removeButn">View Company</button></Link>
-                      </Thumbnail>
+                        <div className="caption">
+                          <h3>{company.companyName}</h3>
+                          <p>{`${company.city}, ${company.stateName}`}</p>
+                          <StarRatingComponent
+                            name={company.companyName}
+                            starColor="#3783B6"
+                            emptyStarColor="#B5D994"
+                          />
+                          <Link to={`/company/${company.companyName}`}><button className="removeButn">View Company</button></Link>
+                        </div>
+                      </div>
                     </li>
                   </Col>
                 );

@@ -9,6 +9,9 @@ ul {
 .boxOfCards {
   padding-bottom: 5em;
 }
+.caption {
+  margin-left: 1em;
+}
 .css-1pa5up3 {
   margin: auto;
 }
@@ -36,4 +39,8 @@ ul {
   margin-bottom: 2em;
   margin-top: 0;
   height: 25em;
+  background-color: rgb(60,60,60);
+  color: #3783B6;
+  border-bottom-left-radius: 1%;
+  border-bottom-right-radius: 1%;
 }

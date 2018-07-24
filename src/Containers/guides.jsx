@@ -55,18 +55,30 @@ class Guides extends Component {
                 return (
                   <Col xs={12} sm={6} md={4} lg={3}>
                     <li className="list">
-                      <Thumbnail
-                        src={guide.picture}
-                        className="thumbox"
-                      >
-                        <h3>{guide.firstName} {guide.lastName}</h3>
-                        <p>{`${guide.companyName} Add Company Name`}</p>
-                        <p>{`${guide.city}, ${guide.state}`}</p>
-                        <StarRatingComponent
-                          name={`${guide.firstName}${guide.lastName}${guide.companyName}`}
+                      <div className="thumbox">
+                        <div
+                          style={
+                            {
+                              backgroundImage: `url(${guide.picture})`,
+                              backgroundPosition: 'center',
+                              backgroundRepeat: 'no-repeat',
+                              backgroundSize: '100% auto',
+                              backgroundColor: 'white',
+                            }
+                          }
+                          className="cardImg"
                         />
-                      <Link to={`/profile/${guide.id}`}><button className="removeButn">View Guide</button></Link>
-                      </Thumbnail>
+                        <div className="caption">
+                          <h3>{`${guide.firstName} ${guide.lastName}`}</h3>
+                          <p>{`${guide.city}, ${guide.state}`}</p>
+                          <StarRatingComponent
+                            name={guide.firstName + guide.lastName}
+                            starColor="#3783B6"
+                            emptyStarColor="#B5D994"
+                          />
+                          <Link to={`/profile/${guide.firstName}`}><button className="removeButn">View Guide</button></Link>
+                        </div>
+                      </div>
                     </li>
                   </Col>
                 );

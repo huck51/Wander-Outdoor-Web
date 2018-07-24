@@ -1,4 +1,9 @@
 
+.cardImg {
+  height: 13em;
+  max-height: 13em;
+  width: 100%;
+}
 .checkFilter {
   margin: 1em auto;
   text-align: center;

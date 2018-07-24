@@ -243,7 +243,9 @@ class EditProfile extends Component {
         const widgetOptions = {
           cloud_name: 'wander-outdoor',
           signature: response.data,
-          upload_preset: 'ypvspamw'
+          upload_preset: 'ypvspamw',
+          cropping: true,
+          cropping_aspect_ratio: 1.5,
         };
         window.cloudinary.openUploadWidget(widgetOptions, (err, result) => {
           if (err) {
