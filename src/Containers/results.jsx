@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios';
+import RequestModal from '../Components/requestModal';
 import SearchBar from '../Components/searchbar';
 import './Styles/results.css';
 
@@ -141,6 +142,7 @@ class Results extends Component {
                                 starColor={'#3783B6'}
                                 emptyStarColor={'#B5D994'}
                               />
+                              <RequestModal btnText="Request Guide"/>
                               <Link to={`/profile/${result.firstName}`}><button className="removeButn">View Guide</button></Link>
                             </div>
                           </div>
@@ -169,7 +171,7 @@ class Results extends Component {
                                 starColor={'#3783B6'}
                                 emptyStarColor={'#B5D994'}
                               />
-                            <Link to={`/company/${result.companyName}`}><button className="removeButn">View Company</button></Link>
+                              <Link to={`/company/${result.companyName}`}><button className="removeButn">View Company</button></Link>
                             </div>
                           </div>
                         </li>
@@ -197,7 +199,8 @@ class Results extends Component {
                                 starColor={'#3783B6'}
                                 emptyStarColor={'#B5D994'}
                               />
-                            <Link to={`/trips/${result._id}`}><button className="removeButn">View Trip</button></Link>
+                              <RequestModal btnText="Request Trip"/>
+                              <Link to={`/trips/${result._id}`}><button className="removeButn">View Trip</button></Link>
                             </div>
                           </div>
                         </li>
