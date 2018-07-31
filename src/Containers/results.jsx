@@ -137,12 +137,16 @@ class Results extends Component {
                             <div className="caption">
                               <h3>{`${result.firstName} ${result.lastName}`}</h3>
                               <p>{`${result.city}, ${result.state}`}</p>
-                              <StarRatingComponent
-                                name={result.firstName+result.lastName}
-                                starColor={'#3783B6'}
-                                emptyStarColor={'#B5D994'}
-                              />
-                              <RequestModal btnText="Request Guide"/>
+                              <div style={ { display: 'block' } }>
+                                <StarRatingComponent
+                                  name={result.firstName+result.lastName}
+                                  starColor={'#3783B6'}
+                                  emptyStarColor={'#B5D994'}
+                                />
+                              </div>
+                              <div className="removeButn">
+                                <RequestModal btnText="Request Guide"/>
+                              </div>
                               <Link to={`/profile/${result.firstName}`}><button className="removeButn">View Guide</button></Link>
                             </div>
                           </div>
@@ -166,11 +170,13 @@ class Results extends Component {
                             <div className="caption">
                               <h3>{result.companyName}</h3>
                               <p>{`${result.city}, ${result.stateName}`}</p>
-                              <StarRatingComponent
-                                name={result.companyName}
-                                starColor={'#3783B6'}
-                                emptyStarColor={'#B5D994'}
-                              />
+                              <div style={ { display: 'block' } }>
+                                <StarRatingComponent
+                                  name={result.companyName}
+                                  starColor={'#3783B6'}
+                                  emptyStarColor={'#B5D994'}
+                                />
+                              </div>
                               <Link to={`/company/${result.companyName}`}><button className="removeButn">View Company</button></Link>
                             </div>
                           </div>
@@ -194,12 +200,16 @@ class Results extends Component {
                             <div className="caption">
                               <h3>{result.name}</h3>
                               <p>{`${result.city}, ${result.stateName}`}</p>
-                              <StarRatingComponent
-                                name={result.company}
-                                starColor={'#3783B6'}
-                                emptyStarColor={'#B5D994'}
-                              />
-                              <RequestModal btnText="Request Trip"/>
+                              <div style={ { display: 'block' } }>
+                                <StarRatingComponent
+                                  name={result.company}
+                                  starColor={'#3783B6'}
+                                  emptyStarColor={'#B5D994'}
+                                />
+                              </div>
+                              <div className="removeButn">
+                                <RequestModal btnText="Request Trip"/>
+                              </div>
                               <Link to={`/trips/${result._id}`}><button className="removeButn">View Trip</button></Link>
                             </div>
                           </div>

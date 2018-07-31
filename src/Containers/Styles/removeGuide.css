@@ -7,4 +7,6 @@
   height: auto;
   width: auto;
   font-size: 1em;
+  display: inline-block;
+  margin: .25em;
 }

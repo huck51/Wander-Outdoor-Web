@@ -27,10 +27,22 @@ class RequestModal extends Component {
     this.setState({ showModal: false });
   }
 
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+
+  }
+
   render() {
     return (
       <div>
-        <button onClick={this.handleOpenModal}>{this.props.btnText}</button>
+        <button
+          className="removeButn"
+          onClick={this.handleOpenModal}
+        >{this.props.btnText}</button>
         <ReactModal
           style={
             {
@@ -70,14 +82,6 @@ class RequestModal extends Component {
               type="text"
               placeholder="Email"
               value={this.state.email}
-              onChange={this.handleChange}
-            />
-            <FieldGroup
-              label="First Name"
-              name="firstName"
-              type="text"
-              placeholder="First Name"
-              value={this.state.firstName}
               onChange={this.handleChange}
             />
             <FieldGroup

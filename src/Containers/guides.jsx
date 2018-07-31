@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios';
+import RequestModal from '../Components/requestModal';
 import './Styles/guides.css';
 
 
@@ -71,12 +72,17 @@ class Guides extends Component {
                         <div className="caption">
                           <h3>{`${guide.firstName} ${guide.lastName}`}</h3>
                           <p>{`${guide.city}, ${guide.state}`}</p>
-                          <StarRatingComponent
-                            name={guide.firstName + guide.lastName}
-                            starColor="#3783B6"
-                            emptyStarColor="#B5D994"
-                          />
+                          <div style={{ display: 'block' }}>
+                            <StarRatingComponent
+                              name={guide.firstName + guide.lastName}
+                              starColor="#3783B6"
+                              emptyStarColor="#B5D994"
+                            />
+                          </div>
                           <Link to={`/profile/${guide.firstName}`}><button className="removeButn">View Guide</button></Link>
+                          <div className="removeButn">
+                            <RequestModal btnText="Request Guide" />
+                          </div>
                         </div>
                       </div>
                     </li>

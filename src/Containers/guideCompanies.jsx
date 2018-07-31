@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios';
+import RequestModal from '../Components/requestModal';
 import './Styles/guideCompanies.css';
 
 
@@ -69,11 +70,13 @@ class GuideCompanies extends Component {
                         <div className="caption">
                           <h3>{company.companyName}</h3>
                           <p>{`${company.city}, ${company.stateName}`}</p>
-                          <StarRatingComponent
-                            name={company.companyName}
-                            starColor="#3783B6"
-                            emptyStarColor="#B5D994"
-                          />
+                          <div style={{ display: 'block' }}>
+                            <StarRatingComponent
+                              name={company.companyName}
+                              starColor="#3783B6"
+                              emptyStarColor="#B5D994"
+                            />
+                          </div>
                           <Link to={`/company/${company.companyName}`}><button className="removeButn">View Company</button></Link>
                         </div>
                       </div>

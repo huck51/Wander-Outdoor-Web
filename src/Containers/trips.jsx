@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Row, Col, Thumbnail } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios';
+import RequestModal from '../Components/requestModal';
 import './Styles/trips.css';
 
 
@@ -71,12 +72,17 @@ class Trips extends Component {
                         <div className="caption">
                           <h3>{trip.name}</h3>
                           <p>{`${trip.city}, ${trip.stateName}`}</p>
-                          <StarRatingComponent
-                            name={trip.company}
-                            starColor="#3783B6"
-                            emptyStarColor="#B5D994"
-                          />
+                          <div style={{ display: 'block' }}>
+                            <StarRatingComponent
+                              name={trip.company}
+                              starColor="#3783B6"
+                              emptyStarColor="#B5D994"
+                            />
+                          </div>
                           <Link to={`/trips/${trip._id}`}><button className="removeButn">View Trip</button></Link>
+                          <div className="removeButn">
+                            <RequestModal btnText="Request Trip" />
+                          </div>
                         </div>
                       </div>
                     </li>
