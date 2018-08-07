@@ -1,4 +1,41 @@
 
+@media screen and (max-width: 600px) {
+.nav>li {
+  width: 100% !important;
+}
+}
+@media screen and (max-width: 1067px) {
+  .collapse {
+    display: none !important;
+  }
+  .collapse.in {
+    display: block !important;
+  }
+  .nav {
+    width: 100%;
+  }
+  .nav>li {
+    width: 25%;
+  }
+  .navbar-collapse.collapse {
+    display: none !important;
+  }
+  .navbar-collapse.collapse.in {
+    display: block !important;
+    overflow: visible !important;
+  }
+  .navbar-header {
+    float: none;
+  }
+  .navbar-nav {
+    margin-top: 5em;
+  }
+  .navbar-toggle {
+    display: block;
+    position: relative;
+    float: right;
+  }
+}
 nav>div.container {
   margin: 0;
   width: 100%;
@@ -15,11 +52,12 @@ nav>div.container {
   border: none;
   background-color: transparent;
   height: auto;
-  width: auto;
+  width: 100%;
   margin: 0 .5em;
   padding: 1em 0;
-  line-height: normal;
+  line-height: .9em;
   font-size: 1em;
+  text-align: center;
 }
 .nav {
   margin: 1em;
@@ -42,6 +80,7 @@ nav>div.container {
   padding-left: .25em;
   padding-right: .25em;
   margin: 0 .25em;
+  text-align: center;
 }
 .navbar-default .navbar-nav>li>a:focus {
   color: rgba(55,131,182,1);
@@ -50,6 +89,11 @@ nav>div.container {
 .navbar-default .navbar-nav>li>a:hover {
   color: rgba(82,154,196,1);
   border-bottom: .25em solid rgba(55,131,182,1);
+}
+.navbar-default .navbar-nav>li>button:hover {
+  color: rgba(82,154,196,1);
+  border-bottom: .25em solid rgba(55,131,182,1);
+  border-radius: 0;
 }
 .navbar-toggle {
   width: 3em;

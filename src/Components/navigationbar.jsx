@@ -58,8 +58,6 @@ class NavigationBar extends Component {
               <li role="presentation" className="highlight">
                 <Link to="/contact">Contact Us</Link>
               </li>
-            </Nav>
-            <Nav pullRight>
               <NavDropdown eventKey={3} title={this.props.user.username} id="basic-nav-dropdown">
                 <li><Link to="/account-info">Account Info</Link></li>
                 <li><Link to="/edit-profile">Edit Profile</Link></li>
@@ -104,14 +102,12 @@ class NavigationBar extends Component {
             <li role="presentation" className="highlight">
               <Link to="/contact">Contact Us</Link>
             </li>
-          </Nav>
-          <Nav pullRight>
-           <li role="presentation" className="highlight">
-             <button className="logBtn" onClick={this.login}>Login</button>
-           </li>
-           <li role="presentation" className="highlight">
-             <button className="logBtn" onClick={this.login}>Sign Up</button>
-           </li>
+            <li role="presentation" className="highlight pullR">
+              <button className="logBtn" onClick={this.login}>Login</button>
+            </li>
+            <li role="presentation" className="highlight pullR">
+              <button className="logBtn" onClick={this.login}>Sign Up</button>
+            </li>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
