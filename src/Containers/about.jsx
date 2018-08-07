@@ -34,7 +34,6 @@ class About extends Component {
         <span className="test">{this.state.screenWidth}</span>
         <div className="openingSection">
           <div className="mainContainer">
-            <h1 className="mainHeader">ABOUT US</h1>
           </div>
         </div>
         <SmSection

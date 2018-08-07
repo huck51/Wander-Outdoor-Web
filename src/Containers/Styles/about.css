@@ -12,22 +12,16 @@
 }
 .mainContainer {
   padding: 3em;
+  text-align: center;
 
 }
 .mainHeader {
   margin: 0;
-  font-size: 6em;
-  background-image: url('https://res.cloudinary.com/wander-outdoor/image/upload/v1529539187/Wander/IMG_8208.jpg');
-  background-repeat: no-repeat;
-  background-position: left top;
-  background-size: cover;
-  border-left: 10px double rgb(101,246,100);
-  border-right: 10px double rgb(101,246,100);
-  width: 50%;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  color: red;
-  box-shadow: 5px 5px 5px rgb(25,25,25);
+  font-size: 7em;
+  color: black;
+  padding: .25em;
+  display: inline-block;
+  margin: auto;
 }
 .openingSection {
   background-image: url('https://res.cloudinary.com/wander-outdoor/image/upload/v1529539187/Wander/IMG_8208.jpg');

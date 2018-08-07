@@ -165,7 +165,7 @@
   font-size: 4em;
   display: inline-block;
   text-align: left;
-  border-right: 1px solid black;
+  border-right: 1px solid rgb(55,131,182);
   padding: .5em;
   vertical-align: center
 }
@@ -217,7 +217,7 @@
   font-size: 3.5em;
   display: inline-block;
   text-align: left;
-  border-right: 1px solid black;
+  border-right: 1px solid rgb(55,131,182);
   padding-right: .5em;
 }
 .OPhr {

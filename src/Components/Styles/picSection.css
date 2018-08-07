@@ -1,9 +1,10 @@
 /* Modernizing the Industry */
 .modIndCol {
   min-height: 30em;
+  background-color: white;
 }
 .modIndHr {
-  border-color: rgb(181,216,150);
+  border-color: rgb(55,131,182);
 }
 .modIndPic {
   height: 45em;
@@ -14,7 +15,7 @@
 .modIndText {
   padding: 1em;
   font-size: 1.75em;
-  color: rgb(55,131,182);
+  color: black;
 }
 
 /* We Do The Work So You Don't Have To */
