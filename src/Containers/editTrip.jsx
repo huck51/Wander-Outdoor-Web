@@ -36,7 +36,7 @@ class EditTrip extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    axios.get(`https://fierce-ridge-55021.herokuapp.com/edit-trip/${id}`)
+    axios.get(`https://fierce-ridge-55021.herokuapp.com/trip/${id}`)
       .then((result) => {
         const {
           name,
