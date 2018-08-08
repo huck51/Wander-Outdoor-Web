@@ -1,4 +1,26 @@
 
+@media screen and (max-width: 768px) {
+  #manageTrips {
+    border-top: 6px solid rgba(55,131,182,1);
+    border-left: 6px solid rgba(55,131,182,1);
+    border-right: 6px solid rgba(55,131,182,1);
+  }
+  #manageGuides {
+    border-top: 6px solid rgba(55,131,182,1);
+    border-right: 6px solid rgba(55,131,182,1);
+    border-left: 6px solid rgba(55,131,182,1);
+  }
+  #editCompanyDetails {
+    border-bottom: 6px solid rgba(55,131,182,1);
+    border-left: 6px solid rgba(55,131,182,1);
+    border-right: 6px solid rgba(55,131,182,1);
+  }
+  #companyAccountInfo {
+    border-bottom: 6px solid rgba(55,131,182,1);
+    border-right: 6px solid rgba(55,131,182,1);
+    border-left: 6px solid rgba(55,131,182,1);
+  }
+}
 .auto {
   margin: auto;
 }
