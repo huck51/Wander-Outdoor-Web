@@ -45,13 +45,7 @@ class EditTrip extends Component {
           city,
           stateName,
           picture,
-          transpo,
-          lunch,
-          gear,
-          fullDay,
-          halfDay,
-          privateTrip,
-          group
+          chex
         } = result.data;
         this.setState({
           name,
@@ -59,15 +53,13 @@ class EditTrip extends Component {
           price,
           city,
           stateName,
-          picture,
-          transpo,
-          lunch,
-          gear,
-          fullDay,
-          halfDay,
-          privateTrip,
-          group
+          picture
         });
+        for (let i = 0; i < chex.length; i++) {
+          this.setState({
+            [chex[i]]: true
+          });
+        }
       })
       .catch((err) => {
         console.log(err);
