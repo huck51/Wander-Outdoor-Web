@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactModal from 'react-modal';
 import FieldGroup from './fieldGroup';
+import axios from 'axios';
 import './Styles/requestModal.css';
 
 class RequestModal extends Component {
@@ -16,6 +17,8 @@ class RequestModal extends Component {
       guide: '',
       numPeople: '',
       departure: '',
+      companyName: this.props.companyName,
+      companyEmail: this.props.email,
     };
   }
 
@@ -33,7 +36,38 @@ class RequestModal extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
+    const {
+      firstName,
+      lastName,
+      email,
+      phone,
+      trip,
+      guide,
+      numPeople,
+      departure,
+      companyName,
+      companyEmail
+    } = this.state;
+    const tripRequest = {
+      firstName,
+      lastName,
+      email,
+      phone,
+      trip,
+      guide,
+      numPeople,
+      departure,
+      companyName,
+      companyEmail
+    };
+    axios.post('https://fierce-ridge-55021.herokuapp.com/request-trip', tripRequest)
+      .then((response) => {
+        console.log(response);
+        this.handleCloseModal();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   render() {
@@ -59,7 +93,7 @@ class RequestModal extends Component {
           isOpen={this.state.showModal}
         >
           <button onClick={this.handleCloseModal} className="closeModal">X</button>
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <FieldGroup
               label="First Name"
               name="firstName"
@@ -123,6 +157,7 @@ class RequestModal extends Component {
               value={this.state.departure}
               onChange={this.handleChange}
             />
+          <button type="submit" onClick={this.handleSubmit}>Submit</button>
           </form>
         </ReactModal>
       </div>
