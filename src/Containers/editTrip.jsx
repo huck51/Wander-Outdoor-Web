@@ -29,7 +29,7 @@ class EditTrip extends Component {
       gear: false,
       fullDay: false,
       halfDay: false,
-      private: false,
+      privateTrip: false,
       group: false,
     };
   }
@@ -50,7 +50,7 @@ class EditTrip extends Component {
           gear,
           fullDay,
           halfDay,
-          private,
+          privateTrip,
           group
         } = result.data;
         this.setState({
@@ -65,7 +65,7 @@ class EditTrip extends Component {
           gear,
           fullDay,
           halfDay,
-          private,
+          privateTrip,
           group
         });
       })
@@ -87,7 +87,7 @@ class EditTrip extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const chexmix = ['transpo', 'lunch', 'gear', 'fullDay', 'halfDay', 'private', 'group'];
+    const chexmix = ['transpo', 'lunch', 'gear', 'fullDay', 'halfDay', 'privateTrip', 'group'];
     const chex = [];
     for (let i = 0; i < chexmix.length; i++) {
       if (this.state[chexmix[i]] === true) {
@@ -241,9 +241,9 @@ class EditTrip extends Component {
                     name="halfDay">Half Day</Checkbox>
                   <Checkbox
                     onClick={this.handleCheckBoxChange}
-                    value={this.state.private}
-                    checked={this.state.private}
-                    name="private">Private</Checkbox>
+                    value={this.state.privateTrip}
+                    checked={this.state.privateTrip}
+                    name="privateTrip">Private</Checkbox>
                   <Checkbox
                     onClick={this.handleCheckBoxChange}
                     value={this.state.group}

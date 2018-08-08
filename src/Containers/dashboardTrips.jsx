@@ -87,6 +87,7 @@ class DashboardTrips extends Component {
                             />
                           </div>
                           <Link to={`/trips/${trip._id}`}><button className="removeButn">View Trip</button></Link>
+                          <Link to={`/edit-trip/${trip._id}`}><button className="removeButn">Edit Trip</button></Link>
                         </div>
                       </div>
                     </li>
