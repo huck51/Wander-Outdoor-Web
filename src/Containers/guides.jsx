@@ -80,7 +80,7 @@ class Guides extends Component {
                               emptyStarColor="#B5D994"
                             />
                           </div>
-                          <Link to={`/profile/${guide._id}`}>
+                          <Link to={`/profile/${guide.id}`}>
                             <button className="removeButn">View Guide</button>
                           </Link>
                           <div className="removeButn">
