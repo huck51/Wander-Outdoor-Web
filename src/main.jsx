@@ -21,7 +21,6 @@ import GuidingCompanies from './Containers/guideCompanies';
 import HigherAuth from './higherAuth';
 import Home from './Containers/home';
 import Inbox from './Containers/inbox';
-import Login from './Containers/login';
 import RemoveGuide from './Containers/removeGuide';
 import RemoveTrip from './Containers/removeTrip';
 import Results from './Containers/results';
@@ -31,7 +30,6 @@ import SignUpGuides from './Containers/signUpGuides';
 import SignUpTravelers from './Containers/signUpTravelers';
 import Trips from './Containers/trips';
 import ViewCompany from './Containers/viewCompany';
-import ViewGuide from './Containers/viewGuide';
 import ViewTraveler from './Containers/viewTraveler';
 import ViewTrip from './Containers/viewTrip';
 

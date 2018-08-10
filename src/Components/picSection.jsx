@@ -5,10 +5,10 @@ import './Styles/picSection.css';
 
 const PicSection = ({
   colClass,
-  textClass,
+  heading,
   hrClass,
   text,
-  heading,
+  textClass,
 }) => {
   return (
     <div>
@@ -93,14 +93,11 @@ const PicSection = ({
     </div>
   );
 };
-
+*/
 PicSection.defaultProps = {
   colClass: '',
   heading: 'HEADING',
   hrClass: '',
-  imgClass: '',
-  imgSrc: '',
-  picSide: 'left',
   text: 'description text',
   textClass: '',
 };
@@ -109,13 +106,8 @@ PicSection.propTypes = {
   colClass: PropTypes.string,
   heading: PropTypes.string,
   hrClass: PropTypes.string,
-  imgClass: PropTypes.string,
-  imgSrc: PropTypes.string,
-  picSide: PropTypes.string,
   text: PropTypes.string,
   textClass: PropTypes.string,
 };
-
-*/
 
 export default PicSection;

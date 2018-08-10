@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Row, Col, Thumbnail } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios';
-import RequestModal from '../Components/requestModal';
 import './Styles/guideCompanies.css';
 
 

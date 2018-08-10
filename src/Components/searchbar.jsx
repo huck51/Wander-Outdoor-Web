@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Button, InputGroup, FormGroup, FormControl } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import './Styles/searchbar.css';
 
 const SearchBar = ({ val, change, submit }) => (

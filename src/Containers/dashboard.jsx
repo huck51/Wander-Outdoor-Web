@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import {
   Row,
-  Col,
-  Thumbnail,
+  Col
 } from 'react-bootstrap';
 import { BounceLoader } from 'react-spinners';
 import { Link } from 'react-router-dom';

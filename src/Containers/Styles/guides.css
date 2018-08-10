@@ -2,3 +2,6 @@
 .caption>p {
   margin: 0;
 }
+.hide {
+  visibility: hidden;
+}

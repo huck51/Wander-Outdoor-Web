@@ -9,8 +9,6 @@ import {
 import axios from 'axios';
 import './Styles/viewTrip.css';
 
-const pic = 'https://res.cloudinary.com/wander-outdoor/image/upload/v1528176929/sf6xs4l7xkbr1a8nf4hu.jpg';
-
 class ViewTrip extends Component {
   constructor(props) {
     super(props);

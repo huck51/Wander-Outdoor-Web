@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Checkbox, Col, Row, Thumbnail } from 'react-bootstrap';
+import { Checkbox, Col, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
 import StarRatingComponent from 'react-star-rating-component';
