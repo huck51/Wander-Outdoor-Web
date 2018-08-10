@@ -46,9 +46,30 @@ const handleAuthentication = ({ location }) => {
 const Main = () => (
   <main>
     <Switch>
-      <Route exact path="/" component={Home} />
+      <Route
+        exact
+        path="/"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <Home {...props} value={value} />
+            )}
+          </MegaContext.Consumer>
+          )}
+      />
       <Route exact path="/about" component={About} />
-      <Route exact path="/account-info" component={AccountInfo} />
+      <Route
+        exact
+        path="/account-info"
+        component={AccountInfo}
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <AccountInfo {...props} value={value} />
+            )}
+          </MegaContext.Consumer>
+        )}
+      />
       <Route
         exact
         path="/authload"
@@ -72,33 +93,341 @@ const Main = () => (
           )
         }
       />
-      <Route exact path="/company/remove-trip" component={RemoveTrip} />
-      <Route exact path="/company/remove-guide" component={RemoveGuide} />
-      <Route exact path="/contact" component={Contact} />
-      <Route exact path="/dashboard" render={props => <Dashboard auth={auth} {...props} />} />
-      <Route exact path="/dashboard/:company" render={props => <CompanyDashboard auth={auth} {...props} />} />
-      <Route exact path="/dashboard/:company/add-guide" component={AddGuide} />
-      <Route exact path="/dashboard/:company/add-trip" component={AddTrip} />
-      <Route exact path="/dashboard/:company/add-trip/:trip" component={AddTrip} />
-      <Route exact path="/dashboard/:company/company-account" component={CompanyAccount} />
-      <Route exact path="/dashboard/:company/edit-company" component={EditCompany} />
-      <Route exact path="/dashboard/:company/guides" render={props => <DashboardGuides auth={auth} {...props} />} />
-      <Route exact path="/dashboard/:company/trips" render={props => <DashboardTrips auth={auth} {...props} />} />
-      <Route exact path="/edit-profile" component={EditProfile} />
-      <Route exact path="/edit-trip/:id" component={EditTrip} />
-      <Route exact path="/guides" component={Guides} />
-      <Route exact path="/guides/:username" render={props => <ViewTraveler auth={auth} {...props} />} />
-      <Route exact path="/guiding-companies" component={GuidingCompanies} />
-      <Route exact path="/inbox/" component={Inbox} />
-      <Route exact path="/profile/:id" component={ViewTraveler} />
-      <Route exact path="/results/:search" component={Results} />
-      <Route exact path="/signup" component={SignUp} />
-      <Route exact path="/signup/guide" component={SignUpGuides} />
-      <Route exact path="/signup/guiding-company" component={SignUpGC} />
-      <Route exact path="/signup/traveler" component={SignUpTravelers} />
-      <Route exact path="/travelers/traveler" component={ViewTraveler} />
-      <Route exact path="/trips" component={Trips} />
-      <Route exact path="/trips/:id" component={ViewTrip} />
+      <Route
+        exact
+        path="/company/remove-trip"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <RemoveTrip
+                {...props}
+                value={value}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/company/remove-guide"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <RemoveGuide
+                {...props}
+                value={value}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/contact"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <Contact
+                {...props}
+                value={value}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/dashboard"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <Dashboard
+                {...props}
+                value={value}
+                auth={auth}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/dashboard/:company"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <CompanyDashboard
+                {...props}
+                value={value}
+                auth={auth}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/dashboard/:company/add-guide"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <AddGuide
+                {...props}
+                value={value}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/dashboard/:company/add-trip"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <AddTrip
+                {...props}
+                value={value}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/dashboard/:company/add-trip/:trip"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <AddTrip
+                {...props}
+                value={value}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/dashboard/:company/company-account"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <CompanyAccount
+                {...props}
+                value={value}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/dashboard/:company/edit-company"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <EditCompany
+                {...props}
+                value={value}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/dashboard/:company/guides"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <DashboardGuides
+                {...props}
+                value={value}
+                auth={auth}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/dashboard/:company/trips"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <DashboardTrips
+                {...props}
+                value={value}
+                auth={auth}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/edit-profile"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <EditProfile
+                {...props}
+                value={value}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/edit-trip/:id"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <EditTrip
+                {...props}
+                value={value}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/guides"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <Guides
+                {...props}
+                value={value}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/guides/:username"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <ViewTraveler
+                {...props}
+                value={value}
+                auth={auth}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/guiding-companies"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <GuidingCompanies
+                {...props}
+                value={value}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/profile/:id"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <ViewTraveler
+                {...props}
+                value={value}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/results/:search"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <Results
+                {...props}
+                value={value}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/signup/guiding-company"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <SignUpGC
+                {...props}
+                value={value}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/trips"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <Trips
+                {...props}
+                value={value}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/trips/:id"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <ViewTrip
+                {...props}
+                value={value}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
+      />
       <Route component={FourOhFour} />
       <Route exact path="/404-not-found" component={FourOhFour} />
     </Switch>

@@ -105,9 +105,6 @@ class App extends Component {
         <div className={window.location.pathname === '/' ? 'shadeLayer' : ''}>
           <div id="body">
             <NavigationBar loggedIn={this.state.loggedIn} user={this.state.user} />
-            <MegaContext.Consumer>
-              {value => <span>{JSON.stringify(value)}</span>}
-            </MegaContext.Consumer>
             <Main />
           </div>
           <div id="footer">
