@@ -21,6 +21,7 @@ import GuidingCompanies from './Containers/guideCompanies';
 import HigherAuth from './higherAuth';
 import Home from './Containers/home';
 import Inbox from './Containers/inbox';
+import MegaContext from './Components/megaContext';
 import RemoveGuide from './Containers/removeGuide';
 import RemoveTrip from './Containers/removeTrip';
 import Results from './Containers/results';
@@ -56,7 +57,21 @@ const Main = () => (
           return <AuthLoad {...props} />
         }}
       />
-      <Route exact path="/company/:companyName" render={props => <ViewCompany {...props} />} />
+      <Route
+        exact
+        path="/company/:companyName"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <ViewCompany
+                {...props}
+                value={value}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
+      />
       <Route exact path="/company/remove-trip" component={RemoveTrip} />
       <Route exact path="/company/remove-guide" component={RemoveGuide} />
       <Route exact path="/contact" component={Contact} />

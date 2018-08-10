@@ -30,6 +30,7 @@ class ViewCompany extends Component {
       picture: '',
       reviews: [],
       newReview: '',
+      megaContext: this.props.value,
     };
   }
   componentDidMount() {
