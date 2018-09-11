@@ -1,15 +1,4 @@
-@media screen and (min-width: 1166px) {
 
-}
-
-.test {
-  position: fixed;
-  top: 2em;
-  right: 2em;
-  font-size: 3em;
-  background-color: black;
-  color: white;
-}
 .mainContainer {
   padding: 3em;
   text-align: center;
@@ -24,7 +13,7 @@
   margin: auto;
 }
 .openingSection {
-  background-image: url('https://res.cloudinary.com/wander-outdoor/image/upload/v1529539187/Wander/IMG_8208.jpg');
+  background-image: url("https://res.cloudinary.com/wander-outdoor/image/upload/v1529539187/Wander/IMG_8208.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -35,38 +24,60 @@
   overflow: scroll;
 }
 .picSecOne {
-  min-height: 30em;
+  min-height: 40em;
   width: 100%;
   background-image: url("https://res.cloudinary.com/wander-outdoor/image/upload/v1531256806/Wander/IMG_4518.jpg");
   background-repeat: no-repeat;
   background-position: right center;
   background-size: cover;
   background-attachment: fixed;
+  overflow: scroll;
+  position: relative;
 }
 .picSecTwo {
-  min-height: 30em;
+  min-height: 40em;
   width: 100%;
   background-image: url("https://res.cloudinary.com/wander-outdoor/image/upload/v1529538806/Wander/heidiClimb.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
+  overflow: scroll;
+  position: relative;
 }
 .picSecThree {
-  min-height: 30em;
+  min-height: 40em;
   width: 100%;
   background-image: url("https://res.cloudinary.com/wander-outdoor/image/upload/v1529539200/Wander/DSC_0963.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
+  overflow: scroll;
+  position: relative;
 }
 .picSecFour {
-  min-height: 30em;
+  min-height: 40em;
   width: 100%;
   background-image: url("https://res.cloudinary.com/wander-outdoor/image/upload/v1529538889/Wander/hangingGear.jpg");
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: cover;
   background-attachment: fixed;
+  overflow: scroll;
+  position: relative;
+}
+.picSecFive {
+  min-height: 40em;
+  width: 100%;
+  background-image: url("https://res.cloudinary.com/wander-outdoor/image/upload/v1536689843/Wander/26804400_715122888685413_6965728604775214838_n.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow: scroll;
+  position: relative;
+}
+.teamHr {
+  border-color: rgb(55,131,182);
 }

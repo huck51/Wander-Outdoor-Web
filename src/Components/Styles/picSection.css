@@ -1,3 +1,23 @@
+/* Our Vision */
+.ourVisionCol {
+  min-height: 30em;
+  background-color: white;
+}
+.ourVisionHr {
+  border-color: rgb(55,131,182);
+}
+.ourVisionPic {
+  height: 45em;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+}
+.ourVisionText {
+  padding: 1em;
+  font-size: 1.75em;
+  color: black;
+}
+
 /* Modernizing the Industry */
 .modIndCol {
   min-height: 30em;
@@ -24,7 +44,7 @@
   background-color: white;
 }
 .weDoWorkHr {
-  border-color: rgb(181,216,150);
+  border-color: rgb(55,131,182);
 }
 .weDoWorkPic {
   min-height: 45em;
@@ -39,14 +59,14 @@
 
 /* How It Works */
 .howitwerksCol {
-  height: 30em;
+  min-height: 30em;
   background-color: white;
 }
 .howitwerksHr {
   border-color: rgb(55,131,182);
 }
 .howitwerksPic {
-  height: 45em;
+  min-height: 45em;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;

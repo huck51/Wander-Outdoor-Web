@@ -13,36 +13,19 @@ class About extends Component {
     };
   }
 
-  componentWillMount() {
-    this.updateWindow();
-  }
-
-  componentDidMount() {
-    window.addEventListener('resize', this.updateWindow);
-  }
-
-  updateWindow = () => {
-    this.setState({
-      screenWidth: window.innerWidth,
-    });
-  }
-
 
   render() {
     return (
       <div>
-        <span className="test">{this.state.screenWidth}</span>
         <div className="openingSection">
-          <div className="mainContainer">
-          </div>
+          <div className="mainContainer" />
         </div>
-        <SmSection
-          divClasses="OVdiv"
-          h2Classes="OVh2"
+        <PicSection
+          colClass="ourVisionCol"
           heading="Our Vision"
-          hrClasses="OVhr"
-          pClasses="OVp"
+          hrClass="ourVisionHr"
           text="Our vision at Wander Outdoor is to help explorers who are seeking a personalized, guided adventure quickly find the right guide."
+          textClass="modIndText"
         />
         <div className="picSecOne" />
         <PicSection
@@ -50,19 +33,15 @@ class About extends Component {
           heading="Modernizing The Industry"
           hrClass="modIndHr"
           text="Our company seeks to point the industry in a more modern direction. Wander&#39;s services are catered to both the explorers and guides, allowing for a truly unique and fulfilling experience for customers, and more capability for the guides. Under the current model, explorers choose from a list of trips offered by whatever company they stumble upon on Google. Our company will flip the model upside down and put the power into the hands of the customers."
-          picSide="left"
-          imgSrc="https://res.cloudinary.com/wander-outdoor/image/upload/v1529538785/choppa.jpg"
-          imgClass="modIndPic"
           textClass="modIndText"
         />
         <div className="picSecTwo" />
-        <SmSection
-          divClasses="OPdiv"
-          h2Classes="OPh2"
+        <PicSection
+          colClass="modIndCol"
           heading="Our Product"
-          hrClasses="OPhr"
-          pClasses="OPp"
+          hrClass="modIndHr"
           text="Our product, the Wander app and website, serves as a singular platform across multiple guides and guiding companies. This allows explorers to compare guides and guiding companies while verifying their legitimacy. Completely mobile and easy to use, the platform connects outdoor guides with potential clients."
+          textClass="modIndText"
         />
         <div className="picSecThree" />
         <PicSection
@@ -70,9 +49,6 @@ class About extends Component {
           heading="How It Works"
           hrClass="howitwerksHr"
           text="With Wander, you will have access to countless guides employed by verified guiding companies. This allows YOU to choose your guide based on his or her qualifications and rating, rather than being assigned whichever guide happens to be working that day. Since the guide is the one who influences how rewarding the experience is, you are more likely to have a great trip! The companies are also rated based on the average ratings of their guides, so you can easily see which companies are offering the best services."
-          picSide="right"
-          imgSrc="https://res.cloudinary.com/wander-outdoor/image/upload/v1529540120/Wander/IMG_1255.jpg"
-          imgClass="howitwerksPic"
           textClass="howitwerksText"
         />
         <div className="picSecFour" />
@@ -81,14 +57,12 @@ class About extends Component {
           heading="We Do The Work So You Don't Have To"
           hrClass="weDoWorkHr"
           text="Wander Outdoor works closely with local, reputable guiding companies to ensure that the guides are certified, permitted, and insured. Freelance and full-time guides working under a company&#39;s operating permits can easily find work through Wander and still work on their own schedule as their own bosses. Wander gives guides the chance to build their personal brands and portfolios, providing the guiding industry with the opportunity to develop it’s own unique personality. Additionally, this gives guides a way to book trips on their own using guideID, a unique ID code that customers can use to request a specific guide. This boosts trips for the guiding company and allows a relationship to be built between guide and explorer. The guiding companies get market exposure through their guides, so it is in their best interests to employ high-quality, personable guides and training techniques to create the highest satisfaction ratings."
-          picSide="left"
-          imgSrc="https://res.cloudinary.com/wander-outdoor/image/upload/v1529538889/Wander/hangingGear.jpg"
-          imgClass="weDoWorkPic"
           textClass="weDoWorkText"
         />
+        <div className="picSecFive" />
         <div className="container">
           <h2>Meet The Team</h2>
-          <hr />
+          <hr className="teamHr" />
         </div>
         <Row className="teamRow">
           <Col xs={12} sm={12} md={4} lg={4}>
