@@ -58,6 +58,13 @@ class App extends Component {
   }
 
   componentDidMount() {
+    axios.get('https://fierce-ridge-55061.herokuapp.com/testy-puller')
+    .then(initResponse => {
+      console.log(initResponse.data);
+    })
+    .catch(error => {
+      console.log(error);
+    });
     const token = process.env.REACT_APP_TOKEN;
     const email = localStorage.getItem('email');
     if (!email) {
@@ -86,9 +93,9 @@ class App extends Component {
           email: data.email,
         };
         axios.post('https://fierce-ridge-55021.herokuapp.com/signup-newuser', secondaryOptions)
-          .then((response) => {
+          .then((secondaryResponse) => {
             alert('success');
-            console.log(response);
+            console.log(secondaryResponse);
           })
           .catch((err) => {
             console.error(err);
