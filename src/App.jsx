@@ -63,49 +63,47 @@ class App extends Component {
     .then(initResponse => {
       console.log(initResponse.data);
       token = initResponse.data.access_token;
+      const email = localStorage.getItem('email');
+      if (!email) {
+        return;
+      }
+      const eMarr = email.split('');
+      for (let i = 0; i < eMarr.length; i++) {
+        if (eMarr[i] === '@') {
+          eMarr[i] = '%40';
+          break;
+        }
+      }
+      const webmail = eMarr.join('');
+      const options = {
+        headers: { authorization: `Bearer ${token}` },
+      };
+      axios.get(`https://wander-outdoor.auth0.com/api/v2/users-by-email?email=${webmail}`, options)
+        .then((response) => {
+          const data = response.data[0];
+          console.log(data);
+          const fierceIce = process.env.REACT_APP_CAT.concat(data.identities[0].user_id);
+          localStorage.setItem('fierceIce', fierceIce);
+          const secondaryOptions = {
+            id: fierceIce,
+            email: data.email,
+          };
+          axios.post('https://fierce-ridge-55021.herokuapp.com/signup-newuser', secondaryOptions)
+            .then((secondaryResponse) => {
+              alert('success');
+              console.log(secondaryResponse);
+            })
+            .catch((err) => {
+              console.error(err);
+            });
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     })
     .catch(error => {
       console.log(error);
     });
-    console.log(`Token out of scope = ${token}`);
-    const email = localStorage.getItem('email');
-    if (!email) {
-      return;
-    }
-    const eMarr = email.split('');
-    for (let i = 0; i < eMarr.length; i++) {
-      if (eMarr[i] === '@') {
-        eMarr[i] = '%40';
-        break;
-      }
-    }
-    const webmail = eMarr.join('');
-    const options = {
-      headers: { authorization: `Bearer ${token}` },
-    };
-
-    axios.get(`https://wander-outdoor.auth0.com/api/v2/users-by-email?email=${webmail}`, options)
-      .then((response) => {
-        const data = response.data[0];
-        console.log(data);
-        const fierceIce = process.env.REACT_APP_CAT.concat(data.identities[0].user_id);
-        localStorage.setItem('fierceIce', fierceIce);
-        const secondaryOptions = {
-          id: fierceIce,
-          email: data.email,
-        };
-        axios.post('https://fierce-ridge-55021.herokuapp.com/signup-newuser', secondaryOptions)
-          .then((secondaryResponse) => {
-            alert('success');
-            console.log(secondaryResponse);
-          })
-          .catch((err) => {
-            console.error(err);
-          });
-      })
-      .catch((err) => {
-        console.error(err);
-      });
   }
 
   render() {
