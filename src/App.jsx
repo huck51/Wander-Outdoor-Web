@@ -58,7 +58,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://fierce-ridge-55061.herokuapp.com/testy-puller')
+    axios.get('https://fierce-ridge-55021.herokuapp.com/testy-puller')
     .then(initResponse => {
       console.log(initResponse.data);
     })
