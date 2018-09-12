@@ -58,14 +58,16 @@ class App extends Component {
   }
 
   componentDidMount() {
+    var token;
     axios.get('https://fierce-ridge-55021.herokuapp.com/testy-puller')
     .then(initResponse => {
       console.log(initResponse.data);
+      token = initResponse.data.access_token;
     })
     .catch(error => {
       console.log(error);
     });
-    const token = process.env.REACT_APP_TOKEN;
+    console.log(`Token out of scope = ${token}`);
     const email = localStorage.getItem('email');
     if (!email) {
       return;
