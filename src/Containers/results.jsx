@@ -15,7 +15,7 @@ class Results extends Component {
     this.state = {
       results: [],
       loading: true,
-      value: '',
+      value: this.props.match.params.search,
       companies: true,
       guides: true,
       trips: true,
@@ -85,6 +85,7 @@ class Results extends Component {
             />
         </form>
         <div className="checkFilter">
+          <p><strong>Showing search results for <em>{this.state.value}</em></strong></p>
           <Checkbox
             inline
             value={this.state.companies}
