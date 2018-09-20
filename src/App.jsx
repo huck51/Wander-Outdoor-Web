@@ -54,6 +54,8 @@ class App extends Component {
           email: localStorage.getItem('email'),
         },
       });
+    } else {
+      localStorage.clear();
     }
   }
 
