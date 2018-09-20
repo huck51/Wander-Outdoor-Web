@@ -22,6 +22,7 @@ import HigherAuth from './higherAuth';
 import Home from './Containers/home';
 import Inbox from './Containers/inbox';
 import MegaContext from './Components/megaContext';
+import MegaConsumer from './Components/megaConsumer';
 import RemoveGuide from './Containers/removeGuide';
 import RemoveTrip from './Containers/removeTrip';
 import Results from './Containers/results';
@@ -370,7 +371,7 @@ const Main = () => (
       />
       <Route
         exact
-        path="/results/:search"
+        path="/results"
         render={props => (
           <MegaContext.Consumer>
             {value => (
