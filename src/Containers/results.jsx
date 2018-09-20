@@ -15,7 +15,7 @@ class Results extends Component {
     this.state = {
       results: [],
       loading: true,
-      value: this.props.match.params.search,
+      value: undefined ? '' : this.props.match.params.search,
       companies: true,
       guides: true,
       trips: true,
