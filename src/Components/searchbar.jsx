@@ -16,7 +16,7 @@ const SearchBar = ({ val, change, submit }) => (
             onChange={change}
           />
           <InputGroup.Button>
-            <Link to={`/results/${val}`}>
+            <Link to={`/results/${val ? val : undefined}`}>
               <Button
                 type="submit"
                 className="searchSubmit btn-lg"
