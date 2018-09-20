@@ -222,6 +222,13 @@ class Results extends Component {
               }
             </Row>
           </ul>
+          <div style={
+            {
+            visibility: this.state.results.length ? 'hidden' : 'visible'
+            }
+          }>
+            <h4>Your search for {this.state.value} did not match any results. Please check your spelling and/or try alternative search terms.</h4>
+          </div>
         </div>
       </div>
     );
