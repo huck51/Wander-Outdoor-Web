@@ -371,7 +371,7 @@ const Main = () => (
       />
       <Route
         exact
-        path="/results"
+        path="/results/:search"
         render={props => (
           <MegaContext.Consumer>
             {value => (
