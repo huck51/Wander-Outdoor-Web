@@ -227,7 +227,7 @@ class Results extends Component {
             visibility: this.state.results.length ? 'hidden' : 'visible'
             }
           }>
-            <h4>Your search for {this.state.value} did not match any results. Please check your spelling and/or try alternative search terms.</h4>
+            <h4>Your search for <em>{`"${this.state.value}"`}</em> did not match any results. Please check your spelling and/or try alternative search terms.</h4>
           </div>
         </div>
       </div>
