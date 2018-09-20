@@ -58,7 +58,7 @@ class Results extends Component {
     this.setState({
       loading: true,
     });
-    axios.get(`https://fierce-ridge-55021.herokuapp.com/results/${search}`)
+    axios.get(`https://fierce-ridge-55021.herokuapp.com/results?search=${search}`)
       .then((result) => {
         this.setState({
           results: result.data,
