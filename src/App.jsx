@@ -92,7 +92,6 @@ class App extends Component {
           };
           axios.post('https://fierce-ridge-55021.herokuapp.com/signup-newuser', secondaryOptions)
             .then((secondaryResponse) => {
-              alert('success');
               console.log(secondaryResponse);
             })
             .catch((err) => {
