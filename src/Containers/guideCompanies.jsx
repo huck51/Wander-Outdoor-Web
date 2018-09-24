@@ -32,9 +32,6 @@ class GuideCompanies extends Component {
         });
       });
   }
-  handleStateChange = (company) => {
-    this.props.value.actions.handleUserInfo(company);
-  }
 
   render() {
     return (
@@ -80,7 +77,7 @@ class GuideCompanies extends Component {
                               value={company.rating.rate}
                             />
                           </div>
-                          <Link to={`/company/${company.companyName}`}><button className="removeButn" onClick={this.handleStateChange} >View Company</button></Link>
+                          <Link to={`/company/${company.companyName}`}><button className="removeButn">View Company</button></Link>
                         </div>
                       </div>
                     </li>
