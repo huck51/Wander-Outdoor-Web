@@ -32,6 +32,9 @@ class GuideCompanies extends Component {
         });
       });
   }
+  handleStateChange = (company) => {
+    this.props.value.actions.handleUserInfo(company);
+  }
 
   render() {
     return (
@@ -74,9 +77,10 @@ class GuideCompanies extends Component {
                               name={company.companyName}
                               starColor="#3783B6"
                               emptyStarColor="#B5D994"
+                              value={company.rating.rate}
                             />
                           </div>
-                          <Link to={`/company/${company.companyName}`}><button className="removeButn">View Company</button></Link>
+                          <Link to={`/company/${company.companyName}`}><button className="removeButn" onClick={this.handleStateChange} >View Company</button></Link>
                         </div>
                       </div>
                     </li>
