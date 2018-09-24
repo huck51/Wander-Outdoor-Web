@@ -77,6 +77,7 @@ class Trips extends Component {
                               name={trip.company}
                               starColor="#3783B6"
                               emptyStarColor="#B5D994"
+                              value={trip.rating.rate}
                             />
                           </div>
                           <Link to={`/trips/${trip._id}`}><button className="removeButn">View Trip</button></Link>
