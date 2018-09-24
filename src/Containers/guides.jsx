@@ -77,9 +77,10 @@ class Guides extends Component {
                               name={guide.firstName + guide.lastName}
                               starColor="#3783B6"
                               emptyStarColor="#B5D994"
+                              value={guide.rating.rate}
                             />
                           </div>
-                          <Link to={`/profile/${guide.id}`}>
+                          <Link to={`/profile/${guide.id}`} guide={guide}>
                             <button className="removeButn">View Guide</button>
                           </Link>
                           <div className="removeButn">
