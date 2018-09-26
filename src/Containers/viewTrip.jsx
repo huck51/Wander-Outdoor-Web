@@ -6,6 +6,7 @@ import {
   FormGroup,
   Row,
 } from 'react-bootstrap';
+import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios';
 import './Styles/viewTrip.css';
 
@@ -23,6 +24,10 @@ class ViewTrip extends Component {
       picture: '',
       reviews: [],
       newReview: '',
+      rating: {
+        rate: 5,
+        numberOfRatings: 0
+      },
     }
   }
 
@@ -39,7 +44,8 @@ class ViewTrip extends Component {
           price,
           guides,
           picture,
-          reviews
+          reviews,
+          rating
         } = result.data;
         console.log(result);
         this.setState({
@@ -51,7 +57,8 @@ class ViewTrip extends Component {
           price,
           guides,
           picture,
-          reviews
+          reviews,
+          rating
         });
       })
       .catch((err) => {
@@ -95,7 +102,15 @@ class ViewTrip extends Component {
                     <h2 className="basicInfo2">{this.state.name}</h2>
                     <h4 className="basicInfo4">{this.state.company}</h4>
                     <h4 className="basicInfo4">{this.state.companyName}</h4>
-                    <h4 className="basicInfo4">{this.state.city}, {this.state.stateName}</h4>
+                    <h4 className="basicInfo4">{this.state.city}, {this.state.stateName}
+                    </h4>
+                    <StarRatingComponent
+                      name={this.state.companyName}
+                      starColor="#3783B6"
+                      emptyStarColor="#B5D994"
+                      value={this.state.rating.rate}
+                      className="basicInfo4"
+                    />
                   </div>
                 </Col>
               </Row>
