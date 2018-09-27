@@ -6,6 +6,7 @@ import {
   FormGroup,
   Row,
 } from 'react-bootstrap';
+import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios';
 import './Styles/viewTraveler.css';
 
@@ -25,7 +26,10 @@ class ViewTraveler extends Component {
       tripsCompleted: [null],
       certs: [null],
       activities: [null],
-      rating: null,
+      rating: {
+        rate: 5,
+        numberOfRatings: 0,
+      },
       roleGroup: '',
       city: '',
       state: '',
@@ -121,7 +125,15 @@ class ViewTraveler extends Component {
                     <h2 className="basicInfo2">{this.state.firstName} {this.state.lastName}</h2>
                     <h4 className="basicInfo4">{this.state.roleGroup}</h4>
                     <h4 className="basicInfo4">{this.state.companyName}</h4>
-                    <h4 className="basicInfo4">{this.state.city}, {this.state.state}</h4>
+                    <h4 className="basicInfo4">{this.state.city}, {this.state.state}
+                    </h4>
+                    <StarRatingComponent
+                      name={this.state.firstName}
+                      starColor="#3783B6"
+                      emptyStarColor="#B5D994"
+                      value={this.state.rating.rate}
+                      className="starRating"
+                    />
                   </div>
                 </Col>
               </Row>

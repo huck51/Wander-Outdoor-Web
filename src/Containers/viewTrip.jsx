@@ -109,7 +109,7 @@ class ViewTrip extends Component {
                       starColor="#3783B6"
                       emptyStarColor="#B5D994"
                       value={this.state.rating.rate}
-                      className="basicInfo4"
+                      className="starRating"
                     />
                   </div>
                 </Col>
