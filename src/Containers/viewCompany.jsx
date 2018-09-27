@@ -7,6 +7,7 @@ import {
   Row,
 } from 'react-bootstrap';
 import axios from 'axios';
+import StarRatingComponent from 'react-star-rating-component';
 import './Styles/viewCompany.css';
 
 
@@ -25,7 +26,10 @@ class ViewCompany extends Component {
       bio: '',
       locations: [],
       permits: [],
-      rating: null,
+      rating: {
+        rate: 4,
+        numberOfRatings: 0,
+      },
       chex: [],
       picture: '',
       reviews: [],
@@ -117,6 +121,13 @@ class ViewCompany extends Component {
                     <h2 className="basicInfo2">{this.state.companyName}</h2>
                     <h4 className="basicInfo4">{this.state.city}, {this.state.stateName}</h4>
                     <h4 className="basicInfo4">{this.state.companyPhone}</h4>
+                    <StarRatingComponent
+                      name={this.state.companyName}
+                      starColor="#3783B6"
+                      emptyStarColor="#B5D994"
+                      value={this.state.rating.rate}
+                      className="starRating"
+                    />
                   </div>
                 </Col>
               </Row>
