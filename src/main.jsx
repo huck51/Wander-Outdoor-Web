@@ -30,6 +30,7 @@ import SignUp from './Containers/signUp';
 import SignUpGC from './Containers/signUpGC';
 import SignUpGuides from './Containers/signUpGuides';
 import SignUpTravelers from './Containers/signUpTravelers';
+import SubscriptionDetails from './Containers/subscriptionDetails';
 import Trips from './Containers/trips';
 import ViewCompany from './Containers/viewCompany';
 import ViewTraveler from './Containers/viewTraveler';
@@ -391,6 +392,21 @@ const Main = () => (
           <MegaContext.Consumer>
             {value => (
               <SignUpGC
+                {...props}
+                value={value}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
+      />
+      <Route
+        exact
+        path="/subscription-details"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <SubscriptionDetails
                 {...props}
                 value={value}
               />
