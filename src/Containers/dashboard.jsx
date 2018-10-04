@@ -52,6 +52,14 @@ class Dashboard extends Component {
           <ul className="guideUl">
             <Row className="container">
               <Col xs={12} sm={6} md={4} lg={3}>
+                <Link to={`/subscription-details`}>
+                  <li className="btnCard">
+                    <h3 className="addNew">Setup Payment Plan</h3>
+                    <h1 className="giantPlus">+</h1>
+                  </li>
+                </Link>
+              </Col>
+              <Col xs={12} sm={6} md={4} lg={3}>
                 <Link to={`/signup/guiding-company`}>
                   <li className="btnCard">
                     <h3 className="addNew">Register New Company</h3>
