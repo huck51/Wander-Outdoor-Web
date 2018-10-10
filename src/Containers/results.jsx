@@ -143,6 +143,7 @@ class Results extends Component {
                                   name={result.firstName+result.lastName}
                                   starColor={'#3783B6'}
                                   emptyStarColor={'#B5D994'}
+                                  value={result.rating.rate}
                                 />
                               </div>
                               <div className="removeButn">
@@ -176,6 +177,7 @@ class Results extends Component {
                                   name={result.companyName}
                                   starColor={'#3783B6'}
                                   emptyStarColor={'#B5D994'}
+                                  value={result.rating.rate}
                                 />
                               </div>
                               <Link to={`/company/${result.companyName}`}><button className="removeButn">View Company</button></Link>
@@ -206,6 +208,7 @@ class Results extends Component {
                                   name={result.company}
                                   starColor={'#3783B6'}
                                   emptyStarColor={'#B5D994'}
+                                  value={result.rating.rate}
                                 />
                               </div>
                               <div className="removeButn">

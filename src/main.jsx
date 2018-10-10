@@ -6,6 +6,7 @@ import AddGuide from './Containers/addGuide';
 import AddTrip from './Containers/addTrip';
 import Auth from './auth';
 import AuthLoad from './Components/authLoad';
+import BizMembers from './Containers/bizMembers';
 import CompanyAccount from './Containers/companyAccount';
 import CompanyDashboard from './Containers/companyDashboard';
 import Contact from './Containers/contact';
@@ -79,6 +80,21 @@ const Main = () => (
           handleAuthentication(props);
           return <AuthLoad {...props} />
         }}
+      />
+      <Route
+        exact
+        path="/business-member/payments"
+        render={props => (
+          <MegaContext.Consumer>
+            {value => (
+              <BizMembers
+                {...props}
+                value={value}
+              />
+            )}
+          </MegaContext.Consumer>
+          )
+        }
       />
       <Route
         exact
