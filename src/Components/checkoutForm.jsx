@@ -1,34 +1,50 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { injectStripe } from 'react-stripe-elements';
+import axios from 'axios';
 
 // import AddressSection from './AddressSection';
 import CardSection from './cardSection';
 
-class CheckoutForm extends React.Component {
-  handleSubmit = (e) => {
-    // We don't want to let default form submission happen here, which would refresh the page.
+class CheckoutForm extends Component {
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  async handleSubmit(e) {
     e.preventDefault();
 
-    // Within the context of `Elements`, this call to createToken knows which Element to
-    // tokenize, since there's only one in this group.
-    this.props.stripe.createToken({name: 'Jenny Rosen'}).then(({token}) => {
-      console.log('Received Stripe token:', token);
-    }).catch((err) => {
-      console.log(err);
-    });
+    const ownerInfo = {
+      type: 'card',
+      owner: {
+        name: 'Merrill Marauder',
+        address: {
+          line1: '5454 Airfield Ave',
+          city: 'Walabum',
+          postal_code: '90210',
+          country: 'Burma',
+        },
+        email: 'merrillsmarauders@goarmy.com',
+      },
+    };
 
-    console.log(this.props.stripe.createToken({name: 'Jenny Rosen'}));
+    const { source, error } = await this.props.stripe.createSource(ownerInfo);
 
-    // However, this line of code will do the same thing:
-    //
-    // this.props.stripe.createToken({type: 'card', name: 'Jenny Rosen'});
-
-    // You can also use createSource to create Sources. See our Sources
-    // documentation for more: https://stripe.com/docs/stripe-js/reference#stripe-create-source
-    //
-    // this.props.stripe.createSource({type: 'card', owner: {
-    //   name: 'Jenny Rosen'
-    // }});
+    if (error) {
+      console.log(error);
+    } else {
+      console.log(`Source: ${JSON.stringify(source)}`);
+      const axOptions = {
+        source,
+        email: ownerInfo.email,
+      };
+      axios.post('https://fierce-ridge-55021.herokuapp.com/create/customer', axOptions)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    }
   }
   render() {
     return (

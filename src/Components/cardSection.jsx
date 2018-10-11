@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   CardElement,
   CardNumberElement,
@@ -10,7 +10,7 @@ import {
   IdealBankElement
  } from 'react-stripe-elements';
 
-class CardSection extends React.Component {
+class CardSection extends Component {
   render() {
     return (
       <div className="container">
