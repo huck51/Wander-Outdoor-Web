@@ -29,6 +29,7 @@ class EditCompany extends Component {
       contactEmail: '',
       picture: null,
       bio: '',
+      companyUrl: '',
       atv: false,
       backPacking: false,
       birdWatching: false,
@@ -76,6 +77,7 @@ class EditCompany extends Component {
         picture,
         bio,
         chex,
+        companyUrl,
       } = response.data;
       this.setState({
         companyName,
@@ -90,6 +92,7 @@ class EditCompany extends Component {
         contactEmail,
         picture,
         bio,
+        companyUrl,
       });
       for (let i = 0; i < chex.length; i++) {
         this.setState({
@@ -134,7 +137,8 @@ class EditCompany extends Component {
       contactPhone,
       contactEmail,
       picture,
-      bio
+      bio,
+      companyUrl,
     } = this.state;
     const updateObject = {
       companyName,
@@ -149,6 +153,7 @@ class EditCompany extends Component {
       contactEmail,
       picture,
       bio,
+      companyUrl,
       chex,
       owner: localStorage.getItem('fierceIce'),
     };
@@ -262,6 +267,14 @@ class EditCompany extends Component {
                   value={this.state.companyPhone}
                   onChange={this.handleChange}
                   autocomplete="tel-national"
+                />
+                <FieldGroup
+                  label="Company Website"
+                  name="companyUrl"
+                  type="text"
+                  placeholder="Company Website"
+                  value={this.state.companyUrl}
+                  onChange={this.handleChange}
                 />
                 <FieldGroup
                   label="Contact Name"
