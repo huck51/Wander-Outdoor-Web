@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { injectStripe } from 'react-stripe-elements';
 import axios from 'axios';
-
-// import AddressSection from './AddressSection';
+import AddressSection from './addressSection';
 import CardSection from './cardSection';
 
 class CheckoutForm extends Component {
@@ -36,6 +35,7 @@ class CheckoutForm extends Component {
       const axOptions = {
         source,
         email: ownerInfo.email,
+        fierceice: localStorage.getItem('fierceIce'),
       };
       axios.post('https://fierce-ridge-55021.herokuapp.com/create/customer', axOptions)
       .then(response => {
@@ -49,6 +49,7 @@ class CheckoutForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
+        <AddressSection />
         <CardSection />
         <button onClick={this.handleSubmit}>Confirm order</button>
       </form>
