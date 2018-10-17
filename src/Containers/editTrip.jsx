@@ -22,6 +22,7 @@ class EditTrip extends Component {
       price: '',
       city: '',
       stateName: '',
+      tripUrl: '',
       company: this.props.match.params.company,
       picture: null,
       transpo: false,
@@ -45,7 +46,8 @@ class EditTrip extends Component {
           city,
           stateName,
           picture,
-          chex
+          chex,
+          tripUrl
         } = result.data;
         this.setState({
           name,
@@ -53,7 +55,8 @@ class EditTrip extends Component {
           price,
           city,
           stateName,
-          picture
+          picture,
+          tripUrl
         });
         for (let i = 0; i < chex.length; i++) {
           this.setState({
@@ -94,6 +97,7 @@ class EditTrip extends Component {
       stateName,
       picture,
       company,
+      tripUrl
     } = this.state;
     const newTrip = {
       name,
@@ -104,6 +108,7 @@ class EditTrip extends Component {
       picture,
       chex,
       company,
+      tripUrl
     };
     this.setState({
       name: '',
@@ -112,6 +117,7 @@ class EditTrip extends Component {
       stateName: '',
       price: '',
       picture: null,
+      tripUrl: '',
     });
     axios.post('https://fierce-ridge-55021.herokuapp.com/add-trip', newTrip)
       .then(() => {
@@ -178,6 +184,14 @@ class EditTrip extends Component {
                     type="text"
                     placeholder="City"
                     value={this.state.city}
+                    onChange={this.handleChange}
+                />
+                <FieldGroup
+                    label="Trip Link"
+                    name="tripUrl"
+                    type="text"
+                    placeholder="www.yourwebsite/this-particular-trip"
+                    value={this.state.tripUrl}
                     onChange={this.handleChange}
                 />
                 <FormGroup controlId="formControlsSelect">
