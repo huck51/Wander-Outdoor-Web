@@ -58,7 +58,7 @@ class NavigationBar extends Component {
               <li role="presentation" className="highlight">
                 <Link to="/contact">Contact Us</Link>
               </li>
-              <NavDropdown eventKey={3} title={this.props.user.username} id="basic-nav-dropdown">
+              <NavDropdown eventKey={3} title="My Profile" id="basic-nav-dropdown">
                 <li><Link to="/account-info">Account Info</Link></li>
                 <li><Link to="/edit-profile">Edit Profile</Link></li>
                 <li><Link to={`/profile/${id}`}>View Profile</Link></li>
