@@ -33,7 +33,7 @@ class EditProfile extends Component {
         picture: null,
         companyCode: '',
         city: '',
-        state: '',
+        stateName: '',
         atv: false,
         backPacking: false,
         birdWatching: false,
@@ -77,7 +77,7 @@ class EditProfile extends Component {
           picture,
           companyCode,
           city,
-          state,
+          stateName,
           chex,
         } = response.data;
         if (roleGroup === 'guide') {
@@ -103,7 +103,7 @@ class EditProfile extends Component {
           picture,
           companyCode,
           city,
-          state,
+          stateName,
         });
         for (let i = 0; i < chex.length; i++) {
           this.setState({
@@ -164,7 +164,7 @@ class EditProfile extends Component {
       picture,
       companyCode,
       city,
-      state,
+      stateName,
     } = this.state;
     const updateObject = {
       firstName,
@@ -178,7 +178,7 @@ class EditProfile extends Component {
       id: localStorage.getItem('fierceIce'),
       companyCode,
       city,
-      state,
+      stateName,
       chex,
     };
     axios.post('https://fierce-ridge-55021.herokuapp.com/update-profile', updateObject)
@@ -194,7 +194,7 @@ class EditProfile extends Component {
           picture,
           companyCode,
           city,
-          state,
+          stateName,
           chex,
         } = response.data;
         this.setState({
@@ -208,7 +208,7 @@ class EditProfile extends Component {
           picture,
           companyCode,
           city,
-          state,
+          stateName,
         });
         for (let i = 0; i < chex.length; i++) {
           this.setState({
@@ -360,12 +360,12 @@ class EditProfile extends Component {
                 <FormGroup controlId="formControlsSelect">
                   <ControlLabel>Current State</ControlLabel>
                   <FormControl
-                    name="state"
+                    name="stateName"
                     componentClass="select"
                     placeholder="select"
                     className="textArea"
                     onChange={this.handleChange}>
-                    <option value={this.state.state}>{this.state.state}</option>
+                    <option value={this.state.stateName}>{this.state.stateName}</option>
                     { usa.map((stateName) => {
                       return <option value={stateName}>{stateName}</option>
                     })
