@@ -119,10 +119,11 @@ class EditTrip extends Component {
       picture: null,
       tripUrl: '',
     });
-    axios.post('https://fierce-ridge-55021.herokuapp.com/add-trip', newTrip)
+    const { id } = this.props.match.params;
+    axios.post(`https://fierce-ridge-55021.herokuapp.com/edit-trip/${id}`, newTrip)
       .then(() => {
         // eslint-disable-next-line no-undef
-        window.location = `/dashboard/${this.state.company}`;
+        window.location = `/dashboard/${this.state.companyName}`;
       })
       .catch((err) => {
         // eslint-disable-next-line no-console
