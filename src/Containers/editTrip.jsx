@@ -165,7 +165,7 @@ class EditTrip extends Component {
   render() {
     return (
       <div>
-        <h1>Add Trip</h1>
+        <h1>Edit Trip</h1>
         <div className="container">
           <Row>
             <Col xs={12} sm={12} md={6} lg={8}>
