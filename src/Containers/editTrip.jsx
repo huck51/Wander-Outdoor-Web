@@ -99,7 +99,8 @@ class EditTrip extends Component {
       companyName,
       tripUrl
     } = this.state;
-    const newTrip = {
+    const { id } = this.props.match.params;
+    const updateTrip = {
       name,
       description,
       city,
@@ -108,7 +109,8 @@ class EditTrip extends Component {
       picture,
       chex,
       companyName,
-      tripUrl
+      tripUrl,
+      id,
     };
     this.setState({
       name: '',
@@ -119,8 +121,7 @@ class EditTrip extends Component {
       picture: null,
       tripUrl: '',
     });
-    const { id } = this.props.match.params;
-    axios.post(`https://fierce-ridge-55021.herokuapp.com/edit-trip/${id}`, newTrip)
+    axios.post(`https://fierce-ridge-55021.herokuapp.com/edit-trip`, updateTrip)
       .then(() => {
         // eslint-disable-next-line no-undef
         window.location = `/dashboard/${this.state.companyName}`;
