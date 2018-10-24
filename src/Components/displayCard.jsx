@@ -12,6 +12,16 @@ const DisplayCard = ({item, Url}) => {
   if (item.roleGroup === 'guide') {
     bgSize = '100% auto';
   }
+  var price = '';
+  var priceStyle = {
+    display: 'none'
+  }
+  if (item.price) {
+    price = item.price;
+    priceStyle = {
+      display: 'block'
+    }
+  }
   return (
     <Col xs={12} sm={6} md={4} lg={3}>
       <li className="list">
@@ -40,6 +50,7 @@ const DisplayCard = ({item, Url}) => {
                 value={item.rating.rate}
               />
             </div>
+            <p style={priceStyle}>{`$${price}`}</p>
           </div>
         </div>
       </Link>
