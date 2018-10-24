@@ -33,7 +33,8 @@ export default class Auth {
       } else if (err) {
         console.log('again');
         console.error(err);
-        // window.location = '/';
+        window.location = '/';
+        alert('There was a problem logging in. Please try again.');
       }
     });
   }
