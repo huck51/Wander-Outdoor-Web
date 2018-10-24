@@ -48,7 +48,7 @@ const DisplayCard = ({item, Url}) => {
                 starColor="#3783B6"
                 emptyStarColor="#B5D994"
                 value={item.rating.rate}
-              />
+              /><span>(item.rating.numberOfRatings)</span>
             </div>
             <p style={priceStyle}>{`$${price}`}</p>
           </div>
