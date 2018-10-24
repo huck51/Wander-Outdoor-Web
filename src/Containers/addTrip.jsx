@@ -22,7 +22,7 @@ class AddTrip extends Component {
       price: '',
       city: '',
       stateName: '',
-      company: this.props.match.params.company,
+      companyName: this.props.match.params.companyName,
       picture: null,
       transpo: false,
       lunch: false,
@@ -61,7 +61,7 @@ class AddTrip extends Component {
       city,
       stateName,
       picture,
-      company,
+      companyName,
     } = this.state;
     const newTrip = {
       name,
@@ -71,7 +71,7 @@ class AddTrip extends Component {
       price,
       picture,
       chex,
-      company,
+      companyName,
     };
     this.setState({
       name: '',
@@ -84,7 +84,7 @@ class AddTrip extends Component {
     axios.post('https://fierce-ridge-55021.herokuapp.com/add-trip', newTrip)
       .then(() => {
         // eslint-disable-next-line no-undef
-        window.location = `/dashboard/${this.state.company}`;
+        window.location = `/dashboard/${this.state.companyName}`;
       })
       .catch((err) => {
         // eslint-disable-next-line no-console
