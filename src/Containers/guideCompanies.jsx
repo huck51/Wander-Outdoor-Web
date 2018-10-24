@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios';
+import DisplayCard from '../Components/displayCard';
 import './Styles/guideCompanies.css';
 
 
@@ -51,37 +52,7 @@ class GuideCompanies extends Component {
             <Row className="container">
               {this.state.companies.map((company) => {
                 return (
-                  <Col xs={12} sm={6} md={4} lg={3}>
-                    <li className="list">
-                      <div className="thumbox">
-                        <div
-                          style={
-                            {
-                              backgroundImage: `url(${company.picture})`,
-                              backgroundPosition: 'center',
-                              backgroundRepeat: 'no-repeat',
-                              backgroundSize: '100% 100%',
-                              backgroundColor: 'white',
-                            }
-                          }
-                          className="cardImg"
-                        />
-                        <div className="caption">
-                          <h3>{company.companyName}</h3>
-                          <p>{`${company.city}, ${company.stateName}`}</p>
-                          <div style={{ display: 'block' }}>
-                            <StarRatingComponent
-                              name={company.companyName}
-                              starColor="#3783B6"
-                              emptyStarColor="#B5D994"
-                              value={company.rating.rate}
-                            />
-                          </div>
-                          <Link to={`/company/${company.companyName}`}><button className="removeButn">View Company</button></Link>
-                        </div>
-                      </div>
-                    </li>
-                  </Col>
+                  <DisplayCard item={company} Url={`/company/${company.companyName}`} />
                 );
               })}
             </Row>

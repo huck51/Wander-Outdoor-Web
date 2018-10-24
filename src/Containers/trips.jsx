@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios';
+import DisplayCard from '../Components/displayCard';
 import RequestModal from '../Components/requestModal';
 import './Styles/trips.css';
 
@@ -54,40 +55,7 @@ class Trips extends Component {
             <Row className="container">
               {this.state.trips.map((trip) => {
                 return (
-                  <Col xs={12} sm={6} md={4} lg={3}>
-                    <li className="list">
-                      <div className="thumbox">
-                        <div
-                          style={
-                            {
-                              backgroundImage: `url(${trip.picture})`,
-                              backgroundPosition: 'center',
-                              backgroundRepeat: 'no-repeat',
-                              backgroundSize: '100% 100%',
-                              backgroundColor: 'white',
-                            }
-                          }
-                          className="cardImg"
-                        />
-                        <div className="caption">
-                          <h3>{trip.name}</h3>
-                          <p>{`${trip.city}, ${trip.stateName}`}</p>
-                          <div style={{ display: 'block' }}>
-                            <StarRatingComponent
-                              name={trip.company}
-                              starColor="#3783B6"
-                              emptyStarColor="#B5D994"
-                              value={trip.rating.rate}
-                            />
-                          </div>
-                          <Link to={`/trips/${trip._id}`}><button className="removeButn">View Trip</button></Link>
-                          <div className="removeButn">
-                            <RequestModal btnText="Request Trip" />
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                  </Col>
+                  <DisplayCard item={trip} Url={`/trips/${trip._id}`} />
                 );
               })}
             </Row>
