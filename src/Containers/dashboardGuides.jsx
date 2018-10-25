@@ -78,7 +78,7 @@ class DashboardGuides extends Component {
                         />
                         <div className="caption">
                           <h3>{`${guide.firstName} ${guide.lastName}`}</h3>
-                          <p>{`${guide.city}, ${guide.state}`}</p>
+                          <p>{`${guide.city}, ${guide.stateName}`}</p>
                           <div style={{ display: 'block' }}>
                             <StarRatingComponent
                               name={guide.firstName + guide.lastName}
