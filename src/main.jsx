@@ -174,7 +174,7 @@ const Main = () => (
       />
       <Route
         exact
-        path="/dashboard/:companyCode/:company"
+        path="/dashboard/:companyCode/1/:company"
         render={props => (
           <MegaContext.Consumer>
             {value => (
