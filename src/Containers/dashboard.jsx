@@ -94,8 +94,8 @@ class Dashboard extends Component {
                               emptyStarColor="#B5D994"
                             />
                           </div>
-                          <Link to={`/company/${company.companyName}`}><button className="removeButn">View Company</button></Link>
-                          <Link to={`/dashboard/${company.companyName}`}><button className="removeButn">Manage</button></Link>
+                          <Link to={`/company/${company.companyCode}`}><button className="removeButn">View Company</button></Link>
+                          <Link to={`/dashboard/${company.companyCode}`}><button className="removeButn">Manage</button></Link>
                         </div>
                       </div>
                     </li>
