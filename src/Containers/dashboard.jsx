@@ -95,7 +95,7 @@ class Dashboard extends Component {
                             />
                           </div>
                           <Link to={`/company/${company.companyCode}`}><button className="removeButn">View Company</button></Link>
-                          <Link to={`/dashboard/${company.companyCode}/${company.companyName}`}><button className="removeButn">Manage</button></Link>
+                          <Link to={`/dashboard/${company.companyCode}/1/${company.companyName}`}><button className="removeButn">Manage</button></Link>
                         </div>
                       </div>
                     </li>
