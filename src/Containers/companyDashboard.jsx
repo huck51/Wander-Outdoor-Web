@@ -38,7 +38,15 @@ class CompanyDashboard extends Component {
               </Link>
             </Col>
             <Col xs={12} sm={6} md={6} lg={6} className="dashCol">
-              <Link to={`/dashboard/${this.props.match.params.companyCodeCode}/company-account`}>
+              <Link to={`/dashboard/${this.props.match.params.companyCode}/edit-company`}>
+                <li id="editCompanyDetails" className="dashCard">
+                  <h3 className="cardHeader">Edit Company Details</h3>
+                  <h1 className="cardIcon"><span><i class="fas fa-cogs"></i></span></h1>
+                </li>
+              </Link>
+            </Col>
+            <Col xs={12} sm={6} md={6} lg={6} className="dashCol">
+              <Link to={`/dashboard/${this.props.match.params.companyCode}/company-account`}>
                 <li id="companyAccountInfo" className="dashCard">
                   <h3 className="cardHeader">Company Account Info</h3>
                   <h1 className="cardIcon"><span><i class="fas fa-clipboard-list"></i></span></h1>
