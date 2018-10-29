@@ -23,7 +23,9 @@ class EditTrip extends Component {
       city: '',
       stateName: '',
       tripUrl: '',
-      companyName: this.props.match.params.companyName,
+      guides: [],
+      addedGuides: [],
+      companyCode: '',
       picture: null,
       transpo: false,
       lunch: false,
@@ -39,6 +41,7 @@ class EditTrip extends Component {
     const { id } = this.props.match.params;
     axios.get(`https://fierce-ridge-55021.herokuapp.com/trip/${id}`)
       .then((result) => {
+        console.log(result.data);
         const {
           name,
           description,
@@ -47,8 +50,13 @@ class EditTrip extends Component {
           stateName,
           picture,
           chex,
-          tripUrl
+          tripUrl,
+          guides,
+          companyCode,
+          company,
+          companyName,
         } = result.data;
+
         this.setState({
           name,
           description,
@@ -56,17 +64,57 @@ class EditTrip extends Component {
           city,
           stateName,
           picture,
-          tripUrl
+          tripUrl,
+          companyCode,
+          companyName,
         });
+
         for (let i = 0; i < chex.length; i++) {
           this.setState({
             [chex[i]]: true
           });
         }
+
+        const addedGuides = [];
+        const guideDict = {};
+
+        for (let j = 0; j < guides.length; j++) {
+          addedGuides[j] = {
+            selected: true,
+            _id: guides[j]._id,
+          };
+          guideDict[guides[j]._id] = true;
+        }
+
+        const compGuides = company.guides;
+
+        for (let k = 0; k < compGuides.length; k++) {
+          if (guideDict[compGuides[k]._id]) {
+            continue;
+          } else {
+            addedGuides.push({
+              selected: false,
+              _id: compGuides[k]._id,
+            });
+            guides.push(compGuides[k]);
+          }
+        }
+
+        this.setState({
+          guides,
+          addedGuides,
+        });
+
       })
       .catch((err) => {
         console.log(err);
       });
+  }
+
+  selectGuide = (e) => {
+    const addGuidesTemp = this.state.addedGuides;
+    addGuidesTemp[e.target.id].selected = !addGuidesTemp[e.target.id].selected;
+    this.setState({ addedGuides: addGuidesTemp });
   }
 
   handleChange = (e) => {
@@ -97,9 +145,17 @@ class EditTrip extends Component {
       stateName,
       picture,
       companyName,
-      tripUrl
+      tripUrl,
+      addedGuides,
     } = this.state;
+
     const { id } = this.props.match.params;
+    const guides = [];
+
+    for (let j = 0; j < addedGuides.length; j++) {
+      guides.push(addedGuides[j]._id);
+    }
+
     const updateTrip = {
       name,
       description,
@@ -111,7 +167,9 @@ class EditTrip extends Component {
       companyName,
       tripUrl,
       id,
+      guides,
     };
+
     this.setState({
       name: '',
       description: '',
@@ -121,10 +179,11 @@ class EditTrip extends Component {
       picture: null,
       tripUrl: '',
     });
+
     axios.post(`https://fierce-ridge-55021.herokuapp.com/edit-trip`, updateTrip)
       .then(() => {
         // eslint-disable-next-line no-undef
-        window.location = `/dashboard/${this.state.companyName}`;
+        window.location = `/dashboard/${this.state.companyCode}/trips`;
       })
       .catch((err) => {
         // eslint-disable-next-line no-console
@@ -269,6 +328,22 @@ class EditTrip extends Component {
                     className="textArea"
                     rows="10"
                   />
+                </FormGroup>
+                <FormGroup>
+                  <ControlLabel>Add Guides</ControlLabel>
+                  <br />
+                  {
+                    this.state.guides.map((guide, index) => {
+                      return (
+                        <Checkbox
+                          id={index}
+                          onClick={this.selectGuide}
+                          value={this.state.addedGuides[index].selected}
+                          checked={this.state.addedGuides[index].selected}
+                          name={guide.name}>{guide.name}</Checkbox>
+                      );
+                    })
+                   }
                 </FormGroup>
                 <button
                   type="submit"
