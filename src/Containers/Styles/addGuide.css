@@ -1,0 +1,16 @@
+
+.buttonCard {
+  border: none;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+}
+.cursor {
+  margin-bottom: 2em;
+}
+.cursor:hover {
+    cursor: pointer;
+}
+.selectedCard {
+  border: solid 5px rgb(40,166,76);
+}
