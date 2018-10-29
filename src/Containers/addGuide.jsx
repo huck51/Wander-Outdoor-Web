@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Row } from 'react-bootstrap';
 import axios from 'axios';
 import DisplayCard from '../Components/displayCard';
 import './Styles/addGuide.css';
@@ -17,7 +18,7 @@ class AddGuide extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('https://fierce-ridge-55021.herokuapp.com/signup/guide', newGuide)
+    axios.post('https://fierce-ridge-55021.herokuapp.com/signup/guide')
       .then(() => {
         window.location = '/guides';
       })
