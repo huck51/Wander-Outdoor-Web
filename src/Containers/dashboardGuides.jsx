@@ -19,7 +19,7 @@ class DashboardGuides extends Component {
   }
 
   componentDidMount() {
-    axios.get(`https://fierce-ridge-55021.herokuapp.com/guides/${this.props.match.params.companyCode}`)
+    axios.get(`https://fierce-ridge-55021.herokuapp.com/guides/${this.props.match.params.company}`)
       .then((result) => {
         // eslint-disable-next-line no-console
         console.log(result);
