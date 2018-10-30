@@ -7,6 +7,8 @@ import {
   Row,
 } from 'react-bootstrap';
 import StarRatingComponent from 'react-star-rating-component';
+import ReviewCard from '../Components/reviewCard';
+import ReviewForm from '../Components/reviewForm';
 import axios from 'axios';
 import './Styles/viewTrip.css';
 
@@ -24,6 +26,7 @@ class ViewTrip extends Component {
       picture: '',
       reviews: [],
       newReview: '',
+      newRating: 0,
       rating: {
         rate: 5,
         numberOfRatings: 0
@@ -66,21 +69,69 @@ class ViewTrip extends Component {
       });
   }
 
+  starClick = (nextValue, prevValue, name) => {
+    this.setState({ newRating: nextValue });
+  }
+
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.state.reviews.push(this.state.newReview);
-    const axiosOptions = {
-      fierceIce: localStorage.getItem('fierceIce'),
-      reviews: this.state.reviews,
+    const newReview = {
+      author: this.state.username,
+      text: this.state.newReview,
+      date: new Date().toUTCString(),
+      rate: this.state.newRating,
     };
-    axios.post('url', axiosOptions)
+    if (!newReview.rate) {
+      return alert('Must Provide a star rating');
+    }
+    const axiosOptions = {
+      newReview
+    };
+    const postNewReview = this.state.reviews;
+    postNewReview.push(newReview);
+    this.setState({ reviews: postNewReview });
+    axios.post('https://fierce-ridge-55021.herokuapp.com/new-review', axiosOptions)
     .then((response) => {
       console.log(response);
-      this.setState({ newReview: '' });
+      const length = this.state.reviews.length;
+      const reviews = [];
+      for (let i = 0; i < length; i++) {
+        if (this.state.reviews[i]._id) {
+          reviews.push(this.state.reviews[i]._id);
+        }
+      }
+      reviews.push(response.data._id);
+      const rating = this.state.rating;
+      if (!rating.numberOfRatings) {
+        rating.rate = this.state.newRating;
+        rating.numberOfRatings = 1;
+      } else {
+        const backRate = rating.rate * rating.numberOfRatings;
+        rating.numberOfRatings++;
+        rating.rate = (backRate + this.state.newRating)/rating.numberOfRatings;
+      }
+      const updateObject = {
+        reviews,
+        id: this.props.match.params.id,
+        rating,
+      };
+      axios.post(`https://fierce-ridge-55021.herokuapp.com/trip-update-reviews`, updateObject).
+        then((response) => {
+          console.log(response);
+          const newTrip = response.data;
+          this.setState({
+            rating: newTrip.rating,
+            newRating: 0,
+            newReview: '',
+          });
+        }).
+        catch((err) => {
+          console.log(err);
+        });
     })
     .catch((err) => {
       console.error(err);
@@ -145,31 +196,16 @@ class ViewTrip extends Component {
                 {
                   this.state.reviews.length === 0 ?
                     <li>No reviews available. Be the first one!</li> :
-                  this.state.reviews.map(review => <li>{review}</li>)
+                  this.state.reviews.map((review, index) => <ReviewCard review={review} index={index} />)
                 }
               </ul>
-              <div>
-                <form>
-                  <FormGroup controlId="formControlsTextarea">
-                    <ControlLabel>Write a review:</ControlLabel>
-                    <FormControl
-                      componentClass="textarea"
-                      placeholder="Maximum of 250 words..."
-                      value={this.state.newReview}
-                      onChange={this.handleChange}
-                      name="newReview"
-                      className="textArea"
-                      rows="10"
-                    />
-                  </FormGroup>
-                  <button
-                    type="submit"
-                    className="epSaveBtn"
-                    onClick={this.handleSubmit}
-                  >Submit
-                  </button>
-                </form>
-              </div>
+              <ReviewForm
+                fValue={this.state.newReview}
+                change={this.handleChange}
+                sValue={this.state.newRating}
+                sClick={this.starClick}
+                submit={this.handleSubmit}
+              />
             </Col>
           </Row>
         </div>

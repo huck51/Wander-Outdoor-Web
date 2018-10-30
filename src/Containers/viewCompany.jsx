@@ -127,7 +127,7 @@ class ViewCompany extends Component {
       }
       const updateObject = {
         reviews,
-        id: this.props.match.params.id,
+        company: this.props.match.params.company,
         rating,
       };
       axios.post(`https://fierce-ridge-55021.herokuapp.com/company-update-reviews`, updateObject).
