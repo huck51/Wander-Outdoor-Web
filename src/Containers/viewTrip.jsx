@@ -100,7 +100,6 @@ class ViewTrip extends Component {
                 <Col xs={12} sm={12} md={12} lg={12}>
                   <div className="">
                     <h2 className="basicInfo2">{this.state.name}</h2>
-                    <h4 className="basicInfo4">{this.state.company}</h4>
                     <h4 className="basicInfo4">{this.state.companyName}</h4>
                     <h4 className="basicInfo4">{this.state.city}, {this.state.stateName}
                     </h4>
@@ -111,6 +110,7 @@ class ViewTrip extends Component {
                       value={this.state.rating.rate}
                       className="starRating"
                     />
+                  <h4 className="basicInfo4">{`$${this.state.price}`}</h4>
                   </div>
                 </Col>
               </Row>
@@ -133,7 +133,7 @@ class ViewTrip extends Component {
                 {
                   this.state.guides.length === 0 ?
                     <li>No guides available</li> :
-                  this.state.guides.map(guide => <li>{guide}</li>)
+                  this.state.guides.map(guide => <li>{guide.name}</li>)
                 }
               </ul>
             </Col>
