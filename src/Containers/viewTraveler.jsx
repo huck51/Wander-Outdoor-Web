@@ -130,7 +130,9 @@ class ViewTraveler extends Component {
       const length = this.state.reviews.length;
       const reviews = [];
       for (let i = 0; i < length; i++) {
-        reviews.push(this.state.reviews[i]._id);
+        if (this.state.reviews[i]._id) {
+          reviews.push(this.state.reviews[i]._id);
+        }
       }
       reviews.push(response.data._id);
       const rating = this.state.rating;

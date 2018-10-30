@@ -4,21 +4,21 @@ class AddressSection extends Component {
   render() {
     return (
       <div className="container">
-        <label>
+        <label style={{display: 'block'}}>
           Name
-          <input />
+          <input style={{display: 'block'}}/>
         </label>
-        <label>
+        <label style={{display: 'block'}}>
           Address
-          <input />
+          <input style={{display: 'block'}}/>
         </label>
-        <label>
+        <label style={{display: 'block'}}>
           City
-          <input />
+          <input style={{display: 'block'}}/>
         </label>
-        <label>
+        <label style={{display: 'block'}}>
           State
-          <input />
+          <input style={{display: 'block'}}/>
         </label>
       </div>
     );

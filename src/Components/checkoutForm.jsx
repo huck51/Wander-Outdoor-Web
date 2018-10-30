@@ -3,6 +3,7 @@ import { injectStripe } from 'react-stripe-elements';
 import axios from 'axios';
 import AddressSection from './addressSection';
 import CardSection from './cardSection';
+import './Styles/checkoutForm.css';
 
 class CheckoutForm extends Component {
   constructor(props) {
@@ -48,7 +49,7 @@ class CheckoutForm extends Component {
   }
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="cardForm">
         <AddressSection />
         <CardSection />
         <button onClick={this.handleSubmit}>Confirm order</button>

@@ -14,21 +14,23 @@ class CardSection extends Component {
   render() {
     return (
       <div className="container">
-        <label style={{display: 'inline'}}>
-          Card Number
-          <CardNumberElement style={{base: {fontSize: '18px'}}} />
-        </label>
-        <label style={{display: 'inline'}}>
-          Expiration Date
-          <CardExpiryElement style={{base: {fontSize: '18px'}}} />
-        </label>
-        <label style={{display: 'inline'}}>
-          CVC Code
-          <CardCVCElement style={{base: {fontSize: '18px'}}} />
-        </label>
-        <label style={{display: 'inline'}}>
-          ZIP
-          <PostalCodeElement style={{base: {fontSize: '18px'}}} />
+        <label style={{display: 'block', maxWidth: '48em'}}>
+          Card Info
+          <CardElement style={{base: {
+        iconColor: "#000",
+        color: "#000",
+        fontWeight: 400,
+        fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
+        fontSize: "16px",
+        fontSmoothing: "antialiased",
+
+        "::placeholder": {
+          color: "#000"
+        },
+        ":-webkit-autofill": {
+          color: "#fce883"
+        }
+      },}} />
         </label>
       </div>
     );
