@@ -91,6 +91,7 @@ class App extends Component {
           axios.post('https://fierce-ridge-55021.herokuapp.com/signup-newuser', secondaryOptions)
             .then((secondaryResponse) => {
               console.log(secondaryResponse);
+              localStorage.setItem('name', secondaryResponse.data.name);
             })
             .catch((err) => {
               console.error(err);
