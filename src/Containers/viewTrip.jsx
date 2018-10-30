@@ -193,11 +193,13 @@ class ViewTrip extends Component {
             <Col xs={12} sm={12} md={12} lg={12}>
               <h2>Reviews</h2>
               <ul>
+                <Row className="container">
                 {
                   this.state.reviews.length === 0 ?
                     <li>No reviews available. Be the first one!</li> :
                   this.state.reviews.map((review, index) => <ReviewCard review={review} index={index} />)
                 }
+                </Row>
               </ul>
               <ReviewForm
                 fValue={this.state.newReview}

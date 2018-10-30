@@ -57,6 +57,7 @@ class ViewCompany extends Component {
           rating,
           chex,
           picture,
+          reviews
         } = response.data;
         this.setState({
           companyName,
@@ -72,6 +73,8 @@ class ViewCompany extends Component {
           permits,
           chex,
           picture,
+          rating,
+          reviews,
         });
       })
       .catch((err) => {
@@ -244,11 +247,13 @@ class ViewCompany extends Component {
             <Col xs={12} sm={12} md={12} lg={12}>
               <h2>Reviews</h2>
               <ul>
+                <Row className="container">
                 {
                   this.state.reviews.length === 0 ?
                     <li>No reviews. Be the first one!</li> :
                   this.state.reviews.map((review, index) => <ReviewCard review={review} index={index} />)
                 }
+                </Row>
               </ul>
               <ReviewForm
                 fValue={this.state.newReview}
