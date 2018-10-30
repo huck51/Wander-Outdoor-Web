@@ -25,6 +25,7 @@ class EditTrip extends Component {
       tripUrl: '',
       guides: [],
       addedGuides: [],
+      guideDict: {},
       companyCode: '',
       picture: null,
       transpo: false,
@@ -56,6 +57,7 @@ class EditTrip extends Component {
           company,
           companyName,
         } = result.data;
+        console.log(`Company: ${company}`);
 
         this.setState({
           name,
@@ -83,10 +85,14 @@ class EditTrip extends Component {
             selected: true,
             _id: guides[j]._id,
           };
-          guideDict[guides[j]._id] = true;
+          guideDict[guides[j]._id] = {
+            value: guides[j]._id,
+            status: 'initial',
+          };
         }
 
         const compGuides = company.guides;
+        console.log(`compGuides: ${compGuides}`);
 
         for (let k = 0; k < compGuides.length; k++) {
           if (guideDict[compGuides[k]._id]) {
@@ -103,6 +109,7 @@ class EditTrip extends Component {
         this.setState({
           guides,
           addedGuides,
+          guideDict,
         });
 
       })
@@ -115,6 +122,63 @@ class EditTrip extends Component {
     const addGuidesTemp = this.state.addedGuides;
     addGuidesTemp[e.target.id].selected = !addGuidesTemp[e.target.id].selected;
     this.setState({ addedGuides: addGuidesTemp });
+  }
+
+  compareGuides = (initialList, finalList) => {
+    console.log('CompareGuides');
+    for (let i = 0; i < finalList.length; i++) {
+      const x = finalList[i];
+      if (initialList[x]) {
+        if (initialList[x].status === 'initial') {
+          initialList[x].status = 'both';
+        }
+      } else {
+        initialList[x] = {
+          value: x,
+          status: 'final',
+        };
+      }
+    }
+    const keys = Object.keys(initialList);
+    const linkGuides = [];
+    const unlinkGuides = [];
+    for (let j = 0; j < keys.length; j++) {
+      if (initialList[keys[j]].status === 'initial') {
+        unlinkGuides.push(keys[j]);
+      }
+      if (initialList[keys[j]].status === 'final') {
+        linkGuides.push(keys[j]);
+      }
+    }
+    const linkedTrip = this.props.match.params.id;
+    if (linkGuides.length > 0) {
+      this.addTripToGuide(linkGuides, linkedTrip);
+    }
+    if (unlinkGuides.length > 0) {
+      this.removeTripFromGuide(unlinkGuides, linkedTrip);
+    }
+  }
+
+  addTripToGuide = (guidesToLink, tripToLink) => {
+    console.log(`addTripToGuide`);
+    axios.post(`https://fierce-ridge-55021.herokuapp.com/link-guide-to-trip`, { guidesToLink, tripToLink }).
+      then((response) => {
+        console.log(response.data);
+      }).
+      catch((err) => {
+        console.log(err);
+      });
+  }
+
+  removeTripFromGuide = (guidesToUnlink, tripToUnlink) => {
+    console.log('removeTripFromGuide');
+    axios.post(`https://fierce-ridge-55021.herokuapp.com/unlink-guide-from-trip`, { guidesToUnlink, tripToUnlink }).
+      then((response) => {
+        console.log(response.data);
+      }).
+      catch((err) => {
+        console.log(err);
+      });
   }
 
   handleChange = (e) => {
@@ -153,8 +217,13 @@ class EditTrip extends Component {
     const guides = [];
 
     for (let j = 0; j < addedGuides.length; j++) {
-      guides.push(addedGuides[j]._id);
+      if (addedGuides[j].selected) {
+        guides.push(addedGuides[j]._id);
+      }
     }
+
+    const initialGuides = this.state.guideDict;
+    this.compareGuides(initialGuides, guides);
 
     const updateTrip = {
       name,
