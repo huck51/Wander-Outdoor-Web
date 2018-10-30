@@ -121,6 +121,9 @@ class ViewTraveler extends Component {
     const axiosOptions = {
       newReview
     };
+    const postNewReview = this.state.reviews;
+    postNewReview.push(newReview);
+    this.setState({ reviews: postNewReview });
     axios.post('https://fierce-ridge-55021.herokuapp.com/new-review', axiosOptions)
     .then((response) => {
       console.log(response);
