@@ -25,15 +25,15 @@ class ViewTraveler extends Component {
       stats: [],
       tripsQualified: [],
       tripsCompleted: [],
-      certs: [null],
-      activities: [null],
+      certs: [],
+      activities: [],
       rating: {
         rate: 5,
         numberOfRatings: 0,
       },
       roleGroup: '',
       city: '',
-      state: '',
+      stateName: '',
       reviews: [],
       newReview: '',
       newRating: 0,
@@ -51,7 +51,6 @@ class ViewTraveler extends Component {
           firstName,
           lastName,
           companyName,
-          username,
           picture,
           bio,
           stats,
@@ -62,15 +61,16 @@ class ViewTraveler extends Component {
           rating,
           roleGroup,
           city,
-          state,
+          stateName,
           reviews,
           chex,
         } = response.data;
+        const name = localStorage.getItem('name');
         this.setState({
+          username: name ? name : 'Anonymous',
           firstName,
           lastName,
           companyName,
-          username,
           picture,
           bio,
           stats,
@@ -81,15 +81,8 @@ class ViewTraveler extends Component {
           rating,
           roleGroup,
           city,
-          state,
-          reviews: [
-            {
-              author: 'Bilzarian',
-              text: 'Wicked',
-              date: new Date().toUTCString(),
-              rate: 4
-            }
-          ],
+          stateName,
+          reviews,
           chex,
         });
       })
@@ -116,15 +109,54 @@ class ViewTraveler extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
-    const axiosOptions = {
-      fierceIce: localStorage.getItem('fierceIce'),
-      reviews: this.state.reviews,
+    const newReview = {
+      author: this.state.username,
+      text: this.state.newReview,
+      date: new Date().toUTCString(),
+      rate: this.state.newRating,
     };
-    axios.post('url', axiosOptions)
+    if (!newReview.rate) {
+      return alert('Must Provide a star rating');
+    }
+    const axiosOptions = {
+      newReview
+    };
+    axios.post('https://fierce-ridge-55021.herokuapp.com/new-review', axiosOptions)
     .then((response) => {
       console.log(response);
-      this.setState({ newReview: '' });
+      const length = this.state.reviews.length;
+      const reviews = [];
+      for (let i = 0; i < length; i++) {
+        reviews.push(this.state.reviews[i]._id);
+      }
+      reviews.push(response.data._id);
+      const rating = this.state.rating;
+      if (!rating.numberOfRatings) {
+        rating.rate = this.state.newRating;
+        rating.numberOfRatings = 1;
+      } else {
+        const backRate = rating.rate * rating.numberOfRatings;
+        rating.numberOfRatings++;
+        rating.rate = (backRate + this.state.newRating)/rating.numberOfRatings;
+      }
+      const updateObject = {
+        reviews,
+        id: this.props.match.params.id,
+        rating,
+      };
+      axios.post(`https://fierce-ridge-55021.herokuapp.com/guide-update-reviews`, updateObject).
+        then((response) => {
+          console.log(response);
+          const newGuide = response.data;
+          this.setState({
+            rating: newGuide.rating,
+            newRating: 0,
+            newReview: '',
+          });
+        }).
+        catch((err) => {
+          console.log(err);
+        });
     })
     .catch((err) => {
       console.error(err);
@@ -251,7 +283,7 @@ class ViewTraveler extends Component {
                     />
                   </FormGroup>
                   <div>
-                    <p style={{ marginBottom: 0 }}><strong>Add A Star Rating:</strong></p>
+                    <p style={{ marginBottom: 0 }}><strong>Star Rating:</strong></p>
                     <StarRatingComponent
                       name="newReview"
                       starColor="#3783B6"
