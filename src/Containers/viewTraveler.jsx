@@ -8,6 +8,7 @@ import {
 } from 'react-bootstrap';
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios';
+import ReviewCard from '../Components/reviewCard';
 import './Styles/viewTraveler.css';
 
 
@@ -21,9 +22,9 @@ class ViewTraveler extends Component {
       username: '',
       picture: '',
       bio: '',
-      stats: [null],
-      tripsQualified: [null],
-      tripsCompleted: [null],
+      stats: [],
+      tripsQualified: [],
+      tripsCompleted: [],
       certs: [null],
       activities: [null],
       rating: {
@@ -33,8 +34,9 @@ class ViewTraveler extends Component {
       roleGroup: '',
       city: '',
       state: '',
-      reviews: [null],
+      reviews: [],
       newReview: '',
+      newRating: 0,
       chex: [],
     };
   }
@@ -80,7 +82,14 @@ class ViewTraveler extends Component {
           roleGroup,
           city,
           state,
-          reviews,
+          reviews: [
+            {
+              author: 'Bilzarian',
+              text: 'Wicked',
+              date: new Date().toUTCString(),
+              rate: 4
+            }
+          ],
           chex,
         });
       })
@@ -89,13 +98,25 @@ class ViewTraveler extends Component {
       });
   }
 
+  starClick = (nextValue, prevValue, name) => {
+    this.setState({ newRating: nextValue });
+  }
+
+  starHover = (nextValue, prevValue, name) => {
+    this.setState({ newRating: nextValue });
+  }
+
+  starHoverOut = (nextValue, prevValue, name) => {
+    this.setState({ newRating: prevValue });
+  }
+
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.state.reviews.push(this.state.newReview);
+
     const axiosOptions = {
       fierceIce: localStorage.getItem('fierceIce'),
       reviews: this.state.reviews,
@@ -168,7 +189,7 @@ class ViewTraveler extends Component {
                 {
                   this.state.tripsQualified.length === 0 ?
                     <li>Not qualified to lead any trips.</li> :
-                  this.state.tripsQualified.map(trip => <li>{trip}</li>)
+                  this.state.tripsQualified.map(trip => <li>{trip.name}</li>)
                 }
               </ul>
             </Col>
@@ -180,7 +201,7 @@ class ViewTraveler extends Component {
                 {
                   this.state.tripsCompleted.length === 0 ?
                     <li>No trips completed</li> :
-                  this.state.tripsCompleted.map(trip => <li>{trip}</li>)
+                  this.state.tripsCompleted.map(trip => <li>{trip.name}</li>)
                 }
               </ul>
             </Col>
@@ -201,11 +222,19 @@ class ViewTraveler extends Component {
             <Col xs={12} sm={12} md={12} lg={12}>
               <h2>Reviews</h2>
               <ul>
-                {
-                  this.state.reviews.length === 0 ?
-                    <li>No reviews. Be the first one!</li> :
-                  this.state.reviews.map(review => <li>{review}</li>)
-                }
+                <Row className="container">
+                  {
+                    this.state.reviews.length === 0 ?
+                      <li>No reviews. Be the first one!</li> :
+                    this.state.reviews.map((review, index) => {
+                      if (!review) {
+                        return (<div />);
+                      } else {
+                        return (<ReviewCard review={review} index={index} />);
+                      }
+                    })
+                  }
+                </Row>
               </ul>
               <div>
                 <form>
@@ -221,6 +250,17 @@ class ViewTraveler extends Component {
                       rows="10"
                     />
                   </FormGroup>
+                  <div>
+                    <p style={{ marginBottom: 0 }}><strong>Add A Star Rating:</strong></p>
+                    <StarRatingComponent
+                      name="newReview"
+                      starColor="#3783B6"
+                      emptyStarColor="#B5D994"
+                      value={this.state.newRating}
+                      className=""
+                      onStarClick={this.starClick}
+                    />
+                  </div>
                   <button
                     type="submit"
                     className="epSaveBtn"

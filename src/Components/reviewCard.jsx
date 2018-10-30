@@ -15,13 +15,23 @@ const ReviewCard = ({review, index}) => {
             className="starRating"
             editing={false}
           />
-          <p>{review.text}</p>
+        <p>{review.text}</p>
           <p>-{review.author}</p>
           <p>{review.date}</p>
         </div>
       </li>
     </Col>
   );
+};
+
+ReviewCard.defaultProps = {
+  review: {
+    author: '',
+    rate: 5,
+    text: '',
+    date: '',
+  },
+  index: 1000,
 };
 
 export default ReviewCard;
