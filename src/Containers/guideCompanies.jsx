@@ -52,7 +52,7 @@ class GuideCompanies extends Component {
             <Row className="container">
               {this.state.companies.map((company) => {
                 return (
-                  <DisplayCard item={company} Url={`/company/${company.companyName}`} />
+                  <DisplayCard item={company} Url={`/company/${company.companyCode}`} />
                 );
               })}
             </Row>

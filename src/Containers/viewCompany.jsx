@@ -38,7 +38,7 @@ class ViewCompany extends Component {
     };
   }
   componentDidMount() {
-    axios.get(`https://fierce-ridge-55021.herokuapp.com/company/${this.props.match.params.companyName}`)
+    axios.get(`https://fierce-ridge-55021.herokuapp.com/company/${this.props.match.params.company}`)
       .then((response) => {
         const {
           companyName,
@@ -68,7 +68,6 @@ class ViewCompany extends Component {
           bio,
           locations,
           permits,
-          rating,
           chex,
           picture,
         });
@@ -150,7 +149,7 @@ class ViewCompany extends Component {
                 {
                   this.state.guides.length === 0 ?
                     <li>No guides available</li> :
-                  this.state.guides.map(guide => <li>{guide}</li>)
+                  this.state.guides.map(guide => <li>{guide.name}</li>)
                 }
               </ul>
             </Col>
@@ -162,7 +161,7 @@ class ViewCompany extends Component {
                 {
                   this.state.trips.length === 0 ?
                     <li>No trips available</li> :
-                  this.state.trips.map(trip => <li>{trip}</li>)
+                  this.state.trips.map(trip => <li>{trip.name}</li>)
                 }
               </ul>
             </Col>
