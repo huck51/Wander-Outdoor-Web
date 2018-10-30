@@ -243,7 +243,7 @@ class EditCompany extends Component {
                     placeholder="select"
                     className="textArea"
                     onChange={this.handleChange}>
-                    <option value={this.state.state}>{this.state.state}</option>
+                    <option value={this.state.stateName}>{this.state.stateName}</option>
                     { usa.map((stateName) => {
                       return <option value={stateName}>{stateName}</option>
                     })
