@@ -178,7 +178,7 @@ class ViewTraveler extends Component {
                     <h2 className="basicInfo2">{this.state.firstName} {this.state.lastName}</h2>
                     <h4 className="basicInfo4">{this.state.roleGroup}</h4>
                     <h4 className="basicInfo4">{this.state.companyName}</h4>
-                    <h4 className="basicInfo4">{this.state.city}, {this.state.state}
+                    <h4 className="basicInfo4">{this.state.city}, {this.state.stateName}
                     </h4>
                     <StarRatingComponent
                       name={this.state.firstName}
