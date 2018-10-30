@@ -9,6 +9,7 @@ import {
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios';
 import ReviewCard from '../Components/reviewCard';
+import ReviewForm from '../Components/reviewForm';
 import './Styles/viewTraveler.css';
 
 
@@ -273,39 +274,13 @@ class ViewTraveler extends Component {
                   }
                 </Row>
               </ul>
-              <div>
-                <form>
-                  <FormGroup controlId="formControlsTextarea">
-                    <ControlLabel>Write a review:</ControlLabel>
-                    <FormControl
-                      componentClass="textarea"
-                      placeholder="Maximum of 250 words..."
-                      value={this.state.newReview}
-                      onChange={this.handleChange}
-                      name="newReview"
-                      className="textArea"
-                      rows="10"
-                    />
-                  </FormGroup>
-                  <div>
-                    <p style={{ marginBottom: 0 }}><strong>Star Rating:</strong></p>
-                    <StarRatingComponent
-                      name="newReview"
-                      starColor="#3783B6"
-                      emptyStarColor="#B5D994"
-                      value={this.state.newRating}
-                      className=""
-                      onStarClick={this.starClick}
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="epSaveBtn"
-                    onClick={this.handleSubmit}
-                  >Submit
-                  </button>
-                </form>
-              </div>
+              <ReviewForm
+                fValue={this.state.newReview}
+                change={this.handleChange}
+                sValue={this.state.newRating}
+                sClick={this.starClick}
+                submit={this.handleSubmit}
+              />
             </Col>
           </Row>
         </div>
