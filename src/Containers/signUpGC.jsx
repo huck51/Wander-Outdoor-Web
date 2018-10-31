@@ -9,6 +9,7 @@ import {
 } from 'react-bootstrap';
 import axios from 'axios';
 import FieldGroup from '../Components/fieldGroup';
+import activities from '../Data/activities';
 import usa from '../Data/stateNames';
 import './Styles/signUpGC.css';
 
@@ -69,11 +70,10 @@ class SignUpGC extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const chexmix = ['atv', 'backPacking', 'birdWatching', 'canoeing', 'deepSeaFish', 'dirtBiking', 'fishing', 'flyFishing', 'hiking', 'hunting', 'iceClimbing', 'kayaking', 'mountainBiking', 'mountaineering', 'offRoading', 'rafting', 'roadBiking', 'rockClimbing', 'scuba', 'skiing', 'snorkeling', 'snowboarding', 'surfing', 'other'];
     const chex = [];
-    for (let i = 0; i < chexmix.length; i++) {
-      if (this.state[chexmix[i]] === true) {
-        chex.push(chexmix[i]);
+    for (let i = 0; i < activities.length; i++) {
+      if (this.state[activities[i].name] === true) {
+        chex.push(activities[i].name);
       }
     }
     const {
@@ -163,7 +163,6 @@ class SignUpGC extends Component {
   }
 
   render() {
-    const sports = [{name: 'atv', pretty: 'ATV Off-Roading'}, {name: 'backPacking', pretty: 'Backpacking'}, {name: 'birdWatching', pretty: 'Bird Watching'}, {name: 'canoeing', pretty: 'Canoeing'}, {name: 'deepSeaFish', pretty: 'Deep Sea Fishing'}, {name: 'dirtBiking', pretty: 'Dirt Biking'}, {name: 'fishing', pretty: 'Fishing'}, {name: 'flyFishing', pretty: 'Fly Fishing'}, {name: 'hiking', pretty: 'Hiking'}, {name: 'hunting', pretty: 'Hunting'}, {name: 'iceClimbing', pretty: 'Ice Climbing'}, {name: 'kayaking', pretty: 'Kayaking'}, {name: 'mountainBiking', pretty: 'Mountain Biking'}, {name: 'mountaineering', pretty: 'Mountaineering'}, {name: 'offRoading', pretty: 'Off-Roading'}, {name: 'rafting', pretty: 'Rafting'}, {name: 'roadBiking', pretty: 'Road Biking'}, {name: 'rockClimbing', pretty: 'Rock Climbing'}, {name: 'scuba', pretty: 'Scuba Diving'}, {name: 'skiing', pretty: 'Skiing'}, {name: 'snorkeling', pretty: 'Snorkeling'}, {name: 'snowboarding', pretty: 'Snowboarding'}, {name: 'surfing', pretty: 'Surfing'}, {name: 'other', pretty: 'Other'}];
     return (
       <div className="container">
         <h1>Guiding Company SignUp</h1>
@@ -271,15 +270,15 @@ class SignUpGC extends Component {
                   <ControlLabel>Sports/Activities Offered</ControlLabel>
                   <br />
                   {
-                    sports.map((sport) => {
+                    activities.map((activity) => {
                       return (
                         <Checkbox
                           inline
                           onClick={this.handleCheckBoxChange}
-                          value={this.state[sport.name]}
-                          checked={this.state[sport.name]}
-                          name={sport.name}
-                        >{sport.pretty}
+                          value={this.state[activity.name]}
+                          checked={this.state[activity.name]}
+                          name={activity.name}
+                        >{activity.pretty}
                         </Checkbox>
                       );
                     })
