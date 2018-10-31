@@ -9,7 +9,7 @@ import {
 } from 'react-bootstrap';
 import axios from 'axios';
 import FieldGroup from '../Components/fieldGroup';
-import activities from '../Data/activities';
+import { activitiesArr, activitiesDict } from '../Data/activities';
 import usa from '../Data/stateNames';
 import './Styles/signUpGC.css';
 
@@ -30,30 +30,7 @@ class SignUpGC extends Component {
       contactEmail: '',
       picture: null,
       bio: '',
-      atv: false,
-      backPacking: false,
-      birdWatching: false,
-      canoeing: false,
-      deepSeaFish: false,
-      dirtBiking: false,
-      fishing: false,
-      flyFishing: false,
-      hiking: false,
-      hunting: false,
-      iceClimbing: false,
-      kayaking: false,
-      mountainBiking: false,
-      mountaineering: false,
-      offRoading: false,
-      rafting: false,
-      roadBiking: false,
-      rockClimbing: false,
-      scuba: false,
-      skiing: false,
-      snorkeling: false,
-      snowboarding: false,
-      surfing: false,
-      other: false,
+      activitiesDict: activitiesDict,
     };
   }
 
@@ -63,17 +40,19 @@ class SignUpGC extends Component {
 
   handleCheckBoxChange = (e) => {
     const bullsEye = e.target.name;
+    const tempActDict = this.state.activitiesDict;
+    tempActDict[bullsEye] = !tempActDict[bullsEye];
     this.setState({
-      [e.target.name]: !this.state[bullsEye]
+      activitiesDict: tempActDict,
     });
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
     const chex = [];
-    for (let i = 0; i < activities.length; i++) {
-      if (this.state[activities[i].name] === true) {
-        chex.push(activities[i].name);
+    for (let i = 0; i < activitiesArr.length; i++) {
+      if (this.state[activitiesArr[i].name] === true) {
+        chex.push(activitiesArr[i].name);
       }
     }
     const {
@@ -270,13 +249,13 @@ class SignUpGC extends Component {
                   <ControlLabel>Sports/Activities Offered</ControlLabel>
                   <br />
                   {
-                    activities.map((activity) => {
+                    activitiesArr.map((activity) => {
                       return (
                         <Checkbox
                           inline
                           onClick={this.handleCheckBoxChange}
-                          value={this.state[activity.name]}
-                          checked={this.state[activity.name]}
+                          value={this.state.activitiesDict[activity.name]}
+                          checked={this.state.activitiesDict[activity.name]}
                           name={activity.name}
                         >{activity.pretty}
                         </Checkbox>
