@@ -9,6 +9,7 @@ import {
 } from 'react-bootstrap';
 import axios from 'axios';
 import FieldGroup from '../Components/fieldGroup';
+import { activitiesArr, activitiesDict } from '../Data/activities';
 import usa from '../Data/stateNames';
 import './Styles/editCompany.css';
 
@@ -30,30 +31,7 @@ class EditCompany extends Component {
       picture: null,
       bio: '',
       companyUrl: '',
-      atv: false,
-      backPacking: false,
-      birdWatching: false,
-      canoeing: false,
-      deepSeaFish: false,
-      dirtBiking: false,
-      fishing: false,
-      flyFishing: false,
-      hiking: false,
-      hunting: false,
-      iceClimbing: false,
-      kayaking: false,
-      mountainBiking: false,
-      mountaineering: false,
-      offRoading: false,
-      rafting: false,
-      roadBiking: false,
-      rockClimbing: false,
-      scuba: false,
-      skiing: false,
-      snorkeling: false,
-      snowboarding: false,
-      surfing: false,
-      other: false,
+      activitiesDict: activitiesDict,
     };
   }
 
@@ -78,7 +56,17 @@ class EditCompany extends Component {
         bio,
         chex,
         companyUrl,
+        activities,
       } = response.data;
+      for (let i = 0; i < chex.length; i++) {
+        this.setState({
+          [chex[i]]: true
+        });
+      }
+      const tempActDict = activitiesDict;
+      for (let j = 0; j < activities.length; j++) {
+        tempActDict[activities[j]] = true;
+      }
       this.setState({
         companyName,
         streetAddress,
@@ -93,12 +81,8 @@ class EditCompany extends Component {
         picture,
         bio,
         companyUrl,
+        activitiesDict: tempActDict,
       });
-      for (let i = 0; i < chex.length; i++) {
-        this.setState({
-          [chex[i]]: true
-        });
-      }
     })
     .catch((err) => {
       console.log(err);
@@ -111,18 +95,19 @@ class EditCompany extends Component {
 
   handleCheckBoxChange = (e) => {
     const bullsEye = e.target.name;
+    const tempActDict = this.state.activitiesDict;
+    tempActDict[bullsEye] = !tempActDict[bullsEye];
     this.setState({
-      [e.target.name]: !this.state[bullsEye]
+      activitiesDict: tempActDict
     });
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const chexmix = ['atv', 'backPacking', 'birdWatching', 'canoeing', 'deepSeaFish', 'dirtBiking', 'fishing', 'flyFishing', 'hiking', 'hunting', 'iceClimbing', 'kayaking', 'mountainBiking', 'mountaineering', 'offRoading', 'rafting', 'roadBiking', 'rockClimbing', 'scuba', 'skiing', 'snorkeling', 'snowboarding', 'surfing', 'other'];
     const chex = [];
-    for (let i = 0; i < chexmix.length; i++) {
-      if (this.state[chexmix[i]] === true) {
-        chex.push(chexmix[i]);
+    for (let i = 0; i < activitiesArr.length; i++) {
+      if (this.state.activitiesDict[activitiesArr[i].name]) {
+        chex.push(activitiesArr[i].name);
       }
     }
     const {
