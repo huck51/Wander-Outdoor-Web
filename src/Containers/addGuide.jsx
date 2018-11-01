@@ -11,6 +11,7 @@ class AddGuide extends Component {
     this.state = {
       guides: [],
       addGuides: [],
+      subError: false,
     };
   }
 
@@ -25,6 +26,11 @@ class AddGuide extends Component {
       addGuides: tempAddGuides,
     });
   }
+
+  toggleError = () => {
+    this.setState({ subError: true });
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
     const addGuides = this.state.addGuides;
@@ -33,6 +39,10 @@ class AddGuide extends Component {
       if (addGuides[i].selected) {
         guides.push(addGuides[i]._id);
       }
+    }
+    if (guides.length < 1) {
+      this.toggleError();
+      return;
     }
     const payload = {
       companyCode: this.props.match.params.company,
@@ -77,10 +87,17 @@ class AddGuide extends Component {
       textAlign: 'center',
       margin: '2em auto',
     };
+    const { subError } = this.state;
+    const hideWarning = {
+      visibility: 'hidden',
+    };
     return (
       <div>
         <h1>Add Guide</h1>
         <button onClick={this.handleSubmit}>Add Selected Guides</button>
+        <div style={subError ? {color: 'red', padding: '1em'} : hideWarning}>
+          <p>*No guides selected. You must select at least one guide before submitting.</p>
+        </div>
         <ul className="guideUl">
           <Row className="container">
             {this.state.guides.map((guide) => {
