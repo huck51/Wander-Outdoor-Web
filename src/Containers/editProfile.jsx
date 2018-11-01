@@ -183,47 +183,7 @@ class EditProfile extends Component {
     };
     axios.post('https://fierce-ridge-55021.herokuapp.com/update-profile', updateObject)
       .then((response) => {
-        const {
-          firstName,
-          lastName,
-          DOB,
-          email,
-          phone,
-          bio,
-          roleGroup,
-          picture,
-          companyCode,
-          city,
-          stateName,
-          chex,
-        } = response.data;
-        this.setState({
-          firstName,
-          lastName,
-          DOB,
-          email,
-          phone,
-          bio,
-          roleGroup,
-          picture,
-          companyCode,
-          city,
-          stateName,
-        });
-        for (let i = 0; i < chex.length; i++) {
-          this.setState({
-            [chex[i]]: true
-          });
-        }
-        alert('Save successful!');
-        const configAmmo = {
-          backgroundImage: `url(${this.state.picture})`,
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          height: '50em',
-        }
-        previewConfig[0] = configAmmo;
+        window.location = `/profile/${response.data.id}`
       })
       .catch((err) => {
         console.error(err);
