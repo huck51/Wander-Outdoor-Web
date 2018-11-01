@@ -9,6 +9,7 @@ import {
 } from 'react-bootstrap';
 import axios from 'axios';
 import FieldGroup from '../Components/fieldGroup';
+import { activitiesArr, activitiesDict } from '../Data/activities';
 import usa from '../Data/stateNames';
 import './Styles/addTrip.css';
 
@@ -33,6 +34,7 @@ class AddTrip extends Component {
       group: false,
       guides: [],
       addedGuides: [],
+      activitiesDict: activitiesDict
     };
   }
 
@@ -63,6 +65,13 @@ class AddTrip extends Component {
     this.setState({ addedGuides: addGuidesTemp });
   }
 
+  handleActivities = (e) => {
+    const bullsEye = e.target.name;
+    const tempActDict = this.state.activitiesDict;
+    tempActDict[bullsEye] = !tempActDict[bullsEye];
+    this.setState({ activitiesDict: tempActDict });
+  }
+
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -81,6 +90,12 @@ class AddTrip extends Component {
     for (let i = 0; i < chexmix.length; i++) {
       if (this.state[chexmix[i]] === true) {
         chex.push(chexmix[i]);
+      }
+    }
+    const activities = [];
+    for (let j = 0; j < activitiesArr.length; j++) {
+      if (this.state.activitiesDict[activitiesArr[j].name]) {
+        activities.push(activitiesArr[j].name);
       }
     }
     const {
@@ -110,6 +125,7 @@ class AddTrip extends Component {
       companyCode: this.props.match.params.company,
       guides,
       tripUrl,
+      activities,
     };
     this.setState({
       name: '',
@@ -218,6 +234,24 @@ class AddTrip extends Component {
                     value={this.state.tripUrl}
                     onChange={this.handleChange}
                 />
+                <FormGroup>
+                  <ControlLabel>Sports/Activities Offered</ControlLabel>
+                  <br />
+                  {
+                    activitiesArr.map((activity) => {
+                      return (
+                        <Checkbox
+                          inline
+                          onClick={this.handleActivities}
+                          value={this.state.activitiesDict[activity.name]}
+                          checked={this.state.activitiesDict[activity.name]}
+                          name={activity.name}
+                        >{activity.pretty}
+                        </Checkbox>
+                      );
+                    })
+                  }
+                </FormGroup>
                 <FormGroup>
                   <ControlLabel>Trip Details</ControlLabel>
                   <br />
