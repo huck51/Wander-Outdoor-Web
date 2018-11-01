@@ -9,6 +9,7 @@ import {
 } from 'react-bootstrap';
 import axios from 'axios';
 import FieldGroup from '../Components/fieldGroup';
+import { activitiesArr, activitiesDict } from '../Data/activities';
 import usa from '../Data/stateNames';
 import './Styles/editTrip.css';
 
@@ -35,6 +36,7 @@ class EditTrip extends Component {
       halfDay: false,
       privateTrip: false,
       group: false,
+      activitiesDict: activitiesDict,
     };
   }
 
@@ -56,8 +58,8 @@ class EditTrip extends Component {
           companyCode,
           company,
           companyName,
+          activities,
         } = result.data;
-        console.log(`Company: ${company}`);
 
         this.setState({
           name,
@@ -106,10 +108,16 @@ class EditTrip extends Component {
           }
         }
 
+        const tempActDict = activitiesDict;
+        for (let l = 0; l < activities.length; l++) {
+          tempActDict[activities[l]] = true;
+        }
+
         this.setState({
           guides,
           addedGuides,
           guideDict,
+          activitiesDict: tempActDict,
         });
 
       })
@@ -181,6 +189,13 @@ class EditTrip extends Component {
       });
   }
 
+  handleActivities = (e) => {
+    const bullsEye = e.target.name;
+    const tempActDict = this.state.activitiesDict;
+    tempActDict[bullsEye] = !tempActDict[bullsEye];
+    this.setState({ activitiesDict: tempActDict });
+  }
+
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -222,6 +237,14 @@ class EditTrip extends Component {
       }
     }
 
+    const activities = [];
+    const ad = this.state.activitiesDict;
+    for (let k = 0; k < activitiesArr.length; k++) {
+      if (ad[activitiesArr[k].name]) {
+        activities.push(activitiesArr[k].name);
+      }
+    }
+
     const initialGuides = this.state.guideDict;
     this.compareGuides(initialGuides, guides);
 
@@ -237,6 +260,7 @@ class EditTrip extends Component {
       tripUrl,
       id,
       guides,
+      activities,
     };
 
     this.setState({
@@ -347,6 +371,24 @@ class EditTrip extends Component {
                     value={this.state.price}
                     onChange={this.handleChange}
                 />
+                <FormGroup>
+                  <ControlLabel>Sports/Activities Offered</ControlLabel>
+                  <br />
+                  {
+                    activitiesArr.map((activity) => {
+                      return (
+                        <Checkbox
+                          inline
+                          onClick={this.handleActivities}
+                          value={this.state.activitiesDict[activity.name]}
+                          checked={this.state.activitiesDict[activity.name]}
+                          name={activity.name}
+                        >{activity.pretty}
+                        </Checkbox>
+                      );
+                    })
+                  }
+                </FormGroup>
                 <FormGroup>
                   <ControlLabel>Trip Details</ControlLabel>
                   <br />
