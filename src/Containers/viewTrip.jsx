@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import {
   Col,
-  ControlLabel,
-  FormControl,
-  FormGroup,
   Row,
 } from 'react-bootstrap';
 import StarRatingComponent from 'react-star-rating-component';
+import RequestModal from '../Components/requestModal';
 import ReviewCard from '../Components/reviewCard';
 import ReviewForm from '../Components/reviewForm';
 import axios from 'axios';
@@ -41,6 +39,8 @@ class ViewTrip extends Component {
         const {
           name,
           company,
+          companyCode,
+          companyName,
           city,
           stateName,
           description,
@@ -48,12 +48,15 @@ class ViewTrip extends Component {
           guides,
           picture,
           reviews,
-          rating
+          rating,
+          activities,
+          tripUrl,
         } = result.data;
-        console.log(result);
         this.setState({
           name,
           company,
+          companyCode,
+          companyName,
           city,
           stateName,
           description,
@@ -61,7 +64,9 @@ class ViewTrip extends Component {
           guides,
           picture,
           reviews,
-          rating
+          rating,
+          activities,
+          tripUrl,
         });
       })
       .catch((err) => {
@@ -148,10 +153,16 @@ class ViewTrip extends Component {
             </Col>
             <Col xs={12} sm={12} md={8} lg={8}>
               <Row>
-                <Col xs={12} sm={12} md={12} lg={12}>
+                <Col xs={12} sm={12} md={6} lg={6}>
                   <div className="">
                     <h2 className="basicInfo2">{this.state.name}</h2>
-                    <h4 className="basicInfo4">{this.state.companyName}</h4>
+                    <h4 className="basicInfo4">
+                      <a
+                        href={`/company/${this.state.companyCode}`}
+                        target="_blank">
+                        {this.state.companyName}
+                      </a>
+                    </h4>
                     <h4 className="basicInfo4">{this.state.city}, {this.state.stateName}
                     </h4>
                     <StarRatingComponent
@@ -162,6 +173,11 @@ class ViewTrip extends Component {
                       className="starRating"
                     />
                   <h4 className="basicInfo4">{`$${this.state.price}`}</h4>
+                  </div>
+                </Col>
+                <Col xs={12} sm={12} md={6} lg={6}>
+                  <div>
+                    <RequestModal btnText="Request Trip" />
                   </div>
                 </Col>
               </Row>
