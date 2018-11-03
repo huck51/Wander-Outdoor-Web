@@ -4,6 +4,7 @@ import {
   Row,
 } from 'react-bootstrap';
 import StarRatingComponent from 'react-star-rating-component';
+import ProfTopSection from '../Components/profTopSection';
 import RequestModal from '../Components/requestModal';
 import ReviewCard from '../Components/reviewCard';
 import ReviewForm from '../Components/reviewForm';
@@ -147,52 +148,18 @@ class ViewTrip extends Component {
     return (
       <div>
         <div className="contain">
-          <Row className="mainCard">
-            <Col xs={12} sm={12} md={4} lg={4}>
-              <img src={this.state.picture} alt="Profile Pic" className="proPic"/>
-            </Col>
-            <Col xs={12} sm={12} md={8} lg={8}>
-              <Row>
-                <Col xs={12} sm={12} md={6} lg={6}>
-                  <div className="">
-                    <h2 className="basicInfo2">{this.state.name}</h2>
-                    <h4 className="basicInfo4">
-                      <a
-                        href={`/company/${this.state.companyCode}`}
-                        target="_blank">
-                        {this.state.companyName}
-                      </a>
-                    </h4>
-                    <h4 className="basicInfo4">{this.state.city}, {this.state.stateName}
-                    </h4>
-                    <StarRatingComponent
-                      name={this.state.companyName}
-                      starColor="#3783B6"
-                      emptyStarColor="#B5D994"
-                      value={this.state.rating.rate}
-                      className="starRating"
-                    />
-                  <h4 className="basicInfo4">{`$${this.state.price}`}</h4>
-                  </div>
-                </Col>
-                <Col xs={12} sm={12} md={6} lg={6}>
-                  <div>
-                    <RequestModal btnText="Request Trip" />
-                  </div>
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={12} sm={12} md={12} lg={12}>
-                  <div className="">
-                    <hr className="cardBreak" />
-                    <div className="contain">
-                      <p className="bio">{this.state.description}</p>
-                    </div>
-                  </div>
-                </Col>
-              </Row>
-            </Col>
-          </Row>
+          <ProfTopSection
+            btnText="Request Trip"
+            city={this.state.city}
+            companyName={this.state.companyName}
+            description={this.state.description}
+            name={this.state.name}
+            picture={this.state.picture}
+            price={this.state.price}
+            rate={this.state.rating.rate}
+            stateName={this.state.stateName}
+            url={`/company/${this.state.companyCode}`}
+          />
           <Row className="mainCard">
             <Col xs={12} sm={12} md={12} lg={12}>
               <h2>Guides</h2>
