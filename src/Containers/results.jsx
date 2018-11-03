@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios';
+import DisplayCard from '../Components/displayCard';
 import RequestModal from '../Components/requestModal';
 import SearchBar from '../Components/searchbar';
 import './Styles/results.css';
@@ -124,101 +125,17 @@ class Results extends Component {
                 this.state.results.map((result) => {
                   if (result.roleGroup === 'guide' && this.state.guides) {
                     return (
-                      <Col xs={12} sm={6} md={4} lg={3}>
-                        <li className="list">
-                          <div className="thumbox">
-                            <div style={ {
-                              backgroundImage: `url(${result.picture})`,
-                              backgroundPosition: 'center',
-                              backgroundRepeat: 'no-repeat',
-                              backgroundSize: '100% auto',
-                              backgroundColor: 'white',
-                            }
-                            } className="cardImg"></div>
-                            <div className="caption">
-                              <h3>{`${result.firstName} ${result.lastName}`}</h3>
-                              <p>{`${result.city}, ${result.state}`}</p>
-                              <div style={ { display: 'block' } }>
-                                <StarRatingComponent
-                                  name={result.firstName+result.lastName}
-                                  starColor={'#3783B6'}
-                                  emptyStarColor={'#B5D994'}
-                                  value={result.rating.rate}
-                                />
-                              </div>
-                              <div className="removeButn">
-                                <RequestModal btnText="Request Guide"/>
-                              </div>
-                              <Link to={`/profile/${result.firstName}`}><button className="removeButn">View Guide</button></Link>
-                            </div>
-                          </div>
-                        </li>
-                      </Col>
+                      <DisplayCard item={result} Url={`/profile/${result.id}`} />
                     );
                   }
                   if (result.roleGroup === 'company' && this.state.companies) {
                     return (
-                      <Col xs={12} sm={6} md={4} lg={3}>
-                        <li className="list">
-                          <div className="thumbox">
-                            <div style={ {
-                              backgroundImage: `url(${result.picture})`,
-                              backgroundPosition: 'center',
-                              backgroundRepeat: 'no-repeat',
-                              backgroundSize: '100% 100%',
-                              backgroundColor: 'white',
-                            }
-                            } className="cardImg"></div>
-                            <div className="caption">
-                              <h3>{result.companyName}</h3>
-                              <p>{`${result.city}, ${result.stateName}`}</p>
-                              <div style={ { display: 'block' } }>
-                                <StarRatingComponent
-                                  name={result.companyName}
-                                  starColor={'#3783B6'}
-                                  emptyStarColor={'#B5D994'}
-                                  value={result.rating.rate}
-                                />
-                              </div>
-                              <Link to={`/company/${result.companyName}`}><button className="removeButn">View Company</button></Link>
-                            </div>
-                          </div>
-                        </li>
-                      </Col>
+                      <DisplayCard item={result} Url={`/company/${result.companyCode}`} />
                     );
                   }
                   if (result.roleGroup === 'trip' && this.state.trips) {
                     return (
-                      <Col xs={12} sm={6} md={4} lg={3}>
-                        <li className="list">
-                          <div className="thumbox">
-                            <div style={ {
-                              backgroundImage: `url(${result.picture})`,
-                              backgroundPosition: 'center',
-                              backgroundRepeat: 'no-repeat',
-                              backgroundSize: '100% 100%',
-                              backgroundColor: 'white',
-                            }
-                            } className="cardImg"></div>
-                            <div className="caption">
-                              <h3>{result.name}</h3>
-                              <p>{`${result.city}, ${result.stateName}`}</p>
-                              <div style={ { display: 'block' } }>
-                                <StarRatingComponent
-                                  name={result.company}
-                                  starColor={'#3783B6'}
-                                  emptyStarColor={'#B5D994'}
-                                  value={result.rating.rate}
-                                />
-                              </div>
-                              <div className="removeButn">
-                                <RequestModal btnText="Request Trip"/>
-                              </div>
-                              <Link to={`/trips/${result._id}`}><button className="removeButn">View Trip</button></Link>
-                            </div>
-                          </div>
-                        </li>
-                      </Col>
+                      <DisplayCard item={result} Url={`/trips/${result._id}`} />
                     );
                   }
                 })
