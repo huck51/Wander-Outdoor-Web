@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Alert, Col, Row } from 'react-bootstrap';
 import axios from 'axios';
 import DisplayCard from '../Components/displayCard';
 import './Styles/addGuide.css';
@@ -95,9 +95,8 @@ class AddGuide extends Component {
       <div>
         <h1>Add Guide</h1>
         <button onClick={this.handleSubmit}>Add Selected Guides</button>
-        <div style={subError ? {color: 'red', padding: '1em'} : hideWarning}>
-          <p>*No guides selected. You must select at least one guide before submitting.</p>
-        </div>
+        <Alert bsStyle="danger" style={subError ? {} : hideWarning }><strong>*No guide selected.</strong> Please select at least one guide before submitting.
+        </Alert>
         <ul className="guideUl">
           <Row className="container">
             {this.state.guides.map((guide) => {
