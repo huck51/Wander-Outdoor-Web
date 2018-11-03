@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+  Alert,
   Col,
   ControlLabel,
   FormControl,
@@ -18,7 +19,13 @@ class Contact extends Component {
       name: '',
       email: '',
       message: '',
+      subError: false,
+      msgSuccess: false,
     };
+  }
+
+  toggleError = () => {
+    this.setState({ subError: true });
   }
 
   handleChange = (e) => {
@@ -28,17 +35,29 @@ class Contact extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { name, email, message } = this.state;
-    const contactMessage = { name, email, message };
+    const nameT = name.trim();
+    const emailT = email.trim();
+    const messageT = message.trim();
+    if (nameT === '' || emailT === '' || messageT === '') {
+      this.toggleError();
+      return;
+    }
+    const contactMessage = {
+      name: nameT,
+      email: emailT,
+      message: messageT
+    };
     // Need to configure query parameters V
     console.log(contactMessage);
     axios.post('https://fierce-ridge-55021.herokuapp.com/contact-message', contactMessage)
       .then((response) => {
         console.log(response);
-        alert('Success! We recieved your message. Thanks for the feedback!');
         this.setState({
           name: '',
           email: '',
           message: '',
+          subError: false,
+          msgSuccess: true,
         });
       })
       .catch((err) => {
@@ -53,6 +72,10 @@ class Contact extends Component {
           </Col>
           <Col xs={12} sm={12} md={6} lg={6}>
             <h1>Contact Us</h1>
+            <Alert bsStyle="danger" className={this.state.subError ? 'missingField' : 'allFields'}><strong>*Missing Field.</strong> Please make sure all fields are filled out before submitting.
+            </Alert>
+            <Alert bsStyle="success" className={this.state.msgSuccess ? 'missingField' : 'allFields'}><strong>Success</strong> - Message sent.
+            </Alert>
             <div className="container">
               <form className="sizeControl" onSubmit={this.handleSubmit}>
                 <FormGroup>
