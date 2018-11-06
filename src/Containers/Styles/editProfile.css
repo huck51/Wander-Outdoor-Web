@@ -8,7 +8,7 @@ h4 {
   margin-bottom: 2em;
 }
 .profPic {
-  height: 25em;
+  height: auto;
   width: 25em;
   border: solid 10px rgba(0,0,0,.7);
 }

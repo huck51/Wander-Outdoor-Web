@@ -37,7 +37,6 @@ class EditCompany extends Component {
 
   componentDidMount() {
     const id = localStorage.getItem('fierceIce');
-    // CHANGE URL BEFORE SERIOUS TESTING !!!!
     axios.get(`https://fierce-ridge-55021.herokuapp.com/company/${this.props.match.params.company}`)
     .then((response) => {
       console.log(response.data);
