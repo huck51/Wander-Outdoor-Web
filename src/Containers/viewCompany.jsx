@@ -10,6 +10,7 @@ import axios from 'axios';
 import StarRatingComponent from 'react-star-rating-component';
 import ReviewCard from '../Components/reviewCard';
 import ReviewForm from '../Components/reviewForm';
+import Atv from '../Images/all-terrain-vehicle-motorbike.svg';
 import './Styles/viewCompany.css';
 
 

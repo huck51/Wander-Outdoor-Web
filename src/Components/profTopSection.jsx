@@ -30,7 +30,7 @@ const ProfTopSection = ({picture, name, url, companyName, city, stateName, rate,
                 value={rate}
                 className="starRating"
               />
-            <h4 className="basicInfo4">{`$${price}`}</h4>
+            <h4 className="basicInfo4">{price ? `$${price}` : ''}</h4>
             </div>
           </Col>
           <Col xs={12} sm={12} md={6} lg={6}>
