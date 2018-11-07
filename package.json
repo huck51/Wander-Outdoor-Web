@@ -16,9 +16,7 @@
     "react-scripts": "^2.1.1",
     "react-spinners": "^0.3.2",
     "react-star-rating-component": "^1.4.1",
-    "react-stripe-elements": "^2.0.1",
-    "request": "^2.85.0",
-    "universal-cookie": "^2.1.2"
+    "react-stripe-elements": "^2.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
