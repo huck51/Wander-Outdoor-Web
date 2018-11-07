@@ -12,7 +12,6 @@ import DisplayCard from '../Components/displayCard';
 import ProfTopSection from '../Components/profTopSection';
 import ReviewCard from '../Components/reviewCard';
 import ReviewForm from '../Components/reviewForm';
-import Atv from '../Images/all-terrain-vehicle-motorbike.svg';
 import './Styles/viewCompany.css';
 
 
