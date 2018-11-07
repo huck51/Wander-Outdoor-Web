@@ -4,6 +4,7 @@ import {
   Row,
 } from 'react-bootstrap';
 import StarRatingComponent from 'react-star-rating-component';
+import DisplayCard from '../Components/displayCard';
 import ProfTopSection from '../Components/profTopSection';
 import RequestModal from '../Components/requestModal';
 import ReviewCard from '../Components/reviewCard';
@@ -163,12 +164,14 @@ class ViewTrip extends Component {
           <Row className="mainCard">
             <Col xs={12} sm={12} md={12} lg={12}>
               <h2>Guides</h2>
-              <ul>
+              <ul className="guideUl">
+                <Row className="container">
                 {
                   this.state.guides.length === 0 ?
                     <li>No guides available</li> :
-                  this.state.guides.map(guide => <li>{guide.name}</li>)
+                  this.state.guides.map(guide => <DisplayCard item={guide} Url={`/profile/${guide.id}`}/>)
                 }
+                </Row>
               </ul>
             </Col>
           </Row>
