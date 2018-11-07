@@ -8,6 +8,7 @@ import {
 } from 'react-bootstrap';
 import axios from 'axios';
 import StarRatingComponent from 'react-star-rating-component';
+import DisplayCard from '../Components/displayCard';
 import ReviewCard from '../Components/reviewCard';
 import ReviewForm from '../Components/reviewForm';
 import Atv from '../Images/all-terrain-vehicle-motorbike.svg';
@@ -199,24 +200,28 @@ class ViewCompany extends Component {
           <Row className="mainCard">
             <Col xs={12} sm={12} md={12} lg={12}>
               <h2>Guides</h2>
-              <ul>
+              <ul className="guideUl">
+                <Row className="container">
                 {
                   this.state.guides.length === 0 ?
                     <li>No guides available</li> :
-                  this.state.guides.map(guide => <li>{guide.name}</li>)
+                  this.state.guides.map(guide => <DisplayCard item={guide} Url={`/profile/${guide.id}`}/>)
                 }
+              </Row>
               </ul>
             </Col>
           </Row>
           <Row className="mainCard">
             <Col xs={12} sm={12} md={12} lg={12}>
               <h2>Trips</h2>
-              <ul>
+              <ul className="guideUl">
+                <Row className="container">
                 {
                   this.state.trips.length === 0 ?
                     <li>No trips available</li> :
-                  this.state.trips.map(trip => <li>{trip.name}</li>)
+                  this.state.trips.map(trip => <DisplayCard item={trip} Url={`/trips/${trip._id}`} />)
                 }
+              </Row>
               </ul>
             </Col>
           </Row>
