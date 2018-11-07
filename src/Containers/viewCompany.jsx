@@ -9,6 +9,7 @@ import {
 import axios from 'axios';
 import StarRatingComponent from 'react-star-rating-component';
 import DisplayCard from '../Components/displayCard';
+import ProfTopSection from '../Components/profTopSection';
 import ReviewCard from '../Components/reviewCard';
 import ReviewForm from '../Components/reviewForm';
 import Atv from '../Images/all-terrain-vehicle-motorbike.svg';
@@ -164,39 +165,19 @@ class ViewCompany extends Component {
     return (
       <div>
         <div className="contain">
-          <Row className="mainCard">
-            <Col xs={12} sm={12} md={4} lg={4} style={profPic}>
-              <div className="proPic"></div>
-            </Col>
-            <Col xs={12} sm={12} md={8} lg={8}>
-              <Row>
-                <Col xs={12} sm={12} md={12} lg={12}>
-                  <div className="">
-                    <h2 className="basicInfo2">{this.state.companyName}</h2>
-                    <h4 className="basicInfo4">{this.state.city}, {this.state.stateName}</h4>
-                    <h4 className="basicInfo4">{this.state.companyPhone}</h4>
-                    <StarRatingComponent
-                      name={this.state.companyName}
-                      starColor="#3783B6"
-                      emptyStarColor="#B5D994"
-                      value={this.state.rating.rate}
-                      className="starRating"
-                    />
-                  </div>
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={12} sm={12} md={12} lg={12}>
-                  <div className="">
-                    <hr className="cardBreak" />
-                    <div className="contain">
-                      <p className="bio">{this.state.bio}</p>
-                    </div>
-                  </div>
-                </Col>
-              </Row>
-            </Col>
-          </Row>
+          <ProfTopSection
+            btnText={false}
+            city={this.state.city}
+            companyName={false}
+            description={this.state.bio}
+            name={this.state.companyName}
+            phone={this.state.companyPhone}
+            picture={this.state.picture}
+            price={false}
+            rate={this.state.rating.rate}
+            stateName={this.state.stateName}
+            url={`/company/${this.state.companyCode}`}
+          />
           <Row className="mainCard">
             <Col xs={12} sm={12} md={12} lg={12}>
               <h2>Guides</h2>
