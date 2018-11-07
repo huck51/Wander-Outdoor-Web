@@ -5,8 +5,6 @@ import Footer from './Components/footer';
 import Main from './main';
 import MegaContext from './Components/megaContext';
 import NavigationBar from './Components/navigationbar';
-import bouldering from './Images/BackgroundImages/bouldering.jpg';
-import canyonRun from './Images/BackgroundImages/canyonRun.jpg';
 import './App.css';
 
 const fallRun = 'https://res.cloudinary.com/wander-outdoor/image/upload/c_scale,q_60,w_1600/v1529539222/Wander/DSC_0076-2.webp';
@@ -16,6 +14,8 @@ const heidiClimb = 'https://res.cloudinary.com/wander-outdoor/image/upload/c_sca
 const sunsetClimb = 'https://res.cloudinary.com/wander-outdoor/image/upload/c_scale,q_60,w_1600/v1529538844/Wander/sunsetClimb.webp';
 const surfing = 'https://res.cloudinary.com/wander-outdoor/image/upload/c_scale,q_60,w_1600/v1529538872/Wander/surfing.webp';
 const deepSnowHike = 'https://res.cloudinary.com/wander-outdoor/image/upload/c_scale,q_60,w_1600/v1530098328/Wander/deepSnowHike.webp';
+const bouldering = 'https://res.cloudinary.com/wander-outdoor/image/upload/c_scale,w_1600/v1541621996/Wander/bouldering-min.webp';
+const canyonRun = 'https://res.cloudinary.com/wander-outdoor/image/upload/c_scale,w_1600/v1541621984/Wander/canyonRun-min.webp';
 
 const backgroundArray = [bouldering, canyonRun, deepSnowHike, grayTightRope, hangingGear, sunsetClimb, surfing, heidiClimb, fallRun];
 const rando = Math.floor(Math.random() * backgroundArray.length);
