@@ -9,16 +9,15 @@ import bouldering from './Images/BackgroundImages/bouldering.jpg';
 import canyonRun from './Images/BackgroundImages/canyonRun.jpg';
 import './App.css';
 
-const fallRun = 'https://res.cloudinary.com/wander-outdoor/image/upload/v1529539222/Wander/DSC_0076-2.jpg';
-const grayTightRope = 'https://res.cloudinary.com/wander-outdoor/image/upload/v1529538924/Wander/grayTightRope.jpg';
-const hangingGear = 'https://res.cloudinary.com/wander-outdoor/image/upload/v1529538889/Wander/hangingGear.jpg';
-const heidiClimb = 'https://res.cloudinary.com/wander-outdoor/image/upload/v1529538806/Wander/heidiClimb.jpg';
-const sunsetClimb = 'https://res.cloudinary.com/wander-outdoor/image/upload/v1529538844/Wander/sunsetClimb.jpg';
-const surfing = 'https://res.cloudinary.com/wander-outdoor/image/upload/v1529538872/Wander/surfing.jpg';
-const deepSnowHike = 'https://res.cloudinary.com/wander-outdoor/image/upload/v1530098328/Wander/deepSnowHike.jpg';
+const fallRun = 'https://res.cloudinary.com/wander-outdoor/image/upload/c_scale,q_60,w_1600/v1529539222/Wander/DSC_0076-2.webp';
+const grayTightRope = 'https://res.cloudinary.com/wander-outdoor/image/upload/c_scale,q_60,w_1600/v1529538924/Wander/grayTightRope.webp';
+const hangingGear = 'https://res.cloudinary.com/wander-outdoor/image/upload/c_scale,q_60,w_1600/v1529538889/Wander/hangingGear.webp';
+const heidiClimb = 'https://res.cloudinary.com/wander-outdoor/image/upload/c_scale,q_60,w_1600/v1529538806/Wander/heidiClimb.webp';
+const sunsetClimb = 'https://res.cloudinary.com/wander-outdoor/image/upload/c_scale,q_60,w_1600/v1529538844/Wander/sunsetClimb.webp';
+const surfing = 'https://res.cloudinary.com/wander-outdoor/image/upload/c_scale,q_60,w_1600/v1529538872/Wander/surfing.webp';
+const deepSnowHike = 'https://res.cloudinary.com/wander-outdoor/image/upload/c_scale,q_60,w_1600/v1530098328/Wander/deepSnowHike.webp';
 
-const backgroundArray = [bouldering, canyonRun, deepSnowHike, grayTightRope,
-  hangingGear, sunsetClimb, surfing, heidiClimb, fallRun];
+const backgroundArray = [bouldering, canyonRun, deepSnowHike, grayTightRope, hangingGear, sunsetClimb, surfing, heidiClimb, fallRun];
 const rando = Math.floor(Math.random() * backgroundArray.length);
 const stylz = {
   backgroundImage: `url(${backgroundArray[rando]})`,
