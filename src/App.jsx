@@ -4,7 +4,6 @@ import axios from 'axios';
 import Auth from './auth';
 import Footer from './Components/footer';
 import Main from './main';
-import MegaContext from './Components/megaContext';
 import NavigationBar from './Components/navigationbar';
 import './App.css';
 
