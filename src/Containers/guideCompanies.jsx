@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
-import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios';
 import DisplayCard from '../Components/displayCard';
 import './Styles/guideCompanies.css';
