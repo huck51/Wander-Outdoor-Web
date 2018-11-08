@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Alert, Col, Row } from 'react-bootstrap';
 import axios from 'axios';
-import DisplayCard from '../Components/displayCard';
 import './Styles/addGuide.css';
 
 
