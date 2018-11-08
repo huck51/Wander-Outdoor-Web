@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { StripeProvider } from 'react-stripe-elements';
 import axios from 'axios';
 import Auth from './auth';
 import Footer from './Components/footer';
@@ -34,6 +35,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      stripe: null,
       loggedIn: false,
       user: {
         username: '',
@@ -57,6 +59,14 @@ class App extends Component {
   }
 
   componentDidMount() {
+    if (window.Stripe) {
+      this.setState({stripe: window.Stripe('pk_test_6kVwvdGW58r0XdXjnI4i9ui4')});
+    } else {
+      document.querySelector('#stripe-js').addEventListener('load', () => {
+        // Create Stripe instance once Stripe.js loads
+        this.setState({stripe: window.Stripe('pk_test_6kVwvdGW58r0XdXjnI4i9ui4')});
+      });
+    }
     var token;
     axios.get('https://fierce-ridge-55021.herokuapp.com/testy-puller')
     .then(initResponse => {
@@ -111,7 +121,9 @@ class App extends Component {
         <div className={window.location.pathname === '/' ? 'shadeLayer' : ''}>
           <div id="body">
             <NavigationBar loggedIn={this.state.loggedIn} user={this.state.user} />
-            <Main />
+            <StripeProvider stripe={this.state.stripe}>
+              <Main />
+            </StripeProvider>
           </div>
           <div id="footer">
             <Footer />
