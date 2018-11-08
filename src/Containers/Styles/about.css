@@ -13,20 +13,20 @@
   margin: auto;
 }
 .openingSection {
-  background-image: url("https://res.cloudinary.com/wander-outdoor/image/upload/v1529539187/Wander/IMG_8208.jpg");
+  background-image: url("https://res.cloudinary.com/wander-outdoor/image/upload/v1529539187/Wander/IMG_8208.webp");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   background-attachment: fixed;
   margin: 0;
   width: 100%;
-  height: 50em;
+  height: 35em;
   overflow: scroll;
 }
 .picSecOne {
   min-height: 40em;
   width: 100%;
-  background-image: url("https://res.cloudinary.com/wander-outdoor/image/upload/v1531256806/Wander/IMG_4518.jpg");
+  background-image: url("https://res.cloudinary.com/wander-outdoor/image/upload/c_scale,q_80,w_1600/v1531256806/Wander/IMG_4518.webp");
   background-repeat: no-repeat;
   background-position: right center;
   background-size: cover;
@@ -37,7 +37,7 @@
 .picSecTwo {
   min-height: 40em;
   width: 100%;
-  background-image: url("https://res.cloudinary.com/wander-outdoor/image/upload/v1529538806/Wander/heidiClimb.jpg");
+  background-image: url("https://res.cloudinary.com/wander-outdoor/image/upload/c_scale,q_80,w_1600/v1529538806/Wander/heidiClimb.webp");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -48,7 +48,7 @@
 .picSecThree {
   min-height: 40em;
   width: 100%;
-  background-image: url("https://res.cloudinary.com/wander-outdoor/image/upload/v1529539200/Wander/DSC_0963.jpg");
+  background-image: url("https://res.cloudinary.com/wander-outdoor/image/upload/c_scale,w_1600/v1529539200/Wander/DSC_0963.webp");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -59,7 +59,7 @@
 .picSecFour {
   min-height: 40em;
   width: 100%;
-  background-image: url("https://res.cloudinary.com/wander-outdoor/image/upload/v1529538889/Wander/hangingGear.jpg");
+  background-image: url("https://res.cloudinary.com/wander-outdoor/image/upload/c_scale,q_60,w_1600/v1529538889/Wander/hangingGear.webp");
   background-repeat: no-repeat;
   background-position: bottom center;
   background-size: cover;
@@ -70,7 +70,7 @@
 .picSecFive {
   min-height: 40em;
   width: 100%;
-  background-image: url("https://res.cloudinary.com/wander-outdoor/image/upload/v1536689843/Wander/26804400_715122888685413_6965728604775214838_n.jpg");
+  background-image: url("https://res.cloudinary.com/wander-outdoor/image/upload/v1536689843/Wander/26804400_715122888685413_6965728604775214838_n.webp");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
