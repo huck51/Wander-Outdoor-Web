@@ -21,16 +21,10 @@ import Guides from './Containers/guides';
 import GuidingCompanies from './Containers/guideCompanies';
 import HigherAuth from './higherAuth';
 import Home from './Containers/home';
-import Inbox from './Containers/inbox';
-import MegaContext from './Components/megaContext';
-import MegaConsumer from './Components/megaConsumer';
 import RemoveGuide from './Containers/removeGuide';
 import RemoveTrip from './Containers/removeTrip';
 import Results from './Containers/results';
-import SignUp from './Containers/signUp';
 import SignUpGC from './Containers/signUpGC';
-import SignUpGuides from './Containers/signUpGuides';
-import SignUpTravelers from './Containers/signUpTravelers';
 import SubscriptionDetails from './Containers/subscriptionDetails';
 import Trips from './Containers/trips';
 import ViewCompany from './Containers/viewCompany';
@@ -53,11 +47,7 @@ const Main = () => (
         exact
         path="/"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <Home {...props} value={value} />
-            )}
-          </MegaContext.Consumer>
+            <Home {...props} />
           )}
       />
       <Route exact path="/about" component={About} />
@@ -66,11 +56,7 @@ const Main = () => (
         path="/account-info"
         component={AccountInfo}
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <AccountInfo {...props} value={value} />
-            )}
-          </MegaContext.Consumer>
+            <AccountInfo {...props} />
         )}
       />
       <Route
@@ -85,14 +71,7 @@ const Main = () => (
         exact
         path="/business-member/payments"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <BizMembers
-                {...props}
-                value={value}
-              />
-            )}
-          </MegaContext.Consumer>
+            <BizMembers {...props} />
           )
         }
       />
@@ -100,14 +79,7 @@ const Main = () => (
         exact
         path="/company/:company"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <ViewCompany
-                {...props}
-                value={value}
-              />
-            )}
-          </MegaContext.Consumer>
+            <ViewCompany {...props} />
           )
         }
       />
@@ -115,14 +87,7 @@ const Main = () => (
         exact
         path="/company/remove-trip"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <RemoveTrip
-                {...props}
-                value={value}
-              />
-            )}
-          </MegaContext.Consumer>
+            <RemoveTrip {...props} />
           )
         }
       />
@@ -130,14 +95,7 @@ const Main = () => (
         exact
         path="/company/remove-guide"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <RemoveGuide
-                {...props}
-                value={value}
-              />
-            )}
-          </MegaContext.Consumer>
+            <RemoveGuide {...props} />
           )
         }
       />
@@ -145,14 +103,7 @@ const Main = () => (
         exact
         path="/contact"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <Contact
-                {...props}
-                value={value}
-              />
-            )}
-          </MegaContext.Consumer>
+            <Contact {...props} />
           )
         }
       />
@@ -160,15 +111,7 @@ const Main = () => (
         exact
         path="/dashboard"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <Dashboard
-                {...props}
-                value={value}
-                auth={auth}
-              />
-            )}
-          </MegaContext.Consumer>
+            <Dashboard {...props} auth={auth} />
           )
         }
       />
@@ -176,15 +119,7 @@ const Main = () => (
         exact
         path="/dashboard/:companyCode/1/:company"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <CompanyDashboard
-                {...props}
-                value={value}
-                auth={auth}
-              />
-            )}
-          </MegaContext.Consumer>
+            <CompanyDashboard {...props} auth={auth} />
           )
         }
       />
@@ -192,14 +127,7 @@ const Main = () => (
         exact
         path="/dashboard/:company/add-guide"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <AddGuide
-                {...props}
-                value={value}
-              />
-            )}
-          </MegaContext.Consumer>
+            <AddGuide {...props} />
           )
         }
       />
@@ -207,14 +135,7 @@ const Main = () => (
         exact
         path="/dashboard/:company/add-trip"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <AddTrip
-                {...props}
-                value={value}
-              />
-            )}
-          </MegaContext.Consumer>
+            <AddTrip {...props} />
           )
         }
       />
@@ -222,14 +143,7 @@ const Main = () => (
         exact
         path="/dashboard/:company/add-trip/:trip"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <AddTrip
-                {...props}
-                value={value}
-              />
-            )}
-          </MegaContext.Consumer>
+            <AddTrip {...props} />
           )
         }
       />
@@ -237,14 +151,7 @@ const Main = () => (
         exact
         path="/dashboard/:company/company-account"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <CompanyAccount
-                {...props}
-                value={value}
-              />
-            )}
-          </MegaContext.Consumer>
+            <CompanyAccount {...props} />
           )
         }
       />
@@ -252,14 +159,7 @@ const Main = () => (
         exact
         path="/dashboard/:company/edit-company"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <EditCompany
-                {...props}
-                value={value}
-              />
-            )}
-          </MegaContext.Consumer>
+            <EditCompany {...props} />
           )
         }
       />
@@ -267,15 +167,7 @@ const Main = () => (
         exact
         path="/dashboard/:company/guides"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <DashboardGuides
-                {...props}
-                value={value}
-                auth={auth}
-              />
-            )}
-          </MegaContext.Consumer>
+            <DashboardGuides {...props} auth={auth} />
           )
         }
       />
@@ -283,15 +175,7 @@ const Main = () => (
         exact
         path="/dashboard/:company/trips"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <DashboardTrips
-                {...props}
-                value={value}
-                auth={auth}
-              />
-            )}
-          </MegaContext.Consumer>
+            <DashboardTrips {...props} auth={auth} />
           )
         }
       />
@@ -299,14 +183,7 @@ const Main = () => (
         exact
         path="/edit-profile"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <EditProfile
-                {...props}
-                value={value}
-              />
-            )}
-          </MegaContext.Consumer>
+            <EditProfile {...props} />
           )
         }
       />
@@ -314,14 +191,7 @@ const Main = () => (
         exact
         path="/edit-trip/:id"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <EditTrip
-                {...props}
-                value={value}
-              />
-            )}
-          </MegaContext.Consumer>
+            <EditTrip {...props} />
           )
         }
       />
@@ -329,14 +199,7 @@ const Main = () => (
         exact
         path="/guides"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <Guides
-                {...props}
-                value={value}
-              />
-            )}
-          </MegaContext.Consumer>
+            <Guides {...props} />
           )
         }
       />
@@ -344,15 +207,7 @@ const Main = () => (
         exact
         path="/guides/:username"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <ViewTraveler
-                {...props}
-                value={value}
-                auth={auth}
-              />
-            )}
-          </MegaContext.Consumer>
+            <ViewTraveler {...props} auth={auth} />
           )
         }
       />
@@ -360,14 +215,7 @@ const Main = () => (
         exact
         path="/guiding-companies"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <GuidingCompanies
-                {...props}
-                value={value}
-              />
-            )}
-          </MegaContext.Consumer>
+            <GuidingCompanies {...props} />
           )
         }
       />
@@ -375,14 +223,7 @@ const Main = () => (
         exact
         path="/profile/:id"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <ViewTraveler
-                {...props}
-                value={value}
-              />
-            )}
-          </MegaContext.Consumer>
+            <ViewTraveler {...props} />
           )
         }
       />
@@ -390,14 +231,7 @@ const Main = () => (
         exact
         path="/results/:search"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <Results
-                {...props}
-                value={value}
-              />
-            )}
-          </MegaContext.Consumer>
+            <Results {...props} />
           )
         }
       />
@@ -405,14 +239,7 @@ const Main = () => (
         exact
         path="/signup/guiding-company"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <SignUpGC
-                {...props}
-                value={value}
-              />
-            )}
-          </MegaContext.Consumer>
+            <SignUpGC {...props} />
           )
         }
       />
@@ -420,14 +247,7 @@ const Main = () => (
         exact
         path="/subscription-details"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <SubscriptionDetails
-                {...props}
-                value={value}
-              />
-            )}
-          </MegaContext.Consumer>
+            <SubscriptionDetails {...props} />
           )
         }
       />
@@ -435,14 +255,7 @@ const Main = () => (
         exact
         path="/trips"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <Trips
-                {...props}
-                value={value}
-              />
-            )}
-          </MegaContext.Consumer>
+            <Trips {...props} />
           )
         }
       />
@@ -450,14 +263,7 @@ const Main = () => (
         exact
         path="/trips/:id"
         render={props => (
-          <MegaContext.Consumer>
-            {value => (
-              <ViewTrip
-                {...props}
-                value={value}
-              />
-            )}
-          </MegaContext.Consumer>
+            <ViewTrip {...props} />
           )
         }
       />
