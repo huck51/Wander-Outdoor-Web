@@ -169,22 +169,22 @@ class EditTrip extends Component {
 
   addTripToGuide = (guidesToLink, tripToLink) => {
     console.log(`addTripToGuide`);
-    axios.post(`https://fierce-ridge-55021.herokuapp.com/link-guide-to-trip`, { guidesToLink, tripToLink }).
-      then((response) => {
+    axios.post(`https://fierce-ridge-55021.herokuapp.com/link-guide-to-trip`, { guidesToLink, tripToLink })
+      .then((response) => {
         console.log(response.data);
-      }).
-      catch((err) => {
+      })
+      .catch((err) => {
         console.log(err);
       });
   }
 
   removeTripFromGuide = (guidesToUnlink, tripToUnlink) => {
     console.log('removeTripFromGuide');
-    axios.post(`https://fierce-ridge-55021.herokuapp.com/unlink-guide-from-trip`, { guidesToUnlink, tripToUnlink }).
-      then((response) => {
+    axios.post(`https://fierce-ridge-55021.herokuapp.com/unlink-guide-from-trip`, { guidesToUnlink, tripToUnlink })
+      .then((response) => {
         console.log(response.data);
-      }).
-      catch((err) => {
+      })
+      .catch((err) => {
         console.log(err);
       });
   }
