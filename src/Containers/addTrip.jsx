@@ -39,8 +39,8 @@ class AddTrip extends Component {
   }
 
   componentDidMount() {
-    axios.get(`https://fierce-ridge-55021.herokuapp.com/company/guides/${this.props.match.params.company}`).
-      then((response) => {
+    axios.get(`https://fierce-ridge-55021.herokuapp.com/company/guides/${this.props.match.params.company}`)
+      .then((response) => {
         const guides = [...response.data];
         const addedGuides = [];
         for (let i = 0; i < guides.length; i++) {
@@ -53,8 +53,8 @@ class AddTrip extends Component {
           guides,
           addedGuides,
         });
-      }).
-      catch((err) => {
+      })
+      .catch((err) => {
         console.log(err);
       });
   }
