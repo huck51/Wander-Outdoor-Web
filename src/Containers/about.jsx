@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Col, Row } from 'react-bootstrap';
-import SmSection from '../Components/smSection';
 import PicSection from '../Components/picSection';
 import TeamGuy from '../Components/teamGuy';
 import './Styles/about.css';
