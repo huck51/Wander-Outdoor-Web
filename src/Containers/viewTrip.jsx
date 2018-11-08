@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
-import {
-  Col,
-  Row,
-} from 'react-bootstrap';
-import StarRatingComponent from 'react-star-rating-component';
+import { Col, Row, } from 'react-bootstrap';
 import DisplayCard from '../Components/displayCard';
 import ProfTopSection from '../Components/profTopSection';
-import RequestModal from '../Components/requestModal';
 import ReviewCard from '../Components/reviewCard';
 import ReviewForm from '../Components/reviewForm';
 import axios from 'axios';
@@ -126,8 +121,8 @@ class ViewTrip extends Component {
         id: this.props.match.params.id,
         rating,
       };
-      axios.post(`https://fierce-ridge-55021.herokuapp.com/trip-update-reviews`, updateObject).
-        then((response) => {
+      axios.post(`https://fierce-ridge-55021.herokuapp.com/trip-update-reviews`, updateObject)
+        .then((response) => {
           console.log(response);
           const newTrip = response.data;
           this.setState({
@@ -135,8 +130,8 @@ class ViewTrip extends Component {
             newRating: 0,
             newReview: '',
           });
-        }).
-        catch((err) => {
+        })
+        .catch((err) => {
           console.log(err);
         });
     })
