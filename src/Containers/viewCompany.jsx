@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
-import {
-  Col,
-  ControlLabel,
-  FormControl,
-  FormGroup,
-  Row,
-} from 'react-bootstrap';
+import { Col, Row, } from 'react-bootstrap';
 import axios from 'axios';
-import StarRatingComponent from 'react-star-rating-component';
 import DisplayCard from '../Components/displayCard';
 import ProfTopSection from '../Components/profTopSection';
 import ReviewCard from '../Components/reviewCard';
@@ -135,8 +128,8 @@ class ViewCompany extends Component {
         company: this.props.match.params.company,
         rating,
       };
-      axios.post(`https://fierce-ridge-55021.herokuapp.com/company-update-reviews`, updateObject).
-        then((response) => {
+      axios.post(`https://fierce-ridge-55021.herokuapp.com/company-update-reviews`, updateObject)
+        .then((response) => {
           console.log(response);
           const newCompany = response.data;
           this.setState({
@@ -144,8 +137,8 @@ class ViewCompany extends Component {
             newRating: 0,
             newReview: '',
           });
-        }).
-        catch((err) => {
+        })
+        .catch((err) => {
           console.log(err);
         });
     })
@@ -155,12 +148,6 @@ class ViewCompany extends Component {
   }
 
   render() {
-    const profPic = {
-      'backgroundImage': `url(${this.state.picture})`,
-      'backgroundPosition': 'center',
-      'backgroundSize': 'contain',
-      'backgroundRepeat': 'no-repeat',
-    };
     return (
       <div>
         <div className="contain">
