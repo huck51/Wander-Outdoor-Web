@@ -6,8 +6,6 @@ import {
   CardCVCElement,
   PostalCodeElement,
   PaymentRequestButtonElement,
-  IbanElement,
-  IdealBankElement
  } from 'react-stripe-elements';
 
 class CardSection extends Component {
