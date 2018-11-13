@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Col, Row, } from 'react-bootstrap';
 import axios from 'axios';
+import DisplayCard from '../Components/displayCard';
+import ProfileList from '../Components/profileList';
 import ProfTopSection from '../Components/profTopSection';
 import ReviewCard from '../Components/reviewCard';
 import ReviewForm from '../Components/reviewForm';
@@ -194,12 +196,14 @@ class ViewTraveler extends Component {
           <Row className="mainCard">
             <Col xs={12} sm={12} md={12} lg={12}>
               <h2>Trips</h2>
-              <ul>
+              <ul className="guideUl">
+                <Row className="container">
                 {
                   this.state.tripsQualified.length === 0 ?
                     <li>Not qualified to lead any trips.</li> :
-                  this.state.tripsQualified.map(trip => <li>{trip.name}</li>)
+                  this.state.tripsQualified.map(trip => <DisplayCard item={trip} Url={`/trips/${trip._id}`} className="listCheck" />)
                 }
+              </Row>
               </ul>
             </Col>
           </Row>
