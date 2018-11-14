@@ -92,6 +92,7 @@ class Dashboard extends Component {
                               name={company.companyName}
                               starColor="#3783B6"
                               emptyStarColor="#B5D994"
+                              value={company.rating.rate}
                             />
                           </div>
                           <Link to={`/company/${company.companyCode}`}><button className="removeButn">View Company</button></Link>
