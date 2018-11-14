@@ -40,7 +40,7 @@ class DashboardGuides extends Component {
   render() {
     return (
       <div>
-        <h1>DASHBOARD GUIDES</h1>
+        <h1>{`YOUR CURRENT GUIDES`}</h1>
         <div>
           <Row>
             <Col md={2} mdOffset={5}>
@@ -86,6 +86,7 @@ class DashboardGuides extends Component {
                               name={guide.firstName + guide.lastName}
                               starColor="#3783B6"
                               emptyStarColor="#B5D994"
+                              value={guide.rating.rate}
                             />
                           </div>
                           <Link to={`/profile/${guide.firstName}`}>
