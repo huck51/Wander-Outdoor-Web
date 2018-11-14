@@ -173,7 +173,7 @@ class ViewTrip extends Component {
           <Row className="mainCard">
             <Col xs={12} sm={12} md={12} lg={12}>
               <h2>Reviews</h2>
-              <ul>
+              <ul className="guideUl">
                 <Row className="container">
                 {
                   this.state.reviews.length === 0 ?
