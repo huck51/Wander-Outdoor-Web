@@ -52,7 +52,8 @@ class ViewCompany extends Component {
           rating,
           chex,
           picture,
-          reviews
+          reviews,
+          activities,
         } = response.data;
         this.setState({
           companyName,
@@ -70,6 +71,7 @@ class ViewCompany extends Component {
           picture,
           rating,
           reviews,
+          activities,
         });
       })
       .catch((err) => {
@@ -199,7 +201,7 @@ class ViewCompany extends Component {
                 {
                   this.state.chex.length === 0 ?
                     <li>No activities available</li> :
-                  this.state.chex.map(activity => <li className="listCheck">{activity}</li>)
+                  this.state.activities.map(activity => <li className="listCheck">{activity}</li>)
                 }
               </ul>
             </Col>
