@@ -50,9 +50,11 @@ class SignUpGC extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const chex = [];
+    const activities = [];
     for (let i = 0; i < activitiesArr.length; i++) {
       if (this.state[activitiesArr[i].name] === true) {
         chex.push(activitiesArr[i].name);
+        activities.push(activitiesArr[i].pretty);
       }
     }
     const {
@@ -67,7 +69,7 @@ class SignUpGC extends Component {
       contactPhone,
       contactEmail,
       picture,
-      bio
+      bio,
     } = this.state;
     const newCompany = {
       companyName,
@@ -84,6 +86,7 @@ class SignUpGC extends Component {
       bio,
       chex,
       owner: localStorage.getItem('fierceIce'),
+      activities,
     };
     this.setState({
       companyName: '',
