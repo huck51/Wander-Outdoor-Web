@@ -3,13 +3,19 @@ import { Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import StarRatingComponent from 'react-star-rating-component';
 
-const DisplayCard = ({item, Url}) => {
+const DisplayCard = ({item}) => {
+  const url = [];
   if (item.roleGroup === 'company') {
     item.name = item.companyName;
+    url.push(`/company/${item.companyCode}`);
   }
   var bgSize = '100% 100%';
   if (item.roleGroup === 'guide') {
     bgSize = '100% auto';
+    url.push(`/profile/${item.id}`);
+  }
+  if (item.roleGroup === 'trip') {
+    url.push(`/trips/${item._id}`);
   }
   var price = '';
   var priceStyle = {
@@ -24,7 +30,7 @@ const DisplayCard = ({item, Url}) => {
   return (
     <Col xs={12} sm={6} md={4} lg={3}>
       <li className="list">
-        <Link to={Url}>
+        <Link to={url[0]}>
         <div className="thumbox">
           <div
             style={
