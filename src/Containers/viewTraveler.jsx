@@ -193,32 +193,18 @@ class ViewTraveler extends Component {
               </ul>
             </Col>
           </Row>
-          <Row className="mainCard">
-            <Col xs={12} sm={12} md={12} lg={12}>
-              <h2>Trips</h2>
-              <ul className="guideUl">
-                <Row className="container">
-                {
-                  this.state.tripsQualified.length === 0 ?
-                    <li>Not qualified to lead any trips.</li> :
-                  this.state.tripsQualified.map(trip => <DisplayCard item={trip} Url={`/trips/${trip._id}`} className="listCheck" />)
-                }
-              </Row>
-              </ul>
-            </Col>
-          </Row>
-          <Row className="mainCard">
-            <Col xs={12} sm={12} md={12} lg={12}>
-              <h2>Past Trips</h2>
-              <ul>
-                {
-                  this.state.tripsCompleted.length === 0 ?
-                    <li>No trips completed</li> :
-                  this.state.tripsCompleted.map(trip => <li>{trip.name}</li>)
-                }
-              </ul>
-            </Col>
-          </Row>
+          <ProfileList
+            heading="Trips"
+            listArr={this.state.tripsQualified}
+            url="trips"
+            emptyMsg="No trips available"
+          />
+          <ProfileList
+            heading="Trips Completed"
+            listArr={this.state.tripsCompleted}
+            url="trips"
+            emptyMsg="No trips completed"
+          />
           <Row className="mainCard">
             <Col xs={12} sm={12} md={12} lg={12}>
               <h2>Certifications</h2>
@@ -249,15 +235,15 @@ class ViewTraveler extends Component {
                   }
                 </Row>
               </ul>
-              <ReviewForm
-                fValue={this.state.newReview}
-                change={this.handleChange}
-                sValue={this.state.newRating}
-                sClick={this.starClick}
-                submit={this.handleSubmit}
-              />
             </Col>
           </Row>
+          <ReviewForm
+            fValue={this.state.newReview}
+            change={this.handleChange}
+            sValue={this.state.newRating}
+            sClick={this.starClick}
+            submit={this.handleSubmit}
+          />
         </div>
       </div>
     );
