@@ -132,9 +132,11 @@ class EditProfile extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const chex = [];
+    const activities = [];
     for (let i = 0; i < activitiesArr.length; i++) {
       if (this.state.activitiesDict[activitiesArr[i].name]) {
         chex.push(activitiesArr[i].name);
+        activities.push(activitiesArr[i].pretty);
       }
     }
     const {
@@ -164,6 +166,7 @@ class EditProfile extends Component {
       city,
       stateName,
       chex,
+      activities,
     };
     axios.post('https://fierce-ridge-55021.herokuapp.com/update-profile', updateObject)
       .then((response) => {
