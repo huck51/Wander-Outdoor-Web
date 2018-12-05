@@ -1,11 +1,12 @@
 import React from 'react';
 import { Col } from 'react-bootstrap';
 import StarRatingComponent from 'react-star-rating-component';
+import './Styles/reviewCard.css';
 
 const ReviewCard = ({review, index}) => {
   return (
-    <Col xs={12} sm={6} md={4} lg={3}>
-      <li>
+    <Col xs={12} sm={12} md={12} lg={12}>
+      <li className="reviewListItem">
         <div>
           <StarRatingComponent
             name={review.author + index}
