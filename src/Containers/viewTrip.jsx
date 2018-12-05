@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Row, } from 'react-bootstrap';
+import ActivityList from '../Components/activityList';
 import DisplayCard from '../Components/displayCard';
 import ProfileList from '../Components/profileList';
 import ProfTopSection from '../Components/profTopSection';
@@ -13,6 +14,7 @@ class ViewTrip extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      activities: [],
       name: '',
       company: '',
       city: '',
@@ -158,6 +160,7 @@ class ViewTrip extends Component {
             stateName={this.state.stateName}
             url={`/company/${this.state.companyCode}`}
           />
+          <ActivityList activities={this.state.activities} />
           <ProfileList
             heading="Guides"
             listArr={this.state.guides}
