@@ -51,7 +51,7 @@ const DisplayCard = ({item}) => {
               <StarRatingComponent
                 name={item.companyName}
                 starColor="#FCB803"
-                emptyStarColor="#FFF"
+                emptyStarColor="#D1D1D1"
                 value={item.rating.rate}
               />
             </div>

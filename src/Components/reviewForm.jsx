@@ -26,8 +26,8 @@ const ReviewForm = ({ fValue, change, sValue, sClick, submit }) => {
           <p style={{ marginBottom: 0 }}><strong>Star Rating:</strong></p>
           <StarRatingComponent
             name="newReview"
-            starColor="#3783B6"
-            emptyStarColor="#B5D994"
+            starColor="#FCB803"
+            emptyStarColor="#D1D1D1"
             value={sValue}
             className=""
             onStarClick={sClick}

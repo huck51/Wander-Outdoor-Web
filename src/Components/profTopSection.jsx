@@ -27,8 +27,8 @@ const ProfTopSection = ({picture, name, url, companyName, city, stateName, rate,
               <h4 className="basicInfo4" style={phone ? {} : {display: 'none'}}>{phone}</h4>
               <StarRatingComponent
                 name={companyName}
-                starColor="#3783B6"
-                emptyStarColor="#B5D994"
+                starColor="#FCB803"
+                emptyStarColor="#D1D1D1"
                 value={rate}
                 className="starRating"
               />
