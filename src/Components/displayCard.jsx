@@ -50,8 +50,8 @@ const DisplayCard = ({item}) => {
             <div style={{ display: 'block' }}>
               <StarRatingComponent
                 name={item.companyName}
-                starColor="#3783B6"
-                emptyStarColor="#B5D994"
+                starColor="#FCB803"
+                emptyStarColor="#FFF"
                 value={item.rating.rate}
               />
             </div>
