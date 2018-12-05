@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Row, } from 'react-bootstrap';
 import axios from 'axios';
+import ActivityList from '../Components/activityList';
 import DisplayCard from '../Components/displayCard';
 import ProfileList from '../Components/profileList';
 import ProfTopSection from '../Components/profTopSection';
@@ -34,6 +35,7 @@ class ViewCompany extends Component {
       reviews: [],
       newReview: '',
       newRating: 0,
+      activities: [],
     };
   }
   componentDidMount() {
@@ -181,18 +183,7 @@ class ViewCompany extends Component {
             url="trips"
             emptyMsg="No trips available"
           />
-          <Row className="mainCard">
-            <Col xs={12} sm={12} md={12} lg={12}>
-              <h2>Sports / Activities</h2>
-              <ul>
-                {
-                  this.state.chex.length === 0 ?
-                    <li>No activities available</li> :
-                  this.state.activities.map(activity => <li className="listCheck">{activity}</li>)
-                }
-              </ul>
-            </Col>
-          </Row>
+          <ActivityList activities={this.state.activities} />
           <Row className="mainCard">
             <Col xs={12} sm={12} md={12} lg={12}>
               <h2>Permited Locations</h2>
