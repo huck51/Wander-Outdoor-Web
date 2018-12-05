@@ -36,6 +36,7 @@ class ViewCompany extends Component {
       newReview: '',
       newRating: 0,
       activities: [],
+      username: '',
     };
   }
   componentDidMount() {
@@ -59,7 +60,9 @@ class ViewCompany extends Component {
           reviews,
           activities,
         } = response.data;
+        const user = localStorage.getItem('name');
         this.setState({
+          username: user == (null || '' || undefined) ? 'Anonymous' : user,
           companyName,
           streetAddress,
           city,
