@@ -9,8 +9,8 @@ const ReviewCard = ({review, index}) => {
         <div>
           <StarRatingComponent
             name={review.author + index}
-            starColor="#3783B6"
-            emptyStarColor="#B5D994"
+            starColor="#FCB803"
+            emptyStarColor="#F1F1F1"
             value={review.rate}
             className="starRating"
             editing={false}
