@@ -3,6 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 import { BounceLoader } from 'react-spinners';
 import axios from 'axios';
 import DisplayCard from '../Components/displayCard';
+import ProfileList from '../Components/profileList';
 import './Styles/trips.css';
 
 
@@ -48,15 +49,11 @@ class Trips extends Component {
               />
             </Col>
           </Row>
-          <ul className="guideUl">
-            <Row className="container">
-              {this.state.trips.map((trip) => {
-                return (
-                  <DisplayCard item={trip} Url={`/trips/${trip._id}`} />
-                );
-              })}
-            </Row>
-          </ul>
+          <ProfileList
+            heading=""
+            listArr={this.state.trips}
+            emptyMsg="No trips to display"
+          />
         </div>
       </div>
     );
