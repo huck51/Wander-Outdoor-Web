@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Col, Row, } from 'react-bootstrap';
 import axios from 'axios';
 import DisplayCard from '../Components/displayCard';
+import ProfileList from '../Components/profileList';
 import ProfTopSection from '../Components/profTopSection';
 import ReviewCard from '../Components/reviewCard';
 import ReviewForm from '../Components/reviewForm';
@@ -166,34 +167,19 @@ class ViewCompany extends Component {
             stateName={this.state.stateName}
             url={`/company/${this.state.companyCode}`}
           />
-          <Row className="mainCard">
-            <Col xs={12} sm={12} md={12} lg={12}>
-              <h2>Guides</h2>
-              <ul className="guideUl">
-                <Row className="container">
-                {
-                  this.state.guides.length === 0 ?
-                    <li>No guides available</li> :
-                  this.state.guides.map(guide => <DisplayCard item={guide} Url={`/profile/${guide.id}`}/>)
-                }
-              </Row>
-              </ul>
-            </Col>
-          </Row>
-          <Row className="mainCard">
-            <Col xs={12} sm={12} md={12} lg={12}>
-              <h2>Trips</h2>
-              <ul className="guideUl">
-                <Row className="container">
-                {
-                  this.state.trips.length === 0 ?
-                    <li>No trips available</li> :
-                  this.state.trips.map(trip => <DisplayCard item={trip} Url={`/trips/${trip._id}`} />)
-                }
-              </Row>
-              </ul>
-            </Col>
-          </Row>
+          <ProfileList
+            heading="Guides"
+            listArr={this.state.guides}
+            url="profile"
+            emptyMsg="No guides available"
+            guide={true}
+          />
+          <ProfileList
+            heading="Trips"
+            listArr={this.state.trips}
+            url="trips"
+            emptyMsg="No trips available"
+          />
           <Row className="mainCard">
             <Col xs={12} sm={12} md={12} lg={12}>
               <h2>Sports / Activities</h2>
@@ -230,15 +216,15 @@ class ViewCompany extends Component {
                 }
                 </Row>
               </ul>
-              <ReviewForm
-                fValue={this.state.newReview}
-                change={this.handleChange}
-                sValue={this.state.newRating}
-                sClick={this.starClick}
-                submit={this.handleSubmit}
-              />
             </Col>
           </Row>
+          <ReviewForm
+            fValue={this.state.newReview}
+            change={this.handleChange}
+            sValue={this.state.newRating}
+            sClick={this.starClick}
+            submit={this.handleSubmit}
+          />
         </div>
       </div>
     );
