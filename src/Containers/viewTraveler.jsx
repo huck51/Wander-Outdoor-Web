@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Row, } from 'react-bootstrap';
 import axios from 'axios';
+import ActivityList from '../Components/activityList';
 import DisplayCard from '../Components/displayCard';
 import ProfileList from '../Components/profileList';
 import ProfTopSection from '../Components/profTopSection';
@@ -65,7 +66,7 @@ class ViewTraveler extends Component {
         } = response.data;
         const name = localStorage.getItem('name');
         this.setState({
-          username: name ? name : 'Anonymous',
+          username: name == (null || '' || undefined) ? 'Anonymous' : name,
           firstName,
           lastName,
           companyName,
@@ -182,18 +183,7 @@ class ViewTraveler extends Component {
             stateName={this.state.stateName}
             url={`/company/${this.state.companyCode}`}
           />
-          <Row className="mainCard">
-            <Col xs={12} sm={12} md={12} lg={12}>
-              <h2>Activities</h2>
-              <ul>
-                {
-                  this.state.chex.length === 0 ?
-                    <li>No activities</li> :
-                  this.state.chex.map(check => <li className="listCheck">{check}</li>)
-                }
-              </ul>
-            </Col>
-          </Row>
+          <ActivityList activities={this.state.activities} />
           <ProfileList
             heading="Trips"
             listArr={this.state.tripsQualified}
