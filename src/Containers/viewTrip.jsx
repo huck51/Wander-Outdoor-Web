@@ -53,7 +53,9 @@ class ViewTrip extends Component {
           activities,
           tripUrl,
         } = result.data;
+        const user = localStorage.getItem('name');
         this.setState({
+          username: user == (null || '' || undefined) ? 'Anonymous' : user,
           name,
           company,
           companyCode,
