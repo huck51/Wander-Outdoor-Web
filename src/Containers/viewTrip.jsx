@@ -4,6 +4,7 @@ import DisplayCard from '../Components/displayCard';
 import ProfileList from '../Components/profileList';
 import ProfTopSection from '../Components/profTopSection';
 import ReviewCard from '../Components/reviewCard';
+import ReviewList from '../Components/reviewList';
 import ReviewForm from '../Components/reviewForm';
 import axios from 'axios';
 import './Styles/viewTrip.css';
@@ -164,20 +165,7 @@ class ViewTrip extends Component {
             emptyMsg="No guides available"
             guide={true}
           />
-          <Row className="mainCard">
-            <Col xs={12} sm={12} md={12} lg={12}>
-              <h2>Reviews</h2>
-              <ul className="guideUl">
-                <Row className="container">
-                {
-                  this.state.reviews.length === 0 ?
-                    <li>No reviews available. Be the first one!</li> :
-                  this.state.reviews.map((review, index) => <ReviewCard review={review} index={index} />)
-                }
-                </Row>
-              </ul>
-            </Col>
-          </Row>
+          <ReviewList reviews={this.state.reviews} />
           <ReviewForm
             fValue={this.state.newReview}
             change={this.handleChange}
