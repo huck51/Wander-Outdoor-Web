@@ -17,7 +17,8 @@ const ProfTopSection = ({picture, name, url, companyName, city, stateName, rate,
               <h4 className="basicInfo4" style={companyName ? {} : {display: 'none'}}>
                 <a
                   href={url}
-                  target="_blank">
+                  target="_blank"
+                  rel="noopener noreferrer">
                   {companyName}
                 </a>
               </h4>
