@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Row, } from 'react-bootstrap';
 import DisplayCard from '../Components/displayCard';
+import ProfileList from '../Components/profileList';
 import ProfTopSection from '../Components/profTopSection';
 import ReviewCard from '../Components/reviewCard';
 import ReviewForm from '../Components/reviewForm';
@@ -156,20 +157,13 @@ class ViewTrip extends Component {
             stateName={this.state.stateName}
             url={`/company/${this.state.companyCode}`}
           />
-          <Row className="mainCard">
-            <Col xs={12} sm={12} md={12} lg={12}>
-              <h2>Guides</h2>
-              <ul className="guideUl">
-                <Row className="container">
-                {
-                  this.state.guides.length === 0 ?
-                    <li>No guides available</li> :
-                  this.state.guides.map(guide => <DisplayCard item={guide} Url={`/profile/${guide.id}`}/>)
-                }
-                </Row>
-              </ul>
-            </Col>
-          </Row>
+          <ProfileList
+            heading="Guides"
+            listArr={this.state.guides}
+            url="profile"
+            emptyMsg="No guides available"
+            guide={true}
+          />
           <Row className="mainCard">
             <Col xs={12} sm={12} md={12} lg={12}>
               <h2>Reviews</h2>
@@ -182,15 +176,15 @@ class ViewTrip extends Component {
                 }
                 </Row>
               </ul>
-              <ReviewForm
-                fValue={this.state.newReview}
-                change={this.handleChange}
-                sValue={this.state.newRating}
-                sClick={this.starClick}
-                submit={this.handleSubmit}
-              />
             </Col>
           </Row>
+          <ReviewForm
+            fValue={this.state.newReview}
+            change={this.handleChange}
+            sValue={this.state.newRating}
+            sClick={this.starClick}
+            submit={this.handleSubmit}
+          />
         </div>
       </div>
     );
