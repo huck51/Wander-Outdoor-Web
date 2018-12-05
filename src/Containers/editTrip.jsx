@@ -241,7 +241,7 @@ class EditTrip extends Component {
     const ad = this.state.activitiesDict;
     for (let k = 0; k < activitiesArr.length; k++) {
       if (ad[activitiesArr[k].name]) {
-        activities.push(activitiesArr[k].name);
+        activities.push(activitiesArr[k].pretty);
       }
     }
 
