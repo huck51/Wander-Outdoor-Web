@@ -8,7 +8,7 @@ export default class Auth {
       redirectUri: process.env.REACT_APP_REDIRECT,
       audience: process.env.REACT_APP_AUDIENCE,
       responseType: 'token id_token',
-      scope: 'openid profile',
+      scope: 'openid profile email',
     });
 
     this.getProfile = this.getProfile.bind(this);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { BounceLoader } from 'react-spinners';
+import { withAuth } from './Session';
 
 class AuthLoad extends Component {
   componentDidMount() {
@@ -27,4 +28,4 @@ class AuthLoad extends Component {
   }
 }
 
-export default AuthLoad;
+export default withAuth(AuthLoad);
