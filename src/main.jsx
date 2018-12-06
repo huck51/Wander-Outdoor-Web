@@ -6,6 +6,7 @@ import AddGuide from './Containers/addGuide';
 import AddTrip from './Containers/addTrip';
 import Auth from './auth';
 import AuthLoad from './Components/authLoad';
+import { AuthUserContext } from './Components/Session';
 import BizMembers from './Containers/bizMembers';
 import CompanyAccount from './Containers/companyAccount';
 import CompanyDashboard from './Containers/companyDashboard';
@@ -65,8 +66,11 @@ const Main = () => (
         exact
         path="/authload"
         render={(props) => {
-          //handleAuthentication(props);
-          return <AuthLoad {...props} />
+        return (<AuthUserContext.Consumer>
+            {
+              value => <AuthLoad auth={value.authMethods} />
+            }
+          </AuthUserContext.Consumer>);
         }}
       />
       <Route
