@@ -3,6 +3,10 @@ import { Row, Col } from 'react-bootstrap';
 import { BounceLoader } from 'react-spinners';
 
 class AuthLoad extends Component {
+  componentDidMount() {
+    this.props.auth.handleAuthentication()
+      .then(() => window.location = '/');
+  }
   render() {
     return (
       <Row>
