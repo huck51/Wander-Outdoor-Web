@@ -7,10 +7,10 @@ class AuthLoad extends Component {
     this.props.auth.handleAuthentication()
       .then(() => {
         const profile = this.props.auth.getProfile();
-        console.log(`Profile: ${profile}`);
+        console.log(`Profile: ${JSON.stringify(profile)}`);
         return;
       })
-      .then(() => window.location = '/');
+      .then(() => alert('Success'));
   }
   render() {
     return (
