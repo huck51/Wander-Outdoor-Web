@@ -13,8 +13,10 @@ const withAuth = Component => {
 
     componentDidMount() {
       const isAuth = this.props.auth.isAuthenticated();
+      console.log(`isAuth: ${isAuth}`);
       if (isAuth) {
         const user = this.props.auth.getProfile();
+        console.log(`User: ${user}`);
         this.setState({ authUser: user });
       }
     }
