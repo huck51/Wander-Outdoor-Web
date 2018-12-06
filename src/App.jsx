@@ -5,6 +5,7 @@ import Auth from './auth';
 import Footer from './Components/footer';
 import Main from './main';
 import NavigationBar from './Components/navigationbar';
+import { AuthUserContext, withAuth } from './Components/Session';
 import './App.css';
 
 const fallRun = 'https://res.cloudinary.com/wander-outdoor/image/upload/c_scale,q_60,w_1600/v1529539222/Wander/DSC_0076-2.webp';
@@ -29,17 +30,33 @@ const stylz = {
 
 const stile = { backgroundColor: 'white' };
 
-
+const App = props => (
+  <div style={window.location.pathname === '/' ? stylz : stile}>
+    <div className={window.location.pathname === '/' ? 'shadeLayer' : ''}>
+      <div id="body">
+        <AuthUserContext.Consumer>
+          {
+            value => <NavigationBar auth={value.authMethods} user={value.authUser} />
+          }
+        </AuthUserContext.Consumer>
+        <StripeProvider stripe={null}>
+          <Main />
+        </StripeProvider>
+      </div>
+      <div id="footer">
+        <Footer />
+      </div>
+    </div>
+  </div>
+)
+/*
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       stripe: null,
       loggedIn: false,
-      user: {
-        username: '',
-        email: '',
-      },
+      authUser: null,
     };
   }
 
@@ -133,5 +150,5 @@ class App extends Component {
   }
 }
 
-
-export default App;
+*/
+export default withAuth(App);

@@ -7,73 +7,15 @@ import {
   Image,
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import Auth from '../auth';
 import Logo from '../Images/WanderLogoWide.png';
 import './Styles/navigationbar.css';
 
-class NavigationBar extends Component {
-  constructor(props) {
-    super(props);
-    this.login = this.login.bind(this);
-    this.logout = this.logout.bind(this);
-  }
-
-  login() {
-    const auth = new Auth();
-    auth.login();
-  }
-
-  logout() {
-    const auth = new Auth();
-    auth.logout();
-  }
-  render() {
-    if (this.props.loggedIn) {
-      const id = localStorage.getItem('fierceIce');
-      return (
-        <Navbar collapseOnSelect>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <a href="#brand"><Image id="navlogo" src={Logo} responsive /></a>
-            </Navbar.Brand>
-            <Navbar.Toggle />
-          </Navbar.Header>
-          <Navbar.Collapse>
-            <Nav>
-              <li role="presentation" className="highlight">
-                <Link to="/">Home</Link>
-              </li>
-              <li role="presentation" className="highlight">
-                <Link to="/trips">Trips</Link>
-              </li>
-              <li role="presentation" className="highlight">
-                <Link to="/guiding-companies">Guiding Companies</Link>
-              </li>
-              <li role="presentation" className="highlight">
-                <Link to="/guides">Guides</Link>
-              </li>
-              <li role="presentation" className="highlight">
-                <Link to="/about">About Us</Link>
-              </li>
-              <li role="presentation" className="highlight">
-                <Link to="/contact">Contact Us</Link>
-              </li>
-              <NavDropdown eventKey={3} title="My Profile" id="basic-nav-dropdown">
-                <li><Link to="/account-info">Account Info</Link></li>
-                <li><Link to="/edit-profile">Edit Profile</Link></li>
-                <li><Link to={`/profile/${id}`}>View Profile</Link></li>
-                <li><Link to="/inbox">Messages</Link></li>
-                <MenuItem divider />
-                <li><Link to="/dashboard">Dashboard</Link></li>
-              </NavDropdown>
-              <li role="presentation" className="highlight">
-                <button className="logBtn" onClick={this.logout}>Sign Out</button>
-              </li>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
-      );
-    }
+const NavigationBar = props => {
+///////////////////////////////////////////////////////////////////////
+// CHANGE PATH ON LINE 48 BACK TO SOMETHING ALONG THE LINES OF
+// `/PROFILE/${ID}`
+//////////////////////////////////////////////////////////////////////
+  if (props.user) {
     return (
       <Navbar collapseOnSelect>
         <Navbar.Header>
@@ -102,17 +44,60 @@ class NavigationBar extends Component {
             <li role="presentation" className="highlight">
               <Link to="/contact">Contact Us</Link>
             </li>
-            <li role="presentation" className="highlight pullR">
-              <button className="logBtn" onClick={this.login}>Login</button>
-            </li>
-            <li role="presentation" className="highlight pullR">
-              <button className="logBtn" onClick={this.login}>Sign Up</button>
+            <NavDropdown eventKey={3} title="My Profile" id="basic-nav-dropdown">
+              <li><Link to="/account-info">Account Info</Link></li>
+              <li><Link to="/edit-profile">Edit Profile</Link></li>
+              <li><Link to={`/profile`}>View Profile</Link></li>
+              <li><Link to="/inbox">Messages</Link></li>
+              <MenuItem divider />
+              <li><Link to="/dashboard">Dashboard</Link></li>
+            </NavDropdown>
+            <li role="presentation" className="highlight">
+              <button className="logBtn" onClick={props.auth.logout}>Sign Out</button>
             </li>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
     );
   }
+  return (
+    <Navbar collapseOnSelect>
+      <Navbar.Header>
+        <Navbar.Brand>
+          <a href="#brand"><Image id="navlogo" src={Logo} responsive /></a>
+        </Navbar.Brand>
+        <Navbar.Toggle />
+      </Navbar.Header>
+      <Navbar.Collapse>
+        <Nav>
+          <li role="presentation" className="highlight">
+            <Link to="/">Home</Link>
+          </li>
+          <li role="presentation" className="highlight">
+            <Link to="/trips">Trips</Link>
+          </li>
+          <li role="presentation" className="highlight">
+            <Link to="/guiding-companies">Guiding Companies</Link>
+          </li>
+          <li role="presentation" className="highlight">
+            <Link to="/guides">Guides</Link>
+          </li>
+          <li role="presentation" className="highlight">
+            <Link to="/about">About Us</Link>
+          </li>
+          <li role="presentation" className="highlight">
+            <Link to="/contact">Contact Us</Link>
+          </li>
+          <li role="presentation" className="highlight pullR">
+            <button className="logBtn" onClick={props.auth.login}>Login</button>
+          </li>
+          <li role="presentation" className="highlight pullR">
+            <button className="logBtn" onClick={props.auth.login}>Sign Up</button>
+          </li>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  );
 }
 
 export default NavigationBar;

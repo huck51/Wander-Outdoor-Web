@@ -25,13 +25,14 @@ import RemoveGuide from './Containers/removeGuide';
 import RemoveTrip from './Containers/removeTrip';
 import Results from './Containers/results';
 import SignUpGC from './Containers/signUpGC';
+import SignUpGuides from './Containers/signUpGuides';
 import SubscriptionDetails from './Containers/subscriptionDetails';
 import Trips from './Containers/trips';
 import ViewCompany from './Containers/viewCompany';
 import ViewTraveler from './Containers/viewTraveler';
 import ViewTrip from './Containers/viewTrip';
 
-// Reorganize routes
+/*Reorganize routes
 const auth = new Auth();
 
 const handleAuthentication = ({ location }) => {
@@ -39,6 +40,7 @@ const handleAuthentication = ({ location }) => {
     auth.handleAuthentication();
   }
 };
+*/
 
 const Main = () => (
   <main>
@@ -63,7 +65,7 @@ const Main = () => (
         exact
         path="/authload"
         render={(props) => {
-          handleAuthentication(props);
+          //handleAuthentication(props);
           return <AuthLoad {...props} />
         }}
       />
@@ -111,7 +113,7 @@ const Main = () => (
         exact
         path="/dashboard"
         render={props => (
-            <Dashboard {...props} auth={auth} />
+            <Dashboard {...props} />
           )
         }
       />
@@ -119,7 +121,7 @@ const Main = () => (
         exact
         path="/dashboard/:companyCode/1/:company"
         render={props => (
-            <CompanyDashboard {...props} auth={auth} />
+            <CompanyDashboard {...props} />
           )
         }
       />
@@ -127,7 +129,7 @@ const Main = () => (
         exact
         path="/dashboard/:company/add-guide"
         render={props => (
-            <AddGuide {...props} />
+            <SignUpGuides {...props} />
           )
         }
       />
@@ -167,7 +169,7 @@ const Main = () => (
         exact
         path="/dashboard/:company/guides"
         render={props => (
-            <DashboardGuides {...props} auth={auth} />
+            <DashboardGuides {...props} />
           )
         }
       />
@@ -175,7 +177,7 @@ const Main = () => (
         exact
         path="/dashboard/:company/trips"
         render={props => (
-            <DashboardTrips {...props} auth={auth} />
+            <DashboardTrips {...props} />
           )
         }
       />
@@ -207,7 +209,7 @@ const Main = () => (
         exact
         path="/guides/:username"
         render={props => (
-            <ViewTraveler {...props} auth={auth} />
+            <ViewTraveler {...props} />
           )
         }
       />

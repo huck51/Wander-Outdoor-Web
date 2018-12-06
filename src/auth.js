@@ -1,58 +1,58 @@
 import auth0 from 'auth0-js';
-import jwt from 'jsonwebtoken';
 
 export default class Auth {
-  auth0 = new auth0.WebAuth({
-    domain: process.env.REACT_APP_DOMAIN,
-    clientID: process.env.REACT_APP_CLIENT_ID,
-    redirectUri: process.env.REACT_APP_REDIRECT,
-    audience: process.env.REACT_APP_AUDIENCE,
-    responseType: 'token id_token',
-    scope: 'openid profile email',
-  });
   constructor() {
+    this.auth0 = new auth0.WebAuth({
+      domain: process.env.REACT_APP_DOMAIN,
+      clientID: process.env.REACT_APP_CLIENT_ID,
+      redirectUri: process.env.REACT_APP_REDIRECT,
+      audience: process.env.REACT_APP_AUDIENCE,
+      responseType: 'token id_token',
+      scope: 'openid profile',
+    });
+
+    this.getProfile = this.getProfile.bind(this);
+    this.setSession = this.setSession.bind(this);
     this.login = this.login.bind(this);
     this.logout = this.logout.bind(this);
     this.handleAuthentication = this.handleAuthentication.bind(this);
     this.isAuthenticated = this.isAuthenticated.bind(this);
   }
+
+  getProfile() {
+    return this.profile;
+  }
+
   login() {
     this.auth0.authorize();
   }
 
   logout() {
-    localStorage.clear();
-    window.location = '/';
+    this.idToken = null;
+    this.expiresAt = null;
   }
 
   handleAuthentication() {
-    this.auth0.parseHash((err, result) => {
-      if (result && result.accessToken && result.idToken) {
-        console.log(result);
-        this.setSession(result);
-      } else if (err) {
-        console.log('again');
-        console.error(err);
-        window.location = '/';
-        alert('There was a problem logging in. Please try again.');
-      }
-    });
+    return new Promise((resolve, reject) => {
+      this.auth0.parseHash((err, authResult) => {
+        if (err) return reject(err);
+        console.log(authResult);
+        if (!authResult || !authResult.idToken) {
+          return reject(err);
+        }
+        this.setSession(authResult);
+        resolve();
+      });
+    })
   }
 
-  setSession(sesh) {
-    const expiresAt = JSON.stringify((sesh.expiresIn * 1000) + new Date().getTime());
-    const prof = jwt.decode(sesh.idToken);
-    console.log(prof);
-    localStorage.setItem('access_token', sesh.accessToken);
-    localStorage.setItem('id_token', sesh.idToken);
-    localStorage.setItem('expires_at', expiresAt);
-    localStorage.setItem('nickname', prof.nickname);
-    localStorage.setItem('email', prof.email);
-    window.location = '/';
+  setSession(authResult) {
+    this.idToken = authResult.idToken;
+    this.profile = authResult.idTokenPayload;
+    this.expiresAt = authResult.expiresIn * 1000 + new Date().getTime();
   }
 
   isAuthenticated() {
-    let expiresAt = JSON.parse(localStorage.getItem('expires_at'));
-    return new Date().getTime() < expiresAt;
+    return new Date().getTime() < this.expiresAt;
   }
 }
