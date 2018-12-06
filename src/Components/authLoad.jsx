@@ -5,6 +5,11 @@ import { BounceLoader } from 'react-spinners';
 class AuthLoad extends Component {
   componentDidMount() {
     this.props.auth.handleAuthentication()
+      .then(() => {
+        const profile = this.props.auth.getProfile();
+        console.log(`Profile: ${profile}`);
+        return;
+      })
       .then(() => window.location = '/');
   }
   render() {
