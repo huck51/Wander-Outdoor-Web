@@ -8,7 +8,6 @@ class AuthLoad extends Component {
       .then(() => {
         const profile = this.props.auth.getProfile();
         this.props.getAuth(profile);
-        console.log(`Profile: ${JSON.stringify(profile)}`);
         return;
       })
       .then(() => alert('Success'));

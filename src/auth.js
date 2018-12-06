@@ -30,6 +30,7 @@ export default class Auth {
   logout() {
     this.idToken = null;
     this.expiresAt = null;
+    window.location = '/';
   }
 
   handleAuthentication() {
