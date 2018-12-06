@@ -8,7 +8,6 @@ const withAuth = Component => {
       super(props);
       this.state = {
         authUser: null,
-        authMethods: props.auth,
       };
     }
 
@@ -21,8 +20,12 @@ const withAuth = Component => {
     }
 
     render() {
+      const authContext = {
+        authUser: this.state.authUser,
+        authMethods: this.props.auth,
+      };
       return (
-        <AuthUserContext.Provider value={this.state} >
+        <AuthUserContext.Provider value={authContext} >
           <Component {...this.props} />
         </AuthUserContext.Provider>
       );
