@@ -68,7 +68,7 @@ const Main = () => (
         render={(props) => {
         return (<AuthUserContext.Consumer>
             {
-              value => <AuthLoad auth={value.authMethods} />
+              value => <AuthLoad auth={value.authMethods} getAuth={value.getAuth} />
             }
           </AuthUserContext.Consumer>);
         }}

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { BounceLoader } from 'react-spinners';
-import { withAuth } from './Session';
 
 class AuthLoad extends Component {
   componentDidMount() {
     this.props.auth.handleAuthentication()
       .then(() => {
         const profile = this.props.auth.getProfile();
+        this.props.getAuth(profile);
         console.log(`Profile: ${JSON.stringify(profile)}`);
         return;
       })
@@ -28,4 +28,4 @@ class AuthLoad extends Component {
   }
 }
 
-export default withAuth(AuthLoad);
+export default AuthLoad;
