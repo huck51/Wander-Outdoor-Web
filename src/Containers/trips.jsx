@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { BounceLoader } from 'react-spinners';
 import axios from 'axios';
-import DisplayCard from '../Components/displayCard';
 import ProfileList from '../Components/profileList';
 import './Styles/trips.css';
 
