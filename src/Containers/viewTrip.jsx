@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import { Col, Row, } from 'react-bootstrap';
 import ActivityList from '../Components/activityList';
-import DisplayCard from '../Components/displayCard';
 import ProfileList from '../Components/profileList';
 import ProfTopSection from '../Components/profTopSection';
-import ReviewCard from '../Components/reviewCard';
 import ReviewList from '../Components/reviewList';
 import ReviewForm from '../Components/reviewForm';
 import axios from 'axios';
