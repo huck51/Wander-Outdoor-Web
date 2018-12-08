@@ -1,6 +1,12 @@
 import auth0 from 'auth0-js';
 
 export default class Auth {
+  accessToken;
+  idToken;
+  expiresAt;
+  userProfile;
+  tokenRenewalTimeout;
+
   constructor() {
     this.auth0 = new auth0.WebAuth({
       domain: process.env.REACT_APP_DOMAIN,
@@ -9,6 +15,7 @@ export default class Auth {
       audience: process.env.REACT_APP_AUDIENCE,
       responseType: 'token id_token',
       scope: 'openid profile email',
+      prompt: 'none',
     });
 
     this.getProfile = this.getProfile.bind(this);
@@ -17,10 +24,15 @@ export default class Auth {
     this.logout = this.logout.bind(this);
     this.handleAuthentication = this.handleAuthentication.bind(this);
     this.isAuthenticated = this.isAuthenticated.bind(this);
+    this.renewToken = this.renewToken.bind(this);
+    this.scheduleRenewal = this.scheduleRenewal.bind(this);
+    this.persist = this.persist.bind(this);
+
+    this.scheduleRenewal();
   }
 
   getProfile() {
-    return this.profile;
+    return this.userProfile;
   }
 
   login() {
@@ -28,9 +40,34 @@ export default class Auth {
   }
 
   logout() {
+    this.accessToken = null;
     this.idToken = null;
-    this.expiresAt = null;
+    this.expiresAt = 0;
+    localStorage.clear();
+    clearTimeout(this.tokenRenewalTimeout);
+
     window.location = '/';
+  }
+
+  renewToken() {
+    this.auth0.checkSession({}, (err, result) => {
+        if (err) {
+          console.log(err);
+        } else {
+          this.setSession(result);
+        }
+      }
+    );
+  }
+
+  scheduleRenewal() {
+    const expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+    const delay = expiresAt - Date.now();
+    if (delay > 0) {
+      this.tokenRenewalTimeout = setTimeout(() => {
+        this.renewToken();
+      }, delay);
+    }
   }
 
   handleAuthentication() {
@@ -47,10 +84,23 @@ export default class Auth {
     })
   }
 
+  persist() {
+    localStorage.setItem('access_token', this.accessToken);
+    localStorage.setItem('id_token', this.idToken);
+    localStorage.setItem('expires_at', JSON.stringify(this.expiresAt));
+  }
+
   setSession(authResult) {
+    this.accessToken = authResult.accessToken;
     this.idToken = authResult.idToken;
-    this.profile = authResult.idTokenPayload;
+    this.userProfile = authResult.idTokenPayload;
     this.expiresAt = authResult.expiresIn * 1000 + new Date().getTime();
+
+    window.addEventListener('beforeunload', () => {
+      this.persist();
+    })
+
+    this.scheduleRenewal();
   }
 
   isAuthenticated() {
