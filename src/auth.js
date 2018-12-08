@@ -104,6 +104,7 @@ export default class Auth {
   }
 
   isAuthenticated() {
-    return new Date().getTime() < this.expiresAt;
+    const expiresAt = localStorage.getItem('expires_at');
+    return new Date().getTime() < (this.expiresAt || expiresAt);
   }
 }
