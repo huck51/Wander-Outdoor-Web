@@ -16,6 +16,7 @@ export default class Auth {
       responseType: 'token id_token',
       scope: 'openid profile email',
       prompt: 'none',
+      response_mode: 'web_message',
     });
 
     this.getProfile = this.getProfile.bind(this);
