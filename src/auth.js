@@ -54,6 +54,7 @@ export default class Auth {
         if (err) {
           console.log(err);
         } else {
+          console.log('Token has been renewed');
           this.setSession(result);
         }
       }
@@ -66,7 +67,7 @@ export default class Auth {
     if (delay > 0) {
       this.tokenRenewalTimeout = setTimeout(() => {
         this.renewToken();
-      }, delay);
+      }, 30000);
     }
   }
 
