@@ -67,7 +67,7 @@ export default class Auth {
     if (delay > 0) {
       this.tokenRenewalTimeout = setTimeout(() => {
         this.renewToken();
-      }, 30000);
+      }, 300000);
     }
   }
 
