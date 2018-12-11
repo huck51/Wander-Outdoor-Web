@@ -31,7 +31,7 @@ export default class Auth {
     this.endPersistence = this.endPersistence.bind(this);
 
     // this.scheduleRenewal();
-    this.endPersistence(localStorage.getItem('persist'));
+    // this.endPersistence(localStorage.getItem('persist'));
   }
 
   getProfile() {
