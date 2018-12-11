@@ -12,6 +12,7 @@ const withAuth = Component => {
     }
 
     componentDidMount() {
+      this.props.auth.endPersistence(localStorage.getItem('persist'));
       const isAuth = this.props.auth.isAuthenticated();
       console.log(`isAuth: ${isAuth}`);
       if (isAuth) {

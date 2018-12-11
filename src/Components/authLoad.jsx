@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
 
 class AuthLoad extends Component {
@@ -8,12 +9,12 @@ class AuthLoad extends Component {
       .then(() => {
         const profile = this.props.auth.getProfile();
         this.props.getAuth(profile);
-        // window.location = '/';
+        this.props.history.push('/');
         return;
       })
       .catch(error => {
         console.log(error)
-        // window.location = '/';
+        this.props.history.push('/');
       });
   }
   render() {
@@ -31,4 +32,4 @@ class AuthLoad extends Component {
   }
 }
 
-export default AuthLoad;
+export default withRouter(AuthLoad);
