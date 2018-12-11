@@ -93,7 +93,7 @@ export default class Auth {
     localStorage.setItem('access_token', this.accessToken);
     localStorage.setItem('id_token', this.idToken);
     localStorage.setItem('expires_at', JSON.stringify(this.expiresAt));
-    localStorage.setItem('profile', this.userProfile);
+    localStorage.setItem('profile', JSON.stringify(this.userProfile));
     localStorage.setItem('persist', true);
   }
 
@@ -102,7 +102,7 @@ export default class Auth {
       this.accessToken = localStorage.getItem('access_token');
       this.idToken = localStorage.getItem('id_token');
       this.expiresAt = JSON.parse(localStorage.getItem('expires_at'));
-      this.userProfile = localStorage.getItem('profile');
+      this.userProfile = JSON.parse(localStorage.getItem('profile'));
       localStorage.clear();
       window.addEventListener('beforeunload', () => {
         this.persist();
