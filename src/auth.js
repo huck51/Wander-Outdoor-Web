@@ -28,8 +28,11 @@ export default class Auth {
     this.renewToken = this.renewToken.bind(this);
     this.scheduleRenewal = this.scheduleRenewal.bind(this);
     this.persist = this.persist.bind(this);
+    this.endPersistence = this.endPersistence.bind(this);
 
-    this.scheduleRenewal();
+    // this.scheduleRenewal();
+    console.log(`constructor AT ${this.accessToken}`);
+    console.log(`constructor IT ${this.idToken}`);
   }
 
   getProfile() {
@@ -92,6 +95,13 @@ export default class Auth {
     localStorage.setItem('expires_at', JSON.stringify(this.expiresAt));
   }
 
+  endPersistence() {
+    this.accessToken = localStorage.getItem('access_token');
+    this.idToken = localStorage.getItem('id_token');
+    this.expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+    localStorage.clear();
+  }
+
   setSession(authResult) {
     this.accessToken = authResult.accessToken;
     this.idToken = authResult.idToken;
@@ -102,7 +112,7 @@ export default class Auth {
       this.persist();
     })
 
-    this.scheduleRenewal();
+    // this.scheduleRenewal();
   }
 
   isAuthenticated() {
