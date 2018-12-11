@@ -8,12 +8,12 @@ class AuthLoad extends Component {
       .then(() => {
         const profile = this.props.auth.getProfile();
         this.props.getAuth(profile);
-        window.location = '/';
+        // window.location = '/';
         return;
       })
       .catch(error => {
         console.log(error)
-        window.location = '/';
+        // window.location = '/';
       });
   }
   render() {
