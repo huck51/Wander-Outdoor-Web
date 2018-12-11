@@ -8,9 +8,13 @@ class AuthLoad extends Component {
       .then(() => {
         const profile = this.props.auth.getProfile();
         this.props.getAuth(profile);
+        window.location = '/';
         return;
       })
-      .then(() => alert('Success'));
+      .catch(error => {
+        console.log(error)
+        window.location = '/';
+      });
   }
   render() {
     return (
