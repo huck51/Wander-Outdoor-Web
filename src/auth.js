@@ -46,6 +46,7 @@ export default class Auth {
     this.accessToken = null;
     this.idToken = null;
     this.expiresAt = 0;
+    this.userProfile = null;
     localStorage.clear();
     clearTimeout(this.tokenRenewalTimeout);
 
@@ -92,6 +93,7 @@ export default class Auth {
     localStorage.setItem('access_token', this.accessToken);
     localStorage.setItem('id_token', this.idToken);
     localStorage.setItem('expires_at', JSON.stringify(this.expiresAt));
+    localStorage.setItem('profile', this.userProfile);
     localStorage.setItem('persist', true);
   }
 
@@ -100,6 +102,7 @@ export default class Auth {
       this.accessToken = localStorage.getItem('access_token');
       this.idToken = localStorage.getItem('id_token');
       this.expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+      this.userProfile = localStorage.getItem('profile');
       localStorage.clear();
       window.addEventListener('beforeunload', () => {
         this.persist();

@@ -17,7 +17,7 @@ const withAuth = Component => {
       if (isAuth) {
         const user = this.props.auth.getProfile();
         console.log(`User: ${user}`);
-        this.setState({ authUser: true });
+        this.setState({ authUser: user });
       }
     }
 
