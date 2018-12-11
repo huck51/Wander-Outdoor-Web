@@ -101,6 +101,9 @@ export default class Auth {
       this.idToken = localStorage.getItem('id_token');
       this.expiresAt = JSON.parse(localStorage.getItem('expires_at'));
       localStorage.clear();
+      window.addEventListener('beforeunload', () => {
+        this.persist();
+      });
     }
   }
 
@@ -112,7 +115,7 @@ export default class Auth {
 
     window.addEventListener('beforeunload', () => {
       this.persist();
-    })
+    });
 
     // this.scheduleRenewal();
   }
