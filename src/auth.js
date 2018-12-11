@@ -31,8 +31,7 @@ export default class Auth {
     this.endPersistence = this.endPersistence.bind(this);
 
     // this.scheduleRenewal();
-    console.log(`constructor AT ${this.accessToken}`);
-    console.log(`constructor IT ${this.idToken}`);
+    this.endPersistence(localStorage.getItem('persist'));
   }
 
   getProfile() {
@@ -93,13 +92,16 @@ export default class Auth {
     localStorage.setItem('access_token', this.accessToken);
     localStorage.setItem('id_token', this.idToken);
     localStorage.setItem('expires_at', JSON.stringify(this.expiresAt));
+    localStorage.setItem('persist', true);
   }
 
-  endPersistence() {
-    this.accessToken = localStorage.getItem('access_token');
-    this.idToken = localStorage.getItem('id_token');
-    this.expiresAt = JSON.parse(localStorage.getItem('expires_at'));
-    localStorage.clear();
+  endPersistence(persist) {
+    if (persist) {
+      this.accessToken = localStorage.getItem('access_token');
+      this.idToken = localStorage.getItem('id_token');
+      this.expiresAt = JSON.parse(localStorage.getItem('expires_at'));
+      localStorage.clear();
+    }
   }
 
   setSession(authResult) {
