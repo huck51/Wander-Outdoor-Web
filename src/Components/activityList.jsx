@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const ActivityList = ({activities}) => {
   return (
@@ -10,7 +11,7 @@ const ActivityList = ({activities}) => {
           {
             activities.length === 0 ?
               <li>No activities available</li> :
-            activities.map(activity => <li className="listCheck">{activity}</li>)
+            activities.map(activity => <Link to={`/results/${activity}`}><li className="listCheck" >{activity}</li></Link>)
           }
         </ul>
       </Col>
