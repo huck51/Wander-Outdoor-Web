@@ -6,6 +6,7 @@ import AddGuide from './Containers/addGuide';
 import AddTrip from './Containers/addTrip';
 import Auth from './auth';
 import AuthLoad from './Components/authLoad';
+import AuthRedirect from './Containers/authRedirect';
 import { AuthUserContext } from './Components/Session';
 import BizMembers from './Containers/bizMembers';
 import CompanyAccount from './Containers/companyAccount';
@@ -33,15 +34,6 @@ import ViewCompany from './Containers/viewCompany';
 import ViewTraveler from './Containers/viewTraveler';
 import ViewTrip from './Containers/viewTrip';
 
-/*Reorganize routes
-const auth = new Auth();
-
-const handleAuthentication = ({ location }) => {
-  if (/access_token|id_token|error/.test(location.hash)) {
-    auth.handleAuthentication();
-  }
-};
-*/
 
 const Main = () => (
   <main>
@@ -53,14 +45,23 @@ const Main = () => (
             <Home {...props} />
           )}
       />
-      <Route exact path="/about" component={About} />
+      <Route
+        exact
+        path="/about"
+        render={(props) => (
+          <About {...props} />
+        )}
+      />
       <Route
         exact
         path="/account-info"
-        component={AccountInfo}
-        render={props => (
-            <AccountInfo {...props} />
-        )}
+        render={props => {
+        return (<AuthUserContext.Consumer>
+            {
+              value => value.authMethods.isAuthenticated() ? <AccountInfo auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+            }
+          </AuthUserContext.Consumer>);
+        }}
       />
       <Route
         exact
@@ -116,90 +117,123 @@ const Main = () => (
       <Route
         exact
         path="/dashboard"
-        render={props => (
-            <Dashboard {...props} />
-          )
-        }
+        render={props => {
+        return (<AuthUserContext.Consumer>
+            {
+              value => value.authMethods.isAuthenticated() ? <Dashboard auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+            }
+          </AuthUserContext.Consumer>);
+        }}
       />
       <Route
         exact
         path="/dashboard/:companyCode/1/:company"
-        render={props => (
-            <CompanyDashboard {...props} />
-          )
-        }
+        render={props => {
+        return (<AuthUserContext.Consumer>
+            {
+              value => value.authMethods.isAuthenticated() ? <CompanyDashboard auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+            }
+          </AuthUserContext.Consumer>);
+        }}
       />
       <Route
         exact
         path="/dashboard/:company/add-guide"
-        render={props => (
-            <SignUpGuides {...props} />
-          )
-        }
+        render={props => {
+        return (<AuthUserContext.Consumer>
+            {
+              value => value.authMethods.isAuthenticated() ? <SignUpGuides auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+            }
+          </AuthUserContext.Consumer>);
+        }}
       />
       <Route
         exact
         path="/dashboard/:company/add-trip"
-        render={props => (
-            <AddTrip {...props} />
-          )
-        }
+        render={props => {
+        return (<AuthUserContext.Consumer>
+            {
+              value => value.authMethods.isAuthenticated() ? <AddTrip auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+            }
+          </AuthUserContext.Consumer>);
+        }}
       />
       <Route
         exact
         path="/dashboard/:company/add-trip/:trip"
-        render={props => (
-            <AddTrip {...props} />
-          )
-        }
+        render={props => {
+        return (<AuthUserContext.Consumer>
+            {
+              value => value.authMethods.isAuthenticated() ? <AddTrip auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+            }
+          </AuthUserContext.Consumer>);
+        }}
       />
       <Route
         exact
         path="/dashboard/:company/company-account"
-        render={props => (
-            <CompanyAccount {...props} />
-          )
-        }
+        render={props => {
+        return (<AuthUserContext.Consumer>
+            {
+              value => value.authMethods.isAuthenticated() ? <CompanyAccount auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+            }
+          </AuthUserContext.Consumer>);
+        }}
       />
       <Route
         exact
         path="/dashboard/:company/edit-company"
-        render={props => (
-            <EditCompany {...props} />
-          )
-        }
+        render={props => {
+        return (<AuthUserContext.Consumer>
+            {
+              value => value.authMethods.isAuthenticated() ? <EditCompany auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+            }
+          </AuthUserContext.Consumer>);
+        }}
       />
       <Route
         exact
         path="/dashboard/:company/guides"
-        render={props => (
-            <DashboardGuides {...props} />
-          )
-        }
+        render={props => {
+        return (<AuthUserContext.Consumer>
+            {
+              value => value.authMethods.isAuthenticated() ? <DashboardGuides auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+            }
+          </AuthUserContext.Consumer>);
+        }}
       />
       <Route
         exact
         path="/dashboard/:company/trips"
-        render={props => (
-            <DashboardTrips {...props} />
-          )
-        }
+        render={props => {
+        return (<AuthUserContext.Consumer>
+            {
+              value => value.authMethods.isAuthenticated() ? <DashboardTrips auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+            }
+          </AuthUserContext.Consumer>);
+        }}
       />
       <Route
         exact
         path="/edit-profile"
-        render={props => (
-            <EditProfile {...props} />
-          )
-        }
+        render={props => {
+        return (<AuthUserContext.Consumer>
+            {
+              value => value.authMethods.isAuthenticated() ? <EditProfile auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+            }
+          </AuthUserContext.Consumer>);
+        }}
       />
       <Route
         exact
         path="/edit-trip/:id"
-        render={props => (
-            <EditTrip {...props} />
-          )
-        }
+        render={props => {
+        return (<AuthUserContext.Consumer>
+            {
+              value => value.authMethods.isAuthenticated() ? <EditTrip auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+            }
+          </AuthUserContext.Consumer>);
+        }}
       />
       <Route
         exact
@@ -244,10 +278,13 @@ const Main = () => (
       <Route
         exact
         path="/signup/guiding-company"
-        render={props => (
-            <SignUpGC {...props} />
-          )
-        }
+        render={props => {
+        return (<AuthUserContext.Consumer>
+            {
+              value => value.authMethods.isAuthenticated() ? <SignUpGC auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+            }
+          </AuthUserContext.Consumer>);
+        }}
       />
       <Route
         exact
