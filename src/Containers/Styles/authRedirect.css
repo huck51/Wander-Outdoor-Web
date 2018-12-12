@@ -1,0 +1,38 @@
+
+.backDrop {
+  background-color: rgb(183, 216, 139);
+  width: 100vw;
+  height: 100vh;
+  margin-top: -1.4em;
+  text-align: center;
+}
+
+.btnBar {
+  text-align: center;
+  margin: 2em auto;
+}
+
+.interface {
+  background-color: #3D82BA;
+  width: 100%;
+  min-height: 75vh;
+  border: solid 1px transparent;
+  border-radius: 5%;
+  padding: 3em;
+  margin-top: 6em;
+}
+
+.lnOne {
+  color: rgb(183,216,139);
+  font-size: 4em;
+}
+
+.lnTwo {
+  color: rgb(183,216,139);
+  font-size: 2em;
+}
+
+.reBtn {
+  margin: 2em;
+  padding: 1em 2em;
+}
