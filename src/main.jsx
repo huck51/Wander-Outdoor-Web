@@ -58,7 +58,7 @@ const Main = () => (
         render={props => {
         return (<AuthUserContext.Consumer>
             {
-              value => value.authMethods.isAuthenticated() ? <AccountInfo auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+              value => value.authMethods.isAuthenticated() ? <AccountInfo auth={value.authMethods} getAuth={value.getAuth} {...props} /> : <AuthRedirect auth={value.authMethods} />
             }
           </AuthUserContext.Consumer>);
         }}
@@ -120,7 +120,7 @@ const Main = () => (
         render={props => {
         return (<AuthUserContext.Consumer>
             {
-              value => value.authMethods.isAuthenticated() ? <Dashboard auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+              value => value.authMethods.isAuthenticated() ? <Dashboard auth={value.authMethods} getAuth={value.getAuth} {...props} /> : <AuthRedirect auth={value.authMethods} />
             }
           </AuthUserContext.Consumer>);
         }}
@@ -131,7 +131,7 @@ const Main = () => (
         render={props => {
         return (<AuthUserContext.Consumer>
             {
-              value => value.authMethods.isAuthenticated() ? <CompanyDashboard auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+              value => value.authMethods.isAuthenticated() ? <CompanyDashboard auth={value.authMethods} getAuth={value.getAuth} {...props} /> : <AuthRedirect auth={value.authMethods} />
             }
           </AuthUserContext.Consumer>);
         }}
@@ -142,7 +142,7 @@ const Main = () => (
         render={props => {
         return (<AuthUserContext.Consumer>
             {
-              value => value.authMethods.isAuthenticated() ? <SignUpGuides auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+              value => value.authMethods.isAuthenticated() ? <SignUpGuides auth={value.authMethods} getAuth={value.getAuth} {...props} /> : <AuthRedirect auth={value.authMethods} />
             }
           </AuthUserContext.Consumer>);
         }}
@@ -153,7 +153,7 @@ const Main = () => (
         render={props => {
         return (<AuthUserContext.Consumer>
             {
-              value => value.authMethods.isAuthenticated() ? <AddTrip auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+              value => value.authMethods.isAuthenticated() ? <AddTrip auth={value.authMethods} getAuth={value.getAuth} {...props} /> : <AuthRedirect auth={value.authMethods} />
             }
           </AuthUserContext.Consumer>);
         }}
@@ -164,7 +164,7 @@ const Main = () => (
         render={props => {
         return (<AuthUserContext.Consumer>
             {
-              value => value.authMethods.isAuthenticated() ? <AddTrip auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+              value => value.authMethods.isAuthenticated() ? <AddTrip auth={value.authMethods} getAuth={value.getAuth} {...props} /> : <AuthRedirect auth={value.authMethods} />
             }
           </AuthUserContext.Consumer>);
         }}
@@ -175,7 +175,7 @@ const Main = () => (
         render={props => {
         return (<AuthUserContext.Consumer>
             {
-              value => value.authMethods.isAuthenticated() ? <CompanyAccount auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+              value => value.authMethods.isAuthenticated() ? <CompanyAccount auth={value.authMethods} getAuth={value.getAuth} {...props} /> : <AuthRedirect auth={value.authMethods} />
             }
           </AuthUserContext.Consumer>);
         }}
@@ -186,7 +186,7 @@ const Main = () => (
         render={props => {
         return (<AuthUserContext.Consumer>
             {
-              value => value.authMethods.isAuthenticated() ? <EditCompany auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+              value => value.authMethods.isAuthenticated() ? <EditCompany auth={value.authMethods} getAuth={value.getAuth} {...props} /> : <AuthRedirect auth={value.authMethods} />
             }
           </AuthUserContext.Consumer>);
         }}
@@ -197,7 +197,7 @@ const Main = () => (
         render={props => {
         return (<AuthUserContext.Consumer>
             {
-              value => value.authMethods.isAuthenticated() ? <DashboardGuides auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+              value => value.authMethods.isAuthenticated() ? <DashboardGuides auth={value.authMethods} getAuth={value.getAuth} {...props} /> : <AuthRedirect auth={value.authMethods} />
             }
           </AuthUserContext.Consumer>);
         }}
@@ -208,7 +208,7 @@ const Main = () => (
         render={props => {
         return (<AuthUserContext.Consumer>
             {
-              value => value.authMethods.isAuthenticated() ? <DashboardTrips auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+              value => value.authMethods.isAuthenticated() ? <DashboardTrips auth={value.authMethods} getAuth={value.getAuth} {...props} /> : <AuthRedirect auth={value.authMethods} />
             }
           </AuthUserContext.Consumer>);
         }}
@@ -219,7 +219,7 @@ const Main = () => (
         render={props => {
         return (<AuthUserContext.Consumer>
             {
-              value => value.authMethods.isAuthenticated() ? <EditProfile auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+              value => value.authMethods.isAuthenticated() ? <EditProfile auth={value.authMethods} getAuth={value.getAuth} {...props} /> : <AuthRedirect auth={value.authMethods} />
             }
           </AuthUserContext.Consumer>);
         }}
@@ -230,7 +230,7 @@ const Main = () => (
         render={props => {
         return (<AuthUserContext.Consumer>
             {
-              value => value.authMethods.isAuthenticated() ? <EditTrip auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+              value => value.authMethods.isAuthenticated() ? <EditTrip auth={value.authMethods} getAuth={value.getAuth} {...props} /> : <AuthRedirect auth={value.authMethods} />
             }
           </AuthUserContext.Consumer>);
         }}
@@ -281,7 +281,7 @@ const Main = () => (
         render={props => {
         return (<AuthUserContext.Consumer>
             {
-              value => value.authMethods.isAuthenticated() ? <SignUpGC auth={value.authMethods} getAuth={value.getAuth} /> : <AuthRedirect auth={value.authMethods} />
+              value => value.authMethods.isAuthenticated() ? <SignUpGC auth={value.authMethods} getAuth={value.getAuth} {...props} /> : <AuthRedirect auth={value.authMethods} />
             }
           </AuthUserContext.Consumer>);
         }}
