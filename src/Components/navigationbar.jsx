@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Navbar,
-  Nav,
   NavDropdown,
   MenuItem,
   Image,
@@ -25,7 +24,7 @@ const NavigationBar = props => {
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
-          <Nav>
+          <ul className="nav navbar-nav">
             <li role="presentation" className="highlight">
               <Link to="/">Home</Link>
             </li>
@@ -55,7 +54,7 @@ const NavigationBar = props => {
             <li role="presentation" className="highlight">
               <button className="logBtn" onClick={props.auth.logout}>Sign Out</button>
             </li>
-          </Nav>
+          </ul>
         </Navbar.Collapse>
       </Navbar>
     );
@@ -69,7 +68,7 @@ const NavigationBar = props => {
         <Navbar.Toggle />
       </Navbar.Header>
       <Navbar.Collapse>
-        <Nav>
+        <ul className="nav navbar-nav">
           <li role="presentation" className="highlight">
             <Link to="/">Home</Link>
           </li>
@@ -94,7 +93,7 @@ const NavigationBar = props => {
           <li role="presentation" className="highlight pullR">
             <button className="logBtn" onClick={props.auth.login}>Sign Up</button>
           </li>
-        </Nav>
+        </ul>
       </Navbar.Collapse>
     </Navbar>
   );
