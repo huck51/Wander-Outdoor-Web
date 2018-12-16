@@ -29,6 +29,7 @@ export default class Auth {
     this.scheduleRenewal = this.scheduleRenewal.bind(this);
     this.persist = this.persist.bind(this);
     this.endPersistence = this.endPersistence.bind(this);
+    this.link = this.link.bind(this);
 
     // this.scheduleRenewal();
     // this.endPersistence(localStorage.getItem('persist'));
@@ -120,7 +121,15 @@ export default class Auth {
       this.persist();
     });
 
+    if (authResult.idTokenPayload['https://wander-outdoor.com/logCount'] <= 1) {
+      this.link();
+    }
+
     // this.scheduleRenewal();
+  }
+
+  link() {
+    console.log('link');
   }
 
   isAuthenticated() {
