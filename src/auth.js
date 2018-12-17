@@ -139,18 +139,27 @@ export default class Auth {
         console.log(results);
         console.log(results.data.middleManagement.access_token);
         const user = this.userProfile.sub.split('|').join('%7C');
-        const authZeroOpts = {
-          headers: {
-            authorization: `Bearer ${results.data.middleManagement.access_token}`
-          },
-          body: {
-            user_metadata: {
-              linked: true
-            }
-          },
-          json: true
-        };
-        axios.patch(`https://wander-outdoor.auth0.com/api/v2/users/${user}`, authZeroOpts)
+        // const authZeroOpts = {
+        //   headers: {
+        //     authorization: `Bearer ${results.data.middleManagement.access_token}`
+        //   },
+        //   body: {
+        //     user_metadata: {
+        //       linked: true
+        //     }
+        //   },
+        //   json: true
+        //
+        const authZeroOpts = { method: 'PATCH',
+  url: `https://wander-outdoor.auth0.com/api/v2/users/${user}`,
+  headers:
+   {
+     'cache-control': 'no-cache',
+     authorization: `Bearer ${results.data.middleManagement.access_token}`,
+     'content-type': 'application/json' },
+  body: { user_metadata: { linked: true } },
+  json: true };
+        axios(authZeroOpts)
           .then(response => {
             console.log(response);
           })
