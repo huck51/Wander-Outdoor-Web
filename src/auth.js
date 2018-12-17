@@ -137,15 +137,16 @@ export default class Auth {
     axios.post('https://fierce-ridge-55021.herokuapp.com/signup-newuser', options)
       .then(results => {
         console.log(results);
+        const user = this.userProfile.sub.split('|').join('%7C');
         const authZeroOpts = {
           headers: {
-            "authorization": `Bearer ${this.accessToken}`
+            "authorization": `Bearer ${this.idToken}`
           },
           "user_metadata": {
             "linked": true
           }
         };
-        axios.patch(`https://wander-outdoor.auth0.com/api/v2/users/${this.userProfile.sub}`, authZeroOpts)
+        axios.patch(`https://wander-outdoor.auth0.com/api/v2/users/${user}`, authZeroOpts)
           .then(response => {
             console.log(response);
           })
