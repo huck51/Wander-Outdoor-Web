@@ -155,6 +155,7 @@ export default class Auth {
   headers:
    {
      'cache-control': 'no-cache',
+     'Access-Control-Allow-Origin': '*',
      authorization: `Bearer ${results.data.middleManagement.access_token}`,
      'content-type': 'application/json' },
   body: { user_metadata: { linked: true } },
