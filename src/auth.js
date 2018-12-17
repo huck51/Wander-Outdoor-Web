@@ -140,7 +140,7 @@ export default class Auth {
         const user = this.userProfile.sub.split('|').join('%7C');
         const authZeroOpts = {
           headers: {
-            "Authorization": `Bearer ${results.data.middleManagement.access_token}`
+            Authorization: `Bearer ${results.data.middleManagement.access_token}`
           },
           "user_metadata": {
             "linked": true
