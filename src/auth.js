@@ -138,6 +138,9 @@ export default class Auth {
       .then(results => {
         console.log(results);
         const authZeroOpts = {
+          headers: {
+            authorization: `Bearer ${this.accessToken}`
+          },
           user_metadata: {
             linked: true
           }
