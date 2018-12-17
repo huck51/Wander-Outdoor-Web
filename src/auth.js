@@ -134,7 +134,7 @@ export default class Auth {
       id: authResult.idTokenPayload['https://wander-outdoor.com/uuid'],
       email: authResult.idTokenPayload.email
     };
-    axios.post('https://fierce-ridge55021.herokuapp.com/signup-newuser', options)
+    axios.post('https://fierce-ridge-55021.herokuapp.com/signup-newuser', options)
       .then(results => {
         console.log(results);
         const authZeroOpts = {
