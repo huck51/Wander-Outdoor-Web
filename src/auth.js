@@ -143,8 +143,8 @@ export default class Auth {
             authorization: `Bearer ${results.data.middleManagement.access_token}`
           },
           body: {
-            "user_metadata": {
-              "linked": true
+            user_metadata: {
+              linked: true
             }
           },
           json: true
