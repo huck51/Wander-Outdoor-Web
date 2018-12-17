@@ -137,6 +137,7 @@ export default class Auth {
     axios.post('https://fierce-ridge-55021.herokuapp.com/signup-newuser', options)
       .then(results => {
         console.log(results);
+        console.log(results.data.middleManagement.access_token);
         const user = this.userProfile.sub.split('|').join('%7C');
         const authZeroOpts = {
           headers: {
