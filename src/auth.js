@@ -12,7 +12,7 @@ export default class Auth {
     this.auth0 = new auth0.WebAuth({
       domain: process.env.REACT_APP_DOMAIN,
       clientID: process.env.REACT_APP_CLIENT_ID,
-      redirectUri: process.env.REACT_APP_REDIRECT,
+      redirectUri: 'http://localhost:3000/authload',
       audience: process.env.REACT_APP_AUDIENCE,
       responseType: 'token id_token',
       scope: 'openid profile email',
@@ -130,43 +130,15 @@ export default class Auth {
   }
 
   link(authResult) {
+    const user = this.userProfile.sub.split('|').join('%7C');
     const options = {
       id: authResult.idTokenPayload['https://wander-outdoor.com/uuid'],
-      email: authResult.idTokenPayload.email
+      email: authResult.idTokenPayload.email,
+      sub: user
     };
     axios.post('https://fierce-ridge-55021.herokuapp.com/signup-newuser', options)
       .then(results => {
         console.log(results);
-        console.log(results.data.middleManagement.access_token);
-        const user = this.userProfile.sub.split('|').join('%7C');
-        // const authZeroOpts = {
-        //   headers: {
-        //     authorization: `Bearer ${results.data.middleManagement.access_token}`
-        //   },
-        //   body: {
-        //     user_metadata: {
-        //       linked: true
-        //     }
-        //   },
-        //   json: true
-        //
-        const authZeroOpts = { method: 'PATCH',
-  url: `https://wander-outdoor.auth0.com/api/v2/users/${user}`,
-  headers:
-   {
-     'cache-control': 'no-cache',
-     'Access-Control-Allow-Origin': '*',
-     authorization: `Bearer ${results.data.middleManagement.access_token}`,
-     'content-type': 'application/json' },
-  body: { user_metadata: { linked: true } },
-  json: true };
-        axios(authZeroOpts)
-          .then(response => {
-            console.log(response);
-          })
-          .catch(error => {
-            console.log(error);
-          });
       })
       .catch(err => {
         console.log(err);
