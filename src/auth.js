@@ -12,7 +12,7 @@ export default class Auth {
     this.auth0 = new auth0.WebAuth({
       domain: process.env.REACT_APP_DOMAIN,
       clientID: process.env.REACT_APP_CLIENT_ID,
-      redirectUri: 'http://localhost:3000/authload',
+      redirectUri: process.env.REACT_APP_REDIRECT,
       audience: process.env.REACT_APP_AUDIENCE,
       responseType: 'token id_token',
       scope: 'openid profile email',
