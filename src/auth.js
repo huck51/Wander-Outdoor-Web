@@ -1,4 +1,5 @@
 import auth0 from 'auth0-js';
+import axios from 'axios';
 
 export default class Auth {
   accessToken;
@@ -121,15 +122,37 @@ export default class Auth {
       this.persist();
     });
 
-    if (authResult.idTokenPayload['https://wander-outdoor.com/logCount'] <= 1) {
-      this.link();
+    if (!authResult.idTokenPayload['https://wander-outdoor.com/linked']) {
+      this.link(authResult);
     }
 
     // this.scheduleRenewal();
   }
 
-  link() {
-    console.log('link');
+  link(authResult) {
+    const options = {
+      id: authResult.idTokenPayload['https://wander-outdoor.com/uuid'],
+      email: authResult.idTokenPayload.email
+    };
+    axios.post('https://fierce-ridge55021.herokuapp.com/signup-newuser', options)
+      .then(results => {
+        console.log(results);
+        const authZeroOpts = {
+          user_metadata: {
+            linked: true
+          }
+        };
+        axios.patch(`https://wander-outdoor.auth0.com/api/v2/users/${this.userProfile.sub}`, authZeroOpts)
+          .then(response => {
+            console.log(response);
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   isAuthenticated() {
