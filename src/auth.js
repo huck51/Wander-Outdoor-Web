@@ -139,10 +139,10 @@ export default class Auth {
         console.log(results);
         const authZeroOpts = {
           headers: {
-            authorization: `Bearer ${this.accessToken}`
+            "authorization": `Bearer ${this.accessToken}`
           },
-          user_metadata: {
-            linked: true
+          "user_metadata": {
+            "linked": true
           }
         };
         axios.patch(`https://wander-outdoor.auth0.com/api/v2/users/${this.userProfile.sub}`, authZeroOpts)
