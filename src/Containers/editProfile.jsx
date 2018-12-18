@@ -40,7 +40,7 @@ class EditProfile extends Component {
   }
 
   componentDidMount() {
-    const id = props.auth.userProfile['https://wander-outdoor.com/uuid'];
+    const id = this.props.auth.userProfile['https://wander-outdoor.com/uuid'];
     axios.post('https://fierce-ridge-55021.herokuapp.com/find-user', { id })
       .then((response) => {
         const {
