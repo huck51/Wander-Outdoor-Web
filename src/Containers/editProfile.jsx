@@ -151,6 +151,7 @@ class EditProfile extends Component {
       city,
       stateName,
     } = this.state;
+    const id = this.props.auth.userProfile['https://wander-outdoor.com/uuid'];
     const updateObject = {
       firstName,
       lastName,
@@ -160,7 +161,7 @@ class EditProfile extends Component {
       bio,
       roleGroup,
       picture,
-      id: localStorage.getItem('fierceIce'),
+      id,
       companyCode,
       city,
       stateName,
