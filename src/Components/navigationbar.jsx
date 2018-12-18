@@ -10,7 +10,9 @@ import Logo from '../Images/WanderLogoWide.png';
 import './Styles/navigationbar.css';
 
 const NavigationBar = props => {
-  if (props.auth.userProfile) {
+  const authed = props.auth.isAuthenticated();
+  if (authed) {
+    const profile = props.auth.getProfile();
     return (
       <Navbar collapseOnSelect>
         <Navbar.Header>
@@ -42,7 +44,7 @@ const NavigationBar = props => {
             <NavDropdown eventKey={3} title="My Profile" id="basic-nav-dropdown">
               <li><Link to="/account-info">Account Info</Link></li>
               <li><Link to="/edit-profile">Edit Profile</Link></li>
-              <li><Link to={`/profile/${props.auth.userProfile.profileNum}`}>View Profile</Link></li>
+              <li><Link to={`/profile/${profile.profileNum}`}>View Profile</Link></li>
               <li><Link to="/inbox">Messages</Link></li>
               <MenuItem divider />
               <li><Link to="/dashboard">Dashboard</Link></li>

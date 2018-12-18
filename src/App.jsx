@@ -34,7 +34,7 @@ const App = props => (
       <div id="body">
         <AuthUserContext.Consumer>
           {
-            value => <NavigationBar auth={value.authMethods} />
+            value => <NavigationBar auth={value.authMethods} profile={value.authMethods.userProfile} />
           }
         </AuthUserContext.Consumer>
         <StripeProvider stripe={null}>
