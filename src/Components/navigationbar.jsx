@@ -10,8 +10,8 @@ import Logo from '../Images/WanderLogoWide.png';
 import './Styles/navigationbar.css';
 
 const NavigationBar = props => {
-  if (props.user) {
-    const profileNum = props.user;
+  if (props.auth.userProfile) {
+    const profileNum = props.auth.userProfile.profileNum;
     return (
       <Navbar collapseOnSelect>
         <Navbar.Header>
