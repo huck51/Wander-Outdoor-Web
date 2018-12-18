@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { StripeProvider } from 'react-stripe-elements';
-import axios from 'axios';
-import Auth from './auth';
 import Footer from './Components/footer';
 import Main from './main';
 import NavigationBar from './Components/navigationbar';
@@ -60,20 +58,6 @@ class App extends Component {
     };
   }
 
-  componentWillMount() {
-    const auth = new Auth();
-    const loggedIn = auth.isAuthenticated();
-    if (loggedIn !== this.state.loggedIn) {
-      this.setState({
-        loggedIn,
-        user: {
-          username: localStorage.getItem('nickname'),
-          email: localStorage.getItem('email'),
-        },
-      });
-    }
-  }
-
   componentDidMount() {
     if (window.Stripe) {
       this.setState({stripe: window.Stripe('pk_test_6kVwvdGW58r0XdXjnI4i9ui4')});
@@ -83,52 +67,6 @@ class App extends Component {
         this.setState({stripe: window.Stripe('pk_test_6kVwvdGW58r0XdXjnI4i9ui4')});
       });
     }
-    var token;
-    axios.get('https://fierce-ridge-55021.herokuapp.com/testy-puller')
-    .then(initResponse => {
-      console.log(initResponse.data);
-      token = initResponse.data.access_token;
-      const email = localStorage.getItem('email');
-      if (!email) {
-        return;
-      }
-      const eMarr = email.split('');
-      for (let i = 0; i < eMarr.length; i++) {
-        if (eMarr[i] === '@') {
-          eMarr[i] = '%40';
-          break;
-        }
-      }
-      const webmail = eMarr.join('');
-      const options = {
-        headers: { authorization: `Bearer ${token}` },
-      };
-      axios.get(`https://wander-outdoor.auth0.com/api/v2/users-by-email?email=${webmail}`, options)
-        .then((response) => {
-          const data = response.data[0];
-          console.log(data);
-          const fierceIce = process.env.REACT_APP_CAT.concat(data.identities[0].user_id);
-          localStorage.setItem('fierceIce', fierceIce);
-          const secondaryOptions = {
-            id: fierceIce,
-            email: data.email,
-          };
-          axios.post('https://fierce-ridge-55021.herokuapp.com/signup-newuser', secondaryOptions)
-            .then((secondaryResponse) => {
-              console.log(secondaryResponse);
-              localStorage.setItem('name', secondaryResponse.data.name);
-            })
-            .catch((err) => {
-              console.error(err);
-            });
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    })
-    .catch(error => {
-      console.log(error);
-    });
   }
 
   render() {
