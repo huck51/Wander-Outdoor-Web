@@ -71,6 +71,7 @@ class SignUpGC extends Component {
       picture,
       bio,
     } = this.state;
+    const owner = this.props.auth.userProfile['https://wander-outdoor.com/uuid'];
     const newCompany = {
       companyName,
       streetAddress,
@@ -85,7 +86,7 @@ class SignUpGC extends Component {
       picture,
       bio,
       chex,
-      owner: localStorage.getItem('fierceIce'),
+      owner,
       activities,
     };
     this.setState({
