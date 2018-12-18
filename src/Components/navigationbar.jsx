@@ -11,7 +11,7 @@ import './Styles/navigationbar.css';
 
 const NavigationBar = props => {
   if (props.user) {
-    const profileNum = props.user.profileNum;
+    const profileNum = props.auth.userProfile.profileNum;
     return (
       <Navbar collapseOnSelect>
         <Navbar.Header>
