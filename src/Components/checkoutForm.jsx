@@ -36,7 +36,7 @@ class CheckoutForm extends Component {
       const axOptions = {
         source,
         email: ownerInfo.email,
-        fierceIce: localStorage.getItem('fierceIce'),
+        id: this.props.auth.userProfile['https://wander-outdoor.com/uuid'],
       };
       axios.post('https://fierce-ridge-55021.herokuapp.com/create/customer', axOptions)
       .then(response => {
