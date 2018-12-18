@@ -39,9 +39,8 @@ class ViewTraveler extends Component {
   }
 
   componentDidMount() {
-    const { id } = this.props.match.params;
-    console.log(id);
-    axios.post('https://fierce-ridge-55021.herokuapp.com/find-user', {id})
+    const { profileNum } = this.props.match.params;
+    axios.get(`https://fierce-ridge-55021.herokuapp.com/get-user-profile/${profileNum}`)
       .then((response) => {
         console.log(response);
         const {
