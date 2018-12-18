@@ -10,11 +10,8 @@ import Logo from '../Images/WanderLogoWide.png';
 import './Styles/navigationbar.css';
 
 const NavigationBar = props => {
-///////////////////////////////////////////////////////////////////////
-// CHANGE PATH ON LINE 48 BACK TO SOMETHING ALONG THE LINES OF
-// `/PROFILE/${ID}`
-//////////////////////////////////////////////////////////////////////
   if (props.user) {
+    const profileNum = props.user.profileNum;
     return (
       <Navbar collapseOnSelect>
         <Navbar.Header>
@@ -46,7 +43,7 @@ const NavigationBar = props => {
             <NavDropdown eventKey={3} title="My Profile" id="basic-nav-dropdown">
               <li><Link to="/account-info">Account Info</Link></li>
               <li><Link to="/edit-profile">Edit Profile</Link></li>
-              <li><Link to={`/profile`}>View Profile</Link></li>
+              <li><Link to={`/profile/${profileNum}`}>View Profile</Link></li>
               <li><Link to="/inbox">Messages</Link></li>
               <MenuItem divider />
               <li><Link to="/dashboard">Dashboard</Link></li>

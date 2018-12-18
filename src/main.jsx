@@ -150,6 +150,11 @@ const Main = () => (
       <Route
         exact
         path="/dashboard/:company/add-trip"
+        render={props => <AddTrip {...props} /> }
+      />
+      <Route
+        exact
+        path="/dashboard/:company/add-trip"
         render={props => {
         return (<AuthUserContext.Consumer>
             {
@@ -261,7 +266,7 @@ const Main = () => (
       />
       <Route
         exact
-        path="/profile/:id"
+        path="/profile/:profileNum"
         render={props => (
             <ViewTraveler {...props} />
           )
