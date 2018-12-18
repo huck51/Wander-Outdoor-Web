@@ -125,6 +125,7 @@ class EditCompany extends Component {
       bio,
       companyUrl,
     } = this.state;
+    const owner = this.props.auth.userProfile['https://wander-outdoor.com/uuid'];
     const updateObject = {
       companyName,
       streetAddress,
@@ -140,7 +141,7 @@ class EditCompany extends Component {
       bio,
       companyUrl,
       chex,
-      owner: localStorage.getItem('fierceIce'),
+      owner,
       activities,
     };
     axios.post('https://fierce-ridge-55021.herokuapp.com/update/guiding-company', { updateObject })
