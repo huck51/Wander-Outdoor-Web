@@ -31,6 +31,7 @@ export default class Auth {
     this.persist = this.persist.bind(this);
     this.endPersistence = this.endPersistence.bind(this);
     this.link = this.link.bind(this);
+    this.getWander = this.getWander.bind(this);
 
     // this.scheduleRenewal();
     // this.endPersistence(localStorage.getItem('persist'));
@@ -124,6 +125,8 @@ export default class Auth {
 
     if (!authResult.idTokenPayload['https://wander-outdoor.com/linked']) {
       this.link(authResult);
+    } else {
+      this.getWander(authResult);
     }
 
     // this.scheduleRenewal();
@@ -143,6 +146,21 @@ export default class Auth {
       .catch(err => {
         console.log(err);
       });
+  }
+
+  getWander(authResult) {
+    const user = authResult.idTokenPayload['https://wander-outdoor.com/uuid'];
+    axios.get(`https://fierce-ridge-55021.herokuapp.com/setup-profile/${user}`)
+      .then(response => {
+        console.log(response.data);
+        this.userProfile.firstName = response.data.firstName;
+        this.userProfile.lastName = response.data.lastName;
+        this.userProfile.profileNum = response.data.profileNum
+        this.userProfile.roleGroup = response.data.roleGroup
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   isAuthenticated() {
