@@ -14,7 +14,7 @@ const NavigationBar = props => {
     let profileNum = props.user.profileNum;
     console.log(profileNum);
     if (!profileNum) {
-      props.current.getCurrentAuth();
+      props.current();
     }
     return (
       <Navbar collapseOnSelect>
