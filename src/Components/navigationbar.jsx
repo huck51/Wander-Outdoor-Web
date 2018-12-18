@@ -11,7 +11,6 @@ import './Styles/navigationbar.css';
 
 const NavigationBar = props => {
   if (props.auth.userProfile) {
-    const profileNum = props.auth.userProfile.profileNum;
     return (
       <Navbar collapseOnSelect>
         <Navbar.Header>
@@ -43,7 +42,7 @@ const NavigationBar = props => {
             <NavDropdown eventKey={3} title="My Profile" id="basic-nav-dropdown">
               <li><Link to="/account-info">Account Info</Link></li>
               <li><Link to="/edit-profile">Edit Profile</Link></li>
-              <li><Link to={`/profile/${profileNum}`}>View Profile</Link></li>
+              <li><Link to={`/profile/${props.auth.userProfile.profileNum}`}>View Profile</Link></li>
               <li><Link to="/inbox">Messages</Link></li>
               <MenuItem divider />
               <li><Link to="/dashboard">Dashboard</Link></li>
