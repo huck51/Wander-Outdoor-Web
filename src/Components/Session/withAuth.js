@@ -28,11 +28,17 @@ const withAuth = Component => {
       });
     }
 
+    getCurrentAuth = () => {
+      const user = this.props.auth.getProfile();
+      this.setState({ authUser: user });
+    }
+
     render() {
       const authContext = {
         authUser: this.state.authUser,
         authMethods: this.props.auth,
         getAuth: this.getAuth,
+        getCurrentAuth: this.getCurrentAuth,
       };
       return (
         <AuthUserContext.Provider value={authContext} >
