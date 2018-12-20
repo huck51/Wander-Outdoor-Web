@@ -20,6 +20,8 @@ const withAuth = Component => {
         if (user.profileNum) {
           console.log(user.profileNum)
           this.setState({ authUser: user });
+        } else {
+          this.forceUpdate();
         }
       }
     }
