@@ -14,6 +14,13 @@ class NavigationBar extends PureComponent {
     const authed = this.props.auth.isAuthenticated();
     if (authed) {
       let profileNum = this.props.profile.profileNum;
+      console.log(profileNum);
+      if (profileNum == undefined) {
+        const getProf = this.props.auth.getProfile();
+        console.log(getProf);
+        //profileNum = getProf.profileNum;
+        console.log(profileNum);
+      }
     return (
       <Navbar collapseOnSelect>
         <Navbar.Header>
