@@ -7,18 +7,20 @@ const withAuth = Component => {
     constructor(props) {
       super(props);
       this.state = {
-        authUser: null,
+        authUser: {},
       };
     }
 
     componentDidMount() {
       this.props.auth.endPersistence(localStorage.getItem('persist'));
       const isAuth = this.props.auth.isAuthenticated();
-      console.log(`isAuth: ${isAuth}`);
+      console.log(isAuth);
       if (isAuth) {
         const user = this.props.auth.getProfile();
-        console.log(`User: ${user}`);
-        this.setState({ authUser: user });
+        if (user.profileNum) {
+          console.log(user.profileNum)
+          this.setState({ authUser: user });
+        }
       }
     }
 

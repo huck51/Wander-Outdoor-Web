@@ -7,6 +7,7 @@ export default class Auth {
   expiresAt;
   userProfile;
   tokenRenewalTimeout;
+  update;
 
   constructor() {
     this.auth0 = new auth0.WebAuth({
@@ -87,6 +88,11 @@ export default class Auth {
           return reject(err);
         }
         this.setSession(authResult);
+        if (!authResult.idTokenPayload['https://wander-outdoor.com/linked']) {
+          this.link(authResult);
+        } else {
+          this.getWander(authResult);
+        }
         resolve();
       });
     })
@@ -118,16 +124,11 @@ export default class Auth {
     this.idToken = authResult.idToken;
     this.userProfile = authResult.idTokenPayload;
     this.expiresAt = authResult.expiresIn * 1000 + new Date().getTime();
+    this.update = false;
 
     window.addEventListener('beforeunload', () => {
       this.persist();
     });
-
-    if (!authResult.idTokenPayload['https://wander-outdoor.com/linked']) {
-      this.link(authResult);
-    } else {
-      this.getWander(authResult);
-    }
 
     // this.scheduleRenewal();
   }
@@ -153,14 +154,16 @@ export default class Auth {
     axios.get(`https://fierce-ridge-55021.herokuapp.com/setup-profile/${user}`)
       .then(response => {
         console.log(response.data);
+        console.log(response.data.profileNum);
         this.userProfile.firstName = response.data.firstName;
         this.userProfile.lastName = response.data.lastName;
         this.userProfile.profileNum = response.data.profileNum
         this.userProfile.roleGroup = response.data.roleGroup
+        window.location = '/';
       })
       .catch(err => {
         console.log(err);
-      })
+      });
   }
 
   isAuthenticated() {

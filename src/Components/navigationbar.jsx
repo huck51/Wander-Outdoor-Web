@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import {
   Navbar,
   NavDropdown,
@@ -9,10 +9,11 @@ import { Link } from 'react-router-dom';
 import Logo from '../Images/WanderLogoWide.png';
 import './Styles/navigationbar.css';
 
-const NavigationBar = props => {
-  const authed = props.auth.isAuthenticated();
-  if (authed) {
-    const profile = props.auth.getProfile();
+class NavigationBar extends PureComponent {
+  render() {
+    const authed = this.props.auth.isAuthenticated();
+    if (authed) {
+      let profileNum = this.props.profile.profileNum;
     return (
       <Navbar collapseOnSelect>
         <Navbar.Header>
@@ -44,13 +45,13 @@ const NavigationBar = props => {
             <NavDropdown eventKey={3} title="My Profile" id="basic-nav-dropdown">
               <li><Link to="/account-info">Account Info</Link></li>
               <li><Link to="/edit-profile">Edit Profile</Link></li>
-              <li><Link to={`/profile/${profile.profileNum}`}>View Profile</Link></li>
+              <li><Link to={`/profile/${profileNum}`}>View Profile</Link></li>
               <li><Link to="/inbox">Messages</Link></li>
               <MenuItem divider />
               <li><Link to="/dashboard">Dashboard</Link></li>
             </NavDropdown>
             <li role="presentation" className="highlight">
-              <button className="logBtn" onClick={props.auth.logout}>Sign Out</button>
+              <button className="logBtn" onClick={this.props.auth.logout}>Sign Out</button>
             </li>
           </ul>
         </Navbar.Collapse>
@@ -86,15 +87,16 @@ const NavigationBar = props => {
             <Link to="/contact">Contact Us</Link>
           </li>
           <li role="presentation" className="highlight pullR">
-            <button className="logBtn" onClick={props.auth.login}>Login</button>
+            <button className="logBtn" onClick={this.props.auth.login}>Login</button>
           </li>
           <li role="presentation" className="highlight pullR">
-            <button className="logBtn" onClick={props.auth.login}>Sign Up</button>
+            <button className="logBtn" onClick={this.props.auth.login}>Sign Up</button>
           </li>
         </ul>
       </Navbar.Collapse>
     </Navbar>
   );
+  }
 }
 
 export default NavigationBar;
