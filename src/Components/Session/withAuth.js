@@ -8,7 +8,7 @@ const withAuth = Component => {
       super(props);
       this.state = {
         authUser: {
-          profileNum: '404'
+          profileNum: undefined
         },
       };
     }
