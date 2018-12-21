@@ -7,6 +7,7 @@ import {
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Logo from '../Images/WanderLogoWide.png';
+import { AuthUserContext } from './Session';
 import './Styles/navigationbar.css';
 
 class NavigationBar extends PureComponent {
@@ -52,7 +53,11 @@ class NavigationBar extends PureComponent {
             <NavDropdown eventKey={3} title="My Profile" id="basic-nav-dropdown">
               <li><Link to="/account-info">Account Info</Link></li>
               <li><Link to="/edit-profile">Edit Profile</Link></li>
-              <li><Link to={`/profile/${profileNum}`}>View Profile</Link></li>
+              <AuthUserContext.Consumer>
+                {
+                  value => <li><Link to={`/profile/${value.authUser.profileNum}`}>View Profile</Link></li>
+                }
+              </AuthUserContext.Consumer>
               <li><Link to="/inbox">Messages</Link></li>
               <MenuItem divider />
               <li><Link to="/dashboard">Dashboard</Link></li>

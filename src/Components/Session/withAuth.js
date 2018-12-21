@@ -7,7 +7,9 @@ const withAuth = Component => {
     constructor(props) {
       super(props);
       this.state = {
-        authUser: {},
+        authUser: {
+          profileNum: '404'
+        },
       };
     }
 
