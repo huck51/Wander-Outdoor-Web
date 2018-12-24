@@ -13,7 +13,7 @@ const auth = new Auth();
 ReactDOM.render(
   (
     <BrowserRouter>
-        <App auth={auth} />
+        <App auth={auth} update={auth.update}/>
     </BrowserRouter>
   ), document.getElementById('root'),
 );

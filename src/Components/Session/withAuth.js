@@ -29,6 +29,7 @@ const withAuth = Component => {
     }
 
     getAuth = user => {
+      console.log('setting state');
       this.setState({
         authUser: user,
       });

@@ -6,10 +6,13 @@ import { BounceLoader } from 'react-spinners';
 class AuthLoad extends Component {
   componentDidMount() {
     this.props.auth.handleAuthentication()
-      .then(() => {
+      .then(async () => {
         const profile = this.props.auth.getProfile();
-        this.props.getAuth(profile);
-        window.location = '/';
+        console.log(profile);
+        const synched = await this.props.auth.getWander(profile);
+        console.log(synched);
+        this.props.getAuth(synched);
+        this.props.history.push('/');
         return;
       })
       .catch(error => {

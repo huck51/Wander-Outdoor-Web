@@ -19,8 +19,12 @@ class NavigationBar extends PureComponent {
       if (profileNum == undefined) {
         const getProf = this.props.auth.getProfile();
         console.log(getProf);
-        //profileNum = getProf.profileNum;
-        console.log(profileNum);
+        if (getProf == undefined) {
+          // window.location = '/';
+        } else {
+          profileNum = getProf.profileNum;
+          console.log(profileNum);
+        }
       }
     return (
       <Navbar collapseOnSelect>
