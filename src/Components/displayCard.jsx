@@ -7,15 +7,15 @@ const DisplayCard = ({item}) => {
   const url = [];
   if (item.roleGroup === 'company') {
     item.name = item.companyName;
-    url.push(`/company/${item.companyCode}`);
+    url.push(`/company/${item.profileNum}`);
   }
   var bgSize = '100% 100%';
   if (item.roleGroup === 'guide') {
     bgSize = '100% auto';
-    url.push(`/profile/${item.id}`);
+    url.push(`/profile/${item.profileNum}`);
   }
   if (item.roleGroup === 'trip') {
-    url.push(`/trips/${item._id}`);
+    url.push(`/trips/${item.profileNum}`);
   }
   var price = '';
   var priceStyle = {
