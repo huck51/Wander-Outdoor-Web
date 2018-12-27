@@ -311,7 +311,11 @@ const Main = () => (
         exact
         path="/trips/:id"
         render={props => (
-            <ViewTrip {...props} />
+          <AuthUserContext.Consumer>
+            {
+              value => <ViewTrip authed={value.authMethods} {...props} />
+            }
+          </AuthUserContext.Consumer>
           )
         }
       />

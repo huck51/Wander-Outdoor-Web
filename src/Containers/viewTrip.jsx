@@ -37,7 +37,6 @@ class ViewTrip extends Component {
         const {
           name,
           company,
-          companyCode,
           companyName,
           city,
           stateName,
@@ -50,12 +49,15 @@ class ViewTrip extends Component {
           activities,
           tripUrl,
         } = result.data;
-        const user = localStorage.getItem('name');
+        let user = 'Anonymous';
+        if (this.props.authed.isAuthenticated()) {
+          user = this.props.authed.getProfile();
+          console.log(user);
+        }
         this.setState({
-          username: user == (null || '' || undefined) ? 'Anonymous' : user,
+          username: user,
           name,
           company,
-          companyCode,
           companyName,
           city,
           stateName,
@@ -157,7 +159,7 @@ class ViewTrip extends Component {
             price={this.state.price}
             rate={this.state.rating.rate}
             stateName={this.state.stateName}
-            url={`/company/${this.state.companyCode}`}
+            url={`/company/${this.state.company.profileNum}`}
           />
           <ActivityList activities={this.state.activities} />
           <ProfileList
