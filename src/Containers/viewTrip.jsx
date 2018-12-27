@@ -51,7 +51,8 @@ class ViewTrip extends Component {
         } = result.data;
         let user = 'Anonymous';
         if (this.props.authed.isAuthenticated()) {
-          user = this.props.authed.getProfile();
+          const profile = this.props.authed.getProfile();
+          user = profile.firstName + ' ' + profile.lastName;
           console.log(user);
         }
         this.setState({
