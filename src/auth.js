@@ -7,7 +7,6 @@ export default class Auth {
   expiresAt;
   userProfile;
   tokenRenewalTimeout;
-  update;
 
   constructor() {
     this.auth0 = new auth0.WebAuth({
@@ -125,7 +124,6 @@ export default class Auth {
     this.idToken = authResult.idToken;
     this.userProfile = authResult.idTokenPayload;
     this.expiresAt = authResult.expiresIn * 1000 + new Date().getTime();
-    this.update = false;
 
     window.addEventListener('beforeunload', () => {
       this.persist();

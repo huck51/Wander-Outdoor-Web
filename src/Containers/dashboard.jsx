@@ -3,6 +3,7 @@ import {
   Row,
   Col
 } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
 import { BounceLoader } from 'react-spinners';
 import { Link } from 'react-router-dom';
 import StarRatingComponent from 'react-star-rating-component';
@@ -20,7 +21,11 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
-    const id = this.props.auth.userProfile['https://wander-outdoor.com/uuid'];
+    const getProf = this.props.auth.getProfile();
+    const id = getProf['https://wander-outdoor.com/uuid'];
+    if (!id) {
+      this.props.history.push('/');
+    }
     axios.post('https://fierce-ridge-55021.herokuapp.com/dashboard-companies', { id })
       .then((response) => {
         console.log(response);
@@ -111,4 +116,4 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+export default withRouter(Dashboard);
