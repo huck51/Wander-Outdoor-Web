@@ -7,6 +7,7 @@ import {
   FormGroup,
   Row,
 } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import FieldGroup from '../Components/fieldGroup';
 import { activitiesArr, activitiesDict } from '../Data/activities';
@@ -91,7 +92,7 @@ class SignUpGC extends Component {
     };
     axios.post('https://fierce-ridge-55021.herokuapp.com/signup/guiding-company', newCompany)
       .then(() => {
-        window.location = '/dashboard';
+        this.props.history.push('/dashboard');
       })
       .catch((err) => {
         // eslint-disable-next-line no-console
@@ -289,4 +290,4 @@ class SignUpGC extends Component {
   }
 }
 
-export default SignUpGC;
+export default withRouter(SignUpGC);
