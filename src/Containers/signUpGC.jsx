@@ -89,20 +89,6 @@ class SignUpGC extends Component {
       owner,
       activities,
     };
-    this.setState({
-      companyName: '',
-      streetAddress: '',
-      city: '',
-      stateName: '',
-      zipCode: '',
-      companyPhone: '',
-      contactName: '',
-      jobTitle: '',
-      contactPhone: '',
-      contactEmail: '',
-      picture: '',
-      bio: ''
-    });
     axios.post('https://fierce-ridge-55021.herokuapp.com/signup/guiding-company', newCompany)
       .then(() => {
         window.location = '/dashboard';
