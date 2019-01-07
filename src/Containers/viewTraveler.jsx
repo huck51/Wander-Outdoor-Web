@@ -142,7 +142,7 @@ class ViewTraveler extends Component {
       }
       const updateObject = {
         reviews,
-        id: this.props.match.params.id,
+        profileNum: this.props.match.params.profileNum,
         rating,
       };
       axios.post(`https://fierce-ridge-55021.herokuapp.com/guide-update-reviews`, updateObject)
