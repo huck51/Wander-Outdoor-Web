@@ -136,9 +136,20 @@ const Main = () => (
           </AuthUserContext.Consumer>);
         }}
       />
+    <Route
+      exact
+      path="/dashboard/:company/add-existing-guide"
+      render={props => {
+      return (<AuthUserContext.Consumer>
+          {
+            value => value.authMethods.isAuthenticated() ? <AddGuide auth={value.authMethods} getAuth={value.getAuth} {...props} /> : <AuthRedirect auth={value.authMethods} />
+          }
+        </AuthUserContext.Consumer>);
+      }}
+    />
       <Route
         exact
-        path="/dashboard/:company/add-guide"
+        path="/dashboard/:company/create-guide"
         render={props => {
         return (<AuthUserContext.Consumer>
             {

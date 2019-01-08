@@ -54,9 +54,17 @@ class DashboardGuides extends Component {
           <ul className="guideUl">
             <Row className="container">
               <Col xs={12} sm={6} md={4} lg={3}>
-                <Link to={`/dashboard/${this.props.match.params.company}/add-guide`}>
+                <Link to={`/dashboard/${this.props.match.params.company}/create-guide`}>
                   <li className="btnCard">
-                    <h3 className="addNew">Add New Guide</h3>
+                    <h3 className="addNew">Create New Guide</h3>
+                    <h1 className="giantPlus">+</h1>
+                  </li>
+                </Link>
+              </Col>
+              <Col xs={12} sm={6} md={4} lg={3}>
+                <Link to={`/dashboard/${this.props.match.params.company}/add-existing-guide`}>
+                  <li className="btnCard">
+                    <h3 className="addNew">Add Existing Guides</h3>
                     <h1 className="giantPlus">+</h1>
                   </li>
                 </Link>
