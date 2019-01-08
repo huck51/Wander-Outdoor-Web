@@ -61,6 +61,8 @@ class EditTrip extends Component {
           activities,
         } = result.data;
 
+        const id = result.data._id;
+
         this.setState({
           name,
           description,
@@ -71,6 +73,7 @@ class EditTrip extends Component {
           tripUrl,
           companyCode,
           companyName,
+          id,
         });
 
         for (let i = 0; i < chex.length; i++) {
@@ -158,7 +161,7 @@ class EditTrip extends Component {
         linkGuides.push(keys[j]);
       }
     }
-    const linkedTrip = this.props.match.params.id;
+    const linkedTrip = this.state.id;
     if (linkGuides.length > 0) {
       this.addTripToGuide(linkGuides, linkedTrip);
     }
@@ -262,16 +265,6 @@ class EditTrip extends Component {
       guides,
       activities,
     };
-
-    this.setState({
-      name: '',
-      description: '',
-      city: '',
-      stateName: '',
-      price: '',
-      picture: null,
-      tripUrl: '',
-    });
 
     axios.post(`https://fierce-ridge-55021.herokuapp.com/edit-trip`, updateTrip)
       .then(() => {
