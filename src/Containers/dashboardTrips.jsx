@@ -86,8 +86,8 @@ class DashboardTrips extends Component {
                               emptyStarColor="#B5D994"
                             />
                           </div>
-                          <Link to={`/trips/${trip._id}`}><button className="removeButn">View Trip</button></Link>
-                          <Link to={`/edit-trip/${trip._id}`}><button className="removeButn">Edit Trip</button></Link>
+                          <Link to={`/trips/${trip.profileNum}`}><button className="removeButn">View Trip</button></Link>
+                          <Link to={`/edit-trip/${trip.profileNum}`}><button className="removeButn">Edit Trip</button></Link>
                         </div>
                       </div>
                     </li>
