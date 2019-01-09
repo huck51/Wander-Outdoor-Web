@@ -1,5 +1,18 @@
 import React, { Component } from 'react';
+import {
+  Checkbox,
+  Col,
+  ControlLabel,
+  FormControl,
+  FormGroup,
+  HelpBlock,
+  Radio,
+  Row,
+ } from 'react-bootstrap';
 import axios from 'axios';
+import FieldGroup from '../Components/fieldGroup';
+import { activitiesArr, activitiesDict } from '../Data/activities';
+import usa from '../Data/stateNames';
 import './Styles/signUpGuides.css';
 
 
@@ -7,71 +20,140 @@ class SignUpGuides extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: '',
-      lastName: '',
-      companyName: '',
-      companyCode: '',
-      email: '',
-      phone: '',
-      DOB: '',
-      username: '',
-      password: '',
-      verifyPW: '',
-      bio: '',
-      certs: '',
+        firstName: '',
+        lastName: '',
+        DOB: '',
+        email: '',
+        phone: '',
+        bio: '',
+        roleGroup: 'guide',
+        picture: null,
+        companyCode: this.props.match.params.company,
+        city: '',
+        stateName: '',
+        activitiesDict: activitiesDict,
+        tripsAvailable: [],
+        tripsSelected: {},
     };
   }
 
-  handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+  componentDidMount() {
+    axios.get(`https://fierce-ridge-55021.herokuapp.com/trips/${this.props.match.params.company}`)
+    .then(result => {
+      const trips = result.data;
+      const tripsSelected = {};
+      for (let i = 0; i < trips.length; i++) {
+        let tripName = trips[i].name;
+        tripsSelected[tripName] = false;
+      }
+      this.setState({
+        tripsAvailable: trips,
+        tripsSelected,
+      });
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }
+
+  handleClick = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+      explorer: !this.state.explorer,
+      guide: !this.state.guide,
+    });
+  }
+
+  handleChange = (e) => {
+    this.setState({[e.target.name]: e.target.value});
+  }
+
+  handleCheckBoxChange = (e) => {
+    const bullsEye = e.target.name.split('-');
+    const tempDict = this.state[bullsEye[0]];
+    tempDict[bullsEye[1]] = !tempDict[bullsEye[1]];
+    this.setState({
+      [bullsEye[0]]: tempDict
+    });
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
+    const chex = [];
+    const activities = [];
+    for (let i = 0; i < activitiesArr.length; i++) {
+      if (this.state.activitiesDict[activitiesArr[i].name]) {
+        chex.push(activitiesArr[i].name);
+        activities.push(activitiesArr[i].pretty);
+      }
+    }
     const {
       firstName,
       lastName,
-      companyName,
-      companyCode,
+      DOB,
       email,
       phone,
-      DOB,
-      username,
-      password,
       bio,
-      certs,
+      roleGroup,
+      picture,
+      companyCode,
+      city,
+      stateName,
     } = this.state;
-    const newGuide = {
+    const guideObject = {
       firstName,
       lastName,
-      companyName,
-      companyCode,
+      DOB,
       email,
       phone,
-      DOB,
-      username,
-      password,
       bio,
-      certs,
+      roleGroup,
+      picture,
+      companyCode,
+      city,
+      stateName,
+      chex,
+      activities,
     };
-    this.setState({
-      firstName: '',
-      lastName: '',
-      companyName: '',
-      companyCode: '',
-      email: '',
-      phone: '',
-      DOB: '',
-      username: '',
-      password: '',
-      bio: '',
-      certs: '',
-    });
-    axios.post('https://fierce-ridge-55021.herokuapp.com/signup/guide', newGuide)
-      .then(() => {
-        window.location = '/guides';
+    axios.post('https://fierce-ridge-55021.herokuapp.com/guide-bot', guideObject)
+      .then((response) => {
+        window.location = `/profile/${response.data.id}`
       })
       .catch((err) => {
-        // eslint-disable-next-line no-console
+        console.error(err);
+      });
+  }
+
+  uploadWidget = () => {
+    const cloudData = {
+      paramsToSign: {
+        eager: 'w_400,h_300,c_pad|w_260,h_200,c_crop',
+        public_id: 'userImage',
+      }
+    }
+    axios.post('https://fierce-ridge-55021.herokuapp.com/cloudinary', cloudData)
+      .then((response) => {
+        console.log(response.data);
+        const widgetOptions = {
+          cloud_name: 'wander-outdoor',
+          signature: response.data,
+          upload_preset: 'ypvspamw',
+          cropping: true,
+          cropping_aspect_ratio: 1.5,
+        };
+        window.cloudinary.openUploadWidget(widgetOptions, (err, result) => {
+          if (err) {
+            console.log(err);
+          }
+          if (result) {
+            console.log(result);
+            this.setState({
+              picture: result[0].secure_url,
+            });
+          }
+        });
+      })
+      .catch((err) => {
         console.log(err);
       });
   }
@@ -79,94 +161,147 @@ class SignUpGuides extends Component {
   render() {
     return (
       <div>
-        <h1>Guide SignUp</h1>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            name="firstName"
-            type="text"
-            placeholder="First Name"
-            value={this.state.firstName}
-            onChange={this.handleChange}
-          />
-          <input
-            name="lastName"
-            type="text"
-            placeholder="Last Name"
-            value={this.state.lastName}
-            onChange={this.handleChange}
-          />
-          <input
-            name="companyName"
-            type="text"
-            placeholder="Company Name"
-            value={this.state.companyName}
-            onChange={this.handleChange}
-          />
-          <input
-            name="companyCode"
-            type="text"
-            placeholder="Company Code"
-            value={this.state.companyCode}
-            onChange={this.handleChange}
-          />
-          <input
-            name="email"
-            type="email"
-            placeholder="E-mail"
-            value={this.state.email}
-            onChange={this.handleChange}
-          />
-          <input
-            name="phone"
-            type="text"
-            placeholder="Phone"
-            value={this.state.phone}
-            onChange={this.handleChange}
-          />
-          <input
-            name="DOB"
-            type="date"
-            placeholder="Date of Birth"
-            value={this.state.DOB}
-            onChange={this.handleChange}
-          />
-          <input
-            name="username"
-            type="text"
-            placeholder="Username"
-            value={this.state.username}
-            onChange={this.handleChange}
-          />
-          <input
-            name="password"
-            type="password"
-            placeholder="Password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-          <input
-            name="verifyPW"
-            type="password"
-            placeholder="Verify Password"
-            value={this.state.verifyPW}
-            onChange={this.handleChange}
-          />
-          <input
-            name="bio"
-            type="textarea"
-            placeholder="Bio..."
-            value={this.state.bio}
-            onChange={this.handleChange}
-          />
-          <input
-            name="certs"
-            type="textarea"
-            placeholder="List Certifications..."
-            value={this.state.certs}
-            onChange={this.handleChange}
-          />
-          <button type="submit" onClick={this.handleSubmit}>Submit</button>
-        </form>
+        <h1>CREATE NEW GUIDE</h1>
+        <div className="container">
+          <Row>
+            <Col xs={12} sm={12} md={6} lg={8}>
+              <form onSubmit={this.handleSubmit}>
+                <FieldGroup
+                  name="firstName"
+                  type="text"
+                  label="First Name"
+                  placeholder="First Name"
+                  onChange={this.handleChange}
+                  value={this.state.firstName}
+                  autocomplete="given-name"
+                />
+                <FieldGroup
+                  name="lastName"
+                  type="text"
+                  label="Last Name"
+                  placeholder="Last Name"
+                  onChange={this.handleChange}
+                  value={this.state.lastName}
+                  autocomplete="family-name"
+                />
+                <FieldGroup
+                  name="DOB"
+                  type="date"
+                  label="Date of Birth"
+                  placeholder=""
+                  onChange={this.handleChange}
+                  value={this.state.DOB}
+                  autocomplete="bday"
+                />
+                <FieldGroup
+                  name="email"
+                  type="email"
+                  label="Preferred Email"
+                  placeholder="Ex: user@website.com"
+                  onChange={this.handleChange}
+                  value={this.state.email}
+                  autocomplete="email"
+                />
+                <FieldGroup
+                  name="phone"
+                  type="text"
+                  label="Phone"
+                  placeholder="Ex: 612-911-5555"
+                  onChange={this.handleChange}
+                  value={this.state.phone}
+                  autocomplete="tel-national"
+                />
+                <FieldGroup
+                  name="city"
+                  type="text"
+                  label="Current City"
+                  placeholder="Current City"
+                  onChange={this.handleChange}
+                  value={this.state.city}
+                  autocomplete="address-level2"
+                />
+                <FormGroup controlId="formControlsSelect">
+                  <ControlLabel>Current State</ControlLabel>
+                  <FormControl
+                    name="stateName"
+                    componentClass="select"
+                    placeholder="select"
+                    className="textArea"
+                    onChange={this.handleChange}>
+                    <option value={this.state.stateName}>{this.state.stateName}</option>
+                    { usa.map((stateName) => {
+                      return <option value={stateName}>{stateName}</option>
+                    })
+                  }
+                  </FormControl>
+                </FormGroup>
+                <FormGroup>
+                  <ControlLabel>Select trips they will guide</ControlLabel>
+                  <br />
+                  {
+                    this.state.tripsAvailable.map((trip) => {
+                      return (
+                        <Checkbox
+                          inline
+                          onClick={this.handleCheckBoxChange}
+                          value={this.state.tripsSelected[trip.name]}
+                          checked={this.state.tripsSelected[trip.name]}
+                          name={`tripsSelected-${trip.name}`}
+                        >{trip.name}
+                        </Checkbox>
+                      );
+                    })
+                  }
+                </FormGroup>
+                <FormGroup>
+                  <ControlLabel>Sports/Activities</ControlLabel>
+                  <br />
+                  {
+                    activitiesArr.map((sport) => {
+                      return (
+                        <Checkbox
+                          inline
+                          onClick={this.handleCheckBoxChange}
+                          value={this.state.activitiesDict[sport.name]}
+                          checked={this.state.activitiesDict[sport.name]}
+                          name={`activitiesDict-${sport.name}`}
+                        >{sport.pretty}
+                        </Checkbox>
+                      );
+                    })
+                  }
+                </FormGroup>
+                <FormGroup controlId="formControlsTextarea">
+                  <ControlLabel>Bio</ControlLabel>
+                  <FormControl
+                    componentClass="textarea"
+                    placeholder="Maximum of 250 words..."
+                    value={this.state.bio}
+                    onChange={this.handleChange}
+                    name="bio"
+                    className="textArea"
+                    rows="10"
+                  />
+                </FormGroup>
+              <button
+                className="epSaveBtn"
+                type="submit"
+                onClick={this.handleSubmit}
+                >Save</button>
+              </form>
+            </Col>
+            <Col xs={12} sm={12} md={6} lg={4}>
+              <div className="container">
+                <button
+                  className="uploadWidget"
+                  onClick={this.uploadWidget}
+                  >Upload Photo</button>
+                <h4>Preview Profile Picture</h4>
+                  <img src={this.state.picture} alt="Profile Pic" className="profPic"/>
+              </div>
+            </Col>
+          </Row>
+        </div>
       </div>
     );
   }
