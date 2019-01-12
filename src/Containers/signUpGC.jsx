@@ -10,6 +10,7 @@ import {
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import FieldGroup from '../Components/fieldGroup';
+import TwoOptModal from '../Components/twoOptModal';
 import { activitiesArr, activitiesDict } from '../Data/activities';
 import usa from '../Data/stateNames';
 import './Styles/signUpGC.css';
@@ -32,7 +33,18 @@ class SignUpGC extends Component {
       picture: null,
       bio: '',
       activitiesDict: activitiesDict,
+      show: false,
     };
+  }
+
+  goToAddGuides = () => {
+    const { company } = this.state;
+    this.props.history.push(`/dashboard/${company}/guides`)
+  }
+
+  goToAddTrips = () => {
+    const { company } = this.state;
+    this.props.history.push(`/dashboard/${company}/add-trip`);
   }
 
   handleChange = (e) => {
@@ -91,8 +103,13 @@ class SignUpGC extends Component {
       activities,
     };
     axios.post('https://fierce-ridge-55021.herokuapp.com/signup/guiding-company', newCompany)
-      .then(() => {
-        this.props.history.push('/dashboard');
+      .then((response) => {
+        const company = response.data.companyCode;
+        this.setState({
+          company,
+          show: true,
+        });
+        // this.props.history.push('/dashboard');
       })
       .catch((err) => {
         // eslint-disable-next-line no-console
@@ -136,6 +153,15 @@ class SignUpGC extends Component {
     return (
       <div className="container">
         <h1>Guiding Company SignUp</h1>
+        <TwoOptModal
+          b1={'Add Guides'}
+          b2={'Add Trips'}
+          bodyText={'To complete your company you should add guides and trips. Which would you like to to do first?'}
+          cb1={this.goToAddGuides}
+          cb2={this.goToAddTrips}
+          show={this.state.show}
+          title={'Successfully Created Company'}
+        />
         <div className="container">
           <Row>
             <Col xs={12} sm={12} md={6} lg={8}>
