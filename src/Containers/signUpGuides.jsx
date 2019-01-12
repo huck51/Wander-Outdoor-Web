@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+  Button,
   Checkbox,
   Col,
   ControlLabel,
@@ -9,8 +10,10 @@ import {
   Radio,
   Row,
  } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import FieldGroup from '../Components/fieldGroup';
+import TwoOptModal from '../Components/twoOptModal';
 import { activitiesArr, activitiesDict } from '../Data/activities';
 import usa from '../Data/stateNames';
 import './Styles/signUpGuides.css';
@@ -31,28 +34,54 @@ class SignUpGuides extends Component {
         companyCode: this.props.match.params.company,
         city: '',
         stateName: '',
-        activitiesDict: activitiesDict,
+        activitiesDict: JSON.parse(JSON.stringify(activitiesDict)),
         tripsAvailable: [],
         tripsSelected: {},
+        show: false,
     };
   }
 
   componentDidMount() {
     axios.get(`https://fierce-ridge-55021.herokuapp.com/trips/${this.props.match.params.company}`)
     .then(result => {
-      const trips = result.data;
-      const tripsSelected = {};
-      for (let i = 0; i < trips.length; i++) {
-        let tripName = trips[i].name;
-        tripsSelected[tripName] = false;
-      }
-      this.setState({
-        tripsAvailable: trips,
-        tripsSelected,
-      });
+      this.mapTripsToState(result.data);
     })
     .catch(error => {
       console.log(error);
+    });
+  }
+
+  backToDash = () => {
+    const company = this.state.companyCode;
+    this.props.history.push(`/dashboard/${company}/guides`);
+  }
+
+  createAnother = () => {
+    this.mapTripsToState(this.state.tripsAvailable);
+    this.setState({
+      firstName: '',
+      lastName: '',
+      DOB: '',
+      email: '',
+      phone: '',
+      bio: '',
+      city: '',
+      stateName: '',
+      show: false,
+      picture: null,
+      activitiesDict,
+    });
+  }
+
+  mapTripsToState = (trips) => {
+    const tripsSelected = {};
+    for (let i = 0; i < trips.length; i++) {
+      let tripName = trips[i].name;
+      tripsSelected[tripName] = false;
+    }
+    this.setState({
+      tripsAvailable: trips,
+      tripsSelected,
     });
   }
 
@@ -99,7 +128,19 @@ class SignUpGuides extends Component {
       companyCode,
       city,
       stateName,
+      tripsSelected,
+      tripsAvailable,
     } = this.state;
+    const tripsFinal = [];
+    const tripsAvLen = tripsAvailable.length;
+    if (tripsAvLen) {
+      for (let i = 0; i < tripsAvLen; i++) {
+        const selected = tripsSelected[tripsAvailable[i].name];
+        if (selected) {
+          tripsFinal.push(tripsAvailable[i]._id);
+        }
+      }
+    }
     const guideObject = {
       firstName,
       lastName,
@@ -114,10 +155,17 @@ class SignUpGuides extends Component {
       stateName,
       chex,
       activities,
+      tripsQualified: tripsFinal,
     };
     axios.post('https://fierce-ridge-55021.herokuapp.com/guide-bot', guideObject)
       .then((response) => {
-        window.location = `/profile/${response.data.id}`
+        console.log(response.data);
+        return axios.post('https://fierce-ridge-55021.herokuapp.com/link-trip-to-guide', { trips: tripsFinal, guide: response.data });
+        // this.props.history.push(`/profile/${response.data.id}`);
+      })
+      .then((response2) => {
+        console.log(response2);
+        this.setState({ show: true });
       })
       .catch((err) => {
         console.error(err);
@@ -162,6 +210,15 @@ class SignUpGuides extends Component {
     return (
       <div>
         <h1>CREATE NEW GUIDE</h1>
+        <TwoOptModal
+          b1={'Create another guide'}
+          b2={'Back to Dashboard'}
+          cb1={this.createAnother}
+          cb2={this.backToDash}
+          bodyText={'What would you like to do now?'}
+          show={this.state.show}
+          title={'Successfully Created Guide!'}
+        />
         <div className="container">
           <Row>
             <Col xs={12} sm={12} md={6} lg={8}>
@@ -307,4 +364,4 @@ class SignUpGuides extends Component {
   }
 }
 
-export default SignUpGuides;
+export default withRouter(SignUpGuides);
