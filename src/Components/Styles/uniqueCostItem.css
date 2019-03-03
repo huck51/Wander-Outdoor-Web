@@ -1,0 +1,41 @@
+
+.removeLiBtn {
+  display: inline-block;
+  color: #FFF;
+  background-color: rgb(217,83,79);
+
+}
+.removeLiBtn:active {
+  display: inline-block;
+  color: #FFF;
+  background-color: rgb(217,83,79);
+  outline: none;
+}
+.removeLiBtn:active:focus {
+  display: inline-block;
+  color: #FFF;
+  background-color: rgb(217,83,79);
+  outline: none;
+}
+.removeLiBtn:focus {
+  display: inline-block;
+  color: #FFF;
+  background-color: rgb(217,83,79);
+  outline: none;
+}
+.removeLiBtn:hover {
+  display: inline-block;
+  color: #FFF;
+  background-color: rgb(217,83,79);
+  transform: scaleX(1.25) scaleY(1.25);
+}
+.uniqueCostItemLI {
+  list-style: none;
+  background-color: transparent;
+  padding: 0px;
+  border: solid 1px transparent;
+  border-radius: 10px;
+  display: block;
+  min-width: 100%;
+  margin-left: 0px;
+}
