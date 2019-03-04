@@ -297,7 +297,8 @@ const Main = () => (
         render={props => {
         return (<AuthUserContext.Consumer>
             {
-              value => value.authMethods.isAuthenticated() ? <SignUpGC auth={value.authMethods} getAuth={value.getAuth} {...props} /> : <AuthRedirect auth={value.authMethods} />
+              value => <SignUpGC auth={value.authMethods} getAuth={value.getAuth} {...props} />
+              // value => value.authMethods.isAuthenticated() ? <SignUpGC auth={value.authMethods} getAuth={value.getAuth} {...props} /> : <AuthRedirect auth={value.authMethods} />
             }
           </AuthUserContext.Consumer>);
         }}
