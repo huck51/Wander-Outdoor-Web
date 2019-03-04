@@ -8,6 +8,7 @@ import {
   Row,
 } from 'react-bootstrap';
 import axios from 'axios';
+import CustomCost from '../Components/customCost';
 import FieldGroup from '../Components/fieldGroup';
 import { activitiesArr, activitiesDict } from '../Data/activities';
 import usa from '../Data/stateNames';
@@ -34,7 +35,14 @@ class AddTrip extends Component {
       group: false,
       guides: [],
       addedGuides: [],
-      activitiesDict: activitiesDict
+      activitiesDict: activitiesDict,
+      uniqueCostArr: [{addOnLabel: 'Cooler', addOnPrice: '20', addOnDescription: '50ml Yeti cooler with complimentary ice. (Holds about 12 beers with ice)', addOnType: 'flatFee', id: 1234567}],
+      addOnDescription: '',
+      addOnLabel: '',
+      addOnPrice: '',
+      addOnType: 'perPerson',
+      perPerson: true,
+      flatFee: false,
     };
   }
 
@@ -59,6 +67,26 @@ class AddTrip extends Component {
       });
   }
 
+  createAddOn = (e) => {
+    e.preventDefault();
+    const { addOnDescription, addOnLabel, addOnPrice, uniqueCostArr } = this.state;
+      const rand = (Math.random() * 1000000) + 1;
+      const id = Math.round(Number(((addOnDescription.length + 1) * rand)));
+    const newParameter = {
+      addOnDescription,
+      addOnLabel,
+      addOnPrice,
+      id
+    };
+    uniqueCostArr.push(newParameter);
+    this.setState({
+      uniqueCostArr,
+      addOnDescription: '',
+      addOnLabel: '',
+      addOnPrice: '',
+    });
+  }
+
   selectGuide = (e) => {
     const addGuidesTemp = this.state.addedGuides;
     addGuidesTemp[e.target.id].selected = !addGuidesTemp[e.target.id].selected;
@@ -81,6 +109,36 @@ class AddTrip extends Component {
     this.setState({
       [bullsEye]: !this.state[bullsEye]
     });
+  }
+
+  handleDelete = (e) => {
+    const target = e.target.value;
+    console.log(target);
+    const uCArr = this.state.uniqueCostArr;
+    for (let i = 0; i < uCArr.length; i++) {
+      if (uCArr[i].id == target) {
+        uCArr.splice(i, 1);
+        break;
+      }
+    }
+    this.setState({
+      uniqueCostArr: uCArr
+    });
+  }
+
+  handleRadio = (e) => {
+    const { perPerson, flatFee } = this.state;
+    const t = e.target.name;
+    console.log(t);
+    const tValue = this.state[t];
+    console.log(tValue);
+    if (!tValue) {
+      this.setState({
+        perPerson: !perPerson,
+        flatFee: !flatFee,
+        costType: t
+      });
+    }
   }
 
   handleSubmit = (e) => {
@@ -186,6 +244,18 @@ class AddTrip extends Component {
         <div className="container">
           <Row>
             <Col xs={12} sm={12} md={6} lg={8}>
+              <CustomCost
+                addOnDescription={this.state.addOnDescription}
+                addOnLabel={this.state.addOnLabel}
+                addOnPrice={this.state.addOnPrice}
+                createAddOn={this.createAddOn}
+                flatFee={this.state.flatFee}
+                handleChange={this.handleChange}
+                handleDelete={this.handleDelete}
+                handleRadio={this.handleRadio}
+                perPerson={this.state.perPerson}
+                uniqueCostArr={this.state.uniqueCostArr}
+              />
               <form onSubmit={this.handleSubmit} className="sizeControl">
                 <FieldGroup
                   label="Trip Name"
@@ -194,6 +264,7 @@ class AddTrip extends Component {
                   placeholder="Name"
                   value={this.state.name}
                   onChange={this.handleChange}
+                  required
                 />
                 <FieldGroup
                     label="City"
@@ -206,6 +277,7 @@ class AddTrip extends Component {
                 <FormGroup controlId="formControlsSelect">
                   <ControlLabel>State</ControlLabel>
                   <FormControl
+                    required
                     name="stateName"
                     componentClass="select"
                     placeholder="select"
@@ -225,6 +297,7 @@ class AddTrip extends Component {
                     placeholder="Ex: 100.50"
                     value={this.state.price}
                     onChange={this.handleChange}
+                    required
                 />
                 <FieldGroup
                     label="Trip URL"

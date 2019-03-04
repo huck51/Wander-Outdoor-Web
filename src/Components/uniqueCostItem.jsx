@@ -12,7 +12,7 @@ const UniqueCostItem = ({item, destroy})=> {
             <Button className="removeLiBtn" onClick={destroy} value={item.id}>X</Button>
           </Col>
           <Col xs={10} md={10} lg={10}>
-            <p>{`${item.costLabel} - $${item.cost}/person - ${item.costDescription}`}</p>
+            <p>{`${item.addOnLabel} - $${item.addOnPrice}/person - ${item.addOnDescription}`}</p>
           </Col>
         </Row>
       </div>
