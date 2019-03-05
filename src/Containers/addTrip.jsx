@@ -36,7 +36,7 @@ class AddTrip extends Component {
       guides: [],
       addedGuides: [],
       activitiesDict: activitiesDict,
-      uniqueCostArr: [{addOnLabel: 'Cooler', addOnPrice: '20', addOnDescription: '50ml Yeti cooler with complimentary ice. (Holds about 12 beers with ice)', addOnType: 'flatFee', id: 1234567}],
+      uniqueCostArr: [],
       addOnDescription: '',
       addOnLabel: '',
       addOnPrice: '',
