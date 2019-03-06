@@ -26,13 +26,6 @@ class AddTrip extends Component {
       stateName: '',
       tripUrl: '',
       picture: null,
-      transpo: false,
-      lunch: false,
-      gear: false,
-      fullDay: false,
-      halfDay: false,
-      private: false,
-      group: false,
       guides: [],
       addedGuides: [],
       activitiesDict: activitiesDict,
@@ -143,13 +136,6 @@ class AddTrip extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const chexmix = ['transpo', 'lunch', 'gear', 'fullDay', 'halfDay', 'private', 'group'];
-    const chex = [];
-    for (let i = 0; i < chexmix.length; i++) {
-      if (this.state[chexmix[i]] === true) {
-        chex.push(chexmix[i]);
-      }
-    }
     const activities = [];
     for (let j = 0; j < activitiesArr.length; j++) {
       if (this.state.activitiesDict[activitiesArr[j].name]) {
@@ -164,7 +150,8 @@ class AddTrip extends Component {
       stateName,
       picture,
       addedGuides,
-      tripUrl
+      tripUrl,
+      uniqueCostArr
     } = this.state;
     const guides = [];
     for (let j = 0; j < addedGuides.length; j++) {
@@ -179,11 +166,11 @@ class AddTrip extends Component {
       stateName,
       price,
       picture,
-      chex,
       companyCode: this.props.match.params.company,
       guides,
       tripUrl,
       activities,
+      priceAddOns: uniqueCostArr
     };
     this.setState({
       name: '',
@@ -324,45 +311,6 @@ class AddTrip extends Component {
                       );
                     })
                   }
-                </FormGroup>
-                <FormGroup>
-                  <ControlLabel>Trip Details</ControlLabel>
-                  <br />
-                  <Checkbox
-                    onClick={this.handleCheckBoxChange}
-                    value={this.state.transpo}
-                    checked={this.state.transpo}
-                    name="transpo">Transportation Included</Checkbox>
-                  <Checkbox
-                    onClick={this.handleCheckBoxChange}
-                    value={this.state.lunch}
-                    checked={this.state.lunch}
-                    name="lunch">Lunch Included</Checkbox>
-                  <Checkbox
-                    onClick={this.handleCheckBoxChange}
-                    value={this.state.gear}
-                    checked={this.state.gear}
-                    name="gear">Gear Included</Checkbox>
-                  <Checkbox
-                    onClick={this.handleCheckBoxChange}
-                    value={this.state.fullDay}
-                    checked={this.state.fullDay}
-                    name="fullDay">Full Day</Checkbox>
-                  <Checkbox
-                    onClick={this.handleCheckBoxChange}
-                    value={this.state.halfDay}
-                    checked={this.state.halfDay}
-                    name="halfDay">Half Day</Checkbox>
-                  <Checkbox
-                    onClick={this.handleCheckBoxChange}
-                    value={this.state.private}
-                    checked={this.state.private}
-                    name="private">Private</Checkbox>
-                  <Checkbox
-                    onClick={this.handleCheckBoxChange}
-                    value={this.state.group}
-                    checked={this.state.group}
-                    name="group">Group</Checkbox>
                 </FormGroup>
                 <FormGroup controlId="formControlsTextarea">
                   <ControlLabel>Description</ControlLabel>
