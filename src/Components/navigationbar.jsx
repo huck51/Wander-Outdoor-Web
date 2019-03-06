@@ -62,7 +62,6 @@ class NavigationBar extends PureComponent {
                   value => <li><Link to={`/profile/${value.authUser.profileNum}`}>View Profile</Link></li>
                 }
               </AuthUserContext.Consumer>
-              <li><Link to="/inbox">Messages</Link></li>
               <MenuItem divider />
               <li><Link to="/dashboard">Dashboard</Link></li>
             </NavDropdown>
