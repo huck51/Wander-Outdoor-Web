@@ -3,6 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 import { BounceLoader } from 'react-spinners';
 import axios from 'axios';
 import ProfileList from '../Components/profileList';
+import SearchBar from '../Components/searchbar';
 import './Styles/guides.css';
 
 
@@ -12,6 +13,7 @@ class Guides extends Component {
     this.state = {
       guides: [],
       loading: true,
+      value: '',
     };
   }
 
@@ -34,10 +36,36 @@ class Guides extends Component {
       });
   }
 
+  handleChange = (e) => {
+    this.setState({ value: e.target.value });
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const search = this.state.value;
+    axios.get(`https://fierce-ridge-55021.herokuapp.com/search/User/${search}`)
+      .then((result) => {
+        console.log(result);
+        this.setState({
+          results: result.data,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   render() {
     return (
       <div>
         <h1>GUIDES</h1>
+        <form onSubmit={this.handleSubmit} >
+          <SearchBar
+            val={this.state.value}
+            change={this.handleChange}
+            submit={this.handleSubmit}
+          />
+        </form>
         <div className="boxOfCards">
           <Row>
             <Col md={2} mdOffset={5}>
