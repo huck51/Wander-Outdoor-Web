@@ -88,6 +88,7 @@ const CustomCost = ({addOnDescription, addOnLabel, addOnPrice, createAddOn, flat
           </Col>
         </Row>
         <Button
+          id="createAddonBtn"
           onSubmit={createAddOn}
           type="submit"
         >

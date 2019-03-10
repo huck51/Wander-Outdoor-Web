@@ -231,18 +231,6 @@ class AddTrip extends Component {
         <div className="container">
           <Row>
             <Col xs={12} sm={12} md={6} lg={8}>
-              <CustomCost
-                addOnDescription={this.state.addOnDescription}
-                addOnLabel={this.state.addOnLabel}
-                addOnPrice={this.state.addOnPrice}
-                createAddOn={this.createAddOn}
-                flatFee={this.state.flatFee}
-                handleChange={this.handleChange}
-                handleDelete={this.handleDelete}
-                handleRadio={this.handleRadio}
-                perPerson={this.state.perPerson}
-                uniqueCostArr={this.state.uniqueCostArr}
-              />
               <form onSubmit={this.handleSubmit} className="sizeControl">
                 <FieldGroup
                   label="Trip Name"
@@ -285,6 +273,18 @@ class AddTrip extends Component {
                     value={this.state.price}
                     onChange={this.handleChange}
                     required
+                />
+                <CustomCost
+                  addOnDescription={this.state.addOnDescription}
+                  addOnLabel={this.state.addOnLabel}
+                  addOnPrice={this.state.addOnPrice}
+                  createAddOn={this.createAddOn}
+                  flatFee={this.state.flatFee}
+                  handleChange={this.handleChange}
+                  handleDelete={this.handleDelete}
+                  handleRadio={this.handleRadio}
+                  perPerson={this.state.perPerson}
+                  uniqueCostArr={this.state.uniqueCostArr}
                 />
                 <FieldGroup
                     label="Trip URL"
