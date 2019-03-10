@@ -18,6 +18,10 @@ class Guides extends Component {
   }
 
   componentDidMount() {
+    this.getAllGuides();
+  }
+
+  getAllGuides = () => {
     axios.get('https://fierce-ridge-55021.herokuapp.com/guides')
       .then((result) => {
         // eslint-disable-next-line no-console
@@ -43,16 +47,22 @@ class Guides extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const search = this.state.value;
-    axios.get(`https://fierce-ridge-55021.herokuapp.com/search/User/${search}`)
-      .then((result) => {
-        console.log(result);
-        this.setState({
-          results: result.data,
+    if (search.trim() === '') {
+      this.getAllGuides();
+    } else {
+      axios.get(`https://fierce-ridge-55021.herokuapp.com/search/User/${search}`)
+        .then((result) => {
+          console.log(result);
+          this.setState({
+            guides: result.data[0],
+            loading: false
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          this.setState({ loading: false });
         });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    }
   }
 
   render() {
@@ -79,7 +89,7 @@ class Guides extends Component {
           <ProfileList
             heading=""
             listArr={this.state.guides}
-            emptyMsg="No guides to display"
+            emptyMsg="No guides matching those parameters"
           />
         </div>
       </div>
