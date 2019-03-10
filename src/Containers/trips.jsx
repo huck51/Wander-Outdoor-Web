@@ -88,7 +88,7 @@ class Trips extends Component {
           <ProfileList
             heading=""
             listArr={this.state.trips}
-            emptyMsg="No trips to display"
+            emptyMsg="No trips matching those parameters"
           />
         </div>
       </div>

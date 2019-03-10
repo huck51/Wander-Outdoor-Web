@@ -86,7 +86,7 @@ class GuideCompanies extends Component {
           <ProfileList
             heading=""
             listArr={this.state.companies}
-            emptyMsg="No companies to display"
+            emptyMsg="No companies matching those parameters"
           />
         </div>
       </div>
