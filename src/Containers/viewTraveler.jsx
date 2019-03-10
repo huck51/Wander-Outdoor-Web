@@ -187,12 +187,6 @@ class ViewTraveler extends Component {
             url="trips"
             emptyMsg="No trips available"
           />
-          <ProfileList
-            heading="Trips Completed"
-            listArr={this.state.tripsCompleted}
-            url="trips"
-            emptyMsg="No trips completed"
-          />
           <Row className="mainCard">
             <Col xs={12} sm={12} md={12} lg={12}>
               <h2>Certifications</h2>
