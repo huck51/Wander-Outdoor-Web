@@ -116,6 +116,7 @@ class EditProfile extends Component {
   }
 
   handleChange = (e) => {
+    this.validateData(e.target.name);
     this.setState({[e.target.name]: e.target.value});
   }
 
@@ -209,6 +210,13 @@ class EditProfile extends Component {
       .catch((err) => {
         console.log(err);
       });
+  }
+
+  validateData = (qstring) => {
+    const reg = /[0-9]|\`|\~|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\+|\=|\[|\{|\]|\}|\||\\|\'|\<|\,|\.|\>|\?|\/|\""|\;|\:/;
+    const str = qstring;
+    const valid = reg.test(str.trim());
+    console.log(valid);
   }
 
   render() {
