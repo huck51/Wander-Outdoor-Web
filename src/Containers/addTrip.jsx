@@ -139,7 +139,7 @@ class AddTrip extends Component {
     const activities = [];
     for (let j = 0; j < activitiesArr.length; j++) {
       if (this.state.activitiesDict[activitiesArr[j].name]) {
-        activities.push(activitiesArr[j].name);
+        activities.push(activitiesArr[j].pretty);
       }
     }
     const {
