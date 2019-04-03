@@ -11,11 +11,14 @@ class CompanyAccount extends Component {
   }
 
   componentDidMount() {
-    axios.get(`https://fierce-ridge-55021.herokuapp.com/company/${this.props.match.params.company}`)
+    console.log(this.props.match.params.company);
+    axios.get(`https://fierce-ridge-55021.herokuapp.com/company/account/info/${this.props.match.params.company}`)
       .then((response) => {
-        const { companyCode } = response.data
+        const { companyCode, companyName } = response.data
+        console.log(response.data);
         this.setState({
           companyCode,
+          companyName
         });
       })
       .catch((err) => {
@@ -26,7 +29,7 @@ class CompanyAccount extends Component {
   render() {
     return (
       <div>
-        <h1>{`${this.props.match.params.company} Account Details`}</h1>
+        <h1>{`${this.state.companyName} Account Details`}</h1>
         <p>Company Code: {this.state.companyCode}</p>
         <button>Delete Company</button>
       </div>
